@@ -1,0 +1,123 @@
+name: Update schedules
+
+on:
+  schedule:
+    # Times are UTC: roughly 06, 12 and 17 Swedish time in winter.
+    - cron: "17 5,11,16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update-schedules
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.publish.outputs.published }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Run adapters
+        run: python -m pipeline.run
+
+      - name: Build index
+        run: python -m pipeline.build_index
+
+      # Fails the job (red build, nothing published) if the data breaks the spec.
+      - name: Validate
+        run: python -m pipeline.validate
+
+      - name: Compare with published data
+        id: check
+        run: |
+          set +e
+          python -m pipeline.anomalies
+          code=$?
+          set -e
+          case $code in
+            0) echo "review=false" >> "$GITHUB_OUTPUT" ;;
+            3) echo "review=true"  >> "$GITHUB_OUTPUT" ;;
+            *) exit $code ;;
+          esac
+          if [ "$(jq '.failures | length' anomalies.json)" != "0" ]; then
+            echo "failures=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "failures=false" >> "$GITHUB_OUTPUT"
+          fi
+          cat anomalies.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      # Normal case: data looks sane, publish straight to main.
+      - name: Publish to main
+        id: publish
+        if: steps.check.outputs.review == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add public/data
+          if git diff --cached --quiet; then
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "data: update schedules $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+            echo "published=true" >> "$GITHUB_OUTPUT"
+          fi
+          # A review PR from an earlier run is obsolete once clean data is published.
+          pr=$(gh pr list --head data-review --state open --json number -q '.[0].number')
+          if [ -n "$pr" ]; then
+            gh pr close "$pr" --delete-branch --comment "Superseded: a later run produced data that passed all checks and was published."
+          fi
+
+      # Suspicious data: hold it back in a PR for a human to look at.
+      - name: Open or update review PR
+        if: steps.check.outputs.review == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git checkout -B data-review
+          git add public/data
+          git commit -m "data: schedules need review $(date -u +%Y-%m-%dT%H:%MZ)" || true
+          git push --force origin data-review
+          pr=$(gh pr list --head data-review --state open --json number -q '.[0].number')
+          if [ -z "$pr" ]; then
+            gh pr create --head data-review --base main \
+              --title "Schemadata behöver granskas" --body-file anomalies.md
+          else
+            gh pr edit "$pr" --body-file anomalies.md
+          fi
+
+      # A source could not be read: open one issue (not one per run).
+      - name: Report source failure
+        if: steps.check.outputs.failures == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create source-failure --color B60205 --description "An adapter could not read its source" --force
+          issue=$(gh issue list --label source-failure --state open --json number -q '.[0].number')
+          if [ -z "$issue" ]; then
+            gh issue create --title "En källa kunde inte läsas" --label source-failure --body-file anomalies.md
+          fi
+
+  deploy:
+    needs: update
+    if: needs.update.outputs.published == 'true'
+    uses: ./.github/workflows/deploy.yml

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "index.schema.json",
+  "title": "Hall index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec_version", "generated_at", "sources", "halls"],
+  "properties": {
+    "spec_version": { "const": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["adapter", "municipality", "source_url", "status", "last_attempt_at"],
+        "properties": {
+          "adapter": { "type": "string" },
+          "municipality": { "type": "string" },
+          "source_url": { "type": "string", "pattern": "^https://" },
+          "status": { "enum": ["ok", "error"] },
+          "fetched_at": { "type": ["string", "null"], "format": "date-time" },
+          "last_attempt_at": { "type": "string", "format": "date-time" },
+          "error": { "type": ["string", "null"] },
+          "warnings": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "halls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "short_name", "municipality", "adapter", "status", "curated", "schedule"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "name": { "type": "string" },
+          "short_name": { "type": "string" },
+          "rink": { "type": ["string", "null"] },
+          "municipality": { "type": "string" },
+          "lat": { "type": ["number", "null"], "minimum": -90, "maximum": 90 },
+          "lon": { "type": ["number", "null"], "minimum": -180, "maximum": 180 },
+          "info_url": { "type": ["string", "null"] },
+          "adapter": { "type": "string" },
+          "status": { "enum": ["ok", "stale", "error"] },
+          "curated": { "type": "boolean", "description": "false = hall seen in a source but missing from config/halls.json" },
+          "schedule": { "type": "string", "pattern": "^halls/[a-z0-9-]+\\.json$" }
+        }
+      }
+    }
+  }
+}

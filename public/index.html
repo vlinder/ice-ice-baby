@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Allmänhetens åkning – ishallar i Stockholm och Tyresö</title>
+<meta name="description" content="Tider för allmänhetens skridskoåkning i ishallarna i Stockholms stad och Tyresö kommun, uppdaterade automatiskt från kommunernas egna sidor.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛸️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <h1>Allmänhetens åkning</h1>
+  <p class="intro">Ishallarna i <span id="munis">Stockholm och Tyresö</span>. Tiderna hämtas automatiskt från kommunernas egna sidor. Klicka på en tid för att se källan och dubbelkolla innan du åker.</p>
+  <p class="checked" id="checked">Laddar…</p>
+  <div id="alerts"></div>
+</div></header>
+
+<nav class="tabs" aria-label="Sektioner"><div class="wrap">
+  <a href="#lista">Lista</a><a href="#kalender">Kalender</a><a href="#vecka">Veckoöversikt</a><a href="#karta">Karta</a><a href="#om">Om</a>
+</div></nav>
+
+<div class="controls"><div class="wrap">
+  <div class="daystrip" id="days" role="group" aria-label="Välj dag"></div>
+  <div class="munifilter" id="munifilter" role="group" aria-label="Filtrera kommun"></div>
+</div></div>
+
+<main class="wrap">
+  <section id="lista">
+    <h2 id="listTitle">Lista</h2>
+    <div class="legend" id="legend"></div>
+    <ol class="sessions" id="list"></ol>
+    <p class="none" id="noneList"></p>
+  </section>
+
+  <section id="kalender">
+    <h2 id="calTitle">Kalender</h2>
+    <div class="cal"><div class="scroll"><div class="grid" id="cal"></div></div></div>
+  </section>
+
+  <section id="vecka">
+    <h2>Veckoöversikt</h2>
+    <p class="lead">Alla tider de kommande sju dagarna. Tomt betyder inga tider; ett frågetecken betyder att källan inte har publicerat den dagen än.</p>
+    <div class="weekwrap"><table class="week" id="week"></table></div>
+  </section>
+
+  <section id="karta">
+    <h2 id="mapTitle">Karta</h2>
+    <p class="lead">Röda punkter har tider den valda dagen. Klicka på en hall för dess tider.</p>
+    <div id="map" role="region" aria-label="Karta över ishallarna"></div>
+  </section>
+
+  <section id="om" class="about">
+    <h2>Om sidan</h2>
+    <p>Datan uppdateras automatiskt flera gånger per dag av öppna skript. Varje tid länkar till sidan den hämtades från. Kommunerna kan ändra tider med kort varsel, så kontrollera alltid källan.</p>
+    <ul id="sourcesList"></ul>
+    <p>Rådata finns som JSON: <a href="data/index.json">data/index.json</a>. Karta © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-bidragsgivare.</p>
+  </section>
+</main>
+<footer class="wrap"><p>Inofficiell sammanställning, inte kopplad till Stockholms stad eller Tyresö kommun.</p></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+</body>
+</html>

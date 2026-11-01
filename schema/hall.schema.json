@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hall.schema.json",
+  "title": "Hall schedule",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec_version", "hall_id", "adapter", "status", "fetched_at", "last_attempt_at", "covers", "sessions"],
+  "properties": {
+    "spec_version": { "const": 1 },
+    "hall_id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "adapter": { "type": "string" },
+    "source_name": { "type": "string", "description": "Hall name exactly as the source writes it" },
+    "source_rink": { "type": ["string", "null"] },
+    "status": { "enum": ["ok", "stale", "error"] },
+    "error": { "type": ["string", "null"] },
+    "fetched_at": { "type": ["string", "null"], "format": "date-time", "description": "Last successful fetch that produced these sessions" },
+    "last_attempt_at": { "type": "string", "format": "date-time" },
+    "source_updated": { "type": ["string", "null"], "description": "The source's own 'last updated' stamp, local time" },
+    "covers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to"],
+      "description": "Date range the source describes. No session on a covered date means no public skating that day.",
+      "properties": {
+        "from": { "$ref": "#/$defs/date" },
+        "to": { "$ref": "#/$defs/date" }
+      }
+    },
+    "sessions": { "type": "array", "items": { "$ref": "#/$defs/session" } }
+  },
+  "$defs": {
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "time": { "type": "string", "pattern": "^([01]\\d|2[0-4]):[0-5]\\d$" },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["date", "start", "end", "stick", "source_url"],
+      "properties": {
+        "date": { "$ref": "#/$defs/date" },
+        "start": { "$ref": "#/$defs/time" },
+        "end": { "$ref": "#/$defs/time" },
+        "stick": { "enum": ["shared", "with_stick", "no_stick", "unknown"] },
+        "source_url": { "type": "string", "pattern": "^https://" },
+        "note": { "type": ["string", "null"] },
+        "changed": { "type": "boolean", "description": "Source marks this time as changed since first publication" }
+      }
+    }
+  }
+}

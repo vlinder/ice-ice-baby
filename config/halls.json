@@ -1,0 +1,122 @@
+{
+  "_comment": "Hand-curated hall metadata, keyed by hall_id as emitted by the adapters. Coordinates are approximate (OpenStreetMap/Nominatim).",
+  "halls": {
+    "stockholm-farsta-idrottsplats-ishallen": {
+      "name": "Farsta idrottsplats",
+      "short_name": "Farsta",
+      "rink": "Ishallen",
+      "municipality": "Stockholm",
+      "lat": 59.24063,
+      "lon": 18.07951,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/farsta-idrottsplats"
+    },
+    "stockholm-grimsta-idrottsplats-ishallen": {
+      "name": "Grimsta idrottsplats",
+      "short_name": "Grimsta",
+      "rink": "Ishallen",
+      "municipality": "Stockholm",
+      "lat": 59.36121,
+      "lon": 17.85128,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/grimsta-idrottsplats/"
+    },
+    "stockholm-gubbangens-idrottsplats-bandyhallen": {
+      "name": "Gubbängens idrottsplats",
+      "short_name": "Gubbängen",
+      "rink": "Bandyhallen",
+      "municipality": "Stockholm",
+      "lat": 59.26317,
+      "lon": 18.06916,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/gubbangens-skridsko-och-bandyhall"
+    },
+    "stockholm-husby-ishallen": {
+      "name": "Husby ishall",
+      "short_name": "Husby",
+      "rink": "Ishallen",
+      "municipality": "Stockholm",
+      "lat": 59.411,
+      "lon": 17.926,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/husby-ishall"
+    },
+    "stockholm-karrtorps-idrottsplats-ishallen": {
+      "name": "Kärrtorps idrottsplats",
+      "short_name": "Kärrtorp",
+      "rink": "Ishallen",
+      "municipality": "Stockholm",
+      "lat": 59.28586,
+      "lon": 18.12308,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/karrtorps-idrottsplats"
+    },
+    "stockholm-malarhojdens-idrottsplats-ishall-a": {
+      "name": "Mälarhöjdens idrottsplats",
+      "short_name": "Mälarhöjden",
+      "rink": "Ishall A",
+      "municipality": "Stockholm",
+      "lat": 59.2879,
+      "lon": 17.95559,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/malarhojdens-idrottsplats/"
+    },
+    "stockholm-spanga-idrottsplats-ishallen": {
+      "name": "Spånga idrottsplats",
+      "short_name": "Spånga",
+      "rink": "Ishallen",
+      "municipality": "Stockholm",
+      "lat": 59.38717,
+      "lon": 17.90555,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/spanga-idrottsplats"
+    },
+    "stockholm-stora-mossens-idrottsplats-a-hallen": {
+      "name": "Stora Mossens idrottsplats",
+      "short_name": "Stora Mossen A",
+      "rink": "A-hallen",
+      "municipality": "Stockholm",
+      "lat": 59.3292,
+      "lon": 17.96,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/stora-mossens-idrottsplats"
+    },
+    "stockholm-stora-mossens-idrottsplats-b-hallen": {
+      "name": "Stora Mossens idrottsplats",
+      "short_name": "Stora Mossen B",
+      "rink": "B-hallen",
+      "municipality": "Stockholm",
+      "lat": 59.3292,
+      "lon": 17.9614,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/stora-mossens-idrottsplats"
+    },
+    "stockholm-zinkensdamms-idrottsplats-ishallen": {
+      "name": "Zinkensdamms idrottsplats",
+      "short_name": "Zinkensdamm",
+      "rink": "Ishallen",
+      "municipality": "Stockholm",
+      "lat": 59.31562,
+      "lon": 18.04957,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/zinkensdamms-idrottsplats/"
+    },
+    "stockholm-ostermalms-idrottsplats-ishallen": {
+      "name": "Östermalms idrottsplats",
+      "short_name": "Östermalm",
+      "rink": "Ishallen",
+      "municipality": "Stockholm",
+      "lat": 59.34747,
+      "lon": 18.08369,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/ostermalms-idrottsplats"
+    },
+    "tyreso-tyreso-ishall": {
+      "name": "Tyresö ishall",
+      "short_name": "Tyresö ishall",
+      "rink": "Tyresövallen, Simgatan 8",
+      "municipality": "Tyresö",
+      "lat": 59.24811,
+      "lon": 18.22559,
+      "info_url": "https://www.tyreso.se/uppleva--gora/natur-och-friluftsliv/aka-skridskor/allmanhetens-akning.html"
+    },
+    "tyreso-fontanahallen": {
+      "name": "Fontanahallen",
+      "short_name": "Fontanahallen",
+      "rink": "Trollbäcken, Skolvägen 33",
+      "municipality": "Tyresö",
+      "lat": 59.22546,
+      "lon": 18.21989,
+      "info_url": "https://www.tyreso.se/uppleva--gora/natur-och-friluftsliv/aka-skridskor/allmanhetens-akning.html"
+    }
+  }
+}
