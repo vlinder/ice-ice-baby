@@ -55,6 +55,8 @@ flowchart LR
   layout has probably changed. Save the new HTML as a fixture, fix the parser, and close
   the issue.
 - **A red "Validate" step**: the output broke the spec, and nothing was published.
+- **Dependabot PRs** arrive on Mondays, one for Python packages and one for actions.
+  Merge them when the Tests check is green.
 
 ## Repository settings
 
