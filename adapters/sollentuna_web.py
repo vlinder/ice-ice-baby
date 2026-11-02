@@ -29,6 +29,12 @@ Judgment calls:
   both halls of Sollentunavallen), plus any other "X-hallen" the page names.
 - If the page lists only past weeks, the halls are emitted with no sessions and
   `covers` set to the last listed week (i.e. in the past: unknown from today).
+- Sometimes the weekday list has no "Vecka NN" heading at all (seen 2 Nov 2026,
+  after the week-45 list was revised). The list is then taken to be the week the
+  page was last updated ("Sidan uppdaterades", Monday–Friday). If that date is a
+  Saturday or Sunday the list could be for either week, so the parser raises
+  ParseError instead of guessing. A list updated in an earlier week counts as a
+  past week (unknown from today).
 """
 from __future__ import annotations
 
@@ -163,8 +169,21 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
             return
         (past_weeks if past else weeks).append((monday, last))
 
+    updated = _source_updated(soup, today)
+
     for el in heading.find_next_siblings():
         text = norm_space(el.get_text(" "))
+        if monday is None and el.name in ("h3", "h4") and weekday_number(text.split(" ")[0]) is not None:
+            # A weekday list without a "Vecka NN" heading: the week the page was updated.
+            if updated is None:
+                raise ParseError("Weekday list without a week heading, and no update date on the page")
+            upd = date.fromisoformat(updated[:10])
+            if upd.weekday() >= 5:
+                raise ParseError(f"Weekday list without a week heading, page updated on a weekend ({upd}): "
+                                 "this week or next?")
+            monday = upd - timedelta(days=upd.weekday())
+            past = monday + timedelta(days=6) < today
+            day, listed = None, []
         if el.name in ("h1", "h2"):
             m = WEEK_RE.match(text)
             if not m:
@@ -218,7 +237,7 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
     return AdapterResult(
         covers_from=covers_from.isoformat(),
         covers_to=covers_to.isoformat(),
-        source_updated=_source_updated(soup, today),
+        source_updated=updated,
         halls=out.halls,
         warnings=out.warnings,
         empty_reason=empty_reason,

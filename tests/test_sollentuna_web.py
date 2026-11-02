@@ -100,3 +100,30 @@ def test_layout_change_fails_loudly():
         a.parse(_page("<p>Tider kommer snart.</p>"), TODAY)
     with pytest.raises(ParseError):
         a.parse(_page("<h2>Vecka 45</h2><h3>Lucia</h3><ul><li>A-hallen: klockan 10-12</li></ul>"), TODAY)
+
+
+# The page as revised later on 2026-11-02: the weekday list lost its "Vecka 45" heading.
+def unlabelled():
+    return (FIXTURES / "sollentuna_web_unlabelled.html").read_text(encoding="utf-8")
+
+
+def test_unlabelled_week_is_the_week_the_page_was_updated():
+    r = a.parse({"page": unlabelled()}, date(2026, 11, 2))
+    assert r.warnings == []
+    assert (r.covers_from, r.covers_to) == ("2026-11-02", "2026-11-06")
+    got = [(s.date, s.start, s.end, s.stick) for s in r.halls["sollentuna-sollentunavallen-a-hallen"].sessions]
+    assert got[:2] == [("2026-11-02", "10:00", "12:30", "no_stick"), ("2026-11-02", "12:30", "14:45", "with_stick")]
+    assert ("2026-11-04", "10:00", "11:30", "with_stick") in got
+    assert r.halls["sollentuna-sollentunavallen-b-hallen"].sessions == []
+
+
+def test_unlabelled_week_updated_on_a_weekend_fails_loudly():
+    page = unlabelled().replace('datetime="2026-11-02"', 'datetime="2026-11-08"')
+    with pytest.raises(ParseError):
+        a.parse({"page": page}, date(2026, 11, 8))
+
+
+def test_unlabelled_week_from_an_earlier_week_is_past():
+    r = a.parse({"page": unlabelled()}, date(2026, 11, 10))
+    assert all(h.sessions == [] for h in r.halls.values())
+    assert r.covers_to == "2026-11-06"
