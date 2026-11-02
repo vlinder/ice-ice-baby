@@ -13,7 +13,11 @@ Markup (Nov 2026):
           <td>Allmänhetens åkning</td><td>Alltid Hjälm, Med klubba</td>...</tr>
 
 The cells follow the order of `falt`. An empty list is a single cell
-"Inga aktuella bokningar att visa".
+"Inga aktuella bokningar att visa". When the list's schedule has no bookings
+set up at all (Ekerö between seasons, Nov 2026) the single cell reads
+"Error: Inga scheman funna" ("no schedules found"); that also means no public
+times. Any other "Error: …" answer (e.g. "Behörighet saknas" for a broken URL)
+is a source failure.
 """
 from __future__ import annotations
 
@@ -31,7 +35,7 @@ from .common import (
 
 DATE_RE = re.compile(r"^[A-Za-zÅÄÖåäö]+\s+(\d{4})-(\d{2})-(\d{2})$")
 TIME_RE = re.compile(r"^(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})$")
-EMPTY_TEXT = "inga aktuella bokningar att visa"
+EMPTY_TEXTS = ("inga aktuella bokningar att visa", "error: inga scheman funna")
 # Columns that name the facility / the booking, by their `falt` key.
 PLACE_FIELDS = ("fullnamn", "lokal", "obj")
 NAME_FIELDS = ("namn", "boktyp")
@@ -77,7 +81,7 @@ def parse_lists(raw: dict[str, str], today: date, *, halls: list[Hall], muni: st
     results: dict[str, HallResult] = {}
     warnings: list[str] = []
     ends: list[str] = []
-    empty = 0
+    empty: list[str] = []
 
     for url, html in raw.items():
         soup = BeautifulSoup(html, "lxml")
@@ -102,11 +106,15 @@ def parse_lists(raw: dict[str, str], today: date, *, halls: list[Hall], muni: st
         current: date | None = None
         rows = table.find_all("tr")
         only = norm_space(rows[0].get_text(" ")) if len(rows) == 1 else ""
-        if only.lower() == EMPTY_TEXT:
-            empty += 1
+        if only.lower() in EMPTY_TEXTS:
+            empty.append(only)
+            if own is None:
+                # A list for several facilities: its known halls have no times.
+                for h in halls:
+                    if h.url is None:
+                        results.setdefault(h.hall_id, HallResult(hall_id=h.hall_id, name=h.name, rink=h.rink))
             continue
         if only.lower().startswith("error"):
-            # e.g. "Error: Inga scheman funna" when the list's schedule no longer exists
             raise ParseError(f"FRI-GO answered {only!r} for {url}")
         for tr in rows:
             th = tr.find("th")
@@ -155,6 +163,6 @@ def parse_lists(raw: dict[str, str], today: date, *, halls: list[Hall], muni: st
         source_updated=None,
         halls=results,
         warnings=warnings,
-        empty_reason=("Every booking list says 'Inga aktuella bokningar att visa'"
-                      if empty == len(raw) else None),
+        empty_reason=("Every booking list says " + " / ".join(sorted({f"'{e}'" for e in empty}))
+                      if len(empty) == len(raw) else None),
     )
