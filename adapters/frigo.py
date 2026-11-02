@@ -101,9 +101,13 @@ def parse_lists(raw: dict[str, str], today: date, *, halls: list[Hall], muni: st
 
         current: date | None = None
         rows = table.find_all("tr")
-        if len(rows) == 1 and norm_space(rows[0].get_text(" ")).lower() == EMPTY_TEXT:
+        only = norm_space(rows[0].get_text(" ")) if len(rows) == 1 else ""
+        if only.lower() == EMPTY_TEXT:
             empty += 1
             continue
+        if only.lower().startswith("error"):
+            # e.g. "Error: Inga scheman funna" when the list's schedule no longer exists
+            raise ParseError(f"FRI-GO answered {only!r} for {url}")
         for tr in rows:
             th = tr.find("th")
             if th is not None:
@@ -116,11 +120,17 @@ def parse_lists(raw: dict[str, str], today: date, *, halls: list[Hall], muni: st
             if not cells:
                 continue
             tm = TIME_RE.match(cells[i_time]) if len(cells) > i_time else None
+            if own:
+                where = own.hall_id
+            elif i_place is not None and len(cells) > i_place:
+                where = _resolve(cells[i_place], halls, muni)[0]
+            else:
+                where = muni
             if current is None or tm is None or len(cells) < len(cols):
-                warnings.append(f"could not read row: {cells}")
+                warnings.append(f"{where}: could not read row {' | '.join(cells)!r}")
                 continue
             if i_name is not None and "allmänhet" not in cells[i_name].lower():
-                warnings.append(f"row is not public skating: {cells}")
+                warnings.append(f"{where}: row is not public skating {' | '.join(cells)!r}")
                 continue
             s, e = hhmm(tm[1], tm[2]), hhmm(tm[3], tm[4])
             if e <= s:

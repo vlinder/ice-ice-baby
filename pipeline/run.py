@@ -16,6 +16,7 @@ from adapters import ADAPTERS
 from adapters.common import now_local, today_local
 
 from .paths import HALLS_DIR, SOURCES_FILE, SPEC_VERSION, read_json, write_json
+from .problems import apply_corrections, attribute, load_corrections
 
 
 def existing_halls(adapter_name: str) -> dict[str, dict]:
@@ -27,7 +28,7 @@ def existing_halls(adapter_name: str) -> dict[str, dict]:
     return out
 
 
-def run_adapter(adapter, today: date, stamp: str) -> dict:
+def run_adapter(adapter, today: date, stamp: str, corrections: list[dict] | None = None) -> dict:
     previous = existing_halls(adapter.NAME)
     source = {
         "adapter": adapter.NAME,
@@ -35,8 +36,11 @@ def run_adapter(adapter, today: date, stamp: str) -> dict:
         "source_url": adapter.SOURCE_URL,
         "last_attempt_at": stamp,
     }
+    used: list[dict] = []
+    unused: list[dict] = []
     try:
-        result = adapter.parse(adapter.fetch(), today)
+        raw, used, unused = apply_corrections(adapter.NAME, adapter.fetch(), corrections or [])
+        result = adapter.parse(raw, today)
     except Exception as exc:  # noqa: BLE001 – any failure must degrade gracefully
         msg = f"{type(exc).__name__}: {exc}"
         print(f"[{adapter.NAME}] FAILED: {msg}", file=sys.stderr)
@@ -54,6 +58,8 @@ def run_adapter(adapter, today: date, stamp: str) -> dict:
         print(f"[{adapter.NAME}] warning: {w}", file=sys.stderr)
 
     hall_ids = set(result.halls) | set(previous)
+    # Parts of the source that could not be read were skipped; record that on the halls.
+    problems = attribute(result.warnings, sorted(result.halls))
     for hid in sorted(hall_ids):
         hall = result.halls.get(hid)
         prev = previous.get(hid, {})
@@ -73,11 +79,14 @@ def run_adapter(adapter, today: date, stamp: str) -> dict:
             "covers": {"from": (hall and hall.covers_from) or result.covers_from,
                        "to": (hall and hall.covers_to) or result.covers_to},
             "sessions": sessions,
+            "problems": problems.get(hid, []),
         })
     n = sum(len(h.sessions) for h in result.halls.values())
     print(f"[{adapter.NAME}] ok: {len(result.halls)} halls, {n} sessions, covers {result.covers_from}..{result.covers_to}")
     return {**source, "status": "ok", "error": None, "fetched_at": stamp, "warnings": result.warnings,
-            "empty_reason": result.empty_reason}
+            "empty_reason": result.empty_reason,
+            "corrections_used": [c["text"] for c in used],
+            "corrections_unused": [c["text"] for c in unused]}
 
 
 def _previous_source(name: str) -> dict | None:
@@ -97,10 +106,11 @@ def main(argv=None) -> int:
     HALLS_DIR.mkdir(parents=True, exist_ok=True)
 
     old_sources = {s["adapter"]: s for s in read_json(SOURCES_FILE)} if SOURCES_FILE.exists() else {}
+    corrections = load_corrections()
     for adapter in ADAPTERS:
         if args.only and adapter.NAME != args.only:
             continue
-        old_sources[adapter.NAME] = run_adapter(adapter, today, stamp)
+        old_sources[adapter.NAME] = run_adapter(adapter, today, stamp, corrections)
     write_json(SOURCES_FILE, [old_sources[a.NAME] for a in ADAPTERS if a.NAME in old_sources])
     # Never fail the run because a source failed: stale data is handled downstream.
     return 0

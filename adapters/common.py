@@ -73,6 +73,9 @@ class AdapterResult:
     covers_to: str
     source_updated: str | None
     halls: dict[str, HallResult]
+    # Parts of the source that could not be read and were skipped. Start a warning with
+    # the hall id ("huddinge-visattrahallen: ...") to attach it to that hall, and quote the
+    # source text with !r so it can be shown to people; see pipeline/problems.py.
     warnings: list[str] = field(default_factory=list)
     # Set when the source itself says there are no public times right now
     # ("No records to display", "closed for the season"). It stops the

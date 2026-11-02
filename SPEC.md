@@ -110,8 +110,10 @@ Rules for `parse`:
 
 1. **Fail loudly on layout changes.** If the page doesn't look as expected, raise
    `ParseError` rather than returning partial or empty data.
-2. **Warn on lines you can't read.** Anything that isn't a time and isn't an explicit
-   "no times" goes into `warnings`, which sends the run to review.
+2. **Skip and warn on lines you can't read.** Anything that isn't a time and isn't an explicit
+   "no times" goes into `warnings`. Start the warning with the hall id
+   (`"huddinge-visattrahallen: …"`) so it is attached to that hall, and quote the source text
+   with `!r` so it can be shown. Warnings never hold data back: see *Problems and corrections*.
 3. **Report `covers` honestly**: only the range the source really describes.
 4. **Never guess times.** No LLM, no fuzzy matching. Unknown is better than wrong.
    A typo like `15-30-17.50` becomes a warning, not a best guess.
@@ -131,13 +133,37 @@ Every adapter needs a saved HTML fixture in `tests/fixtures/` and tests for its 
    hours within 05:00–24:00, sorted, no duplicates, index ↔ files consistent). Failure = nothing is published.
 4. `python -m pipeline.anomalies` compares against the published data (git `HEAD`) and flags
    for review when:
-   - a parser emitted warnings
    - a hall is new, or missing from `config/halls.json`
    - a hall had sessions in the overlapping future window and now has none
    - more than 50 % of a hall's sessions in the overlapping window changed (at least 4 sessions)
    - an adapter succeeded but produced zero sessions in total, unless it set `empty_reason`
 
    Week rollovers are not flagged, because only the date range both versions cover is compared.
+
+## Problems and corrections
+
+When a parser skips something it could not read, the rest of the source is still published.
+The skipped parts are recorded on the hall file as `problems`:
+
+```json
+"problems": [
+  {"message": "huddinge-visattrahallen: Måndag: unreadable time '11-00–12.50'",
+   "source_text": "11-00–12.50"}
+]
+```
+
+The site marks such halls "tider kan saknas", with a plain-language explanation on hover or
+tap. `python -m pipeline.problem_report --github` keeps one GitHub issue (label
+`parser-problem`) per source with problems. Each issue holds a ready-made prompt for a coding
+agent: check the source quickly, paste the prompt, and the agent adds a correction or fixes the
+parser and opens a pull request. The issue is updated when the problems change, and closed when
+a run reads the source cleanly.
+
+**Corrections** (`config/corrections.json`) are typo fixes a human has confirmed. Before
+parsing, each `text` is replaced by its `read_as` in the fetched documents. A correction only
+applies while the source still shows that exact text, so it stops by itself when the page is
+fixed. Corrections that matched nothing are listed in the source's issue so they can be removed.
+`sources.json` records `corrections_used` and `corrections_unused` for each source.
 
 Clean → committed to `main` and deployed. Review → pushed to the `data-review` branch as a PR.
 Source failure → stale markers are published and a single `source-failure` issue is opened.

@@ -39,6 +39,42 @@ function timeLink(s, cls = "") {
   return `<a class="${cls}" href="${esc(s.source_url)}" target="_blank" rel="noopener" title="Öppna källan för att verifiera">${fmtT(s.start)}–${fmtT(s.end)}</a>`;
 }
 function staleBadge(h) { return isStale(h) ? `<span class="badge" title="Kunde inte uppdateras nyligen">kan vara inaktuell</span>` : ""; }
+// Parts of the source the pipeline could not read are skipped and listed as "problems"
+// on the hall; tell visitors in plain words that times may be missing.
+function problemText(h) {
+  const ps = (h.data && h.data.problems) || [];
+  if (!ps.length) return "";
+  const texts = [...new Set(ps.map((p) => p.source_text).filter(Boolean))].slice(0, 3);
+  return "En del av kommunens schema för den här hallen gick inte att läsa automatiskt, så tider kan saknas här. " +
+    "Kontrollera källan innan du åker." +
+    (texts.length ? ` Det som inte gick att läsa: ${texts.map((x) => `”${x}”`).join(", ")}.` : "");
+}
+function problemBadge(h) {
+  const t = problemText(h);
+  return t ? `<span class="badge tip" tabindex="0" role="note" aria-label="${esc(t)}" data-tip="${esc(t)}">tider kan saknas</span>` : "";
+}
+function hallBadges(h) { return staleBadge(h) + problemBadge(h); }
+// One tooltip element for all .tip badges, positioned in the viewport so containers
+// with overflow:hidden cannot clip it. Shown on hover and on focus (tap on touch screens).
+const tipBox = Object.assign(document.createElement("div"), { className: "tipbox", hidden: true });
+tipBox.setAttribute("role", "tooltip");
+document.body.append(tipBox);
+function showTip(el) {
+  tipBox.textContent = el.dataset.tip;
+  tipBox.hidden = false;
+  const r = el.getBoundingClientRect();
+  const w = Math.min(320, window.innerWidth - 32);
+  tipBox.style.width = `${w}px`;
+  tipBox.style.left = `${Math.max(16, Math.min(r.left, window.innerWidth - w - 16))}px`;
+  const below = r.bottom + 6;
+  tipBox.style.top = `${below + tipBox.offsetHeight > window.innerHeight ? r.top - 6 - tipBox.offsetHeight : below}px`;
+}
+const hideTip = () => { tipBox.hidden = true; };
+document.addEventListener("mouseover", (e) => { const t = e.target.closest(".tip"); if (t) showTip(t); });
+document.addEventListener("mouseout", (e) => { if (e.target.closest(".tip") && document.activeElement !== e.target.closest(".tip")) hideTip(); });
+document.addEventListener("focusin", (e) => { const t = e.target.closest(".tip"); if (t) showTip(t); else hideTip(); });
+document.addEventListener("focusout", (e) => { if (e.target.closest(".tip")) hideTip(); });
+window.addEventListener("scroll", hideTip, { passive: true });
 
 async function load() {
   const index = await fetch("data/index.json", { cache: "no-cache" }).then((r) => r.json());
@@ -115,7 +151,7 @@ function renderList() {
   const passed = (s) => d === state.today.date && mins(s.end) < state.today.minutes;
   $("list").innerHTML = rows.length ? rows.map(({ h, s }) => `<li${passed(s) ? ' style="opacity:.55"' : ""}>
       <div class="t">${timeLink(s)}</div>
-      <div class="n">${esc(h.name)}${staleBadge(h)}<span class="sub">${esc(h.rink || "")}${h.rink ? " · " : ""}${esc(h.municipality)}${s.changed ? " · ändrad tid" : ""}</span>${chip(s)}</div></li>`).join("")
+      <div class="n">${esc(h.name)}${hallBadges(h)}<span class="sub">${esc(h.rink || "")}${h.rink ? " · " : ""}${esc(h.municipality)}${s.changed ? " · ändrad tid" : ""}</span>${chip(s)}</div></li>`).join("")
     : `<li><div class="t">–</div><div class="n"><span class="empty">Inga tider den här dagen.</span></div></li>`;
   const none = visibleHalls().filter((h) => covered(h, d) && !sessionsOn(h, d).length).map((h) => h.short_name);
   const unknown = visibleHalls().filter((h) => !covered(h, d)).map((h) => h.short_name);
@@ -148,14 +184,14 @@ function renderCalendar() {
       const ss = sessionsOn(h, d);
       const bars = ss.map((s) => `<a class="bar c-${s.stick}" style="left:${pct(mins(s.start))}%;width:${pct(mins(s.end)) - pct(mins(s.start))}%" href="${esc(s.source_url)}" target="_blank" rel="noopener" title="${esc(h.name)} ${fmtT(s.start)}–${fmtT(s.end)}, ${STICK[s.stick]}">${fmtT(s.start)}–${fmtT(s.end)}</a>`).join("");
       const empty = covered(h, d) ? "Inga tider" : "Inte publicerat än";
-      return `<div class="row"><div class="lbl"><b>${esc(h.name)}</b>${staleBadge(h)}<br><small>${esc(h.rink || h.municipality)}</small></div><div class="track">${grid}${now}${bars || `<span class="na">${empty}</span>`}</div></div>`;
+      return `<div class="row"><div class="lbl"><b>${esc(h.name)}</b>${hallBadges(h)}<br><small>${esc(h.rink || h.municipality)}</small></div><div class="track">${grid}${now}${bars || `<span class="na">${empty}</span>`}</div></div>`;
     }).join("");
 }
 
 function renderWeek() {
   const hs = visibleHalls();
   const head = `<thead><tr><th>Hall</th>${state.days.map((d) => { const di = dayInfo(d); return `<th class="${d === state.day ? "sel" : ""}">${di.wd.slice(0, 3)} ${di.day}/${d.slice(5, 7) * 1}</th>`; }).join("")}</tr></thead>`;
-  const body = hs.map((h) => `<tr><th>${esc(h.short_name)}${staleBadge(h)}<small>${esc(h.municipality)}</small></th>${state.days.map((d) => {
+  const body = hs.map((h) => `<tr><th>${esc(h.short_name)}${hallBadges(h)}<small>${esc(h.municipality)}</small></th>${state.days.map((d) => {
     if (!covered(h, d)) return `<td class="unk" title="Inte publicerat än">?</td>`;
     return `<td>${sessionsOn(h, d).map((s) => `<a href="${esc(s.source_url)}" target="_blank" rel="noopener" title="${STICK[s.stick]}"><i class="c-${s.stick}"></i>${fmtT(s.start)}–${fmtT(s.end)}</a>`).join("")}</td>`;
   }).join("")}</tr>`).join("");
@@ -186,7 +222,7 @@ function renderMap() {
       const val = !covered(h, d) ? "?" : x.length ? x.map((s) => `${timeLink(s)} <small>${STICK[s.stick]}</small>`).join(", ") : "–";
       return `<div${d === state.day ? ' style="font-weight:600"' : ""}>${label}: ${val}</div>`;
     }).join("");
-    const html = `<b>${esc(h.name)}</b><br><span style="color:var(--muted)">${esc(h.rink || "")} · ${esc(h.municipality)}</span>${isStale(h) ? '<div class="badge" style="margin:4px 0 0">kan vara inaktuell</div>' : ""}<div style="margin-top:6px">${week}</div>${h.info_url ? `<div style="margin-top:6px"><a href="${esc(h.info_url)}" target="_blank" rel="noopener">Om anläggningen</a></div>` : ""}`;
+    const html = `<b>${esc(h.name)}</b><br><span style="color:var(--muted)">${esc(h.rink || "")} · ${esc(h.municipality)}</span>${isStale(h) ? '<div class="badge" style="margin:4px 0 0">kan vara inaktuell</div>' : ""}${problemText(h) ? `<div class="badge" style="margin:4px 0 0;white-space:normal">${esc(problemText(h))}</div>` : ""}<div style="margin-top:6px">${week}</div>${h.info_url ? `<div style="margin-top:6px"><a href="${esc(h.info_url)}" target="_blank" rel="noopener">Om anläggningen</a></div>` : ""}`;
     L.marker([h.lat, h.lon], { icon, title: h.name, zIndexOffset: ss.length ? 1000 : 0 }).bindPopup(html, { maxWidth: 300 }).addTo(layer);
     pts.push([h.lat, h.lon]);
   }

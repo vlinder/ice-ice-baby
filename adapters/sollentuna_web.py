@@ -115,13 +115,13 @@ def _parse_line(li: Tag, day: date, out: _Halls) -> None:
     try:
         ranges = time_ranges(rest)
     except BadTimeRange as exc:
-        out.warnings.append(f"{day} {rink}: could not read {line!r} ({exc})")
+        out.warnings.append(f"{hall_id(rink)} {day}: could not read {line!r} ({exc})")
         return
     if not ranges:
         if NONE_RE.search(rest) and not re.search(r"\d", rest):
             out.hall(rink)
             return
-        out.warnings.append(f"{day} {rink}: could not read {line!r}")
+        out.warnings.append(f"{hall_id(rink)} {day}: could not read {line!r}")
         return
     trailing = norm_space(TIME_RANGE_RE.sub(" ", re.sub(r"^\s*klockan\s+", "", rest, flags=re.I)))
     trailing = trailing.strip(" -–.,:!")
@@ -130,7 +130,7 @@ def _parse_line(li: Tag, day: date, out: _Halls) -> None:
     if stick is None:
         if trailing and (li.find("a") is not None or trailing.isupper()):
             out.warnings.append(
-                f"{day} {rink}: {'/'.join(s + '–' + e for s, e in ranges)} is marked {trailing!r} "
+                f"{hall_id(rink)} {day}: {'/'.join(s + '–' + e for s, e in ranges)} is marked {trailing!r} "
                 "(separate activity, not public skating) – skipped")
             return
         stick, note = STICK_UNKNOWN, (trailing or None)

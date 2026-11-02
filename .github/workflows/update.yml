@@ -105,6 +105,13 @@ jobs:
             gh pr edit "$pr" --body-file anomalies.md
           fi
 
+      # Parts of a source could not be read and were skipped (the rest was published as
+      # usual): keep one issue per source, with a ready-made prompt for a coding agent.
+      - name: Report parser problems
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m pipeline.problem_report --github
+
       # A source could not be read: open one issue (not one per run).
       - name: Report source failure
         if: steps.check.outputs.failures == 'true'

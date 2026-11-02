@@ -33,7 +33,7 @@ The **Update schedules** workflow runs at 05:17, 11:17 and 16:17 UTC.
 
 ```mermaid
 flowchart TD
-    cron(["Update schedules<br/>05:17 · 11:17 · 16:17 UTC"]) --> run["pipeline.run<br/>adapters → public/data/halls/*.json"]
+    cron(["Update schedules<br/>05:17 · 11:17 · 16:17 UTC"]) --> run["pipeline.run<br/>corrections → adapters → public/data/halls/*.json"]
     run --> index[pipeline.build_index]
     index --> validate{pipeline.validate}
     validate -- invalid --> red([Red build, nothing published])
@@ -43,10 +43,12 @@ flowchart TD
     publish --> close[Close obsolete review PR]
     anomalies -- looks suspicious --> pr["PR from data-review:<br/>“Schemadata behöver granskas”"]
     anomalies -. a source failed .-> issue["Issue labelled source-failure:<br/>“En källa kunde inte läsas”"]
+    anomalies -. parts of a source skipped .-> pissue["Issue labelled parser-problem<br/>with a prompt for a coding agent"]
 ```
 
 A failing source only marks its own halls as stale ("kan vara inaktuell") and never blocks
-the other sources. Source failures are reported on top of the normal or suspicious path.
+the other sources. A line a parser cannot read is skipped, the rest is published, and the
+hall is marked "tider kan saknas". Source failures are reported on top of the normal or suspicious path.
 
 The workflows and what triggers them:
 
@@ -63,6 +65,12 @@ flowchart LR
 - **Nothing to do** while builds are green.
 - **A PR titled "Schemadata behöver granskas"**: the new data looks odd. Read the report
   in the PR, compare with the source, and merge if correct (or fix the adapter).
+- **An issue "Källan kunde inte läsas helt: …"** (label `parser-problem`): part of a source
+  could not be read and was skipped; everything else was published, and the hall shows
+  "tider kan saknas" on the site. Glance at the source, then paste the prompt from the issue
+  into Claude Code (or another coding agent). It adds a correction to
+  `config/corrections.json` for a typo, or fixes the parser, and opens a PR. The issue closes
+  itself once a run reads the source cleanly.
 - **An issue "En källa kunde inte läsas"**: a source failed. If it keeps failing, the page
   layout has probably changed. Save the new HTML as a fixture, fix the parser, and close
   the issue.

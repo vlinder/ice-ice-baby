@@ -23,7 +23,9 @@
           "last_attempt_at": { "type": "string", "format": "date-time" },
           "error": { "type": ["string", "null"] },
           "warnings": { "type": "array", "items": { "type": "string" } },
-          "empty_reason": { "type": ["string", "null"], "description": "the source says it has no public times right now" }
+          "empty_reason": { "type": ["string", "null"], "description": "the source says it has no public times right now" },
+          "corrections_used": { "type": "array", "items": { "type": "string" } },
+          "corrections_unused": { "type": "array", "items": { "type": "string" } }
         }
       }
     },

@@ -133,14 +133,16 @@ def parse_boards(raw: dict[str, str], today: date, *, host: str, halls: list[Hal
         for tr in rows:
             cells = [norm_space(td.get_text(" ")) for td in tr.find_all("td")]
             if len(cells) < len(head):
-                warnings.append(f"short row: {cells}")
+                warnings.append(f"short row {' | '.join(cells)!r}")
                 continue
             dm, tm = DATE_RE.match(cells[i_date]), TIME_RE.match(cells[i_time])
             if not dm or not tm:
-                warnings.append(f"could not read row: {cells}")
+                hid = resolve(cells[i_res], halls, muni)[0]
+                warnings.append(f"{hid}: could not read row {' | '.join(cells)!r}")
                 continue
             if i_by is not None and "allmänhet" not in cells[i_by].lower():
-                warnings.append(f"row not booked as public skating: {cells}")
+                hid = resolve(cells[i_res], halls, muni)[0]
+                warnings.append(f"{hid}: row not booked as public skating {' | '.join(cells)!r}")
                 continue
             d, mon_word, y = dm.groups()
             mon = month_number(mon_word)

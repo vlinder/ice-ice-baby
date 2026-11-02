@@ -47,3 +47,9 @@ def test_sodertalje_rows_go_to_the_list_hall():
 def test_permission_error_page_fails_loudly():
     with pytest.raises(ParseError):
         ekero_frigo.parse({ekero_frigo.SOURCE_URL: "<p>Error: Behörighet saknas för att använda denna sida</p>"}, TODAY)
+
+
+def test_frigo_error_answer_is_a_source_failure():
+    html = '<table id="tblLista"><tr><td><span>Error: Inga scheman funna</span></td></tr></table>'
+    with pytest.raises(ParseError):
+        ekero_frigo.parse({ekero_frigo.SOURCE_URL: html}, TODAY)
