@@ -1,16 +1,28 @@
 # Allmänhetens åkning
 
-Public-skating times for the ice rinks in **Stockholms stad** and **Tyresö kommun**,
-updated three times a day and published at <https://vlinder.github.io/ice-ice-baby/>
-with a list per day, a timeline, a week overview and a map. Every time links back to
-the page it was read from.
+Public-skating times for the ice rinks in **Stockholm County** (25 of its 26
+municipalities), updated three times a day and published at
+<https://vlinder.github.io/ice-ice-baby/> with a list per day, a timeline, a week overview
+and a map. Every time links back to the page it was read from.
 
 ## Sources
 
-| Source | Adapter | Notes |
+The sources are the pages each municipality points to (the same ones
+[skridskor.nu](https://skridskor.nu/status/) links as "Källa").
+
+| Municipality | Adapter | Source |
 |---|---|---|
-| [motionera.stockholm/skridskoakning](https://motionera.stockholm/skridskoakning/) | `adapters/stockholm_motionera.py` | Weekly lists, usually current + next week |
-| [Tyresö: Rbok information board](https://tyreso.rbok.se/informationstavla?id=fbe27841-479e-4387-8e40-9b6a158436c4) | `adapters/tyreso_rbok.py` | Linked from tyreso.se; about two weeks ahead, includes holiday times |
+| Stockholm | `stockholm_motionera` | [motionera.stockholm](https://motionera.stockholm/skridskoakning/), weekly lists |
+| Botkyrka, Haninge, Nacka, Norrtälje, Tyresö, Vallentuna | `*_rbok` → `rbok.py` | Rbok information boards (Haninge: one per hall) |
+| Ekerö, Södertälje | `*_frigo` → `frigo.py` | FRI-GO booking lists (Södertälje: one per rink, 7 days) |
+| Salem | `salem_sportadmin` | IFK Salem's SportAdmin page, linked by the municipality |
+| Vaxholm | `vaxholm_actor` | Actor Smartbook export grid |
+| Danderyd, Huddinge, Järfälla, Lidingö, Nynäshamn, Sigtuna, Sollentuna, Solna, Sundbyberg, Täby, Upplands-Bro, Upplands Väsby, Värmdö, Österåker | `<kommun>_web` | The municipality's own web page (weekly schedules, holiday blocks, exceptions) |
+| Nykvarn | – | No published times (natural ice only) |
+
+Some sources are empty on purpose right now (Södertälje's lists, Vaxholm's export,
+Upplands-Bro's outdoor rink between seasons). Their adapters recognise the "no times"
+message and say so (`empty_reason`), instead of being flagged as broken.
 
 Hall names, short names and coordinates live in `config/halls.json`.
 [SPEC.md](SPEC.md) describes the data format, the adapter contract and the review rules.
@@ -82,9 +94,14 @@ python -m http.server -d public 8000      # open http://localhost:8000
 
 - **New hall in an existing source:** it is picked up automatically and flagged for review.
   Add its name, short name and coordinates to `config/halls.json`.
-- **New municipality:** write `adapters/<name>.py` following the contract in SPEC.md,
+- **New municipality:** if it uses Rbok or FRI-GO, add a small module with its board/list
+  URLs and hall mapping (copy e.g. `nacka_rbok.py`). Otherwise write `adapters/<name>.py`
+  following the contract in SPEC.md, using the helpers in `adapters/common.py`. Either way:
   save a fixture, add tests, register it in `adapters/__init__.py`, and add its halls to
   `config/halls.json`.
+- **A hand-written page changed:** its adapter raises `ParseError` (source-failure issue)
+  or warns (review PR). Save the new page over the fixture, adjust the parser, and run
+  `python -m pytest -q`.
 
 ## Notes
 

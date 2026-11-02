@@ -486,6 +486,78 @@
       "lat": 59.44043,
       "lon": 18.06449,
       "info_url": "https://www.taby.se/uppleva-och-gora/idrott-och-motion/skridskor-och-ishall"
+    },
+    "jarfalla-jarfalla-ishall": {
+      "name": "Järfälla ishall",
+      "short_name": "Järfälla ishall",
+      "rink": null,
+      "municipality": "Järfälla",
+      "lat": 59.41832,
+      "lon": 17.8236,
+      "info_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor"
+    },
+    "jarfalla-kallhalls-ishall": {
+      "name": "Kallhälls ishall",
+      "short_name": "Kallhäll",
+      "rink": null,
+      "municipality": "Järfälla",
+      "lat": 59.4604,
+      "lon": 17.82326,
+      "info_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor"
+    },
+    "lidingo-exakt-arena": {
+      "name": "Exakt arena",
+      "short_name": "Exakt arena",
+      "rink": null,
+      "municipality": "Lidingö",
+      "lat": 59.34837,
+      "lon": 18.15357,
+      "info_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/"
+    },
+    "lidingo-exakt-annex": {
+      "name": "Exakt annex",
+      "short_name": "Exakt annex",
+      "rink": null,
+      "municipality": "Lidingö",
+      "lat": 59.35171,
+      "lon": 18.15133,
+      "info_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/"
+    },
+    "lidingo-lidingovallens-rink": {
+      "name": "Lidingövallens rink",
+      "short_name": "Lidingövallen",
+      "rink": null,
+      "municipality": "Lidingö",
+      "lat": 59.37027,
+      "lon": 18.15706,
+      "info_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/"
+    },
+    "nynashamn-hll-arena": {
+      "name": "HLL Arena",
+      "short_name": "HLL Arena",
+      "rink": null,
+      "municipality": "Nynäshamn",
+      "lat": 58.92543,
+      "lon": 17.92533,
+      "info_url": "https://nynashamn.se/service/kultur--fritid/fritid/ishallen-hll-arena"
+    },
+    "osteraker-osterakers-sportcentrum-ishall-1": {
+      "name": "Österåkers sportcentrum",
+      "short_name": "Österåker Ishall 1",
+      "rink": "Ishall 1",
+      "municipality": "Österåker",
+      "lat": 59.4888,
+      "lon": 18.30329,
+      "info_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html"
+    },
+    "osteraker-osterakers-sportcentrum-ishall-2": {
+      "name": "Österåkers sportcentrum",
+      "short_name": "Österåker Ishall 2",
+      "rink": "Ishall 2",
+      "municipality": "Österåker",
+      "lat": 59.48956,
+      "lon": 18.30258,
+      "info_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html"
     }
   }
 }
