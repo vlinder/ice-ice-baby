@@ -2,19 +2,32 @@ from datetime import date
 
 import pytest
 
-from adapters import ekero_frigo, sodertalje_frigo
+from adapters import frigo, sodertalje_frigo
 from adapters.common import ParseError
 from conftest import FIXTURES
 
 TODAY = date(2026, 11, 2)
 
 
+# A list for several facilities, as Ekerö published until it moved to Interbook (Nov 2026).
+PLACE_URL = ("https://ekero.fri-go.se/bokning/lista.aspx?dagar=28&typer=7"
+             "&falt=tid,fullnamn,namn,eget,eget2,delt&schema=Ishallar&c=6937")
+PLACE_HALLS = [
+    frigo.Hall("ekero-trakvistavallen", "Träkvistavallen", "Vikingahallen", place="Träkvistavallen"),
+    frigo.Hall("ekero-svanangen-ip", "Svanängen IP", "Allhallen", place="Svanängen IP"),
+]
+
+
+def parse_place(html):
+    return frigo.parse_lists({PLACE_URL: html}, TODAY, halls=PLACE_HALLS, muni="ekero")
+
+
 def ekero_raw():
-    return {ekero_frigo.SOURCE_URL: (FIXTURES / "frigo_ekero.html").read_text(encoding="utf-8")}
+    return (FIXTURES / "frigo_place_list.html").read_text(encoding="utf-8")
 
 
-def test_ekero():
-    r = ekero_frigo.parse(ekero_raw(), TODAY)
+def test_place_list():
+    r = parse_place(ekero_raw())
     assert r.warnings == [] and r.empty_reason is None
     assert (r.covers_from, r.covers_to) == ("2026-11-02", "2026-11-29")
     assert {k: len(v.sessions) for k, v in r.halls.items()} == {"ekero-trakvistavallen": 29, "ekero-svanangen-ip": 20}
@@ -46,13 +59,13 @@ def test_sodertalje_rows_go_to_the_list_hall():
 
 def test_permission_error_page_fails_loudly():
     with pytest.raises(ParseError):
-        ekero_frigo.parse({ekero_frigo.SOURCE_URL: "<p>Error: Behörighet saknas för att använda denna sida</p>"}, TODAY)
+        parse_place("<p>Error: Behörighet saknas för att använda denna sida</p>")
 
 
 def test_no_schedules_found_means_no_times():
     # Ekerö's list between seasons (live answer on 2026-11-02).
     html = '<table id="tblLista"><tr><td><span>Error: Inga scheman funna</span></td></tr></table>'
-    r = ekero_frigo.parse({ekero_frigo.SOURCE_URL: html}, TODAY)
+    r = parse_place(html)
     assert r.empty_reason and "Inga scheman funna" in r.empty_reason
     assert set(r.halls) == {"ekero-trakvistavallen", "ekero-svanangen-ip"}
     assert all(h.sessions == [] for h in r.halls.values())
@@ -62,4 +75,4 @@ def test_no_schedules_found_means_no_times():
 def test_other_error_answers_are_a_source_failure():
     html = '<table id="tblLista"><tr><td><span>Error: Behörighet saknas</span></td></tr></table>'
     with pytest.raises(ParseError):
-        ekero_frigo.parse({ekero_frigo.SOURCE_URL: html}, TODAY)
+        parse_place(html)

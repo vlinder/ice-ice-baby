@@ -14,7 +14,8 @@ The sources are the pages each municipality points to (the same ones
 |---|---|---|
 | Stockholm | `stockholm_motionera` | [motionera.stockholm](https://motionera.stockholm/skridskoakning/), weekly lists |
 | Botkyrka, Haninge, Nacka, Norrtälje, Tyresö, Vallentuna | `*_rbok` → `rbok.py` | Rbok information boards (Haninge: one per hall) |
-| Ekerö, Södertälje | `*_frigo` → `frigo.py` | FRI-GO booking lists (Södertälje: one per rink, 7 days) |
+| Södertälje | `sodertalje_frigo` → `frigo.py` | FRI-GO booking lists, one per rink, 7 days |
+| Ekerö | `ekero_interbook` | Interbook booking list linked from ekero.se, 60 days (moved from FRI-GO in Nov 2026) |
 | Salem | `salem_sportadmin` | IFK Salem's SportAdmin page, linked by the municipality |
 | Vaxholm | `vaxholm_actor` | Actor Smartbook export grid |
 | Danderyd, Huddinge, Järfälla, Lidingö, Nynäshamn, Sigtuna, Sollentuna, Solna, Sundbyberg, Täby, Upplands-Bro, Upplands Väsby, Värmdö, Österåker | `<kommun>_web` | The municipality's own web page (weekly schedules, holiday blocks, exceptions) |
