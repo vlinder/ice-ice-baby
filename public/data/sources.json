@@ -3,20 +3,20 @@
     "adapter": "stockholm-motionera",
     "municipality": "Stockholm",
     "source_url": "https://motionera.stockholm/skridskoakning/",
-    "last_attempt_at": "2026-11-01T20:23:24+01:00",
+    "last_attempt_at": "2026-11-02T06:22:03+01:00",
     "status": "ok",
     "error": null,
-    "fetched_at": "2026-11-01T20:23:24+01:00",
+    "fetched_at": "2026-11-02T06:22:03+01:00",
     "warnings": []
   },
   {
     "adapter": "tyreso-rbok",
     "municipality": "Tyresö",
     "source_url": "https://tyreso.rbok.se/informationstavla?id=fbe27841-479e-4387-8e40-9b6a158436c4",
-    "last_attempt_at": "2026-11-01T20:23:24+01:00",
+    "last_attempt_at": "2026-11-02T06:22:03+01:00",
     "status": "ok",
     "error": null,
-    "fetched_at": "2026-11-01T20:23:24+01:00",
+    "fetched_at": "2026-11-02T06:22:03+01:00",
     "warnings": []
   }
 ]
