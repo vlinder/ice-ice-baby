@@ -306,6 +306,42 @@
       "lat": 59.1958,
       "lon": 17.6416,
       "info_url": "https://sodertalje.fri-go.se/bokning/lista.aspx?dagar=7&typer=9&falt=tid,boktyp,verk,eget&obj=34&c=7285"
+    },
+    "salem-salems-ishall": {
+      "name": "Salems ishall",
+      "short_name": "Salem",
+      "rink": null,
+      "municipality": "Salem",
+      "lat": 59.2034,
+      "lon": 17.7639,
+      "info_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188"
+    },
+    "upplands-vasby-vilundaparkens-ishall-b": {
+      "name": "Vilundaparkens ishall",
+      "short_name": "Vilunda B",
+      "rink": "Ishall B",
+      "municipality": "Upplands Väsby",
+      "lat": 59.51618,
+      "lon": 17.92006,
+      "info_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar"
+    },
+    "varmdo-ekvallens-ip-ekrinken": {
+      "name": "Ekvallens IP",
+      "short_name": "Ekrinken",
+      "rink": "Ekrinken",
+      "municipality": "Värmdö",
+      "lat": 59.32639,
+      "lon": 18.39593,
+      "info_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html"
+    },
+    "vaxholm-saneco-hallen": {
+      "name": "Saneco Hallen",
+      "short_name": "Saneco Hallen",
+      "rink": null,
+      "municipality": "Vaxholm",
+      "lat": 59.40402,
+      "lon": 18.32791,
+      "info_url": "https://exportservice.actorsmartbook.se/ExportGridStyle.aspx?com=6bb4f0a4-3cd1-49c9-84e9-4e72a5e3aa16&con=1d8d1d00-2c01-4187-b4b9-ab53de6d1981"
     }
   }
 }
