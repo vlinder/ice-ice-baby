@@ -117,6 +117,195 @@
       "lat": 59.22546,
       "lon": 18.21989,
       "info_url": "https://www.tyreso.se/uppleva--gora/natur-och-friluftsliv/aka-skridskor/allmanhetens-akning.html"
+    },
+    "botkyrka-brantbrinks-ip": {
+      "name": "Brantbrinks IP",
+      "short_name": "Brantbrink",
+      "rink": "Ishall",
+      "municipality": "Botkyrka",
+      "lat": 59.19261,
+      "lon": 17.90466,
+      "info_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28"
+    },
+    "botkyrka-tumba-ishuset-hall-2": {
+      "name": "Tumba idrottsområde, Ishuset",
+      "short_name": "Tumba Ishuset",
+      "rink": "Hall 2 (fd Roplan)",
+      "municipality": "Botkyrka",
+      "lat": 59.20185,
+      "lon": 17.83213,
+      "info_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28"
+    },
+    "haninge-hanvedens-ip": {
+      "name": "Hanvedens IP",
+      "short_name": "Hanveden",
+      "rink": "Ishall",
+      "municipality": "Haninge",
+      "lat": 59.13035,
+      "lon": 18.11235,
+      "info_url": "https://haninge.rbok.se/informationstavla?id=e8330e15-76fd-4bcf-9dd2-93c54dae9559"
+    },
+    "haninge-torvalla-ip-ishall-1": {
+      "name": "Torvalla IP",
+      "short_name": "Torvalla 1",
+      "rink": "Ishall 1",
+      "municipality": "Haninge",
+      "lat": 59.16421,
+      "lon": 18.15519,
+      "info_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8"
+    },
+    "haninge-torvalla-ip-ishall-2": {
+      "name": "Torvalla IP",
+      "short_name": "Torvalla 2",
+      "rink": "Ishall 2",
+      "municipality": "Haninge",
+      "lat": 59.16421,
+      "lon": 18.15519,
+      "info_url": "https://haninge.rbok.se/informationstavla?id=71c94175-66c8-41fd-8b4b-d8a41729e78b"
+    },
+    "nacka-nacka-ip-ishall": {
+      "name": "Nacka IP",
+      "short_name": "Nacka IP",
+      "rink": "Ishall",
+      "municipality": "Nacka",
+      "lat": 59.31091,
+      "lon": 18.15828,
+      "info_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b"
+    },
+    "nacka-nacka-ip-istalt": {
+      "name": "Nacka IP",
+      "short_name": "Nacka IP istält",
+      "rink": "Istält",
+      "municipality": "Nacka",
+      "lat": 59.31083,
+      "lon": 18.15721,
+      "info_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b"
+    },
+    "nacka-bjorknas-ip-ishall": {
+      "name": "Björknäs IP",
+      "short_name": "Björknäs",
+      "rink": "Ishall",
+      "municipality": "Nacka",
+      "lat": 59.3118,
+      "lon": 18.24245,
+      "info_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b"
+    },
+    "nacka-bjorknas-ip-istalt": {
+      "name": "Björknäs IP",
+      "short_name": "Björknäs istält",
+      "rink": "Istält",
+      "municipality": "Nacka",
+      "lat": 59.3118,
+      "lon": 18.24245,
+      "info_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b"
+    },
+    "nacka-alta-ishall": {
+      "name": "Älta ishall",
+      "short_name": "Älta",
+      "rink": null,
+      "municipality": "Nacka",
+      "lat": 59.25915,
+      "lon": 18.17969,
+      "info_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b"
+    },
+    "nacka-saltsjobadens-ishall": {
+      "name": "Saltsjöbadens ishall",
+      "short_name": "Saltsjöbaden",
+      "rink": null,
+      "municipality": "Nacka",
+      "lat": 59.27739,
+      "lon": 18.28137,
+      "info_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b"
+    },
+    "norrtalje-sportcentrum-ishall": {
+      "name": "Norrtälje sportcentrum",
+      "short_name": "Norrtälje",
+      "rink": "Ishall",
+      "municipality": "Norrtälje",
+      "lat": 59.75162,
+      "lon": 18.69796,
+      "info_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db"
+    },
+    "norrtalje-sportcentrum-bandybana": {
+      "name": "Norrtälje sportcentrum",
+      "short_name": "Norrtälje bandy",
+      "rink": "Bandybana",
+      "municipality": "Norrtälje",
+      "lat": 59.75162,
+      "lon": 18.69796,
+      "info_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db"
+    },
+    "vallentuna-vallentuna-ip-ishall-a": {
+      "name": "Vallentuna IP",
+      "short_name": "Vallentuna A",
+      "rink": "Ishall A",
+      "municipality": "Vallentuna",
+      "lat": 59.53525,
+      "lon": 18.09629,
+      "info_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d"
+    },
+    "vallentuna-vallentuna-ip-ishall-b": {
+      "name": "Vallentuna IP",
+      "short_name": "Vallentuna B",
+      "rink": "Ishall B",
+      "municipality": "Vallentuna",
+      "lat": 59.53525,
+      "lon": 18.09629,
+      "info_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d"
+    },
+    "ekero-trakvistavallen": {
+      "name": "Träkvistavallen",
+      "short_name": "Träkvista",
+      "rink": "Vikingahallen",
+      "municipality": "Ekerö",
+      "lat": 59.28022,
+      "lon": 17.79316,
+      "info_url": "https://ekero.fri-go.se/bokning/lista.aspx?dagar=28&typer=7&falt=tid,fullnamn,namn,eget,eget2,delt&schema=Ishallar&c=6937"
+    },
+    "ekero-svanangen-ip": {
+      "name": "Svanängen IP",
+      "short_name": "Svanängen",
+      "rink": "Allhallen",
+      "municipality": "Ekerö",
+      "lat": 59.3237,
+      "lon": 17.74022,
+      "info_url": "https://ekero.fri-go.se/bokning/lista.aspx?dagar=28&typer=7&falt=tid,fullnamn,namn,eget,eget2,delt&schema=Ishallar&c=6937"
+    },
+    "sodertalje-bst-rinken": {
+      "name": "BST-rinken",
+      "short_name": "BST-rinken",
+      "rink": null,
+      "municipality": "Södertälje",
+      "lat": 59.18862,
+      "lon": 17.57078,
+      "info_url": "https://sodertalje.fri-go.se/bokning/lista.aspx?dagar=7&typer=9&falt=tid,boktyp,verk,eget&obj=360&c=8627"
+    },
+    "sodertalje-jarna-ip-ishall-a": {
+      "name": "Järna IP",
+      "short_name": "Järna A",
+      "rink": "Ishall A",
+      "municipality": "Södertälje",
+      "lat": 59.09619,
+      "lon": 17.5585,
+      "info_url": "https://sodertalje.fri-go.se/bokning/lista.aspx?dagar=7&typer=9&falt=tid,boktyp,verk,eget&obj=35&c=7508"
+    },
+    "sodertalje-jarna-ip-ishall-b": {
+      "name": "Järna IP",
+      "short_name": "Järna B",
+      "rink": "Ishall B",
+      "municipality": "Södertälje",
+      "lat": 59.09619,
+      "lon": 17.5585,
+      "info_url": "https://sodertalje.fri-go.se/bokning/lista.aspx?dagar=7&typer=9&falt=tid,boktyp,verk,eget&obj=403&c=8181"
+    },
+    "sodertalje-manskensrinken": {
+      "name": "Månskensrinken",
+      "short_name": "Månskensrinken",
+      "rink": null,
+      "municipality": "Södertälje",
+      "lat": 59.1958,
+      "lon": 17.6416,
+      "info_url": "https://sodertalje.fri-go.se/bokning/lista.aspx?dagar=7&typer=9&falt=tid,boktyp,verk,eget&obj=34&c=7285"
     }
   }
 }
