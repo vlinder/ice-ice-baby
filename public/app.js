@@ -55,8 +55,10 @@ async function load() {
 }
 
 function renderStatic() {
-  const munis = [...state.munis];
-  $("munis").textContent = munis.join(" och ");
+  const munis = [...state.munis].sort((a, b) => a.localeCompare(b, "sv"));
+  $("munis").textContent = munis.length > 6
+    ? `${munis.length} kommuner i Stockholms län`
+    : munis.length > 1 ? `${munis.slice(0, -1).join(", ")} och ${munis[munis.length - 1]}` : munis.join("");
   $("checked").textContent = `Senast kontrollerad ${fmtStamp(state.index.generated_at)}.`;
   const alerts = [];
   for (const s of state.index.sources) {
@@ -66,12 +68,23 @@ function renderStatic() {
   if (ageH > STALE_HOURS) alerts.push(`Datan har inte uppdaterats på ${Math.round(ageH)} timmar. Kontrollera tiderna hos källan.`);
   $("alerts").innerHTML = alerts.map((a) => `<div class="alert" role="status">${a}</div>`).join("");
   $("legend").innerHTML = ["shared", "with_stick", "no_stick"].map((k) => `<span><i class="c-${k}"></i>${STICK[k]}${STICK_HELP[k] ? `: ${STICK_HELP[k]}` : ""}</span>`).join("");
-  $("munifilter").innerHTML = munis.length > 1 ? munis.map((m) => `<button type="button" data-m="${esc(m)}" aria-pressed="true">${esc(m)}</button>`).join("") : "";
+  // With many municipalities: the first click shows only that one, later clicks add or
+  // remove, and "Alla" (or removing the last one) shows everything again.
+  $("munifilter").innerHTML = munis.length > 1
+    ? `<button type="button" data-all="1" aria-pressed="true">Alla</button>` +
+      munis.map((m) => `<button type="button" data-m="${esc(m)}" aria-pressed="false">${esc(m)}</button>`).join("")
+    : "";
   $("munifilter").onclick = (e) => {
     const b = e.target.closest("button"); if (!b) return;
-    const m = b.dataset.m;
-    if (state.munis.has(m) && state.munis.size > 1) state.munis.delete(m); else state.munis.add(m);
-    $("munifilter").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", state.munis.has(x.dataset.m)));
+    const all = state.munis.size === munis.length;
+    if (b.dataset.all) state.munis = new Set(munis);
+    else if (all) state.munis = new Set([b.dataset.m]);
+    else if (state.munis.has(b.dataset.m)) state.munis.delete(b.dataset.m);
+    else state.munis.add(b.dataset.m);
+    if (state.munis.size === 0) state.munis = new Set(munis);
+    const nowAll = state.munis.size === munis.length;
+    $("munifilter").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed",
+      x.dataset.all ? nowAll : !nowAll && state.munis.has(x.dataset.m)));
     render();
   };
   $("sourcesList").innerHTML = state.index.sources.map((s) =>

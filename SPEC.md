@@ -54,6 +54,16 @@ Formal JSON Schemas: [`schema/index.schema.json`](schema/index.schema.json) and
 sessions means **no public skating**. Outside it, the answer is **unknown** (the source
 hasn't published that far yet). The frontend shows these differently: blank vs. "?".
 
+How adapters set it:
+
+- **Booking systems** (Rbok boards, FRI-GO lists): today until the last day the list
+  reaches. An Rbok board shows at most 100 rows, so a full board's last day may be cut
+  short and is left out. When one source has a list per hall, each hall gets its own range.
+- **Dated lists on a web page** ("Vecka 45", "6/11 13.00–16.50"): the days the page lists.
+- **Recurring weekly schedules** ("Måndagar 14.00–15.45"): from today for 28 days
+  (`RECURRING_HORIZON_DAYS`), cut at the season dates the page states. Holiday blocks and
+  "avvikande tider" override the weekly times on their dates.
+
 ### `status`
 
 | value   | meaning |
@@ -90,6 +100,12 @@ An adapter is a Python module in `adapters/` registered in `adapters/__init__.py
 | `fetch() -> dict[str, str]` | download raw documents (the only part touching the network) |
 | `parse(raw, today) -> AdapterResult` | pure function: raw documents → halls and sessions |
 
+Sources that share a system have a shared parser, and each municipality's module only holds
+its URLs and hall mapping: `adapters/rbok.py` (Rbok information boards) and
+`adapters/frigo.py` (FRI-GO booking lists). Hand-written municipal pages each have their own
+parser (`*_web.py`), built from the helpers at the bottom of `adapters/common.py`
+(`time_ranges`, `stick_from_text`, `expand_weekly`, `recurring_window`, ...).
+
 Rules for `parse`:
 
 1. **Fail loudly on layout changes.** If the page doesn't look as expected, raise
@@ -98,6 +114,11 @@ Rules for `parse`:
    "no times" goes into `warnings`, which sends the run to review.
 3. **Report `covers` honestly**: only the range the source really describes.
 4. **Never guess times.** No LLM, no fuzzy matching. Unknown is better than wrong.
+   A typo like `15-30-17.50` becomes a warning, not a best guess.
+5. **Say when a source is empty on purpose.** If the source itself says there are no
+   times ("Inga aktuella bokningar", "Tack för den här säsongen"), return the known halls
+   with no sessions and set `empty_reason`. Otherwise an adapter with zero sessions is
+   flagged for review. If such a page later shows something unexpected, raise `ParseError`.
 
 Every adapter needs a saved HTML fixture in `tests/fixtures/` and tests for its parser.
 
@@ -114,7 +135,7 @@ Every adapter needs a saved HTML fixture in `tests/fixtures/` and tests for its 
    - a hall is new, or missing from `config/halls.json`
    - a hall had sessions in the overlapping future window and now has none
    - more than 50 % of a hall's sessions in the overlapping window changed (at least 4 sessions)
-   - an adapter succeeded but produced zero sessions in total
+   - an adapter succeeded but produced zero sessions in total, unless it set `empty_reason`
 
    Week rollovers are not flagged, because only the date range both versions cover is compared.
 

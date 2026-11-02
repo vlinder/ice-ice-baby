@@ -70,12 +70,14 @@ def run_adapter(adapter, today: date, stamp: str) -> dict:
             "last_attempt_at": stamp,
             "source_updated": result.source_updated,
             # A hall absent from the source still gets the covered range: it had no public times.
-            "covers": {"from": result.covers_from, "to": result.covers_to},
+            "covers": {"from": (hall and hall.covers_from) or result.covers_from,
+                       "to": (hall and hall.covers_to) or result.covers_to},
             "sessions": sessions,
         })
     n = sum(len(h.sessions) for h in result.halls.values())
     print(f"[{adapter.NAME}] ok: {len(result.halls)} halls, {n} sessions, covers {result.covers_from}..{result.covers_to}")
-    return {**source, "status": "ok", "error": None, "fetched_at": stamp, "warnings": result.warnings}
+    return {**source, "status": "ok", "error": None, "fetched_at": stamp, "warnings": result.warnings,
+            "empty_reason": result.empty_reason}
 
 
 def _previous_source(name: str) -> dict | None:

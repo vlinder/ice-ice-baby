@@ -94,10 +94,11 @@ def main(argv=None) -> int:
             review.append(f"`{hid}`: missing from config/halls.json (no curated name/coordinates)")
         review += compare_hall(old, new, today)
 
+    sources = {s["adapter"]: s for s in (read_json(SOURCES_FILE) if SOURCES_FILE.exists() else [])}
     for adapter, n in produced.items():
-        src_ok = any(s["adapter"] == adapter and s["status"] == "ok"
-                     for s in (read_json(SOURCES_FILE) if SOURCES_FILE.exists() else []))
-        if src_ok and n == 0:
+        src = sources.get(adapter) or {}
+        # An adapter that recognised an explicit "no times" message is not suspicious.
+        if src.get("status") == "ok" and n == 0 and not src.get("empty_reason"):
             review.append(f"`{adapter}`: produced zero sessions across all halls (off-season, or a broken parser?)")
 
     report = {"today": today, "review": review, "failures": failures}
