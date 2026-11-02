@@ -29,12 +29,11 @@ Judgment calls:
   both halls of Sollentunavallen), plus any other "X-hallen" the page names.
 - If the page lists only past weeks, the halls are emitted with no sessions and
   `covers` set to the last listed week (i.e. in the past: unknown from today).
-- Sometimes the weekday list has no "Vecka NN" heading at all (seen 2 Nov 2026,
-  after the week-45 list was revised). The list is then taken to be the week the
-  page was last updated ("Sidan uppdaterades", Monday–Friday). If that date is a
-  Saturday or Sunday the list could be for either week, so the parser raises
-  ParseError instead of guessing. A list updated in an earlier week counts as a
-  past week (unknown from today).
+- A weekday list without a "Vecka NN" heading (as the page looks from 2 Nov
+  2026) is the standing weekly schedule for the season. The page warns that
+  "Tiderna kan ändras med kort varsel", so it is only expanded TEMPLATE_DAYS
+  (14) days ahead. A dated "Vecka NN" list, when present, replaces the weekly
+  schedule from its Monday up to its last listed day.
 """
 from __future__ import annotations
 
@@ -55,6 +54,8 @@ SOURCE_URL = "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-frilufts
 
 FACILITY = "Sollentunavallen"
 KNOWN_RINKS = ["A-hallen", "B-hallen"]
+# The weekly schedule can change at short notice ("Tiderna kan ändras med kort varsel").
+TEMPLATE_DAYS = 14
 
 SECTION_RE = re.compile(r"^allmänhetens åkning på sollentunavallen", re.I)
 WEEK_RE = re.compile(r"^vecka\s+(\d{1,2})(?!\s*[–\-]\s*\d)\b", re.I)
@@ -170,20 +171,23 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
         (past_weeks if past else weeks).append((monday, last))
 
     updated = _source_updated(soup, today)
+    template: dict[int, list[Tag]] = {}  # weekday -> <li> lines of the weekly schedule
+    template_day: int | None = None
 
     for el in heading.find_next_siblings():
         text = norm_space(el.get_text(" "))
-        if monday is None and el.name in ("h3", "h4") and weekday_number(text.split(" ")[0]) is not None:
-            # A weekday list without a "Vecka NN" heading: the week the page was updated.
-            if updated is None:
-                raise ParseError("Weekday list without a week heading, and no update date on the page")
-            upd = date.fromisoformat(updated[:10])
-            if upd.weekday() >= 5:
-                raise ParseError(f"Weekday list without a week heading, page updated on a weekend ({upd}): "
-                                 "this week or next?")
-            monday = upd - timedelta(days=upd.weekday())
-            past = monday + timedelta(days=6) < today
-            day, listed = None, []
+        if monday is None and el.name in ("h3", "h4", "ul", "ol"):
+            # Before any "Vecka NN" heading: the standing weekly schedule.
+            if el.name in ("h3", "h4"):
+                template_day = weekday_number(text.split(" ")[0])
+                if template_day is None:
+                    raise ParseError(f"Unrecognised day heading {text!r} in the weekly schedule")
+                template.setdefault(template_day, [])
+            elif template_day is not None:
+                template[template_day] += el.find_all("li")
+            if text:
+                section_text.append(text)
+            continue
         if el.name in ("h1", "h2"):
             m = WEEK_RE.match(text)
             if not m:
@@ -222,7 +226,20 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
     close_week()
 
     empty_reason = None
-    if weeks:
+    if template:
+        lo, hi = recurring_window(today, days=TEMPLATE_DAYS)
+        # A dated week replaces the weekly schedule up to its last listed day.
+        in_weeks = lambda d: any(m <= d <= last for m, last in weeks)  # noqa: E731
+        d = lo
+        while d <= hi:
+            if not in_weeks(d):
+                for li in template.get(d.weekday(), []):
+                    _parse_line(li, d, out)
+            d += timedelta(days=1)
+        out.warnings = list(dict.fromkeys(out.warnings))  # the same line warns once, not per date
+        covers_from = min([lo] + [w[0] for w in weeks])
+        covers_to = max([hi] + [w[1] for w in weeks])
+    elif weeks:
         covers_from, covers_to = min(w[0] for w in weeks), max(w[1] for w in weeks)
     elif past_weeks:
         covers_from, covers_to = max(past_weeks)

@@ -102,28 +102,39 @@ def test_layout_change_fails_loudly():
         a.parse(_page("<h2>Vecka 45</h2><h3>Lucia</h3><ul><li>A-hallen: klockan 10-12</li></ul>"), TODAY)
 
 
-# The page as revised later on 2026-11-02: the weekday list lost its "Vecka 45" heading.
+# The page as revised later on 2026-11-02: the weekday list has no "Vecka" heading,
+# so it is the standing weekly schedule.
 def unlabelled():
     return (FIXTURES / "sollentuna_web_unlabelled.html").read_text(encoding="utf-8")
 
 
-def test_unlabelled_week_is_the_week_the_page_was_updated():
+def test_weekly_schedule_is_expanded_two_weeks():
     r = a.parse({"page": unlabelled()}, date(2026, 11, 2))
     assert r.warnings == []
-    assert (r.covers_from, r.covers_to) == ("2026-11-02", "2026-11-06")
+    assert (r.covers_from, r.covers_to) == ("2026-11-02", "2026-11-15")
     got = [(s.date, s.start, s.end, s.stick) for s in r.halls["sollentuna-sollentunavallen-a-hallen"].sessions]
+    assert len(got) == 18
     assert got[:2] == [("2026-11-02", "10:00", "12:30", "no_stick"), ("2026-11-02", "12:30", "14:45", "with_stick")]
-    assert ("2026-11-04", "10:00", "11:30", "with_stick") in got
+    assert ("2026-11-11", "10:00", "11:30", "with_stick") in got
+    assert not any(d in ("2026-11-07", "2026-11-08") for d, *_ in got)  # no weekend times listed
     assert r.halls["sollentuna-sollentunavallen-b-hallen"].sessions == []
 
 
-def test_unlabelled_week_updated_on_a_weekend_fails_loudly():
-    page = unlabelled().replace('datetime="2026-11-02"', 'datetime="2026-11-08"')
-    with pytest.raises(ParseError):
-        a.parse({"page": page}, date(2026, 11, 8))
+def test_window_moves_with_today():
+    r = a.parse({"page": unlabelled()}, date(2026, 11, 20))
+    assert (r.covers_from, r.covers_to) == ("2026-11-20", "2026-12-03")
+    assert min(s.date for s in r.halls["sollentuna-sollentunavallen-a-hallen"].sessions) == "2026-11-20"
 
 
-def test_unlabelled_week_from_an_earlier_week_is_past():
-    r = a.parse({"page": unlabelled()}, date(2026, 11, 10))
-    assert all(h.sessions == [] for h in r.halls.values())
-    assert r.covers_to == "2026-11-06"
+def test_a_dated_week_replaces_the_weekly_schedule_for_that_week():
+    week = ('<h2>Vecka 46:</h2><h3>Måndag</h3><ul><li>B-hallen: klockan 09.00-10.00 - Med klubba.</li></ul>'
+            '<h3>Tisdag</h3><ul><li>Ingen allmänhetens åkning!</li></ul>')
+    page = unlabelled().replace("<h2>Boka ishallarna", week + "<h2>Boka ishallarna", 1)
+    assert page != unlabelled()
+    r = a.parse({"page": page}, date(2026, 11, 2))
+    a_hall = {s.date for s in r.halls["sollentuna-sollentunavallen-a-hallen"].sessions}
+    b_hall = [(s.date, s.start) for s in r.halls["sollentuna-sollentunavallen-b-hallen"].sessions]
+    # Monday and Tuesday of week 46 come from the dated list; the rest of the week is the weekly schedule.
+    assert "2026-11-06" in a_hall and "2026-11-09" not in a_hall and "2026-11-10" not in a_hall
+    assert "2026-11-11" in a_hall
+    assert b_hall == [("2026-11-09", "09:00")]
