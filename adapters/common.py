@@ -170,10 +170,11 @@ def weekday_number(word: str) -> int | None:
 
 # A time range: "14.00-15.45", "14:00 – 15:45", "9-10.50", "kl. 1300-14.50", "12-14".
 # The look-arounds reject runs like "09.00-14-00", "13.300", "26/10-1/11" and
-# "26-30 oktober" instead of half-reading them. Still, only run it on text that
+# "26-30 oktober" or a phone number like "08-555 592 64" instead of half-reading them. Still, only run it on text that
 # is meant to hold times: a bare "2-8" could be anything.
+_CLOCK = r"(?:(\d{2})(\d{2})|(\d{1,2})(?:[.:](\d{2}))?)"  # "1300" or "13", "13.00", "13:00"
 TIME_RANGE_RE = re.compile(
-    r"(?<![\d.:/\-–])(\d{1,2})(?:[.:]?(\d{2}))?\s*[–—-]\s*(\d{1,2})(?:[.:]?(\d{2}))?"
+    r"(?<![\d.:/\-–])" + _CLOCK + r"\s*[–—-]\s*" + _CLOCK +
     r"(?![.:/\-–]?\d)(?!\s*(?:jan|feb|mar|apr|maj|jun|jul|aug|sep|okt|nov|dec))",
     re.I,
 )
@@ -188,7 +189,8 @@ def time_ranges(text: str) -> list[tuple[str, str]]:
     (e.g. a typo like "15-30-17.50"); callers turn that into a warning."""
     out = []
     for m in TIME_RANGE_RE.finditer(text):
-        h1, m1, h2, m2 = m.groups()
+        a, b, c, d, e_, f, g, h = m.groups()
+        h1, m1, h2, m2 = a or c, b or d, e_ or g, f or h
         try:
             s, e = hhmm(h1, m1 or 0), hhmm(h2, m2 or 0)
         except ParseError as exc:

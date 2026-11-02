@@ -342,6 +342,150 @@
       "lat": 59.40402,
       "lon": 18.32791,
       "info_url": "https://exportservice.actorsmartbook.se/ExportGridStyle.aspx?com=6bb4f0a4-3cd1-49c9-84e9-4e72a5e3aa16&con=1d8d1d00-2c01-4187-b4b9-ab53de6d1981"
+    },
+    "huddinge-bjorkangshallen-b": {
+      "name": "Björkängshallen",
+      "short_name": "Björkängshallen B",
+      "rink": "B",
+      "municipality": "Huddinge",
+      "lat": 59.24075,
+      "lon": 18.00721,
+      "info_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/"
+    },
+    "huddinge-segeltorpshallen": {
+      "name": "Segeltorpshallen",
+      "short_name": "Segeltorpshallen",
+      "rink": null,
+      "municipality": "Huddinge",
+      "lat": 59.26843,
+      "lon": 17.92924,
+      "info_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/"
+    },
+    "huddinge-stortorpshallen": {
+      "name": "Stortorpshallen",
+      "short_name": "Stortorpshallen",
+      "rink": null,
+      "municipality": "Huddinge",
+      "lat": 59.23527,
+      "lon": 18.1316,
+      "info_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/"
+    },
+    "huddinge-visattrahallen": {
+      "name": "Visättrahallen",
+      "short_name": "Visättrahallen",
+      "rink": null,
+      "municipality": "Huddinge",
+      "lat": 59.21657,
+      "lon": 17.96349,
+      "info_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/"
+    },
+    "huddinge-visattra-bandyplan": {
+      "name": "Visättra bandyplan",
+      "short_name": "Visättra bandy",
+      "rink": null,
+      "municipality": "Huddinge",
+      "lat": 59.21678,
+      "lon": 17.96166,
+      "info_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/"
+    },
+    "sigtuna-pinbackshallen-a-hallen": {
+      "name": "Pinbackshallen",
+      "short_name": "Pinbacken A",
+      "rink": "A-hallen",
+      "municipality": "Sigtuna",
+      "lat": 59.61681,
+      "lon": 17.85796,
+      "info_url": "https://www.sigtuna.se/uppleva-och-gora/trana-och-idrotta/skridskoakning-och-ishall/ishall.html"
+    },
+    "sigtuna-pinbackshallen-b-hallen": {
+      "name": "Pinbackshallen",
+      "short_name": "Pinbacken B",
+      "rink": "B-hallen",
+      "municipality": "Sigtuna",
+      "lat": 59.61681,
+      "lon": 17.85796,
+      "info_url": "https://www.sigtuna.se/uppleva-och-gora/trana-och-idrotta/skridskoakning-och-ishall/ishall.html"
+    },
+    "danderyd-enebybergs-ip-ishallen": {
+      "name": "Enebybergs IP",
+      "short_name": "Enebyberg",
+      "rink": "Ishallen",
+      "municipality": "Danderyd",
+      "lat": 59.42532,
+      "lon": 18.02783,
+      "info_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/"
+    },
+    "danderyd-stockhagens-ip-ishallen": {
+      "name": "Stockhagens IP",
+      "short_name": "Stockhagen",
+      "rink": "Ishallen",
+      "municipality": "Danderyd",
+      "lat": 59.38914,
+      "lon": 18.06888,
+      "info_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/"
+    },
+    "upplands-bro-kungsangens-ip": {
+      "name": "Kungsängens IP",
+      "short_name": "Kungsängens IP",
+      "rink": null,
+      "municipality": "Upplands-Bro",
+      "lat": 59.49181,
+      "lon": 17.74165,
+      "info_url": "https://www.upplands-bro.se/is"
+    },
+    "sollentuna-sollentunavallen-a-hallen": {
+      "name": "Sollentunavallen",
+      "short_name": "Sollentunavallen A",
+      "rink": "A-hallen",
+      "municipality": "Sollentuna",
+      "lat": 59.43634,
+      "lon": 17.95337,
+      "info_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning"
+    },
+    "sollentuna-sollentunavallen-b-hallen": {
+      "name": "Sollentunavallen",
+      "short_name": "Sollentunavallen B",
+      "rink": "B-hallen",
+      "municipality": "Sollentuna",
+      "lat": 59.43634,
+      "lon": 17.95337,
+      "info_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning"
+    },
+    "solna-ulriksdals-ip-hall-2": {
+      "name": "Ulriksdals IP",
+      "short_name": "Ulriksdal 2",
+      "rink": "Hall 2",
+      "municipality": "Solna",
+      "lat": 59.37449,
+      "lon": 18.00728,
+      "info_url": "https://www.solna.se/uppleva--gora/natur-och-friluftsliv/aka-skridskor"
+    },
+    "sundbyberg-tulehallen": {
+      "name": "Tulehallen",
+      "short_name": "Tulehallen",
+      "rink": null,
+      "municipality": "Sundbyberg",
+      "lat": 59.37065,
+      "lon": 17.96502,
+      "info_url": "https://www.sundbyberg.se/uppleva-och-gora/idrott-motion-och-friluftsliv/hallar-och-idrottsanlaggningar/ishall-och-isbanor"
+    },
+    "taby-hagernas-ishall": {
+      "name": "Hägernäs ishall",
+      "short_name": "Hägernäs",
+      "rink": null,
+      "municipality": "Täby",
+      "lat": 59.44389,
+      "lon": 18.1266,
+      "info_url": "https://www.taby.se/uppleva-och-gora/idrott-och-motion/skridskor-och-ishall"
+    },
+    "taby-tibble-ishall": {
+      "name": "Tibble ishall",
+      "short_name": "Tibble",
+      "rink": null,
+      "municipality": "Täby",
+      "lat": 59.44043,
+      "lon": 18.06449,
+      "info_url": "https://www.taby.se/uppleva-och-gora/idrott-och-motion/skridskor-och-ishall"
     }
   }
 }

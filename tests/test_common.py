@@ -16,7 +16,7 @@ from adapters.common import (
     ("10.00 – 10.45", [("10:00", "10:45")]),
     # typos and things that are not times are not half-read
     ("15-30-17.50", []), ("11-00–12.50", []), ("13.300–15.15", []), ("09.00-14-00", []),
-    ("2026-11-02", []), ("26-30 oktober", []), ("Vecka 44 (26/10-1/11)", []),
+    ("2026-11-02", []), ("26-30 oktober", []), ("Vecka 44 (26/10-1/11)", []), ("Tel 08-555 592 64", []),
 ])
 def test_time_ranges(text, expected):
     assert time_ranges(text) == expected
