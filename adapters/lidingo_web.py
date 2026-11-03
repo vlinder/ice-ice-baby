@@ -235,18 +235,64 @@ def _closed_dates(sec: _Section, window: tuple[date, date], today: date,
     return closed
 
 
-def _slots(sec: _Section, warnings: list[str]) -> list[Slot]:
+CLOSED_RE = re.compile(r"^\(?\s*(stängt|stängd|inställt|inställd|utgår)\b", re.I)
+
+
+def _row_date(sec: _Section, text: str, today: date) -> date | None:
+    """A table row labelled with a date ("3 november") instead of a weekday."""
+    m = DATE_RE.fullmatch(text.strip())
+    if not m:
+        return None
+    try:
+        mon = month_number(m.group(2))
+    except ParseError:
+        return None
+    if sec.deviation_years:
+        y = sec.deviation_years[0] if mon >= 7 else sec.deviation_years[1]
+    else:
+        y = infer_year(mon, int(m.group(1)), today)
+    try:
+        return date(y, mon, int(m.group(1)))
+    except ValueError:
+        return None
+
+
+def _slots(sec: _Section, warnings: list[str], today: date
+           ) -> tuple[list[Slot], dict[date, list[tuple[str, str, str, str | None]]]]:
+    """Weekly slots, plus dated rows: date -> its times (empty list = closed that day).
+
+    A dated row replaces the weekly times on its date. If a dated row cannot be read,
+    the date still gets an empty list: showing nothing beats showing a cancelled time.
+    """
     hid = hall_id(sec.hall)
     rows = _rows(sec.table)
     for dt in sec.dialog_tables:
         if _rows(dt) != rows:
             warnings.append(f"{hid}: fullscreen copy of the table differs from the page table")
     slots: list[Slot] = []
+    dated: dict[date, list[tuple[str, str, str, str | None]]] = {}
     wd: int | None = None
     for cells in rows:
         if len(cells) != 3:
             raise ParseError(f"{hid}: unexpected table row {cells!r}")
         day, times, comment = cells
+        d = _row_date(sec, day, today) if day else None
+        if d is not None:
+            # "3 november | Stängt |", or a dated time that replaces the weekly ones
+            entries = dated.setdefault(d, [])
+            if CLOSED_RE.match(times) and not re.search(r"\d", times):
+                continue
+            try:
+                ranges = time_ranges(times)
+            except BadTimeRange:
+                ranges = []
+            if not ranges:
+                warnings.append(f"{hid}: could not read dated row {' | '.join(cells)!r}; no times shown that day")
+                continue
+            stick, note = _stick(comment)
+            entries += [(s, e, stick, note) for s, e in ranges]
+            wd = None  # a following row without a day label belongs to no weekday
+            continue
         if day:
             wd = weekday_number(day)
             if wd is None:
@@ -266,7 +312,7 @@ def _slots(sec: _Section, warnings: list[str]) -> list[Slot]:
         stick, note = _stick(comment)
         for s, e in ranges:
             slots.append(Slot(weekday=wd, start=s, end=e, stick=stick, note=note))
-    return slots
+    return slots, dated
 
 
 def parse(raw: dict[str, str], today: date) -> AdapterResult:
@@ -294,12 +340,16 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
                 continue
             halls[hid] = hr  # out of season: closed
             continue
-        slots = _slots(sec, warnings)
+        slots, dated = _slots(sec, warnings, today)
         if window is not None:
             if not slots:
                 raise ParseError(f"{name}: schedule table has no times")
-            skip = _closed_dates(sec, window, today, warnings)
-            hr.sessions = _dedupe(expand_weekly(slots, window[0], window[1], SOURCE_URL, skip=skip))
+            skip = _closed_dates(sec, window, today, warnings) | set(dated)
+            sessions = expand_weekly(slots, window[0], window[1], SOURCE_URL, skip=skip)
+            sessions += [Session(date=d.isoformat(), start=s, end=e, stick=st, source_url=SOURCE_URL, note=n)
+                         for d, entries in dated.items() if window[0] <= d <= window[1]
+                         for s, e, st, n in entries]
+            hr.sessions = _dedupe(sessions)
         halls[hid] = hr
 
     total = sum(len(h.sessions) for h in halls.values())
