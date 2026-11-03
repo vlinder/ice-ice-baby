@@ -114,3 +114,25 @@ def test_missing_hall_section_fails_loudly():
 def test_layout_change_fails_loudly():
     with pytest.raises(ParseError):
         a.parse({"page": "<html><body><main><h2>Ny design</h2></main></body></html>"}, TODAY)
+
+
+# The page on 2026-11-03: dated rows ("3 november | Stängt") in Exakt arena's weekly table.
+def _dated():
+    return a.parse({"page": (FIXTURES / "lidingo_web_dated.html").read_text(encoding="utf-8")},
+                             date(2026, 11, 3))
+
+
+def test_dated_closed_rows_remove_the_weekly_times():
+    r = _dated()
+    assert r.warnings == []
+    arena = {s.date for s in r.halls["lidingo-exakt-arena"].sessions}
+    assert "2026-11-03" not in arena and "2026-11-14" not in arena
+    assert "2026-11-04" in arena and "2026-11-10" in arena  # other Tuesdays/Wednesdays unchanged
+
+
+def test_unreadable_dated_row_shows_nothing_that_day():
+    page = (FIXTURES / "lidingo_web_dated.html").read_text(encoding="utf-8")
+    assert page.count("Stängt") >= 2  # 3 and 14 November in the table (and its fullscreen copy)
+    r = a.parse({"page": page.replace("Stängt", "Öppet hus?")}, date(2026, 11, 3))
+    assert r.warnings and all(w.startswith("lidingo-exakt-arena:") for w in r.warnings)
+    assert "2026-11-03" not in {s.date for s in r.halls["lidingo-exakt-arena"].sessions}

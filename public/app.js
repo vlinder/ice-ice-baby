@@ -45,7 +45,7 @@ function problemText(h) {
   const ps = (h.data && h.data.problems) || [];
   if (!ps.length) return "";
   const texts = [...new Set(ps.map((p) => p.source_text).filter(Boolean))].slice(0, 3);
-  return "En del av kommunens schema för den här hallen gick inte att läsa automatiskt, så tider kan saknas här. " +
+  return "En del av kommunens schema för den här hallen gick inte att läsa automatiskt, så tider kan saknas eller ha ändrats. " +
     "Kontrollera källan innan du åker." +
     (texts.length ? ` Det som inte gick att läsa: ${texts.map((x) => `”${x}”`).join(", ")}.` : "");
 }

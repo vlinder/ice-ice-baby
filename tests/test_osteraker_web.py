@@ -142,3 +142,29 @@ def test_off_season_page_is_empty_with_reason():
     r = a.parse({"page": page}, date(2027, 6, 1))
     assert r.empty_reason and set(r.halls) == {I1, I2}
     assert all(not h.sessions for h in r.halls.values())
+
+
+# The page on 2026-11-03: dated rows for 28-29 November in both weekly tables.
+def _dated():
+    return a.parse({"page": (FIXTURES / "osteraker_web_dated.html").read_text(encoding="utf-8")}, date(2026, 11, 3))
+
+
+def test_dated_rows_replace_the_weekly_times():
+    r = _dated()
+    assert r.warnings == []
+    hall1 = "osteraker-osterakers-sportcentrum-ishall-1"
+    hall2 = "osteraker-osterakers-sportcentrum-ishall-2"
+    # Ishall 1: "(utgår) (flyttas till ishall 2)" -> no skating that weekend
+    assert _day(r, hall1, "2026-11-28") == [] and _day(r, hall1, "2026-11-29") == []
+    # Ishall 2: the stick session "(utgår)", replaced by 11.45–13 without sticks
+    assert _day(r, hall2, "2026-11-28") == [("11:45", "13:00", "no_stick")]
+    assert _day(r, hall2, "2026-11-22") == [("11:45", "13:00", "with_stick")]  # the weekend before is unchanged
+
+
+def test_listed_dates():
+    t = date(2026, 11, 3)
+    assert a.listed_dates("lördag 28 och söndag 29 november", t) == [date(2026, 11, 28), date(2026, 11, 29)]
+    assert a.listed_dates("28–29 november", t) == [date(2026, 11, 28), date(2026, 11, 29)]
+    assert a.listed_dates("3 januari", t) == [date(2027, 1, 3)]
+    assert a.listed_dates("måndagar–fredagar", t) is None
+    assert a.listed_dates("lördag 28 november och söndag 29 november", t) is None  # two month words: not guessed

@@ -43,7 +43,7 @@ from bs4 import BeautifulSoup, Tag
 from .common import (
     STICK_UNKNOWN,
     AdapterResult, BadTimeRange, HallResult, ParseError, Session, Slot,
-    expand_weekly, http_get, month_number, norm_space, recurring_window, slugify,
+    expand_weekly, http_get, infer_year, month_number, norm_space, recurring_window, slugify,
     stick_from_text, sv_date, time_ranges, weekday_number,
 )
 
@@ -65,7 +65,7 @@ RINK_RE = re.compile(r"^(ishall\s+\d+)\b", re.I)
 HOLIDAY_H2_RE = re.compile(r"^\w*lov\w*\b", re.I)
 AGAIN_RE = re.compile(r"har\s+tider\s+igen\s+i\s+" + _MONTHS + r"\s+\d{4}", re.I)
 DIGIT_TIME_RE = re.compile(r"\d")
-CLOSED_RE = re.compile(r"(stängt|inställt|ingen\s+åkning)\.?", re.I)
+CLOSED_RE = re.compile(r"\(?\s*(stängt|inställt|utgår|ingen\s+åkning)\s*\)?\.?", re.I)
 
 
 def fetch() -> dict[str, str]:
@@ -164,6 +164,33 @@ def _block_dates(spec: str, b_from: date, b_to: date) -> list[date] | None:
     return [a + timedelta(days=i) for i in range((b - a).days + 1)]
 
 
+def listed_dates(spec: str, today: date) -> list[date] | None:
+    """Dated rows in a weekly table: 'lördag 28 och söndag 29 november' -> [28 Nov, 29 Nov],
+    '3 november', '28–29 november'. None if the cell is not a list of dates in one month."""
+    words = [w for w in re.split(r"[\s,]+", norm_space(re.sub(r"\(.*?\)", "", spec)).lower()) if w]
+    months = [w for w in words if re.fullmatch(_MONTHS, w, re.I)]
+    if len(months) != 1 or words[-1] != months[0]:
+        return None
+    days: list[int] = []
+    for w in words[:-1]:
+        if w == "och" or weekday_number(w) is not None:
+            continue
+        m = re.fullmatch(r"(\d{1,2})(?:[–—-](\d{1,2}))?", w)
+        if not m:
+            return None
+        a, b = int(m.group(1)), int(m.group(2) or m.group(1))
+        if b < a:
+            return None
+        days += range(a, b + 1)
+    if not days:
+        return None
+    mon = month_number(months[0])
+    try:
+        return [date(infer_year(mon, d, today), mon, d) for d in days]
+    except (ValueError, ParseError):
+        return None
+
+
 def _rows(table: Tag) -> list[list[str]]:
     rows = []
     for tr in table.find_all("tr"):
@@ -210,6 +237,7 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
 
     templates: dict[str, tuple[list[Slot], date, date]] = {}
     blocks: dict[str, list[tuple[date, date, dict[date, list[Session]]]]] = {}
+    dated: dict[str, dict[date, list[Session]]] = {}  # dated rows in the weekly tables
 
     mode: str | None = None
     block: tuple[date, date] | None = None
@@ -261,7 +289,23 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
                     raise ParseError(f"{hid}: unexpected row {cells!r}")
                 wds = weekdays_spec(cells[0])
                 if wds is None:
-                    warnings.append(f"{hid}: unknown days in {cells!r}")
+                    # A dated row in the weekly table ("lördag 28 och söndag 29 november")
+                    # replaces the weekly times on those dates. "(utgår)" means none.
+                    dates = listed_dates(cells[0], today)
+                    if dates is None:
+                        warnings.append(f"{hid}: unknown days in {cells!r}")
+                        continue
+                    for d in dates:
+                        dated.setdefault(rink, {}).setdefault(d, [])
+                    if CLOSED_RE.fullmatch(cells[1]) and not _has_time(" ".join(cells)):
+                        continue
+                    ranges = _times(hid, cells, warnings)  # unreadable: the dates stay empty
+                    if ranges is None:
+                        continue
+                    stick, note = _stick(cells[2])
+                    for d in dates:
+                        dated[rink][d] += [Session(date=d.isoformat(), start=s, end=e, stick=stick,
+                                                   source_url=SOURCE_URL, note=note) for s, e in ranges]
                     continue
                 ranges = _times(hid, cells, warnings)
                 if ranges is None:
@@ -334,6 +378,7 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
             while d <= b_to:
                 overridden[d] = days.get(d, [])
                 d += timedelta(days=1)
+        overridden.update(dated.get(r, {}))
         sessions: list[Session] = []
         win = recurring_window(today, s_from, s_to)
         if win:
