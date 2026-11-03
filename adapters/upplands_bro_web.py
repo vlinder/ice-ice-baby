@@ -2,16 +2,27 @@
 
 Page layout (as of Nov 2026, Sitevision): ``<h3>Skridskor på isbanan på
 Kungsängens IP</h3>`` (the outdoor, artificially frozen bandy rink) is followed by
-a collapsible box "Öppettider på isbanan Kungsängen". Out of season that box
-still holds last season's last table ("Öppettider för isbanan vecka 9", rows
-"Måndag 23/2 | 10.00 - 21.00", no year) and the text "Tack för den här
-säsongen!". The ice is normally open from jullovet to sportlovet.
+a collapsible box "Öppettider på isbanan Kungsängen" holding dated tables
+("Öppettider för isbanan vecka 9", rows "Måndag 23/2 | 10.00 - 21.00", no year),
+and a few paragraphs of text. The ice is normally open from jullovet to sportlovet.
 
-This adapter only understands the closed state: when the Kungsängen section says
-"Tack för den här säsongen!" and every dated row in it lies in the past, it
-returns the hall with no sessions and an ``empty_reason``. Anything else (the
-marker gone, or a row dated today or later) raises ParseError so that a human
-writes a real parser for the in-season layout.
+The section is in one of three states:
+
+* **Closed** – the text says "Tack för den här säsongen!" and the box still holds last
+  season's last table. Every dated row must lie in the past; the hall is returned with no
+  sessions and an ``empty_reason``.
+* **Pre-season** – the text says "Nu närmar sig is-säsongen … Planerad öppning av is-banan
+  är lucia." Rows dated today or later are read as sessions; if there are none, the hall is
+  returned with no sessions and an ``empty_reason``, covering the days up to the planned
+  opening when it can be read ("lucia", "13 december").
+* **In season** – no notice; the dated rows from today on are the sessions, and ``covers``
+  is the days the tables list.
+
+A table whose caption names a week ("vecka 9") must list days of that week. If it does not
+(Nov 2026: "vecka 9" over 22/2–28/2, which is week 8 of 2027) the table cannot be trusted,
+so it is skipped with a warning. A first cell that is not "Weekday D/M" raises ParseError, as
+does a pre-season notice whose planned opening has passed with no times listed, and an
+in-season page with no times.
 
 Further down, "Status skidspår och skridskoisar" has tables with dates like
 20260123 / 2026-02-24 (last grooming); they are not opening hours and lie
@@ -20,13 +31,13 @@ outside the Kungsängen section, so they are never read.
 from __future__ import annotations
 
 import re
-from datetime import date
+from datetime import date, timedelta
 
 from bs4 import BeautifulSoup, Tag
 
 from .common import (
-    AdapterResult, HallResult, ParseError, http_get, norm_space, recurring_window, sv_date,
-    weekday_number,
+    STICK_UNKNOWN, AdapterResult, BadTimeRange, HallResult, ParseError, Session, http_get,
+    norm_space, recurring_window, sv_date, time_ranges, weekday_number,
 )
 
 NAME = "upplands-bro-web"
@@ -37,7 +48,12 @@ HALL_ID = "upplands-bro-kungsangens-ip"
 HALL_NAME = "Kungsängens IP"
 SECTION_RE = re.compile(r"isbanan\s+på\s+Kungsängens\s+IP", re.I)
 CLOSED_RE = re.compile(r"Tack\s+för\s+den\s+här\s+säsongen", re.I)
+PRESEASON_RE = re.compile(r"närmar\s+sig\s+is-?säsongen|Planerad\s+öppning", re.I)
+OPENING_RE = re.compile(r"Planerad\s+öppning\s+av\s+is-?banan\s+är\s+([^.!]+)", re.I)
+OPENING_DATE_RE = re.compile(r"(\d{1,2})\s+([a-zåäö]+)", re.I)
 ROW_DATE_RE = re.compile(r"^([a-zåäö]+)\s+(\d{1,2})/(\d{1,2})\b", re.I)
+WEEK_RE = re.compile(r"vecka\s+(\d{1,2})", re.I)
+NO_TIMES_RE = re.compile(r"\bstängt\b", re.I)
 UPDATED_RE = re.compile(r"Uppdaterad:?\s*(\d{1,2})\s+([a-zåäö]+)\s+(\d{4})", re.I)
 
 
@@ -78,14 +94,17 @@ def _row_date(day_word: str, d: int, m: int, today: date) -> date | None:
     return best
 
 
-def parse(raw: dict[str, str], today: date) -> AdapterResult:
-    soup = BeautifulSoup(raw["page"], "lxml")
-    els = _section(soup)
-    text = norm_space(" ".join(el.get_text(" ") for el in els if el.name in ("p", "caption", "h4")))
-    if not CLOSED_RE.search(text):
-        raise ParseError("Kungsängens IP: the 'Tack för den här säsongen' notice is gone – the page "
-                         "probably shows this season's times now, which this adapter cannot read yet")
+def _dm(d: date) -> str:
+    return f"{d.day}/{d.month}"
+
+
+def _rows(els: list[Tag], today: date, warnings: list[str]) -> list[tuple[date, str]]:
+    """(date, time cell) for every readable row of the section's tables."""
+    out = []
     for table in (el for el in els if el.name == "table"):
+        cap = table.find("caption")
+        caption = norm_space(cap.get_text(" ")) if cap else ""
+        rows = []
         for tr in table.find_all("tr"):
             tds = tr.find_all("td")
             if not tds:
@@ -93,18 +112,103 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
             cell = norm_space(tds[0].get_text(" "))
             m = ROW_DATE_RE.match(cell)
             if not m:
-                raise ParseError(f"Kungsängens IP: unexpected row {cell!r} next to the closed notice")
+                raise ParseError(f"Kungsängens IP: unexpected row {cell!r} in {caption or 'a table'!r}")
             d = _row_date(m.group(1), int(m.group(2)), int(m.group(3)), today)
-            if d is None or d >= today:
-                raise ParseError(f"Kungsängens IP: row {cell!r} is not in the past although the page "
-                                 "says the season is over")
+            if d is None:
+                warnings.append(f"{HALL_ID}: {cell!r} is not a real date in any nearby year – row skipped")
+                continue
+            rows.append((d, norm_space(" ".join(td.get_text(" ") for td in tds[1:]))))
+        wk = WEEK_RE.search(caption)
+        weeks = sorted({d.isocalendar().week for d, _ in rows})
+        if wk and rows and weeks != [int(wk.group(1))]:
+            warnings.append(f"{HALL_ID}: table {caption!r} lists "
+                            f"{_dm(rows[0][0])}–{_dm(rows[-1][0])}, which is week "
+                            f"{'/'.join(map(str, weeks))} – times not used")
+            continue
+        out.extend(rows)
+    return out
 
-    lo, hi = recurring_window(today)
+
+def _sessions(rows: list[tuple[date, str]], warnings: list[str]) -> list[Session]:
+    out = []
+    for d, txt in rows:
+        try:
+            ranges = time_ranges(txt)
+        except BadTimeRange as exc:
+            warnings.append(f"{HALL_ID}: {d.isoformat()}: unreadable time {exc}")
+            continue
+        if not ranges and not NO_TIMES_RE.search(txt):
+            warnings.append(f"{HALL_ID}: {d.isoformat()}: no time in {txt!r}")
+        for s, e in ranges:
+            out.append(Session(date=d.isoformat(), start=s, end=e, stick=STICK_UNKNOWN,
+                               source_url=SOURCE_URL))
+    return out
+
+
+def _planned_opening(text: str, today: date) -> tuple[str, date | None] | None:
+    """The planned-opening phrase ("lucia") and its date, if it can be read."""
+    m = OPENING_RE.search(text)
+    if not m:
+        return None
+    phrase = norm_space(m.group(1))
+    if re.fullmatch(r"(till\s+)?lucia", phrase, re.I):
+        y = today.year if (today.month, today.day) <= (12, 13) else today.year + 1
+        return phrase, date(y, 12, 13)
+    dm = OPENING_DATE_RE.fullmatch(phrase)
+    if dm:
+        try:
+            return phrase, sv_date(dm.group(1), dm.group(2), today)
+        except ParseError:
+            pass
+    return phrase, None
+
+
+def parse(raw: dict[str, str], today: date) -> AdapterResult:
+    soup = BeautifulSoup(raw["page"], "lxml")
+    els = _section(soup)
+    text = norm_space(" ".join(el.get_text(" ") for el in els if el.name in ("p", "caption", "h4")))
+    closed = CLOSED_RE.search(text)
+    preseason = PRESEASON_RE.search(text)
+
+    warnings: list[str] = []
+    rows = _rows(els, today, warnings)
+    future = [(d, t) for d, t in rows if d >= today]
+
     m = UPDATED_RE.search(soup.get_text(" "))
     updated = sv_date(m.group(1), m.group(2), today, m.group(3)).isoformat() + "T00:00" if m else None
-    return AdapterResult(
-        covers_from=lo.isoformat(), covers_to=hi.isoformat(), source_updated=updated,
-        halls={HALL_ID: HallResult(hall_id=HALL_ID, name=HALL_NAME, rink=None)},
-        warnings=[],
-        empty_reason="Season over: the page says 'Tack för den här säsongen!' and lists no times",
-    )
+    hall = HallResult(hall_id=HALL_ID, name=HALL_NAME, rink=None)
+
+    if closed:
+        if future:
+            raise ParseError(f"Kungsängens IP: a row dated {future[0][0].isoformat()} is not in the "
+                             "past although the page says the season is over")
+        lo, hi = recurring_window(today)
+        return AdapterResult(
+            covers_from=lo.isoformat(), covers_to=hi.isoformat(), source_updated=updated,
+            halls={HALL_ID: hall}, warnings=warnings,
+            empty_reason="Season over: the page says 'Tack för den här säsongen!' and lists no times",
+        )
+
+    if future:
+        hall.sessions = _sessions(future, warnings)
+        lo = max(today, min(d for d, _ in future))
+        hi = max(d for d, _ in future)
+        return AdapterResult(covers_from=lo.isoformat(), covers_to=hi.isoformat(),
+                             source_updated=updated, halls={HALL_ID: hall}, warnings=warnings)
+
+    if preseason:
+        opening = _planned_opening(text, today)
+        season_from = opening[1] if opening else None
+        if season_from is not None and season_from <= today:
+            raise ParseError(f"Kungsängens IP: the planned opening ({opening[0]!r}) has passed but "
+                             "the page still lists no times")
+        win = recurring_window(today, season_to=season_from - timedelta(days=1) if season_from else None)
+        reason = "Season not started: the page says the ice is being prepared"
+        if opening:
+            reason += f" (planned opening: {opening[0]})"
+        return AdapterResult(
+            covers_from=win[0].isoformat(), covers_to=win[1].isoformat(), source_updated=updated,
+            halls={HALL_ID: hall}, warnings=warnings, empty_reason=reason + " and lists no times",
+        )
+
+    raise ParseError("Kungsängens IP: no season notice and no current times – has the page layout changed?")
