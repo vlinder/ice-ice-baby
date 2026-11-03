@@ -23,7 +23,7 @@ import sys
 from adapters import ADAPTERS
 
 from .paths import HALLS_DIR, ROOT, SOURCES_FILE, read_json
-from .problems import source_text
+from .problems import problem
 
 OUT_DIR = ROOT / "problem-issues"
 LABEL = "parser-problem"
@@ -61,8 +61,7 @@ def collect() -> list[dict]:
         by_hall = {h["hall_id"]: h.get("problems") or [] for h in halls.get(src["adapter"], [])}
         by_hall = {k: v for k, v in by_hall.items() if v}
         on_halls = {p["message"] for ps in by_hall.values() for p in ps}
-        loose = [{"message": w, "source_text": source_text(w)} for w in src.get("warnings") or []
-                 if w not in on_halls]
+        loose = [problem(w, None) for w in src.get("warnings") or [] if w not in on_halls]
         if loose:
             by_hall["(källan)"] = loose
         unused = src.get("corrections_unused") or []

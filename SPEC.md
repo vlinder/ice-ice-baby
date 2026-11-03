@@ -147,10 +147,15 @@ The skipped parts are recorded on the hall file as `problems`:
 
 ```json
 "problems": [
-  {"message": "huddinge-visattrahallen: Måndag: unreadable time '11-00–12.50'",
+  {"hall_id": "huddinge-visattrahallen",
+   "message": "huddinge-visattrahallen: Måndag: unreadable time '11-00–12.50'",
    "source_text": "11-00–12.50"}
 ]
 ```
+
+`hall_id` is the hall the problem concerns, or `null` when the warning names no hall and so
+applies to every hall of the source (it is then stored on each of them). `source_text` is
+the text from the source that could not be read, or `null` if the warning quotes none.
 
 The site marks such halls "tider kan saknas", with a plain-language explanation on hover or
 tap. `python -m pipeline.problem_report --github` keeps one GitHub issue (label

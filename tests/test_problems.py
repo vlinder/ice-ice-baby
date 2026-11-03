@@ -5,7 +5,7 @@ from adapters import huddinge_web, taby_web
 from adapters.common import AdapterResult, HallResult
 from conftest import FIXTURES
 from pipeline import anomalies, problem_report, run
-from pipeline.problems import apply_corrections, attribute, load_corrections, source_text
+from pipeline.problems import apply_corrections, attribute, load_corrections, problem, source_text
 
 TODAY = date(2026, 11, 2)
 
@@ -52,8 +52,8 @@ def test_a_correction_restores_a_skipped_session():
 def test_attribute_by_hall_prefix_and_fallback_to_all_halls():
     out = attribute(["x-a-b: Måndag: unreadable time '11-00–12.50'", "x-a 2026-11-07: could not read 'y'",
                      "Unknown section 'Jullov'"], ["x-a", "x-a-b"])
-    assert [p["source_text"] for p in out["x-a-b"]] == ["11-00–12.50", "Jullov"]
-    assert [p["source_text"] for p in out["x-a"]] == ["y", "Jullov"]
+    assert [(p["hall_id"], p["source_text"]) for p in out["x-a-b"]] == [("x-a-b", "11-00–12.50"), (None, "Jullov")]
+    assert [(p["hall_id"], p["source_text"]) for p in out["x-a"]] == [("x-a", "y"), (None, "Jullov")]
 
 
 def test_source_text_takes_first_short_quoted_string():
@@ -88,7 +88,8 @@ def _run(tmp_path, monkeypatch, corrections):
 def test_run_records_problems_on_the_hall(tmp_path, monkeypatch):
     src, a, b = _run(tmp_path, monkeypatch, [])
     assert src["status"] == "ok"
-    assert a["problems"] == [{"message": "fake-a: Måndag: unreadable time '11-00–12.50'", "source_text": "11-00–12.50"}]
+    assert a["problems"] == [{"hall_id": "fake-a", "message": "fake-a: Måndag: unreadable time '11-00–12.50'",
+                              "source_text": "11-00–12.50"}]
     assert b["problems"] == []
 
 
@@ -123,7 +124,7 @@ def test_parser_warnings_do_not_send_the_run_to_review(tmp_path, monkeypatch):
 def report(messages=("huddinge-visattrahallen: Måndag: unreadable time '11-00–12.50'",), unused=()):
     return {"adapter": "huddinge-web", "municipality": "Huddinge", "source_url": huddinge_web.SOURCE_URL,
             "run_at": "2026-11-02T08:40:00+01:00",
-            "halls": {"huddinge-visattrahallen": [{"message": m, "source_text": source_text(m)} for m in messages]},
+            "halls": {"huddinge-visattrahallen": [problem(m, "huddinge-visattrahallen") for m in messages]},
             "corrections_unused": list(unused)}
 
 
@@ -178,3 +179,15 @@ def test_sync_skips_unchanged_updates_changed_and_closes_resolved(monkeypatch):
     assert problem_report.sync_github([same], FakeGh(issues)) == ["closed #8 (taby-web)"]
     changed = report(messages=("huddinge-visattrahallen: something else 'z'",))
     assert problem_report.sync_github([changed], FakeGh(issues)) == ["updated #7 (huddinge-web)", "closed #8 (taby-web)"]
+
+
+def test_problems_validate_against_the_hall_schema(tmp_path, monkeypatch):
+    from jsonschema import Draft202012Validator
+
+    from pipeline.paths import SCHEMA_DIR, read_json
+
+    _, a, b = _run(tmp_path, monkeypatch, [])
+    v = Draft202012Validator(read_json(SCHEMA_DIR / "hall.schema.json"))
+    for hall in (a, b, {**b, "problems": [problem("Unknown section 'Jullov'", None)]}):
+        assert list(v.iter_errors(hall)) == []
+    assert list(v.iter_errors({**a, "problems": [{"message": "x"}]}))  # hall_id and source_text are required

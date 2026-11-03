@@ -8,7 +8,8 @@ publishes everything else. Each warning is attached to the hall it concerns as
 a "problem", so the site can show that the hall's times may be incomplete.
 
 Convention: a warning that starts with a hall id ("huddinge-visattrahallen: …")
-belongs to that hall. Other warnings belong to every hall of the adapter.
+belongs to that hall. Other warnings belong to every hall of the adapter, and
+are stored on each of them with "hall_id": null.
 The first quoted string in the warning (Python repr, as in f"{line!r}") is
 taken as the source text that could not be read.
 
@@ -92,14 +93,20 @@ def source_text(warning: str) -> str | None:
     return None
 
 
+def problem(warning: str, hall_id: str | None) -> dict:
+    """A problem as stored on a hall file. hall_id is None when the warning names no
+    hall, i.e. it applies to every hall of the source."""
+    return {"hall_id": hall_id, "message": warning, "source_text": source_text(warning)}
+
+
 def attribute(warnings: list[str], hall_ids: list[str]) -> dict[str, list[dict]]:
     """Map each hall id to the problems that concern it."""
     out: dict[str, list[dict]] = {h: [] for h in hall_ids}
     # Longest ids first, so "x-ishall-a" is not taken for "x-ishall".
     ids = sorted(hall_ids, key=len, reverse=True)
     for w in warnings:
-        problem = {"message": w, "source_text": source_text(w)}
         owner = next((h for h in ids if w == h or w.startswith(h + ":") or w.startswith(h + " ")), None)
+        p = problem(w, owner)
         for h in ([owner] if owner else hall_ids):
-            out[h].append(problem)
+            out[h].append(p)
     return out
