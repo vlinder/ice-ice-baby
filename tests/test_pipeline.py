@@ -30,3 +30,27 @@ def test_week_rollover_is_not_flagged():
     old = hall([("2026-10-27", "08:00", "09:00")], cov=("2026-10-26", "2026-11-01"))
     new = hall([("2026-11-03", "08:00", "09:00")], cov=("2026-11-02", "2026-11-08"))
     assert compare_hall(old, new, "2026-11-02") == []
+
+
+def test_zero_sessions_is_not_flagged_when_the_source_says_it_is_empty(tmp_path, monkeypatch):
+    import json
+
+    from pipeline import anomalies
+
+    halls = tmp_path / "halls"
+    halls.mkdir()
+    (halls / "x.json").write_text(json.dumps({**hall([]), "adapter": "a"}))
+    sources = tmp_path / "sources.json"
+    monkeypatch.setattr(anomalies, "HALLS_DIR", halls)
+    monkeypatch.setattr(anomalies, "SOURCES_FILE", sources)
+    monkeypatch.setattr(anomalies, "ROOT", tmp_path)
+    monkeypatch.setattr(anomalies, "CONFIG_FILE", tmp_path / "config.json")
+    (tmp_path / "config.json").write_text(json.dumps({"halls": {"x": {}}}))
+
+    def review(src):
+        sources.write_text(json.dumps([{"adapter": "a", "status": "ok", **src}]))
+        anomalies.main(["--today", "2026-11-02"])
+        return json.loads((tmp_path / "anomalies.json").read_text())["review"]
+
+    assert any("zero sessions" in r for r in review({}))
+    assert not any("zero sessions" in r for r in review({"empty_reason": "closed for the season"}))

@@ -4,3 +4,4 @@ __pycache__/
 .venv/
 anomalies.json
 anomalies.md
+problem-issues/

@@ -26,7 +26,21 @@
         "to": { "$ref": "#/$defs/date" }
       }
     },
-    "sessions": { "type": "array", "items": { "$ref": "#/$defs/session" } }
+    "sessions": { "type": "array", "items": { "$ref": "#/$defs/session" } },
+    "problems": {
+      "type": "array",
+      "description": "Parts of the source that could not be read and were skipped in the last successful run; times may be missing.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["hall_id", "message", "source_text"],
+        "properties": {
+          "hall_id": { "type": ["string", "null"], "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "The hall the problem concerns; null if it applies to every hall of the source" },
+          "message": { "type": "string", "description": "Technical description from the adapter" },
+          "source_text": { "type": ["string", "null"], "description": "The text in the source that could not be read" }
+        }
+      }
+    }
   },
   "$defs": {
     "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },

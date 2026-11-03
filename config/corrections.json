@@ -1,0 +1,12 @@
+{
+  "_comment": "Typos in sources, confirmed by a human. Before parsing, 'text' is replaced by 'read_as' in the fetched page. A correction stops applying by itself when the source no longer shows 'text'; unused corrections are reported in the source's parser-problem issue so they can be removed. See pipeline/problems.py.",
+  "corrections": [
+    {
+      "adapter": "huddinge-web",
+      "text": "11-00–12.50",
+      "read_as": "11.00–12.50",
+      "note": "Visättrahallen, ordinary Monday time. Every other time on the page writes hour.minute; '11-00' is 11.00.",
+      "added": "2026-11-02"
+    }
+  ]
+}

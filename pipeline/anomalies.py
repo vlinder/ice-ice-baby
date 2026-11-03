@@ -1,8 +1,10 @@
 """Compare freshly generated data with the last published version (git HEAD).
 
-Two kinds of findings:
+Findings:
   review   – the new data looks suspicious; a human should look before it's published
   failures – a source could not be fetched/parsed; its halls are already marked stale
+  skipped  – parts of a source the parser could not read (informational: the rest is
+             published, the halls carry "problems", and pipeline.problem_report opens issues)
 
 Writes anomalies.json and anomalies.md, and prints a summary.
 Exit code: 0 = nothing to review, 3 = review needed. Failures alone exit 0
@@ -73,12 +75,14 @@ def main(argv=None) -> int:
     config = read_json(CONFIG_FILE)["halls"]
     review: list[str] = []
     failures: list[str] = []
+    notes: list[str] = []
 
     for src in (read_json(SOURCES_FILE) if SOURCES_FILE.exists() else []):
         if src["status"] != "ok":
             failures.append(f"`{src['adapter']}` failed: {src.get('error')}")
-        for w in src.get("warnings") or []:
-            review.append(f"`{src['adapter']}` parser warning: {w}")
+        # Parser warnings do not hold data back: the unreadable parts were skipped, the halls
+        # carry "problems", and pipeline.problem_report opens an issue for them.
+        notes += [f"`{src['adapter']}`: skipped {w}" for w in src.get("warnings") or []]
 
     produced = {}
     for p in sorted(HALLS_DIR.glob("*.json")):
@@ -94,18 +98,22 @@ def main(argv=None) -> int:
             review.append(f"`{hid}`: missing from config/halls.json (no curated name/coordinates)")
         review += compare_hall(old, new, today)
 
+    sources = {s["adapter"]: s for s in (read_json(SOURCES_FILE) if SOURCES_FILE.exists() else [])}
     for adapter, n in produced.items():
-        src_ok = any(s["adapter"] == adapter and s["status"] == "ok"
-                     for s in (read_json(SOURCES_FILE) if SOURCES_FILE.exists() else []))
-        if src_ok and n == 0:
+        src = sources.get(adapter) or {}
+        # An adapter that recognised an explicit "no times" message is not suspicious.
+        if src.get("status") == "ok" and n == 0 and not src.get("empty_reason"):
             review.append(f"`{adapter}`: produced zero sessions across all halls (off-season, or a broken parser?)")
 
-    report = {"today": today, "review": review, "failures": failures}
+    report = {"today": today, "review": review, "failures": failures, "skipped": notes}
     write_json(ROOT / "anomalies.json", report)
     md = ["## Data check", ""]
     md += ["### Needs review", *[f"- {r}" for r in review], ""] if review else ["Nothing suspicious in the new data.", ""]
     if failures:
         md += ["### Source failures (halls marked stale)", *[f"- {f}" for f in failures], ""]
+    if notes:
+        md += ["### Skipped parts of sources (published anyway, see parser-problem issues)",
+               *[f"- {n}" for n in notes], ""]
     (ROOT / "anomalies.md").write_text("\n".join(md), encoding="utf-8")
     print("\n".join(md))
     return 3 if review else 0
