@@ -1,0 +1,91 @@
+{
+  "spec_version": 1,
+  "hall_id": "salem-salems-ishall",
+  "adapter": "salem-sportadmin",
+  "source_name": "Salems ishall",
+  "source_rink": null,
+  "status": "ok",
+  "error": null,
+  "fetched_at": "2026-11-03T10:08:54+01:00",
+  "last_attempt_at": "2026-11-03T10:08:54+01:00",
+  "source_updated": null,
+  "covers": {
+    "from": "2026-11-03",
+    "to": "2026-12-04"
+  },
+  "sessions": [
+    {
+      "date": "2026-11-03",
+      "start": "14:30",
+      "end": "15:50",
+      "stick": "shared",
+      "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
+      "note": null
+    },
+    {
+      "date": "2026-11-06",
+      "start": "13:00",
+      "end": "16:50",
+      "stick": "shared",
+      "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
+      "note": null
+    },
+    {
+      "date": "2026-11-10",
+      "start": "14:30",
+      "end": "15:50",
+      "stick": "shared",
+      "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
+      "note": null
+    },
+    {
+      "date": "2026-11-13",
+      "start": "13:00",
+      "end": "16:50",
+      "stick": "shared",
+      "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
+      "note": null
+    },
+    {
+      "date": "2026-11-17",
+      "start": "14:30",
+      "end": "15:50",
+      "stick": "shared",
+      "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
+      "note": null
+    },
+    {
+      "date": "2026-11-20",
+      "start": "13:00",
+      "end": "16:50",
+      "stick": "shared",
+      "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
+      "note": null
+    },
+    {
+      "date": "2026-11-22",
+      "start": "18:30",
+      "end": "19:50",
+      "stick": "shared",
+      "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
+      "note": null
+    },
+    {
+      "date": "2026-11-27",
+      "start": "13:00",
+      "end": "16:50",
+      "stick": "shared",
+      "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
+      "note": null
+    },
+    {
+      "date": "2026-12-04",
+      "start": "13:00",
+      "end": "16:50",
+      "stick": "shared",
+      "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
+      "note": null
+    }
+  ],
+  "problems": []
+}

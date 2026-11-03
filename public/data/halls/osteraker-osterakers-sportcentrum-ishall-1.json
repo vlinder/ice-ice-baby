@@ -1,0 +1,227 @@
+{
+  "spec_version": 1,
+  "hall_id": "osteraker-osterakers-sportcentrum-ishall-1",
+  "adapter": "osteraker-web",
+  "source_name": "Österåkers sportcentrum",
+  "source_rink": "Ishall 1",
+  "status": "ok",
+  "error": null,
+  "fetched_at": "2026-11-03T10:08:54+01:00",
+  "last_attempt_at": "2026-11-03T10:08:54+01:00",
+  "source_updated": "2026-11-02T00:00",
+  "covers": {
+    "from": "2026-11-03",
+    "to": "2026-11-30"
+  },
+  "sessions": [
+    {
+      "date": "2026-11-03",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-04",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-05",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-06",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-07",
+      "start": "13:30",
+      "end": "14:50",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-08",
+      "start": "13:30",
+      "end": "14:50",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-09",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-10",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-11",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-12",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-13",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-14",
+      "start": "13:30",
+      "end": "14:50",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-15",
+      "start": "13:30",
+      "end": "14:50",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-16",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-17",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-18",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-19",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-20",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-21",
+      "start": "13:30",
+      "end": "14:50",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-22",
+      "start": "13:30",
+      "end": "14:50",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-23",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-24",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-25",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-26",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-30",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    }
+  ],
+  "problems": []
+}

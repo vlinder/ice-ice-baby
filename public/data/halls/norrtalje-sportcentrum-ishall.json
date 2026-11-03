@@ -1,0 +1,811 @@
+{
+  "spec_version": 1,
+  "hall_id": "norrtalje-sportcentrum-ishall",
+  "adapter": "norrtalje-rbok",
+  "source_name": "Norrtälje sportcentrum",
+  "source_rink": "Ishall",
+  "status": "ok",
+  "error": null,
+  "fetched_at": "2026-11-03T10:08:54+01:00",
+  "last_attempt_at": "2026-11-03T10:08:54+01:00",
+  "source_updated": null,
+  "covers": {
+    "from": "2026-11-03",
+    "to": "2027-02-17"
+  },
+  "sessions": [
+    {
+      "date": "2026-11-03",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-04",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-05",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-06",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-07",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-09",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-10",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-11",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-12",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-13",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-14",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-16",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-17",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-18",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-19",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-20",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-21",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-23",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-24",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-25",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-26",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-27",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-28",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-11-30",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-01",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-02",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-03",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-04",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-05",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-07",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-08",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-09",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-10",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-11",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-12",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-14",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-15",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-16",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-17",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-18",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-19",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-21",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-22",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-23",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-23",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-26",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-28",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-28",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-29",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-29",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-30",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2026-12-30",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-02",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-04",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-04",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-05",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-05",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-06",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-06",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-07",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-07",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-08",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-08",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-09",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-11",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-11",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-12",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-12",
+      "start": "13:30",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-13",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-14",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-15",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-16",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-18",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-19",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-20",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-21",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-22",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-23",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-25",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-26",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-27",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-28",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-29",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-01-30",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-01",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-02",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-03",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-04",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-05",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-06",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-08",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-09",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-10",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-11",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-12",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-13",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-15",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-16",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-17",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    }
+  ],
+  "problems": []
+}

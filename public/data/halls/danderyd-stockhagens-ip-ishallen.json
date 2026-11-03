@@ -1,0 +1,83 @@
+{
+  "spec_version": 1,
+  "hall_id": "danderyd-stockhagens-ip-ishallen",
+  "adapter": "danderyd-web",
+  "source_name": "Stockhagens IP",
+  "source_rink": "Ishallen",
+  "status": "ok",
+  "error": null,
+  "fetched_at": "2026-11-03T10:08:54+01:00",
+  "last_attempt_at": "2026-11-03T10:08:54+01:00",
+  "source_updated": "2026-11-02T00:00",
+  "covers": {
+    "from": "2026-11-03",
+    "to": "2026-11-30"
+  },
+  "sessions": [
+    {
+      "date": "2026-11-07",
+      "start": "12:00",
+      "end": "13:50",
+      "stick": "no_stick",
+      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "note": null
+    },
+    {
+      "date": "2026-11-08",
+      "start": "09:00",
+      "end": "10:50",
+      "stick": "with_stick",
+      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "note": null
+    },
+    {
+      "date": "2026-11-14",
+      "start": "12:00",
+      "end": "13:50",
+      "stick": "no_stick",
+      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "note": null
+    },
+    {
+      "date": "2026-11-15",
+      "start": "09:00",
+      "end": "10:50",
+      "stick": "with_stick",
+      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "note": null
+    },
+    {
+      "date": "2026-11-21",
+      "start": "12:00",
+      "end": "13:50",
+      "stick": "no_stick",
+      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "note": null
+    },
+    {
+      "date": "2026-11-22",
+      "start": "09:00",
+      "end": "10:50",
+      "stick": "with_stick",
+      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "note": null
+    },
+    {
+      "date": "2026-11-28",
+      "start": "12:00",
+      "end": "13:50",
+      "stick": "no_stick",
+      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "note": null
+    },
+    {
+      "date": "2026-11-29",
+      "start": "09:00",
+      "end": "10:50",
+      "stick": "with_stick",
+      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "note": null
+    }
+  ],
+  "problems": []
+}
