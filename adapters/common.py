@@ -256,13 +256,12 @@ def week_year(week: int, today: date) -> int:
 
 
 def recurring_window(today: date, season_from: date | None = None,
-                     season_to: date | None = None, days: int = RECURRING_HORIZON_DAYS
-                     ) -> tuple[date, date] | None:
+                     season_to: date | None = None) -> tuple[date, date] | None:
     """The date range a recurring weekly schedule is expanded over: from today
-    (or the season start) for `days` days, cut at the season end.
+    (or the season start) for RECURRING_HORIZON_DAYS, cut at the season end.
     None if the season is over or has not started within the horizon."""
     lo = max(today, season_from) if season_from else today
-    hi = today + timedelta(days=days - 1)
+    hi = today + timedelta(days=RECURRING_HORIZON_DAYS - 1)
     if season_to:
         hi = min(hi, season_to)
     return (lo, hi) if lo <= hi else None

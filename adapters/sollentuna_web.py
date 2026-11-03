@@ -30,9 +30,9 @@ Judgment calls:
 - If the page lists only past weeks, the halls are emitted with no sessions and
   `covers` set to the last listed week (i.e. in the past: unknown from today).
 - A weekday list without a "Vecka NN" heading (as the page looks from 2 Nov
-  2026) is the standing weekly schedule for the season. The page warns that
-  "Tiderna kan ändras med kort varsel", so it is only expanded TEMPLATE_DAYS
-  (14) days ahead. A dated "Vecka NN" list, when present, replaces the weekly
+  2026) is the standing weekly schedule for the season, expanded over
+  `recurring_window(today)` like every other weekly schedule. A dated
+  "Vecka NN" list, when present, replaces the weekly
   schedule from its Monday up to its last listed day.
 """
 from __future__ import annotations
@@ -54,8 +54,6 @@ SOURCE_URL = "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-frilufts
 
 FACILITY = "Sollentunavallen"
 KNOWN_RINKS = ["A-hallen", "B-hallen"]
-# The weekly schedule can change at short notice ("Tiderna kan ändras med kort varsel").
-TEMPLATE_DAYS = 14
 
 SECTION_RE = re.compile(r"^allmänhetens åkning på sollentunavallen", re.I)
 WEEK_RE = re.compile(r"^vecka\s+(\d{1,2})(?!\s*[–\-]\s*\d)\b", re.I)
@@ -227,7 +225,7 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
 
     empty_reason = None
     if template:
-        lo, hi = recurring_window(today, days=TEMPLATE_DAYS)
+        lo, hi = recurring_window(today)
         # A dated week replaces the weekly schedule up to its last listed day.
         in_weeks = lambda d: any(m <= d <= last for m, last in weeks)  # noqa: E731
         d = lo

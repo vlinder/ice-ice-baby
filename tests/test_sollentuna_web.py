@@ -108,12 +108,12 @@ def unlabelled():
     return (FIXTURES / "sollentuna_web_unlabelled.html").read_text(encoding="utf-8")
 
 
-def test_weekly_schedule_is_expanded_two_weeks():
+def test_weekly_schedule_is_expanded_like_other_weekly_schedules():
     r = a.parse({"page": unlabelled()}, date(2026, 11, 2))
     assert r.warnings == []
-    assert (r.covers_from, r.covers_to) == ("2026-11-02", "2026-11-15")
+    assert (r.covers_from, r.covers_to) == ("2026-11-02", "2026-11-29")
     got = [(s.date, s.start, s.end, s.stick) for s in r.halls["sollentuna-sollentunavallen-a-hallen"].sessions]
-    assert len(got) == 18
+    assert len(got) == 36  # 9 times a week, four weeks
     assert got[:2] == [("2026-11-02", "10:00", "12:30", "no_stick"), ("2026-11-02", "12:30", "14:45", "with_stick")]
     assert ("2026-11-11", "10:00", "11:30", "with_stick") in got
     assert not any(d in ("2026-11-07", "2026-11-08") for d, *_ in got)  # no weekend times listed
@@ -122,7 +122,7 @@ def test_weekly_schedule_is_expanded_two_weeks():
 
 def test_window_moves_with_today():
     r = a.parse({"page": unlabelled()}, date(2026, 11, 20))
-    assert (r.covers_from, r.covers_to) == ("2026-11-20", "2026-12-03")
+    assert (r.covers_from, r.covers_to) == ("2026-11-20", "2026-12-17")
     assert min(s.date for s in r.halls["sollentuna-sollentunavallen-a-hallen"].sessions) == "2026-11-20"
 
 
