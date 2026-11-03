@@ -17,8 +17,9 @@ def raw():
 
 @pytest.fixture(scope="module")
 def pre():
-    """Nov 2026: "Planerad öppning av is-banan är lucia", and the old table's dates changed to
-    22/2–28/2 (Monday 22/2 = 2027, week 8) while its caption still says "vecka 9"."""
+    """Nov 2026: "Planerad öppning av is-banan är lucia". The left-over table still says
+    "vecka 9" (last season's sportlov) but its dates were edited to "Måndag 22/2 – Söndag 28/2",
+    whose weekday names only fit 2027."""
     return {"page": (FIXTURES / "upplands_bro_web_preseason.html").read_text(encoding="utf-8")}
 
 
@@ -66,10 +67,30 @@ def test_preseason_after_planned_opening_is_layout_change(pre):
         a.parse(pre, date(2026, 12, 13))
 
 
-def test_caption_week_mismatch_skips_table(pre):
+def test_old_table_is_dated_by_its_caption_week(pre):
+    # 22/2–28/2 under "vecka 9" is last season (2026), not week 8 of 2027: ignored, no warning.
     r = a.parse(pre, date(2026, 11, 3))
+    assert r.warnings == []
+    assert a.parse(pre, date(2027, 2, 20)).warnings == []
+
+
+def test_current_table_that_contradicts_itself_is_skipped():
+    rows = ("<tr><td>Måndag 22/2</td><td>10.00 - 21.00</td></tr>"
+            "<tr><td>Tisdag 23/2</td><td>10.00 - 21.00</td></tr>")
+    r = a.parse(_page("Planerad öppning av is-banan är lucia.", "Öppettider för isbanan vecka 9", rows),
+                date(2026, 2, 1))
+    assert r.halls[HID].sessions == [] and r.empty_reason
     assert len(r.warnings) == 1
-    assert r.warnings[0].startswith(f"{HID}: ") and "vecka 9" in r.warnings[0] and "week 8" in r.warnings[0]
+    assert r.warnings[0].startswith(f"{HID}: ") and "'Måndag 22/2'" in r.warnings[0]
+    assert "week 9 of 2026" in r.warnings[0]
+
+
+def test_caption_week_never_matching_is_skipped():
+    rows = "<tr><td>Måndag 4/1</td><td>10.00 - 21.00</td></tr>"
+    r = a.parse(_page("Planerad öppning av is-banan är lucia.", "Öppettider vecka 30", rows),
+                date(2026, 12, 1))
+    assert r.halls[HID].sessions == [] and r.empty_reason
+    assert len(r.warnings) == 1 and "never week 30" in r.warnings[0]
 
 
 def test_preseason_reads_published_times():

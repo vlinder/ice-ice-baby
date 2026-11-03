@@ -18,9 +18,11 @@ The section is in one of three states:
 * **In season** – no notice; the dated rows from today on are the sessions, and ``covers``
   is the days the tables list.
 
-A table whose caption names a week ("vecka 9") must list days of that week. If it does not
-(Nov 2026: "vecka 9" over 22/2–28/2, which is week 8 of 2027) the table cannot be trusted,
-so it is skipped with a warning. A first cell that is not "Weekday D/M" raises ParseError, as
+A table whose caption names a week ("vecka 9") is dated by that week, not by its weekday
+names: in Nov 2026 the left-over table says "vecka 9" over "Måndag 22/2 – Söndag 28/2",
+i.e. last season's sportlov (2026, week 9 bar Sunday 22/2) with the dates edited but the
+weekday names kept. A table entirely in the past is ignored; a current or future one whose
+dates, weekdays and week disagree is skipped with a warning. A first cell that is not "Weekday D/M" raises ParseError, as
 does a pre-season notice whose planned opening has passed with no times listed, and an
 in-season page with no times.
 
@@ -94,17 +96,43 @@ def _row_date(day_word: str, d: int, m: int, today: date) -> date | None:
     return best
 
 
-def _dm(d: date) -> str:
-    return f"{d.day}/{d.month}"
+def _date(y: int, m: int, d: int) -> date | None:
+    try:
+        return date(y, m, d)
+    except ValueError:
+        return None
+
+
+def _week_year(week: int, cells: list[tuple[str, int, int]], today: date) -> int | None:
+    """The year (around today) in which most of the listed (weekday, day, month) fall in ISO
+    week ``week``; ties go to the year where more weekday names fit, then to the nearest.
+    None if they never fall in that week."""
+    best, best_key = None, None
+    for y in (today.year - 1, today.year, today.year + 1):
+        xs = [(wd, x) for wd, d, m in cells if (x := _date(y, m, d))]
+        hits = sum(1 for _, x in xs if tuple(x.isocalendar())[:2] == (y, week))
+        if not hits:
+            continue
+        fits = sum(1 for wd, x in xs if weekday_number(wd) == x.weekday())
+        key = (hits, fits, -min(abs((x - today).days) for _, x in xs))
+        if best_key is None or key > best_key:
+            best, best_key = y, key
+    return best
 
 
 def _rows(els: list[Tag], today: date, warnings: list[str]) -> list[tuple[date, str]]:
-    """(date, time cell) for every readable row of the section's tables."""
+    """(date, time cell) for every usable row of the section's tables.
+
+    A table whose caption names a week is dated by that week: the year is the one in which
+    the listed days fall in it. Without a week, each row's year is the one where its weekday
+    matches. A dated table that lies entirely in the past is dropped silently, even if its
+    weekday names don't fit (left-over tables get their dates edited); one that is current
+    or ahead must agree with itself, or it is skipped with a warning."""
     out = []
     for table in (el for el in els if el.name == "table"):
         cap = table.find("caption")
         caption = norm_space(cap.get_text(" ")) if cap else ""
-        rows = []
+        cells = []
         for tr in table.find_all("tr"):
             tds = tr.find_all("td")
             if not tds:
@@ -113,19 +141,37 @@ def _rows(els: list[Tag], today: date, warnings: list[str]) -> list[tuple[date, 
             m = ROW_DATE_RE.match(cell)
             if not m:
                 raise ParseError(f"Kungsängens IP: unexpected row {cell!r} in {caption or 'a table'!r}")
-            d = _row_date(m.group(1), int(m.group(2)), int(m.group(3)), today)
-            if d is None:
+            cells.append((cell, m.group(1), int(m.group(2)), int(m.group(3)),
+                          norm_space(" ".join(td.get_text(" ") for td in tds[1:]))))
+        if not cells:
+            continue
+
+        wk = WEEK_RE.search(caption)
+        if wk:
+            week = int(wk.group(1))
+            y = _week_year(week, [(wd, d, mo) for _, wd, d, mo, _ in cells], today)
+            if y is None:
+                warnings.append(f"{HALL_ID}: table {caption!r} lists {cells[0][0]!r}–{cells[-1][0]!r}, "
+                                f"which is never week {week} – times not used")
+                continue
+            dated = [(cell, wd, _date(y, mo, d), t) for cell, wd, d, mo, t in cells]
+            if all(x is not None and x < today for _, _, x, _ in dated):
+                continue  # an old table
+            bad = [cell for cell, wd, x, _ in dated
+                   if x is None or tuple(x.isocalendar())[:2] != (y, week) or weekday_number(wd) != x.weekday()]
+            if bad:
+                warnings.append(f"{HALL_ID}: table {caption!r}: {', '.join(map(repr, bad))} "
+                                f"does not fit week {week} of {y} – times not used")
+                continue
+            out.extend((x, t) for _, _, x, t in dated)
+            continue
+
+        for cell, wd, d, mo, t in cells:
+            x = _row_date(wd, d, mo, today)
+            if x is None:
                 warnings.append(f"{HALL_ID}: {cell!r} is not a real date in any nearby year – row skipped")
                 continue
-            rows.append((d, norm_space(" ".join(td.get_text(" ") for td in tds[1:]))))
-        wk = WEEK_RE.search(caption)
-        weeks = sorted({d.isocalendar().week for d, _ in rows})
-        if wk and rows and weeks != [int(wk.group(1))]:
-            warnings.append(f"{HALL_ID}: table {caption!r} lists "
-                            f"{_dm(rows[0][0])}–{_dm(rows[-1][0])}, which is week "
-                            f"{'/'.join(map(str, weeks))} – times not used")
-            continue
-        out.extend(rows)
+            out.append((x, t))
     return out
 
 
