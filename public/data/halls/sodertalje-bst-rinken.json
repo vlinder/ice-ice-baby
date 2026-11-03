@@ -1,0 +1,18 @@
+{
+  "spec_version": 1,
+  "hall_id": "sodertalje-bst-rinken",
+  "adapter": "sodertalje-frigo",
+  "source_name": "BST-rinken",
+  "source_rink": null,
+  "status": "ok",
+  "error": null,
+  "fetched_at": "2026-11-03T10:08:54+01:00",
+  "last_attempt_at": "2026-11-03T10:08:54+01:00",
+  "source_updated": null,
+  "covers": {
+    "from": "2026-11-03",
+    "to": "2026-11-09"
+  },
+  "sessions": [],
+  "problems": []
+}

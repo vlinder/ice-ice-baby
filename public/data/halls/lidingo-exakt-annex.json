@@ -1,0 +1,179 @@
+{
+  "spec_version": 1,
+  "hall_id": "lidingo-exakt-annex",
+  "adapter": "lidingo-web",
+  "source_name": "Exakt annex",
+  "source_rink": null,
+  "status": "ok",
+  "error": null,
+  "fetched_at": "2026-11-03T10:08:54+01:00",
+  "last_attempt_at": "2026-11-03T10:08:54+01:00",
+  "source_updated": null,
+  "covers": {
+    "from": "2026-11-03",
+    "to": "2026-11-30"
+  },
+  "sessions": [
+    {
+      "date": "2026-11-03",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-04",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-05",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-06",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-09",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-10",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-11",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-12",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-13",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-16",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-17",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-18",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-19",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-20",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-23",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-24",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-25",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-26",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-27",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    },
+    {
+      "date": "2026-11-30",
+      "start": "10:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": "Med/utan klubba och puck"
+    }
+  ],
+  "problems": []
+}
