@@ -4,14 +4,14 @@
   "adapter": "upplands-bro-web",
   "source_name": "Kungsängens IP",
   "source_rink": null,
-  "status": "stale",
-  "error": "ParseError: Kungsängens IP: the 'Tack för den här säsongen' notice is gone – the page probably shows this season's times now, which this adapter cannot read yet",
-  "fetched_at": "2026-11-03T12:21:22+01:00",
-  "last_attempt_at": "2026-11-03T17:22:59+01:00",
-  "source_updated": "2026-06-18T00:00",
+  "status": "ok",
+  "error": null,
+  "fetched_at": "2026-11-04T06:22:01+01:00",
+  "last_attempt_at": "2026-11-04T06:22:01+01:00",
+  "source_updated": "2026-11-03T00:00",
   "covers": {
-    "from": "2026-11-03",
-    "to": "2026-11-30"
+    "from": "2026-11-04",
+    "to": "2026-12-01"
   },
   "sessions": [],
   "problems": []

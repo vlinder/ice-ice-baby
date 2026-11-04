@@ -6,22 +6,14 @@
   "source_rink": null,
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-03T17:22:59+01:00",
-  "last_attempt_at": "2026-11-03T17:22:59+01:00",
+  "fetched_at": "2026-11-04T06:22:01+01:00",
+  "last_attempt_at": "2026-11-04T06:22:01+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-03",
+    "from": "2026-11-04",
     "to": "2026-12-04"
   },
   "sessions": [
-    {
-      "date": "2026-11-03",
-      "start": "14:30",
-      "end": "15:50",
-      "stick": "shared",
-      "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
-      "note": null
-    },
     {
       "date": "2026-11-06",
       "start": "13:00",
