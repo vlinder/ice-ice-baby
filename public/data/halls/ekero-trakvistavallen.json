@@ -6,8 +6,8 @@
   "source_rink": "Vikingahallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-04T06:22:01+01:00",
-  "last_attempt_at": "2026-11-04T06:22:01+01:00",
+  "fetched_at": "2026-11-04T12:22:07+01:00",
+  "last_attempt_at": "2026-11-04T12:22:07+01:00",
   "source_updated": null,
   "covers": {
     "from": "2026-11-04",
@@ -448,7 +448,7 @@
     },
     {
       "date": "2026-12-12",
-      "start": "16:00",
+      "start": "17:30",
       "end": "19:00",
       "stick": "no_stick",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
