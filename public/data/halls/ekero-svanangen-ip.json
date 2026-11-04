@@ -6,22 +6,14 @@
   "source_rink": "Allhallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-04T12:22:07+01:00",
-  "last_attempt_at": "2026-11-04T12:22:07+01:00",
+  "fetched_at": "2026-11-04T17:21:44+01:00",
+  "last_attempt_at": "2026-11-04T17:21:44+01:00",
   "source_updated": null,
   "covers": {
     "from": "2026-11-04",
     "to": "2027-01-02"
   },
   "sessions": [
-    {
-      "date": "2026-11-04",
-      "start": "15:00",
-      "end": "15:50",
-      "stick": "no_stick",
-      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": null
-    },
     {
       "date": "2026-11-05",
       "start": "15:00",
@@ -560,7 +552,7 @@
     },
     {
       "date": "2026-12-20",
-      "start": "12:00",
+      "start": "14:00",
       "end": "15:00",
       "stick": "no_stick",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
@@ -719,5 +711,11 @@
       "note": null
     }
   ],
-  "problems": []
+  "problems": [
+    {
+      "hall_id": "ekero-svanangen-ip",
+      "message": "ekero-svanangen-ip: row not booked as public skating '2026-12-20 | 11:00-14:00 | Svanängen IP | Allhallen | Mälarö Hockeyförening | Disco'",
+      "source_text": "2026-12-20 | 11:00-14:00 | Svanängen IP | Allhallen | Mälarö Hockeyförening | Disco"
+    }
+  ]
 }
