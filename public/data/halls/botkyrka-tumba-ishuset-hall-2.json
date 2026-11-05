@@ -6,11 +6,11 @@
   "source_rink": "Ishuset, hall 2",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-04T17:21:44+01:00",
-  "last_attempt_at": "2026-11-04T17:21:44+01:00",
+  "fetched_at": "2026-11-05T06:21:25+01:00",
+  "last_attempt_at": "2026-11-05T06:21:25+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-04",
+    "from": "2026-11-05",
     "to": "2026-12-21"
   },
   "sessions": [
@@ -363,6 +363,14 @@
       "start": "12:15",
       "end": "15:00",
       "stick": "no_stick",
+      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
+      "note": null
+    },
+    {
+      "date": "2026-12-21",
+      "start": "10:00",
+      "end": "16:00",
+      "stick": "with_stick",
       "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
       "note": null
     }

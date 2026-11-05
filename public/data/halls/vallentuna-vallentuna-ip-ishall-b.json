@@ -6,12 +6,12 @@
   "source_rink": "Ishall B",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-04T17:21:44+01:00",
-  "last_attempt_at": "2026-11-04T17:21:44+01:00",
+  "fetched_at": "2026-11-05T06:21:25+01:00",
+  "last_attempt_at": "2026-11-05T06:21:25+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-04",
-    "to": "2026-12-01"
+    "from": "2026-11-05",
+    "to": "2026-12-04"
   },
   "sessions": [
     {
@@ -136,6 +136,14 @@
     },
     {
       "date": "2026-12-01",
+      "start": "13:00",
+      "end": "15:00",
+      "stick": "with_stick",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-04",
       "start": "13:00",
       "end": "15:00",
       "stick": "with_stick",
