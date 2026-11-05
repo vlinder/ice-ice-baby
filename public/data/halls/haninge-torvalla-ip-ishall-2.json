@@ -6,22 +6,14 @@
   "source_rink": "Ishall 2",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-05T12:21:35+01:00",
-  "last_attempt_at": "2026-11-05T12:21:35+01:00",
+  "fetched_at": "2026-11-05T17:24:42+01:00",
+  "last_attempt_at": "2026-11-05T17:24:42+01:00",
   "source_updated": null,
   "covers": {
     "from": "2026-11-05",
     "to": "2026-12-04"
   },
   "sessions": [
-    {
-      "date": "2026-11-05",
-      "start": "13:30",
-      "end": "15:30",
-      "stick": "with_stick",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=71c94175-66c8-41fd-8b4b-d8a41729e78b",
-      "note": null
-    },
     {
       "date": "2026-11-06",
       "start": "13:30",
