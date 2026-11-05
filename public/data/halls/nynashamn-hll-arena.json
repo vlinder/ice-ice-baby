@@ -4,10 +4,10 @@
   "adapter": "nynashamn-web",
   "source_name": "HLL Arena",
   "source_rink": null,
-  "status": "ok",
-  "error": null,
+  "status": "stale",
+  "error": "ConnectionError: HTTPSConnectionPool(host='nynashamn.se', port=443): Max retries exceeded with url: /service/kultur--fritid/fritid/ishallen-hll-arena (Caused by NameResolutionError(\"HTTPSConnection(host='nynashamn.se', port=443): Failed to resolve 'nynashamn.se' ([Errno -3] Temporary failure in name resolution)\"))",
   "fetched_at": "2026-11-05T06:21:25+01:00",
-  "last_attempt_at": "2026-11-05T06:21:25+01:00",
+  "last_attempt_at": "2026-11-05T12:21:35+01:00",
   "source_updated": "2026-10-30T16:00",
   "covers": {
     "from": "2026-11-05",
