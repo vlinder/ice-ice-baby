@@ -6,30 +6,14 @@
   "source_rink": "A-hallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-05T17:24:42+01:00",
-  "last_attempt_at": "2026-11-05T17:24:42+01:00",
+  "fetched_at": "2026-11-06T06:21:42+01:00",
+  "last_attempt_at": "2026-11-06T06:21:42+01:00",
   "source_updated": "2026-11-02T00:00",
   "covers": {
-    "from": "2026-11-05",
-    "to": "2026-12-02"
+    "from": "2026-11-06",
+    "to": "2026-12-03"
   },
   "sessions": [
-    {
-      "date": "2026-11-05",
-      "start": "10:00",
-      "end": "12:30",
-      "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
-    {
-      "date": "2026-11-05",
-      "start": "12:30",
-      "end": "14:45",
-      "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
     {
       "date": "2026-11-06",
       "start": "10:00",
@@ -298,6 +282,22 @@
       "date": "2026-12-02",
       "start": "10:00",
       "end": "11:30",
+      "stick": "with_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "note": null
+    },
+    {
+      "date": "2026-12-03",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "no_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "note": null
+    },
+    {
+      "date": "2026-12-03",
+      "start": "12:30",
+      "end": "14:45",
       "stick": "with_stick",
       "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
       "note": null

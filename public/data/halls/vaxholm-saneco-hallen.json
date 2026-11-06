@@ -6,12 +6,12 @@
   "source_rink": null,
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-05T17:24:42+01:00",
-  "last_attempt_at": "2026-11-05T17:24:42+01:00",
+  "fetched_at": "2026-11-06T06:21:42+01:00",
+  "last_attempt_at": "2026-11-06T06:21:42+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-05",
-    "to": "2026-12-02"
+    "from": "2026-11-06",
+    "to": "2026-12-03"
   },
   "sessions": [],
   "problems": []

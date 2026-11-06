@@ -6,12 +6,12 @@
   "source_rink": "B-hallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-05T17:24:42+01:00",
-  "last_attempt_at": "2026-11-05T17:24:42+01:00",
+  "fetched_at": "2026-11-06T06:21:42+01:00",
+  "last_attempt_at": "2026-11-06T06:21:42+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-05",
-    "to": "2026-12-02"
+    "from": "2026-11-06",
+    "to": "2026-12-03"
   },
   "sessions": [
     {
@@ -250,6 +250,14 @@
       "date": "2026-12-02",
       "start": "08:00",
       "end": "12:00",
+      "stick": "with_stick",
+      "source_url": "https://www.sigtuna.se/uppleva-och-gora/trana-och-idrotta/skridskoakning-och-ishall/ishall.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-03",
+      "start": "13:15",
+      "end": "15:15",
       "stick": "with_stick",
       "source_url": "https://www.sigtuna.se/uppleva-och-gora/trana-och-idrotta/skridskoakning-och-ishall/ishall.html",
       "note": null

@@ -6,22 +6,14 @@
   "source_rink": "Ekrinken",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-05T17:24:42+01:00",
-  "last_attempt_at": "2026-11-05T17:24:42+01:00",
+  "fetched_at": "2026-11-06T06:21:42+01:00",
+  "last_attempt_at": "2026-11-06T06:21:42+01:00",
   "source_updated": "2026-10-19T00:00",
   "covers": {
-    "from": "2026-11-05",
-    "to": "2026-12-02"
+    "from": "2026-11-06",
+    "to": "2026-12-03"
   },
   "sessions": [
-    {
-      "date": "2026-11-05",
-      "start": "08:30",
-      "end": "15:00",
-      "stick": "shared",
-      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
-      "note": "isvård 11:30–12:00"
-    },
     {
       "date": "2026-11-06",
       "start": "08:30",
@@ -200,6 +192,14 @@
     },
     {
       "date": "2026-12-02",
+      "start": "08:30",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-03",
       "start": "08:30",
       "end": "15:00",
       "stick": "shared",
