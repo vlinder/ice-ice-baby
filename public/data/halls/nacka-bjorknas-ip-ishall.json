@@ -6,12 +6,12 @@
   "source_rink": "Ishall",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-06T17:22:05+01:00",
-  "last_attempt_at": "2026-11-06T17:22:05+01:00",
+  "fetched_at": "2026-11-07T06:21:31+01:00",
+  "last_attempt_at": "2026-11-07T06:21:31+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-06",
-    "to": "2026-11-25"
+    "from": "2026-11-07",
+    "to": "2026-11-27"
   },
   "sessions": [
     {
