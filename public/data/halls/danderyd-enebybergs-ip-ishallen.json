@@ -6,22 +6,14 @@
   "source_rink": "Ishallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-07T17:21:33+01:00",
-  "last_attempt_at": "2026-11-07T17:21:33+01:00",
+  "fetched_at": "2026-11-08T06:21:24+01:00",
+  "last_attempt_at": "2026-11-08T06:21:24+01:00",
   "source_updated": "2026-11-02T00:00",
   "covers": {
-    "from": "2026-11-07",
-    "to": "2026-12-04"
+    "from": "2026-11-08",
+    "to": "2026-12-05"
   },
   "sessions": [
-    {
-      "date": "2026-11-07",
-      "start": "13:00",
-      "end": "14:50",
-      "stick": "with_stick",
-      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
-      "note": null
-    },
     {
       "date": "2026-11-08",
       "start": "13:00",
@@ -106,6 +98,14 @@
       "date": "2026-12-02",
       "start": "10:00",
       "end": "12:50",
+      "stick": "with_stick",
+      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "note": null
+    },
+    {
+      "date": "2026-12-05",
+      "start": "13:00",
+      "end": "14:50",
       "stick": "with_stick",
       "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
       "note": null

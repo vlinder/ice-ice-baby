@@ -6,22 +6,14 @@
   "source_rink": "Allhallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-07T17:21:33+01:00",
-  "last_attempt_at": "2026-11-07T17:21:33+01:00",
+  "fetched_at": "2026-11-08T06:21:24+01:00",
+  "last_attempt_at": "2026-11-08T06:21:24+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-07",
-    "to": "2027-01-05"
+    "from": "2026-11-08",
+    "to": "2027-01-06"
   },
   "sessions": [
-    {
-      "date": "2026-11-07",
-      "start": "16:30",
-      "end": "19:00",
-      "stick": "unknown",
-      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": "Disco"
-    },
     {
       "date": "2026-11-08",
       "start": "12:00",

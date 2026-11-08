@@ -6,22 +6,14 @@
   "source_rink": null,
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-07T17:21:33+01:00",
-  "last_attempt_at": "2026-11-07T17:21:33+01:00",
+  "fetched_at": "2026-11-08T06:21:24+01:00",
+  "last_attempt_at": "2026-11-08T06:21:24+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-07",
-    "to": "2026-12-04"
+    "from": "2026-11-08",
+    "to": "2026-12-05"
   },
   "sessions": [
-    {
-      "date": "2026-11-07",
-      "start": "10:00",
-      "end": "11:15",
-      "stick": "no_stick",
-      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
-      "note": null
-    },
     {
       "date": "2026-11-08",
       "start": "10:00",
@@ -163,6 +155,14 @@
       "start": "11:00",
       "end": "14:45",
       "stick": "with_stick",
+      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
+      "note": null
+    },
+    {
+      "date": "2026-12-05",
+      "start": "10:00",
+      "end": "11:15",
+      "stick": "no_stick",
       "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
       "note": null
     }

@@ -6,22 +6,14 @@
   "source_rink": null,
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-07T17:21:33+01:00",
-  "last_attempt_at": "2026-11-07T17:21:33+01:00",
+  "fetched_at": "2026-11-08T06:21:24+01:00",
+  "last_attempt_at": "2026-11-08T06:21:24+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-07",
-    "to": "2026-12-04"
+    "from": "2026-11-08",
+    "to": "2026-12-05"
   },
   "sessions": [
-    {
-      "date": "2026-11-07",
-      "start": "12:00",
-      "end": "14:00",
-      "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
-      "note": null
-    },
     {
       "date": "2026-11-08",
       "start": "12:00",
@@ -234,6 +226,14 @@
       "date": "2026-12-04",
       "start": "14:00",
       "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "note": null
+    },
+    {
+      "date": "2026-12-05",
+      "start": "12:00",
+      "end": "14:00",
       "stick": "with_stick",
       "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
       "note": null
