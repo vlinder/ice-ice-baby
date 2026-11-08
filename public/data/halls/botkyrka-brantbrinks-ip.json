@@ -6,22 +6,14 @@
   "source_rink": "Ishall",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-08T12:21:10+01:00",
-  "last_attempt_at": "2026-11-08T12:21:10+01:00",
+  "fetched_at": "2026-11-08T17:21:11+01:00",
+  "last_attempt_at": "2026-11-08T17:21:11+01:00",
   "source_updated": null,
   "covers": {
     "from": "2026-11-08",
-    "to": "2026-12-27"
+    "to": "2026-12-28"
   },
   "sessions": [
-    {
-      "date": "2026-11-08",
-      "start": "12:00",
-      "end": "13:45",
-      "stick": "with_stick",
-      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
-      "note": null
-    },
     {
       "date": "2026-11-09",
       "start": "14:00",
@@ -442,6 +434,14 @@
       "date": "2026-12-27",
       "start": "12:00",
       "end": "13:45",
+      "stick": "with_stick",
+      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
+      "note": null
+    },
+    {
+      "date": "2026-12-28",
+      "start": "10:00",
+      "end": "15:45",
       "stick": "with_stick",
       "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
       "note": null

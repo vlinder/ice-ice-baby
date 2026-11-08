@@ -6,22 +6,14 @@
   "source_rink": "Ishall",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-08T12:21:10+01:00",
-  "last_attempt_at": "2026-11-08T12:21:10+01:00",
+  "fetched_at": "2026-11-08T17:21:11+01:00",
+  "last_attempt_at": "2026-11-08T17:21:11+01:00",
   "source_updated": null,
   "covers": {
     "from": "2026-11-08",
     "to": "2026-11-28"
   },
   "sessions": [
-    {
-      "date": "2026-11-08",
-      "start": "13:45",
-      "end": "15:45",
-      "stick": "no_stick",
-      "source_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b",
-      "note": null
-    },
     {
       "date": "2026-11-09",
       "start": "16:00",
