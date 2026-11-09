@@ -6,9 +6,9 @@
   "source_rink": "Ishallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-09T06:22:28+01:00",
-  "last_attempt_at": "2026-11-09T06:22:28+01:00",
-  "source_updated": "2026-11-02T00:00",
+  "fetched_at": "2026-11-09T12:21:17+01:00",
+  "last_attempt_at": "2026-11-09T12:21:17+01:00",
+  "source_updated": "2026-11-09T00:00",
   "covers": {
     "from": "2026-11-09",
     "to": "2026-12-06"
@@ -111,5 +111,11 @@
       "note": null
     }
   ],
-  "problems": []
+  "problems": [
+    {
+      "hall_id": "danderyd-enebybergs-ip-ishallen",
+      "message": "danderyd-enebybergs-ip-ishallen: unreadable line 'Obs! Ingen åkning i ishallen på Enebybergs IP helgen 14-15/11 på grund av konståkningstävling.'",
+      "source_text": "Obs! Ingen åkning i ishallen på Enebybergs IP helgen 14-15/11 på grund av konståkningstävling."
+    }
+  ]
 }
