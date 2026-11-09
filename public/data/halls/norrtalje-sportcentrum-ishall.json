@@ -6,22 +6,14 @@
   "source_rink": "Ishall",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-09T12:21:17+01:00",
-  "last_attempt_at": "2026-11-09T12:21:17+01:00",
+  "fetched_at": "2026-11-09T17:23:09+01:00",
+  "last_attempt_at": "2026-11-09T17:23:09+01:00",
   "source_updated": null,
   "covers": {
     "from": "2026-11-09",
-    "to": "2027-02-23"
+    "to": "2027-02-24"
   },
   "sessions": [
-    {
-      "date": "2026-11-09",
-      "start": "14:00",
-      "end": "16:00",
-      "stick": "no_stick",
-      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
-      "note": null
-    },
     {
       "date": "2026-11-10",
       "start": "14:00",
@@ -803,6 +795,14 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "with_stick",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": null
+    },
+    {
+      "date": "2027-02-24",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
       "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
       "note": null
     }
