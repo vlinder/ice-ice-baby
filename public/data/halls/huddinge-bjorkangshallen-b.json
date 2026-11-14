@@ -6,38 +6,14 @@
   "source_rink": "B",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-10T12:21:31+01:00",
-  "last_attempt_at": "2026-11-10T12:21:31+01:00",
+  "fetched_at": "2026-11-14T17:21:20+01:00",
+  "last_attempt_at": "2026-11-14T17:21:20+01:00",
   "source_updated": "2026-11-10T00:00",
   "covers": {
-    "from": "2026-11-10",
-    "to": "2026-12-07"
+    "from": "2026-11-14",
+    "to": "2026-12-11"
   },
   "sessions": [
-    {
-      "date": "2026-11-11",
-      "start": "12:15",
-      "end": "14:45",
-      "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
-      "note": null
-    },
-    {
-      "date": "2026-11-12",
-      "start": "10:15",
-      "end": "12:45",
-      "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
-      "note": null
-    },
-    {
-      "date": "2026-11-13",
-      "start": "12:15",
-      "end": "14:45",
-      "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
-      "note": null
-    },
     {
       "date": "2026-11-14",
       "start": "08:15",
@@ -227,6 +203,38 @@
       "start": "12:15",
       "end": "14:45",
       "stick": "with_stick",
+      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-08",
+      "start": "10:45",
+      "end": "13:15",
+      "stick": "no_stick",
+      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-09",
+      "start": "12:15",
+      "end": "14:45",
+      "stick": "with_stick",
+      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-10",
+      "start": "10:15",
+      "end": "12:45",
+      "stick": "no_stick",
+      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-11",
+      "start": "12:15",
+      "end": "14:45",
+      "stick": "no_stick",
       "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
       "note": null
     }

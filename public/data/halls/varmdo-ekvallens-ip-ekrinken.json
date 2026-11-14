@@ -6,49 +6,17 @@
   "source_rink": "Ekrinken",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-10T12:21:31+01:00",
-  "last_attempt_at": "2026-11-10T12:21:31+01:00",
-  "source_updated": "2026-11-09T00:00",
+  "fetched_at": "2026-11-14T17:21:20+01:00",
+  "last_attempt_at": "2026-11-14T17:21:20+01:00",
+  "source_updated": "2026-11-13T00:00",
   "covers": {
-    "from": "2026-11-10",
-    "to": "2026-12-07"
+    "from": "2026-11-14",
+    "to": "2026-12-11"
   },
   "sessions": [
     {
-      "date": "2026-11-10",
-      "start": "08:30",
-      "end": "15:00",
-      "stick": "shared",
-      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
-      "note": "isvård 11:30–12:00"
-    },
-    {
-      "date": "2026-11-11",
-      "start": "08:30",
-      "end": "15:00",
-      "stick": "shared",
-      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
-      "note": "isvård 11:30–12:00"
-    },
-    {
-      "date": "2026-11-12",
-      "start": "08:30",
-      "end": "15:00",
-      "stick": "shared",
-      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
-      "note": "isvård 11:30–12:00"
-    },
-    {
-      "date": "2026-11-13",
-      "start": "08:30",
-      "end": "15:00",
-      "stick": "shared",
-      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
-      "note": "isvård 11:30–12:00"
-    },
-    {
       "date": "2026-11-14",
-      "start": "19:15",
+      "start": "17:00",
       "end": "22:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
@@ -104,7 +72,7 @@
     },
     {
       "date": "2026-11-21",
-      "start": "19:15",
+      "start": "17:00",
       "end": "22:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
@@ -160,7 +128,7 @@
     },
     {
       "date": "2026-11-28",
-      "start": "19:15",
+      "start": "17:00",
       "end": "22:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
@@ -216,7 +184,7 @@
     },
     {
       "date": "2026-12-05",
-      "start": "19:15",
+      "start": "17:00",
       "end": "22:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
@@ -237,6 +205,38 @@
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
       "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-08",
+      "start": "08:30",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-09",
+      "start": "08:30",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-10",
+      "start": "08:30",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-11",
+      "start": "08:30",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
     }
   ],
   "problems": [
@@ -247,18 +247,23 @@
     },
     {
       "hall_id": null,
-      "message": "could not read 'Lördag: 08:30-09:30 samt 18:00-22:00'",
-      "source_text": "Lördag: 08:30-09:30 samt 18:00-22:00"
+      "message": "could not read 'Fredag: 16.00–22.00'",
+      "source_text": "Fredag: 16.00–22.00"
     },
     {
       "hall_id": null,
-      "message": "could not read 'Söndag: 9:00-11:00 samt 19:00-22:00'",
-      "source_text": "Söndag: 9:00-11:00 samt 19:00-22:00"
+      "message": "could not read 'Lördag: 8.30–9.30, 11.30–22.00; spolning 13.30–14.00, 17.30–18.00'",
+      "source_text": "Lördag: 8.30–9.30, 11.30–22.00; spolning 13.30–14.00, 17.30–18.00"
     },
     {
       "hall_id": null,
-      "message": "could not read 'Isvård måndag-fredag mellan kl 11:30-12.00 samt kan komma att ske under övrig tid.'",
-      "source_text": "Isvård måndag-fredag mellan kl 11:30-12.00 samt kan komma att ske under övrig tid."
+      "message": "could not read 'Söndag: 9.00–22.00; spolning 13.30–14.00, 18.30–19.00'",
+      "source_text": "Söndag: 9.00–22.00; spolning 13.30–14.00, 18.30–19.00"
+    },
+    {
+      "hall_id": null,
+      "message": "could not read 'Isvård måndag–fredag mellan kl 11.30–12.00, kan också ske under övrig tid.'",
+      "source_text": "Isvård måndag–fredag mellan kl 11.30–12.00, kan också ske under övrig tid."
     }
   ]
 }
