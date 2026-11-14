@@ -6,70 +6,14 @@
   "source_rink": "Allhallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-10T12:21:31+01:00",
-  "last_attempt_at": "2026-11-10T12:21:31+01:00",
+  "fetched_at": "2026-11-14T17:21:20+01:00",
+  "last_attempt_at": "2026-11-14T17:21:20+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-10",
-    "to": "2027-01-08"
+    "from": "2026-11-14",
+    "to": "2027-01-12"
   },
   "sessions": [
-    {
-      "date": "2026-11-10",
-      "start": "15:00",
-      "end": "16:20",
-      "stick": "with_stick",
-      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": null
-    },
-    {
-      "date": "2026-11-11",
-      "start": "15:00",
-      "end": "15:50",
-      "stick": "no_stick",
-      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": null
-    },
-    {
-      "date": "2026-11-12",
-      "start": "15:00",
-      "end": "16:20",
-      "stick": "with_stick",
-      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": null
-    },
-    {
-      "date": "2026-11-13",
-      "start": "15:00",
-      "end": "15:50",
-      "stick": "no_stick",
-      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": null
-    },
-    {
-      "date": "2026-11-13",
-      "start": "19:00",
-      "end": "20:30",
-      "stick": "with_stick",
-      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": null
-    },
-    {
-      "date": "2026-11-14",
-      "start": "10:00",
-      "end": "10:50",
-      "stick": "no_stick",
-      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": null
-    },
-    {
-      "date": "2026-11-14",
-      "start": "13:30",
-      "end": "14:50",
-      "stick": "no_stick",
-      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": null
-    },
     {
       "date": "2026-11-14",
       "start": "16:30",
@@ -200,14 +144,6 @@
     },
     {
       "date": "2026-11-28",
-      "start": "10:00",
-      "end": "10:50",
-      "stick": "no_stick",
-      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": null
-    },
-    {
-      "date": "2026-11-28",
       "start": "12:30",
       "end": "14:00",
       "stick": "no_stick",
@@ -240,7 +176,7 @@
     },
     {
       "date": "2026-11-29",
-      "start": "15:00",
+      "start": "16:30",
       "end": "18:20",
       "stick": "with_stick",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
@@ -666,6 +602,30 @@
       "date": "2027-01-08",
       "start": "19:00",
       "end": "20:30",
+      "stick": "with_stick",
+      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
+      "note": null
+    },
+    {
+      "date": "2027-01-09",
+      "start": "16:30",
+      "end": "19:00",
+      "stick": "unknown",
+      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
+      "note": "Disco"
+    },
+    {
+      "date": "2027-01-11",
+      "start": "15:00",
+      "end": "16:20",
+      "stick": "no_stick",
+      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
+      "note": null
+    },
+    {
+      "date": "2027-01-12",
+      "start": "15:00",
+      "end": "16:20",
       "stick": "with_stick",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
       "note": null

@@ -6,12 +6,12 @@
   "source_rink": "Ishallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-10T12:21:31+01:00",
-  "last_attempt_at": "2026-11-10T12:21:31+01:00",
-  "source_updated": "2026-11-09T00:00",
+  "fetched_at": "2026-11-14T17:21:20+01:00",
+  "last_attempt_at": "2026-11-14T17:21:20+01:00",
+  "source_updated": "2026-11-11T00:00",
   "covers": {
-    "from": "2026-11-10",
-    "to": "2026-12-07"
+    "from": "2026-11-14",
+    "to": "2026-12-11"
   },
   "sessions": [
     {
@@ -79,5 +79,36 @@
       "note": null
     }
   ],
-  "problems": []
+  "problems": [
+    {
+      "hall_id": "danderyd-stockhagens-ip-ishallen",
+      "message": "danderyd-stockhagens-ip-ishallen: unreadable line 'Isrinken på Stockhagens IP beräknas kunna öppnas under vecka 49. Eventuellt kommer säsongen att kortas ned något då bygget av nya omklädningsrum beräknas starta till vecka 7-8 2027.'",
+      "source_text": null
+    },
+    {
+      "hall_id": null,
+      "message": "Times for a facility that is not parsed: 'Måndagar, tisdagar, torsdagar, fredagar: kl. 09.00-15.30'",
+      "source_text": "Måndagar, tisdagar, torsdagar, fredagar: kl. 09.00-15.30"
+    },
+    {
+      "hall_id": null,
+      "message": "Times for a facility that is not parsed: 'Fredagar även kvällsöppet kl. 19.00-20.30!'",
+      "source_text": "Fredagar även kvällsöppet kl. 19.00-20.30!"
+    },
+    {
+      "hall_id": null,
+      "message": "Times for a facility that is not parsed: 'Onsdagar kl. 12.00-20.00'",
+      "source_text": "Onsdagar kl. 12.00-20.00"
+    },
+    {
+      "hall_id": null,
+      "message": "Times for a facility that is not parsed: 'Lördagar kl. 14.30-18.00'",
+      "source_text": "Lördagar kl. 14.30-18.00"
+    },
+    {
+      "hall_id": null,
+      "message": "Times for a facility that is not parsed: 'Söndagar kl. 12.00-16.00'",
+      "source_text": "Söndagar kl. 12.00-16.00"
+    }
+  ]
 }

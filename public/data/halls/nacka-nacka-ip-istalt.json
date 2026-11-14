@@ -6,22 +6,14 @@
   "source_rink": "Istält",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-10T12:21:31+01:00",
-  "last_attempt_at": "2026-11-10T12:21:31+01:00",
+  "fetched_at": "2026-11-14T17:21:20+01:00",
+  "last_attempt_at": "2026-11-14T17:21:20+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-10",
-    "to": "2026-11-30"
+    "from": "2026-11-14",
+    "to": "2026-12-04"
   },
   "sessions": [
-    {
-      "date": "2026-11-14",
-      "start": "11:45",
-      "end": "13:45",
-      "stick": "with_stick",
-      "source_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b",
-      "note": null
-    },
     {
       "date": "2026-11-21",
       "start": "11:45",

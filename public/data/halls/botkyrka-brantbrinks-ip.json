@@ -6,62 +6,14 @@
   "source_rink": "Ishall",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-10T12:21:31+01:00",
-  "last_attempt_at": "2026-11-10T12:21:31+01:00",
+  "fetched_at": "2026-11-14T17:21:20+01:00",
+  "last_attempt_at": "2026-11-14T17:21:20+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-10",
-    "to": "2026-12-29"
+    "from": "2026-11-14",
+    "to": "2027-01-05"
   },
   "sessions": [
-    {
-      "date": "2026-11-10",
-      "start": "14:00",
-      "end": "15:45",
-      "stick": "with_stick",
-      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
-      "note": null
-    },
-    {
-      "date": "2026-11-11",
-      "start": "07:00",
-      "end": "08:00",
-      "stick": "with_stick",
-      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
-      "note": null
-    },
-    {
-      "date": "2026-11-11",
-      "start": "14:00",
-      "end": "15:45",
-      "stick": "no_stick",
-      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
-      "note": null
-    },
-    {
-      "date": "2026-11-12",
-      "start": "14:00",
-      "end": "15:45",
-      "stick": "with_stick",
-      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
-      "note": null
-    },
-    {
-      "date": "2026-11-13",
-      "start": "14:00",
-      "end": "15:45",
-      "stick": "with_stick",
-      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
-      "note": null
-    },
-    {
-      "date": "2026-11-14",
-      "start": "12:00",
-      "end": "13:45",
-      "stick": "no_stick",
-      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
-      "note": null
-    },
     {
       "date": "2026-11-15",
       "start": "12:00",
@@ -440,6 +392,54 @@
     },
     {
       "date": "2026-12-29",
+      "start": "10:00",
+      "end": "15:45",
+      "stick": "with_stick",
+      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
+      "note": null
+    },
+    {
+      "date": "2026-12-30",
+      "start": "07:00",
+      "end": "08:00",
+      "stick": "with_stick",
+      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
+      "note": null
+    },
+    {
+      "date": "2026-12-30",
+      "start": "10:00",
+      "end": "15:45",
+      "stick": "no_stick",
+      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
+      "note": null
+    },
+    {
+      "date": "2027-01-02",
+      "start": "12:00",
+      "end": "13:45",
+      "stick": "no_stick",
+      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
+      "note": null
+    },
+    {
+      "date": "2027-01-03",
+      "start": "12:00",
+      "end": "13:45",
+      "stick": "with_stick",
+      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
+      "note": null
+    },
+    {
+      "date": "2027-01-04",
+      "start": "10:00",
+      "end": "15:45",
+      "stick": "with_stick",
+      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
+      "note": null
+    },
+    {
+      "date": "2027-01-05",
       "start": "10:00",
       "end": "15:45",
       "stick": "with_stick",

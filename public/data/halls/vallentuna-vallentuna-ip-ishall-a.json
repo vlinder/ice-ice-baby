@@ -6,38 +6,14 @@
   "source_rink": "Ishall A",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-10T12:21:31+01:00",
-  "last_attempt_at": "2026-11-10T12:21:31+01:00",
+  "fetched_at": "2026-11-14T17:21:20+01:00",
+  "last_attempt_at": "2026-11-14T17:21:20+01:00",
   "source_updated": null,
   "covers": {
-    "from": "2026-11-10",
-    "to": "2026-12-08"
+    "from": "2026-11-14",
+    "to": "2026-12-13"
   },
   "sessions": [
-    {
-      "date": "2026-11-10",
-      "start": "13:00",
-      "end": "15:00",
-      "stick": "no_stick",
-      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
-      "note": null
-    },
-    {
-      "date": "2026-11-13",
-      "start": "13:00",
-      "end": "15:00",
-      "stick": "no_stick",
-      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
-      "note": null
-    },
-    {
-      "date": "2026-11-14",
-      "start": "12:30",
-      "end": "14:00",
-      "stick": "no_stick",
-      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
-      "note": null
-    },
     {
       "date": "2026-11-17",
       "start": "13:00",
@@ -138,6 +114,30 @@
       "date": "2026-12-08",
       "start": "13:00",
       "end": "15:00",
+      "stick": "no_stick",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-11",
+      "start": "13:00",
+      "end": "15:00",
+      "stick": "unknown",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-12",
+      "start": "12:30",
+      "end": "14:00",
+      "stick": "no_stick",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-13",
+      "start": "12:30",
+      "end": "14:00",
       "stick": "no_stick",
       "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
       "note": null
