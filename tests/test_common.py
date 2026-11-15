@@ -3,7 +3,8 @@ from datetime import date
 import pytest
 
 from adapters.common import (
-    BadTimeRange, Slot, expand_weekly, recurring_window, stick_from_text, time_ranges, weekday_number, week_year,
+    BadTimeRange, Session, Slot, expand_weekly, recurring_window, stick_from_text, tags_from_text, time_ranges,
+    weekday_number, week_year,
 )
 
 
@@ -73,3 +74,18 @@ def test_split_around():
     assert [(x.start, x.end, x.note) for x in two] == [
         ("11:30", "13:30", "obs; a"), ("14:00", "17:30", "obs; b"), ("18:00", "22:00", "obs")]
     assert s.end == "15:00" and s.note is None  # the original is not changed
+
+
+@pytest.mark.parametrize("text, expected", [
+    ("Disco", ["disco"]), ("JULLOV-SKRIDSKODISCO", ["disco"]), ("Discoåkning fredag", ["disco"]),
+    ("Skridskodisco med DJ", ["disco"]), ("Utan klubba", []), ("", []), ("discount", []),
+])
+def test_tags_from_text(text, expected):
+    assert tags_from_text(text) == expected
+
+
+def test_note_mentioning_disco_tags_the_session():
+    s = Session(date="2026-11-20", start="18:00", end="20:00", stick="unknown",
+                source_url="https://example.se", note="Skridskodisco")
+    assert s.tags == ["disco"]
+    assert Session("2026-11-20", "18:00", "20:00", "unknown", "https://example.se", "isvård").tags == []

@@ -2,6 +2,7 @@
   --bg:#EEF4F8; --surface:#FFFFFF; --ink:#13253C; --muted:#56697E; --line:#C9D7E3;
   --blue:#1F4E9C; --red:#C42B36; --warn-bg:#FFF4D6; --warn-ink:#6B4A00;
   --shared:#1F4E9C; --stick:#B3202C; --nostick:#1C6B6B; --on-tag:#FFFFFF;
+  --d1:#D42A84; --d2:#7A3FE0; --d3:#F2B632; --d4:#1FA5BA; --disco-tint:#FBEAF4;
   color-scheme:light;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
@@ -11,8 +12,17 @@
     --bg:#0D1828; --surface:#14233A; --ink:#E4ECF4; --muted:#9AADC1; --line:#2A3D57;
     --blue:#8DB3EE; --red:#F2878E; --warn-bg:#3A2E10; --warn-ink:#F5D98A;
     --shared:#8DB3EE; --stick:#F2878E; --nostick:#6CCBC8; --on-tag:#0A1626;
+    --d1:#FF6FB5; --d2:#A98BFF; --d3:#FFD166; --d4:#5FDCEB; --disco-tint:#2A1838;
     color-scheme:dark;
   }
+}
+/* Discoläge (easter egg: the mirror ball in the header). Same tokens, club palette. */
+:root.disco{
+  --bg:#0E0820; --surface:#170F2E; --ink:#F3ECFF; --muted:#B3A6D6; --line:#33265A;
+  --blue:#B79BFF; --red:#FF6FB5; --warn-bg:#3A2E10; --warn-ink:#F5D98A;
+  --shared:#8DB3EE; --stick:#F2878E; --nostick:#6CCBC8; --on-tag:#0A0614;
+  --d1:#FF6FB5; --d2:#A98BFF; --d3:#FFD166; --d4:#5FDCEB; --disco-tint:#2A1838;
+  color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 130px)}
@@ -94,4 +104,54 @@ footer.wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space
 footer p{margin:0}
 .repo{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ink);text-decoration:none}
 .repo:hover{color:var(--blue);text-decoration:underline}
+
+/* ---- Disco ---- */
+/* Mirror ball: facets are two line grids over a conic shine; the vertical grid slides to spin it. */
+.ball{--s:18px;display:inline-block;flex:none;width:var(--s);height:var(--s);border-radius:50%;position:relative;vertical-align:-3px;
+  background:
+    radial-gradient(circle at 32% 28%,rgba(255,255,255,.95) 0 6%,transparent 20%),
+    repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 1px,transparent 1px calc(var(--s)/6)),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.28) 0 1px,transparent 1px calc(var(--s)/6)),
+    conic-gradient(#cfd6e6,#f7f9ff,#9aa6c2,#e9edf7,#b8c2da,#fff,#a6b1cc,#dfe5f2,#cfd6e6);
+  background-size:auto,auto,calc(var(--s)/3) 100%,100% 100%;
+  box-shadow:inset -2px -3px 5px rgba(0,0,0,.35);animation:ballspin 3s linear infinite}
+@keyframes ballspin{to{background-position:0 0,0 0,calc(var(--s)/3) 0,0 0}}
+.dchip{display:inline-flex;align-items:center;gap:6px;font:700 13.5px Barlow,sans-serif;padding:2px 10px 2px 4px;border-radius:999px;color:#fff;margin-top:5px;
+  background:linear-gradient(90deg,var(--d1),var(--d2),var(--d4),var(--d1));background-size:300% 100%;animation:discoslide 4s linear infinite;text-shadow:0 1px 1px rgba(0,0,0,.3)}
+.chips{display:flex;flex-wrap:wrap;gap:0 6px}
+@keyframes discoslide{to{background-position:300% 0}}
+.sessions li{position:relative}
+.sessions li.disco{background:linear-gradient(90deg,var(--disco-tint),var(--surface) 65%)}
+.sessions li.disco::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--d1),var(--d2),var(--d4))}
+.sparkle{position:absolute;width:8px;height:8px;background:var(--d3);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:twinkle 2.4s ease-in-out infinite;pointer-events:none}
+.sparkle:nth-of-type(2){right:46px;top:32px;width:6px;height:6px;animation-delay:.8s}
+.sparkle:nth-of-type(3){right:14px;top:46px;width:5px;height:5px;animation-delay:1.6s}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1)}}
+.bar.c-disco,.legend i.c-disco{background:linear-gradient(90deg,var(--d1),var(--d2),var(--d4),var(--d1));background-size:300% 100%;color:#fff;animation:discoslide 4s linear infinite}
+.week td a.dis{color:#fff;border-radius:6px;padding:0 6px;margin-left:-6px;margin-right:-6px;background:linear-gradient(90deg,var(--d1),var(--d2))}
+.week td a.dis i{background:#fff!important}
+.munifilter .discofilter{display:inline-flex;align-items:center;gap:6px;padding-left:4px;border-color:var(--d2);color:var(--d2)}
+.munifilter .discofilter[aria-pressed="true"]{background:linear-gradient(90deg,var(--d1),var(--d2));border-color:transparent;color:#fff}
+.pin.disco{background:conic-gradient(var(--d1),var(--d2),var(--d4),var(--d3),var(--d1))}
+/* Easter egg toggle and the club itself */
+.hero .wrap{position:relative}
+.discotoggle{--s:30px;position:absolute;right:20px;top:0;border:0;padding:0;cursor:pointer;opacity:.85;transition:transform .2s}
+.discotoggle:hover{transform:scale(1.12) rotate(-8deg);opacity:1}
+.discotoggle::before{content:"";position:absolute;left:50%;bottom:100%;width:1px;height:36px;background:var(--muted)}
+:root.disco .discotoggle{--s:44px;box-shadow:inset -4px -5px 9px rgba(0,0,0,.35),0 0 28px var(--d2)}
+.beams{display:none;position:fixed;inset:0;pointer-events:none;z-index:1500;overflow:hidden}
+:root.disco .beams{display:block}
+.beams i{position:absolute;top:-10vh;left:50%;width:34vw;height:130vh;transform-origin:50% 0;clip-path:polygon(47% 0,53% 0,100% 100%,0 100%);
+  background:linear-gradient(to bottom,var(--c),transparent 75%);mix-blend-mode:screen;opacity:.22;animation:sweep 6s ease-in-out infinite alternate}
+.beams i:nth-child(1){--c:var(--d1)}
+.beams i:nth-child(2){--c:var(--d4);animation-duration:7.5s;animation-delay:-3s}
+.beams i:nth-child(3){--c:var(--d3);animation-duration:9s;animation-delay:-5s}
+@keyframes sweep{from{transform:translateX(-50%) rotate(-40deg)}to{transform:translateX(-50%) rotate(40deg)}}
+:root.disco .hero{border-bottom-color:transparent;border-image:linear-gradient(90deg,var(--d1),var(--d2),var(--d4),var(--d3)) 1}
+:root.disco .hero h1{background:linear-gradient(90deg,var(--d1),var(--d2) 45%,var(--d4));-webkit-background-clip:text;background-clip:text;color:transparent}
+:root.disco .bar.c-disco{box-shadow:0 0 16px var(--d1)}
+:root.disco .now{background:var(--d3);box-shadow:0 0 10px var(--d3)}
+.discooff{position:fixed;z-index:1600;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  font:600 15px Barlow,sans-serif;padding:8px 16px;border-radius:999px;border:1.5px solid var(--d2);background:var(--surface);color:var(--ink);cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.4)}
+@media (prefers-reduced-motion:reduce){.ball,.dchip,.sparkle,.bar.c-disco,.legend i.c-disco,.beams i{animation:none}.sparkle{opacity:.8}}
 @media (max-width:520px){.sessions li{grid-template-columns:92px 1fr}#map{height:440px}}

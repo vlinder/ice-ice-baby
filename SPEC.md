@@ -84,6 +84,11 @@ which covers the case where data is held back in a review PR.
 - `note`: free text from the source that doesn't map to `stick`.
 - `changed: true`: the source marks the time as changed after first publication
   (Stockholm uses bold text for this).
+- `tags`: themes the source gives the session. Today the only tag is `disco`
+  (skridskodisco, discoåkning, "JULLOV-SKRIDSKODISCO"). Adapters set it with
+  `tags_from_text()` on the source's own wording for the session, and any note that mentions
+  disco gets the tag automatically, so the wording doesn't have to survive as a note.
+  Omitted when empty. The site marks these sessions and can filter on them.
 
 ## Index file
 

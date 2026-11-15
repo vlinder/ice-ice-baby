@@ -29,7 +29,7 @@ from bs4 import BeautifulSoup
 from .common import (
     STICK_SHARED, STICK_UNKNOWN, STICK_WITH, STICK_WITHOUT,
     AdapterResult, HallResult, ParseError, Session,
-    hhmm, http_get, infer_year, month_number, norm_space, slugify, stick_from_text,
+    hhmm, http_get, infer_year, month_number, norm_space, slugify, stick_from_text, tags_from_text,
 )
 
 ROW_CAP = 100
@@ -94,7 +94,8 @@ def _merge_halves(sessions: list[Session]) -> list[Session]:
         if len(group) > 1 and {s.stick for s in group} == {STICK_WITH, STICK_WITHOUT}:
             g = group[0]
             out.append(Session(date=g.date, start=g.start, end=g.end, stick=STICK_SHARED,
-                               source_url=g.source_url, note=None))
+                               source_url=g.source_url, note=None,
+                               tags=sorted({t for s in group for t in s.tags})))
             continue
         seen = set()
         for s in group:
@@ -161,7 +162,8 @@ def parse_boards(raw: dict[str, str], today: date, *, host: str, halls: list[Hal
             if part:
                 note = f"{part}: {note}" if note else part
             board_sessions.append((hid, name, rink, day, Session(
-                date=day, start=s, end=e, stick=stick, source_url=url, note=note)))
+                date=day, start=s, end=e, stick=stick, source_url=url, note=note,
+                tags=tags_from_text(info))))
 
         days = sorted({x[3] for x in board_sessions})
         end = days[-1] if days else today.isoformat()

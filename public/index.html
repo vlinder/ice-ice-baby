@@ -14,6 +14,7 @@
 </head>
 <body>
 <header class="hero"><div class="wrap">
+  <button type="button" class="ball discotoggle" id="discoToggle" aria-pressed="false" aria-label="Discoläge" title="Discoläge"></button>
   <h1>Allmänhetens åkning</h1>
   <p class="intro">Ishallar och isbanor i <span id="munis">Stockholms län</span>. Tiderna hämtas automatiskt från kommunernas egna sidor. Klicka på en tid för att se källan och dubbelkolla innan du åker.</p>
   <p class="checked" id="checked">Laddar…</p>
@@ -28,6 +29,9 @@
   <div class="daystrip" id="days" role="group" aria-label="Välj dag"></div>
   <div class="munifilter" id="munifilter" role="group" aria-label="Filtrera kommun"></div>
 </div></div>
+
+<div class="beams" aria-hidden="true"><i></i><i></i><i></i></div>
+<button type="button" class="discooff" id="discoOff" hidden>Släck ljuset</button>
 
 <main class="wrap">
   <section id="lista">

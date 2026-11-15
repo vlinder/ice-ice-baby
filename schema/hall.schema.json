@@ -54,7 +54,14 @@
         "stick": { "enum": ["shared", "with_stick", "no_stick", "unknown"] },
         "source_url": { "type": "string", "pattern": "^https://" },
         "note": { "type": ["string", "null"] },
-        "changed": { "type": "boolean", "description": "Source marks this time as changed since first publication" }
+        "changed": { "type": "boolean", "description": "Source marks this time as changed since first publication" },
+        "tags": {
+          "type": "array",
+          "description": "Themes the source gives the session, e.g. disco. Omitted when there are none.",
+          "items": { "enum": ["disco"] },
+          "uniqueItems": true,
+          "minItems": 1
+        }
       }
     }
   }
