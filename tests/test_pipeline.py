@@ -54,3 +54,63 @@ def test_zero_sessions_is_not_flagged_when_the_source_says_it_is_empty(tmp_path,
 
     assert any("zero sessions" in r for r in review({}))
     assert not any("zero sessions" in r for r in review({"empty_reason": "closed for the season"}))
+
+
+class FakeAdapter:
+    NAME = "fake"
+    MUNICIPALITY = "Fakeby"
+    SOURCE_URL = "https://example.com/"
+    fail = False
+
+    def fetch(self):
+        return {"page": "<html></html>"}
+
+    def parse(self, raw, today):
+        from adapters.common import AdapterResult, HallResult, Session
+        if self.fail:
+            raise ValueError("layout changed")
+        s = Session("2026-11-03", "08:00", "09:00", "shared", self.SOURCE_URL)
+        return AdapterResult("2026-11-02", "2026-11-08", None, {"fake-hall": HallResult("fake-hall", "Hall", None, [s])})
+
+
+def _use_tmp_data(tmp_path, monkeypatch):
+    from pipeline import run
+    halls = tmp_path / "halls"
+    halls.mkdir()
+    monkeypatch.setattr(run, "HALLS_DIR", halls)
+    monkeypatch.setattr(run, "SOURCES_FILE", tmp_path / "sources.json")
+    return run, halls / "fake-hall.json"
+
+
+def test_unchanged_schedule_leaves_the_hall_file_untouched(tmp_path, monkeypatch):
+    from datetime import date
+    run, path = _use_tmp_data(tmp_path, monkeypatch)
+    a = FakeAdapter()
+    src = run.run_adapter(a, date(2026, 11, 2), "2026-11-02T06:17:00+01:00")
+    first = path.read_bytes()
+    src2 = run.run_adapter(a, date(2026, 11, 2), "2026-11-02T12:17:00+01:00")
+    assert path.read_bytes() == first
+    assert b"fetched_at" not in first and b"last_attempt_at" not in first
+    # The run times are kept on the source instead.
+    assert src["fetched_at"] == "2026-11-02T06:17:00+01:00"
+    assert src2["fetched_at"] == src2["last_attempt_at"] == "2026-11-02T12:17:00+01:00"
+
+
+def test_failed_source_marks_halls_stale_and_keeps_the_last_good_fetch_time(tmp_path, monkeypatch):
+    import json
+    from datetime import date
+    run, path = _use_tmp_data(tmp_path, monkeypatch)
+    a = FakeAdapter()
+    good = run.run_adapter(a, date(2026, 11, 2), "2026-11-02T06:17:00+01:00")
+    run.SOURCES_FILE.write_text(json.dumps([good]))
+    a.fail = True
+    src = run.run_adapter(a, date(2026, 11, 2), "2026-11-02T12:17:00+01:00")
+    hall = json.loads(path.read_text())
+    assert hall["status"] == "stale" and len(hall["sessions"]) == 1
+    assert src["status"] == "error"
+    assert src["fetched_at"] == "2026-11-02T06:17:00+01:00"
+    assert src["last_attempt_at"] == "2026-11-02T12:17:00+01:00"
+    # A hall that never had good data stays "error".
+    path.write_text(json.dumps({**hall, "status": "error"}))
+    run.run_adapter(a, date(2026, 11, 2), "2026-11-02T16:17:00+01:00")
+    assert json.loads(path.read_text())["status"] == "error"

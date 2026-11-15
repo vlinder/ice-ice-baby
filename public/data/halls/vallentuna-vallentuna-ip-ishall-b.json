@@ -1,13 +1,11 @@
 {
-  "spec_version": 1,
+  "spec_version": 2,
   "hall_id": "vallentuna-vallentuna-ip-ishall-b",
   "adapter": "vallentuna-rbok",
   "source_name": "Vallentuna IP",
   "source_rink": "Ishall B",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-15T03:06:46+01:00",
-  "last_attempt_at": "2026-11-15T03:06:46+01:00",
   "source_updated": null,
   "covers": {
     "from": "2026-11-15",

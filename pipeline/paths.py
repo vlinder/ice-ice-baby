@@ -7,7 +7,7 @@ SOURCES_FILE = DATA / "sources.json"
 INDEX_FILE = DATA / "index.json"
 CONFIG_FILE = ROOT / "config" / "halls.json"
 SCHEMA_DIR = ROOT / "schema"
-SPEC_VERSION = 1
+SPEC_VERSION = 2
 
 
 def read_json(path):
