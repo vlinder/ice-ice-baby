@@ -98,3 +98,15 @@ def test_repeated_rows_are_deduped():
     row = ("Lör 07 Nov", "10:00 - 11:00", "Vallentuna IP / Ishall A", "Utan klubba")
     r = vallentuna_rbok.parse({"b": table([row, row])}, TODAY)
     assert len(r.halls["vallentuna-vallentuna-ip-ishall-a"].sessions) == 1
+
+
+def test_disco_wording_tags_the_session_even_when_it_also_sets_the_stick():
+    # Haninge's board, Dec 2026: "JULLOV-SKRIDSKODISCO <br/> Utan puck & klubba"
+    html = table([("Ons 23 Dec", "09:00 - 11:55", "Torvalla IP / Ishall 1", "JULLOV-SKRIDSKODISCO <br />Utan puck &amp; klubba"),
+                  ("Ons 23 Dec", "13:00 - 14:00", "Torvalla IP / Ishall 1", "Utan puck &amp; klubba")])
+    r = haninge_rbok.parse({"9042795d-4b52-44f5-be64-e80657db8ef8": html}, TODAY)
+    s = r.halls["haninge-torvalla-ip-ishall-1"].sessions
+    assert [(x.start, x.stick, x.note, x.tags) for x in s] == [
+        ("09:00", "no_stick", None, ["disco"]), ("13:00", "no_stick", None, [])]
+    assert s[0].to_json()["tags"] == ["disco"]
+    assert "tags" not in s[1].to_json()

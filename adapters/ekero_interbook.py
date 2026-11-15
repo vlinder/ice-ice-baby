@@ -35,7 +35,7 @@ from bs4 import BeautifulSoup
 
 from .common import (
     STICK_UNKNOWN, AdapterResult, HallResult, ParseError, Session,
-    hhmm, http_get, norm_space, slugify, stick_from_text,
+    hhmm, http_get, norm_space, slugify, stick_from_text, tags_from_text,
 )
 
 NAME = "ekero-interbook"
@@ -111,7 +111,8 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
             if any((x.date, x.start, x.end, x.stick) == (day, s, e, stick) for x in hall.sessions):
                 continue  # pages overlap at their boundaries
             hall.sessions.append(Session(date=day, start=s, end=e, stick=stick,
-                                         source_url=SOURCE_URL, note=None if stick != STICK_UNKNOWN else (activity or None)))
+                                         source_url=SOURCE_URL, note=None if stick != STICK_UNKNOWN else (activity or None),
+                                         tags=tags_from_text(activity)))
 
     if len(ranges) != 1:
         raise ParseError(f"List pages disagree on the period: {sorted(ranges)}")

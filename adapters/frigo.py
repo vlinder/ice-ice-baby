@@ -30,7 +30,7 @@ from bs4 import BeautifulSoup
 
 from .common import (
     STICK_UNKNOWN, AdapterResult, HallResult, ParseError, Session,
-    hhmm, http_get, norm_space, slugify, stick_from_text,
+    hhmm, http_get, norm_space, slugify, stick_from_text, tags_from_text,
 )
 
 DATE_RE = re.compile(r"^[A-Za-zÅÄÖåäö]+\s+(\d{4})-(\d{2})-(\d{2})$")
@@ -152,7 +152,8 @@ def parse_lists(raw: dict[str, str], today: date, *, halls: list[Hall], muni: st
             stick = stick_from_text(info)
             hall = results.setdefault(hid, HallResult(hall_id=hid, name=name, rink=rink))
             sess = Session(date=current.isoformat(), start=s, end=e, stick=stick or STICK_UNKNOWN,
-                           source_url=url, note=None if stick else (info or None))
+                           source_url=url, note=None if stick else (info or None),
+                           tags=tags_from_text(info))
             if all((x.date, x.start, x.end, x.stick) != (sess.date, sess.start, sess.end, sess.stick)
                    for x in hall.sessions):
                 hall.sessions.append(sess)

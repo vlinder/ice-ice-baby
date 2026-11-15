@@ -40,7 +40,7 @@ from bs4 import BeautifulSoup
 
 from .common import (
     STICK_UNKNOWN, AdapterResult, HallResult, ParseError, Session,
-    http_get, norm_space, recurring_window, slugify, stick_from_text,
+    http_get, norm_space, recurring_window, slugify, stick_from_text, tags_from_text,
 )
 
 NAME = "vaxholm-actor"
@@ -142,7 +142,7 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
             continue
         seen.add(key)
         hall.sessions.append(Session(date=d1.isoformat(), start=s, end=e, stick=stick,
-                                     source_url=SOURCE_URL, note=note))
+                                     source_url=SOURCE_URL, note=note, tags=tags_from_text(info or "")))
 
     if no_records and len(rows) > 1:
         raise ParseError("Grid has both 'No records' and data rows")

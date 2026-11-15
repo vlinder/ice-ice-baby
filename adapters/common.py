@@ -40,6 +40,11 @@ class Session:
     source_url: str
     note: str | None = None
     changed: bool = False  # source marks this time as changed since first publication
+    tags: list[str] = field(default_factory=list)  # TAG_* values, e.g. ["disco"]
+
+    def __post_init__(self):
+        # Wording kept in the note counts too, so adapters that only keep a note get tags for free.
+        self.tags = sorted(set(self.tags) | set(tags_from_text(self.note or "")))
 
     def to_json(self) -> dict:
         d = {
@@ -52,6 +57,8 @@ class Session:
         }
         if self.changed:
             d["changed"] = True
+        if self.tags:
+            d["tags"] = list(self.tags)
         return d
 
 
@@ -229,6 +236,15 @@ def stick_from_text(text: str) -> str | None:
     if _WITH_RE.search(text):
         return STICK_WITH
     return None
+
+
+TAG_DISCO = "disco"
+_DISCO_RE = re.compile(r"disco(?!unt)", re.I)  # "Disco", "skridskodisco", "Discoåkning", "JULLOV-SKRIDSKODISCO"
+
+
+def tags_from_text(text: str) -> list[str]:
+    """Theme tags the source's wording gives a session: "Disco", "Skridskodisco" -> ["disco"]."""
+    return [TAG_DISCO] if _DISCO_RE.search(text or "") else []
 
 
 def iso_week_monday(year: int, week: int) -> date:

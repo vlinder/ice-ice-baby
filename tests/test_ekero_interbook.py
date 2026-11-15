@@ -33,6 +33,9 @@ def test_sessions_and_sticks():
     assert t[-1][0] <= "2027-01-01"
     disco = [s for s in sessions(r, "ekero-svanangen-ip") if s[0] == "2026-11-21" and s[1] == "16:30"]
     assert disco == [("2026-11-21", "16:30", "19:00", "unknown", "Disco")]
+    tagged = {(x.date, x.start) for h in r.halls.values() for x in h.sessions if x.tags == ["disco"]}
+    assert ("2026-11-21", "16:30") in tagged
+    assert all(x.note == "Disco" for h in r.halls.values() for x in h.sessions if x.tags)
 
 
 def _table(rows, caption="Bokningar 2026-11-03 - 2026-11-10"):
