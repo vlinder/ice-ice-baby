@@ -4,92 +4,20 @@
   "adapter": "sollentuna-web",
   "source_name": "Sollentunavallen",
   "source_rink": "A-hallen",
-  "status": "stale",
-  "error": "TooManyRedirects: Exceeded 30 redirects.",
+  "status": "ok",
+  "error": null,
   "source_updated": "2026-11-02T00:00",
   "covers": {
-    "from": "2026-11-09",
-    "to": "2026-12-06"
+    "from": "2026-11-15",
+    "to": "2026-12-12"
   },
   "sessions": [
     {
-      "date": "2026-11-09",
-      "start": "10:00",
-      "end": "12:30",
-      "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
-    {
-      "date": "2026-11-09",
-      "start": "12:30",
-      "end": "14:45",
-      "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
-    {
-      "date": "2026-11-10",
-      "start": "10:00",
-      "end": "12:30",
-      "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
-    {
-      "date": "2026-11-10",
-      "start": "12:30",
-      "end": "14:45",
-      "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
-    {
-      "date": "2026-11-11",
-      "start": "10:00",
-      "end": "11:30",
-      "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
-    {
-      "date": "2026-11-12",
-      "start": "10:00",
-      "end": "12:30",
-      "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
-    {
-      "date": "2026-11-12",
-      "start": "12:30",
-      "end": "14:45",
-      "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
-    {
-      "date": "2026-11-13",
-      "start": "10:00",
-      "end": "12:00",
-      "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
-    {
-      "date": "2026-11-13",
-      "start": "12:00",
-      "end": "14:45",
-      "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
-      "note": null
-    },
-    {
       "date": "2026-11-16",
       "start": "10:00",
       "end": "12:30",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -97,7 +25,7 @@
       "start": "12:30",
       "end": "14:45",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -105,7 +33,7 @@
       "start": "10:00",
       "end": "12:30",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -113,7 +41,7 @@
       "start": "12:30",
       "end": "14:45",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -121,7 +49,7 @@
       "start": "10:00",
       "end": "11:30",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -129,7 +57,7 @@
       "start": "10:00",
       "end": "12:30",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -137,7 +65,7 @@
       "start": "12:30",
       "end": "14:45",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -145,7 +73,7 @@
       "start": "10:00",
       "end": "12:00",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -153,7 +81,7 @@
       "start": "12:00",
       "end": "14:45",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -161,7 +89,7 @@
       "start": "10:00",
       "end": "12:30",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -169,7 +97,7 @@
       "start": "12:30",
       "end": "14:45",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -177,7 +105,7 @@
       "start": "10:00",
       "end": "12:30",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -185,7 +113,7 @@
       "start": "12:30",
       "end": "14:45",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -193,7 +121,7 @@
       "start": "10:00",
       "end": "11:30",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -201,7 +129,7 @@
       "start": "10:00",
       "end": "12:30",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -209,7 +137,7 @@
       "start": "12:30",
       "end": "14:45",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -217,7 +145,7 @@
       "start": "10:00",
       "end": "12:00",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -225,7 +153,7 @@
       "start": "12:00",
       "end": "14:45",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -233,7 +161,7 @@
       "start": "10:00",
       "end": "12:30",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -241,7 +169,7 @@
       "start": "12:30",
       "end": "14:45",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -249,7 +177,7 @@
       "start": "10:00",
       "end": "12:30",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -257,7 +185,7 @@
       "start": "12:30",
       "end": "14:45",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -265,7 +193,7 @@
       "start": "10:00",
       "end": "11:30",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -273,7 +201,7 @@
       "start": "10:00",
       "end": "12:30",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -281,7 +209,7 @@
       "start": "12:30",
       "end": "14:45",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -289,7 +217,7 @@
       "start": "10:00",
       "end": "12:00",
       "stick": "with_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     },
     {
@@ -297,7 +225,79 @@
       "start": "12:00",
       "end": "14:45",
       "stick": "no_stick",
-      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-07",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "no_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-07",
+      "start": "12:30",
+      "end": "14:45",
+      "stick": "with_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-08",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "with_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-08",
+      "start": "12:30",
+      "end": "14:45",
+      "stick": "no_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-09",
+      "start": "10:00",
+      "end": "11:30",
+      "stick": "with_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-10",
+      "start": "10:00",
+      "end": "12:30",
+      "stick": "no_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-10",
+      "start": "12:30",
+      "end": "14:45",
+      "stick": "with_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-11",
+      "start": "10:00",
+      "end": "12:00",
+      "stick": "with_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-11",
+      "start": "12:00",
+      "end": "14:45",
+      "stick": "no_stick",
+      "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
       "note": null
     }
   ],

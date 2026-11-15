@@ -82,7 +82,10 @@
       "end": "19:00",
       "stick": "unknown",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": "Disco"
+      "note": "Disco",
+      "tags": [
+        "disco"
+      ]
     },
     {
       "date": "2026-11-22",
@@ -154,7 +157,10 @@
       "end": "19:00",
       "stick": "unknown",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": "Disco"
+      "note": "Disco",
+      "tags": [
+        "disco"
+      ]
     },
     {
       "date": "2026-11-29",
@@ -226,7 +232,10 @@
       "end": "19:00",
       "stick": "unknown",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": "Disco"
+      "note": "Disco",
+      "tags": [
+        "disco"
+      ]
     },
     {
       "date": "2026-12-06",
@@ -314,7 +323,10 @@
       "end": "19:00",
       "stick": "unknown",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": "Disco"
+      "note": "Disco",
+      "tags": [
+        "disco"
+      ]
     },
     {
       "date": "2026-12-13",
@@ -602,7 +614,10 @@
       "end": "19:00",
       "stick": "unknown",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": "Disco"
+      "note": "Disco",
+      "tags": [
+        "disco"
+      ]
     },
     {
       "date": "2027-01-11",

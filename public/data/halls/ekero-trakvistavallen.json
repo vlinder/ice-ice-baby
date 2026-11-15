@@ -74,7 +74,10 @@
       "end": "20:30",
       "stick": "unknown",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": "Disco"
+      "note": "Disco",
+      "tags": [
+        "disco"
+      ]
     },
     {
       "date": "2026-11-21",
@@ -154,7 +157,10 @@
       "end": "20:30",
       "stick": "unknown",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": "Disco"
+      "note": "Disco",
+      "tags": [
+        "disco"
+      ]
     },
     {
       "date": "2026-11-28",
@@ -242,7 +248,10 @@
       "end": "20:30",
       "stick": "unknown",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": "Disco"
+      "note": "Disco",
+      "tags": [
+        "disco"
+      ]
     },
     {
       "date": "2026-12-05",
@@ -338,7 +347,10 @@
       "end": "20:30",
       "stick": "unknown",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "note": "Disco"
+      "note": "Disco",
+      "tags": [
+        "disco"
+      ]
     },
     {
       "date": "2026-12-12",

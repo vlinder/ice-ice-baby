@@ -4,12 +4,12 @@
   "adapter": "sollentuna-web",
   "source_name": "Sollentunavallen",
   "source_rink": "B-hallen",
-  "status": "stale",
-  "error": "TooManyRedirects: Exceeded 30 redirects.",
+  "status": "ok",
+  "error": null,
   "source_updated": "2026-11-02T00:00",
   "covers": {
-    "from": "2026-11-09",
-    "to": "2026-12-06"
+    "from": "2026-11-15",
+    "to": "2026-12-12"
   },
   "sessions": [],
   "problems": []
