@@ -27,9 +27,12 @@ function fmtStamp(iso) {
 
 const state = { index: null, halls: [], days: [], day: null, munis: new Set(), today: null };
 
+// Run timestamps live on the source (index.sources), not in the hall files.
 function isStale(h) {
   if (!h.data || h.data.status !== "ok") return true;
-  return (Date.now() - new Date(h.data.fetched_at).getTime()) / 36e5 > STALE_HOURS;
+  const src = state.index.sources.find((s) => s.adapter === h.adapter);
+  if (!src || !src.fetched_at) return true;
+  return (Date.now() - new Date(src.fetched_at).getTime()) / 36e5 > STALE_HOURS;
 }
 function sessionsOn(h, day) { return h.data ? h.data.sessions.filter((s) => s.date === day) : []; }
 function covered(h, day) { return !!h.data && h.data.covers.from <= day && day <= h.data.covers.to; }

@@ -1,13 +1,19 @@
-# Data spec (version 1)
+# Data spec (version 2)
 
 All generated data lives in `public/data/` and is served as static JSON next to the site.
 
 ```
 public/data/
   index.json          one entry per hall, points to its schedule file
-  sources.json        last run status per adapter
+  sources.json        last run status and timestamps per adapter
   halls/<hall_id>.json
 ```
+
+A hall file holds only what the source says, with no run timestamps, so it changes only
+when the schedule changes. `fetched_at` and `last_attempt_at` live on the hall's source in
+`sources.json` (and `index.json`), matched by `adapter`. A run where nothing changed then
+touches just those two files, and `git log` on a hall file lists real schedule changes.
+Version 1 also had `fetched_at` and `last_attempt_at` in every hall file.
 
 Formal JSON Schemas: [`schema/index.schema.json`](schema/index.schema.json) and
 [`schema/hall.schema.json`](schema/hall.schema.json). CI rejects any file that does not validate.
@@ -26,15 +32,13 @@ Formal JSON Schemas: [`schema/index.schema.json`](schema/index.schema.json) and
 
 ```json
 {
-  "spec_version": 1,
+  "spec_version": 2,
   "hall_id": "stockholm-ostermalms-idrottsplats-ishallen",
   "adapter": "stockholm-motionera",
   "source_name": "Östermalms idrottsplats",
   "source_rink": "Ishallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-01T06:17:03+01:00",
-  "last_attempt_at": "2026-11-01T06:17:03+01:00",
   "source_updated": "2026-10-27T16:03",
   "covers": { "from": "2026-10-26", "to": "2026-11-08" },
   "sessions": [
@@ -69,10 +73,10 @@ How adapters set it:
 | value   | meaning |
 |---------|---------|
 | `ok`    | the last attempt succeeded; sessions are current |
-| `stale` | the last attempt failed; sessions are from `fetched_at` and kept as-is |
+| `stale` | the last attempt failed; sessions are kept as-is from the source's `fetched_at` |
 | `error` | the last attempt failed and no good data has ever been fetched |
 
-The frontend also treats data as possibly outdated when `fetched_at` is older than 36 hours,
+The frontend also treats data as possibly outdated when the source's `fetched_at` is older than 36 hours,
 which covers the case where data is held back in a review PR.
 
 ### Optional session fields

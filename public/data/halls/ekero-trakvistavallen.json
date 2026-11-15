@@ -1,13 +1,11 @@
 {
-  "spec_version": 1,
+  "spec_version": 2,
   "hall_id": "ekero-trakvistavallen",
   "adapter": "ekero-interbook",
   "source_name": "Träkvistavallen",
   "source_rink": "Vikingahallen",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-15T03:06:46+01:00",
-  "last_attempt_at": "2026-11-15T03:06:46+01:00",
   "source_updated": null,
   "covers": {
     "from": "2026-11-15",

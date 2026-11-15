@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "required": ["spec_version", "generated_at", "sources", "halls"],
   "properties": {
-    "spec_version": { "const": 1 },
+    "spec_version": { "const": 2 },
     "generated_at": { "type": "string", "format": "date-time" },
     "sources": {
       "type": "array",

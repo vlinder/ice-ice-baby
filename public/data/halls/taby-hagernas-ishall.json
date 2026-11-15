@@ -1,13 +1,11 @@
 {
-  "spec_version": 1,
+  "spec_version": 2,
   "hall_id": "taby-hagernas-ishall",
   "adapter": "taby-web",
   "source_name": "Hägernäs ishall",
   "source_rink": null,
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-15T03:06:46+01:00",
-  "last_attempt_at": "2026-11-15T03:06:46+01:00",
   "source_updated": "2026-11-02T00:00",
   "covers": {
     "from": "2026-11-09",
