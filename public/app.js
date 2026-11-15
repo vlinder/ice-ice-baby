@@ -123,7 +123,7 @@ function renderStatic() {
       x.dataset.all ? nowAll : !nowAll && state.munis.has(x.dataset.m)));
     render();
   };
-  $("sourcesList").innerHTML = state.index.sources.map((s) =>
+  $("sourcesList").innerHTML = [...state.index.sources].sort((a, b) => a.municipality.localeCompare(b.municipality, "sv")).map((s) =>
     `<li>${esc(s.municipality)}: <a href="${esc(s.source_url)}">${esc(new URL(s.source_url).host)}</a> – ${s.status === "ok" ? "läst" : "<strong>fel</strong> vid"} ${fmtStamp(s.last_attempt_at)}</li>`).join("");
 }
 
