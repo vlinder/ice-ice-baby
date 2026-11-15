@@ -90,11 +90,14 @@ document.addEventListener("focusin", (e) => { const t = e.target.closest(".tip")
 document.addEventListener("focusout", (e) => { if (e.target.closest(".tip")) hideTip(); });
 window.addEventListener("scroll", hideTip, { passive: true });
 
-async function load() {
-  const index = await fetch("data/index.json", { cache: "no-cache" }).then((r) => r.json());
-  state.index = index;
+async function fetchData(index) {
+  index ??= await fetch("data/index.json", { cache: "no-cache" }).then((r) => r.json());
   const results = await Promise.allSettled(index.halls.map((h) => fetch("data/" + h.schedule, { cache: "no-cache" }).then((r) => r.json())));
-  state.halls = index.halls.map((h, i) => ({ ...h, data: results[i].status === "fulfilled" ? results[i].value : null }));
+  return { index, halls: index.halls.map((h, i) => ({ ...h, data: results[i].status === "fulfilled" ? results[i].value : null })) };
+}
+
+async function load() {
+  Object.assign(state, await fetchData());
   const now = stockholmNow();
   state.today = now;
   state.days = Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(now.date, i));
@@ -102,6 +105,71 @@ async function load() {
   state.munis = new Set(state.halls.map((h) => h.municipality));
   renderStatic();
   render();
+  planRefresh();
+}
+
+// Pick up new data while the page stays open. The update workflow runs on UPDATE_CRON
+// (keep it in sync with .github/workflows/update.yml; a test checks this); we fetch
+// REFRESH_DELAY_MIN after each run, when the data commit and deploy should be done,
+// plus a random 0–REFRESH_JITTER_MIN minutes so open pages never all fetch at once.
+// Scheduled runs can start late, so if the run's data is not out yet we look again
+// REFRESH_DELAY_MIN (plus jitter) later, at most REFRESH_FOLLOWUPS times.
+const UPDATE_CRON = "17 5,11,16 * * *"; // UTC
+const REFRESH_DELAY_MIN = 15;
+const REFRESH_JITTER_MIN = 5;
+const REFRESH_FOLLOWUPS = 2;
+let refreshAt = Infinity, refreshRun = null, followups = 0;
+function nextUpdateRun(after) {
+  const [minute, hours] = UPDATE_CRON.split(" ");
+  const d = new Date(after);
+  for (let day = 0; day < 2; day++, d.setUTCDate(d.getUTCDate() + 1)) {
+    for (const h of hours.split(",").map(Number).sort((a, b) => a - b)) {
+      const t = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), h, Number(minute));
+      if (t > after) return t;
+    }
+  }
+}
+function planRefresh() {
+  // The first run whose data is not out yet: also covers loading the page mid-deploy.
+  refreshRun = nextUpdateRun(Date.now() - REFRESH_DELAY_MIN * 6e4);
+  followups = 0;
+  refreshAt = refreshRun + (REFRESH_DELAY_MIN + Math.random() * REFRESH_JITTER_MIN) * 6e4;
+}
+// Every run writes a new generated_at, so data from at or after the run's start is that run's.
+const hasRunData = (index) => new Date(index.generated_at).getTime() >= refreshRun;
+function planFollowup() {
+  if (followups >= REFRESH_FOLLOWUPS) return planRefresh();
+  followups++;
+  refreshAt = Date.now() + (REFRESH_DELAY_MIN + Math.random() * REFRESH_JITTER_MIN) * 6e4;
+}
+async function refresh() {
+  refreshAt = Infinity; // no second refresh while this one is in flight
+  try {
+    const index = await fetch("data/index.json", { cache: "no-cache" }).then((r) => r.json());
+    if (hasRunData(index) || hasRunData(state.index)) planRefresh();
+    else planFollowup(); // the run is late (or failed): look again a bit later
+    if (index.generated_at === state.index.generated_at) return; // nothing new: skip the hall files
+    const next = await fetchData(index);
+    const allMunis = new Set(state.halls.map((h) => h.municipality));
+    const picked = state.munis.size === allMunis.size ? null : state.munis;
+    Object.assign(state, next);
+    // renderStatic builds the filter from state.munis, so give it every municipality,
+    // then put back what the visitor had picked.
+    state.munis = new Set(state.halls.map((h) => h.municipality));
+    if (!state.halls.some(hasDisco)) state.disco = false;
+    renderStatic();
+    if (picked) {
+      const kept = [...picked].filter((m) => state.munis.has(m));
+      if (kept.length) state.munis = new Set(kept);
+    }
+    const nowAll = state.munis.size === new Set(state.halls.map((h) => h.municipality)).size;
+    $("munifilter").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed",
+      x.dataset.disco ? state.disco : x.dataset.all ? nowAll : !nowAll && state.munis.has(x.dataset.m)));
+    render();
+  } catch (err) {
+    console.error(err); // keep showing what we have
+    if (refreshAt === Infinity) planFollowup();
+  }
 }
 
 function renderStatic() {
@@ -150,6 +218,31 @@ function renderStatic() {
 }
 
 function render() { renderDays(); renderList(); renderCalendar(); renderWeek(); renderMap(); }
+
+// Keep "now" current while the page stays open: the calendar's now line and the dimming
+// of passed times move every minute, and after midnight the day strip rolls forward.
+function tick() {
+  if (!state.today) return;
+  if (Date.now() >= refreshAt) refresh();
+  const now = stockholmNow();
+  if (now.date === state.today.date && now.minutes === state.today.minutes) return;
+  const newDay = now.date !== state.today.date;
+  state.today = now;
+  if (newDay) {
+    const wasToday = state.day === state.days[0];
+    state.days = Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(now.date, i));
+    if (wasToday || !state.days.includes(state.day)) state.day = state.days[0];
+    render();
+  } else if (state.day === now.date) {
+    // Only the list and the calendar show the current time; leave the map (and any open popup) alone.
+    renderList();
+    renderCalendar();
+  }
+}
+// Once a minute, just after the minute turns.
+(function everyMinute() { setTimeout(() => { tick(); everyMinute(); }, 6e4 - (Date.now() % 6e4) + 50); })();
+// Timers are slowed in background tabs and paused during sleep: catch up on return.
+document.addEventListener("visibilitychange", () => { if (!document.hidden) tick(); });
 
 function renderDays() {
   const hs = visibleHalls();
