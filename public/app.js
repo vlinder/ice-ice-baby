@@ -90,8 +90,8 @@ document.addEventListener("focusin", (e) => { const t = e.target.closest(".tip")
 document.addEventListener("focusout", (e) => { if (e.target.closest(".tip")) hideTip(); });
 window.addEventListener("scroll", hideTip, { passive: true });
 
-async function fetchData() {
-  const index = await fetch("data/index.json", { cache: "no-cache" }).then((r) => r.json());
+async function fetchData(index) {
+  index ??= await fetch("data/index.json", { cache: "no-cache" }).then((r) => r.json());
   const results = await Promise.allSettled(index.halls.map((h) => fetch("data/" + h.schedule, { cache: "no-cache" }).then((r) => r.json())));
   return { index, halls: index.halls.map((h, i) => ({ ...h, data: results[i].status === "fulfilled" ? results[i].value : null })) };
 }
@@ -112,10 +112,13 @@ async function load() {
 // (keep it in sync with .github/workflows/update.yml; a test checks this); we fetch
 // REFRESH_DELAY_MIN after each run, when the data commit and deploy should be done,
 // plus a random 0–REFRESH_JITTER_MIN minutes so open pages never all fetch at once.
+// Scheduled runs can start late, so if the run's data is not out yet we look again
+// REFRESH_DELAY_MIN (plus jitter) later, at most REFRESH_FOLLOWUPS times.
 const UPDATE_CRON = "17 5,11,16 * * *"; // UTC
 const REFRESH_DELAY_MIN = 15;
 const REFRESH_JITTER_MIN = 5;
-let refreshAt = Infinity;
+const REFRESH_FOLLOWUPS = 2;
+let refreshAt = Infinity, refreshRun = null, followups = 0;
 function nextUpdateRun(after) {
   const [minute, hours] = UPDATE_CRON.split(" ");
   const d = new Date(after);
@@ -128,15 +131,25 @@ function nextUpdateRun(after) {
 }
 function planRefresh() {
   // The first run whose data is not out yet: also covers loading the page mid-deploy.
-  const run = nextUpdateRun(Date.now() - REFRESH_DELAY_MIN * 6e4);
-  refreshAt = run + (REFRESH_DELAY_MIN + Math.random() * REFRESH_JITTER_MIN) * 6e4;
+  refreshRun = nextUpdateRun(Date.now() - REFRESH_DELAY_MIN * 6e4);
+  followups = 0;
+  refreshAt = refreshRun + (REFRESH_DELAY_MIN + Math.random() * REFRESH_JITTER_MIN) * 6e4;
+}
+// Every run writes a new generated_at, so data from at or after the run's start is that run's.
+const hasRunData = (index) => new Date(index.generated_at).getTime() >= refreshRun;
+function planFollowup() {
+  if (followups >= REFRESH_FOLLOWUPS) return planRefresh();
+  followups++;
+  refreshAt = Date.now() + (REFRESH_DELAY_MIN + Math.random() * REFRESH_JITTER_MIN) * 6e4;
 }
 async function refresh() {
-  planRefresh();
+  refreshAt = Infinity; // no second refresh while this one is in flight
   try {
     const index = await fetch("data/index.json", { cache: "no-cache" }).then((r) => r.json());
+    if (hasRunData(index) || hasRunData(state.index)) planRefresh();
+    else planFollowup(); // the run is late (or failed): look again a bit later
     if (index.generated_at === state.index.generated_at) return; // nothing new: skip the hall files
-    const next = await fetchData();
+    const next = await fetchData(index);
     const allMunis = new Set(state.halls.map((h) => h.municipality));
     const picked = state.munis.size === allMunis.size ? null : state.munis;
     Object.assign(state, next);
@@ -154,7 +167,8 @@ async function refresh() {
       x.dataset.disco ? state.disco : x.dataset.all ? nowAll : !nowAll && state.munis.has(x.dataset.m)));
     render();
   } catch (err) {
-    console.error(err); // keep showing what we have; try again after the next run
+    console.error(err); // keep showing what we have
+    if (refreshAt === Infinity) planFollowup();
   }
 }
 
