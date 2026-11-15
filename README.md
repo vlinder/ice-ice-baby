@@ -15,10 +15,12 @@ The sources are the pages each municipality points to (the same ones
 | Stockholm | `stockholm_motionera` | [motionera.stockholm](https://motionera.stockholm/skridskoakning/), weekly lists |
 | Botkyrka, Haninge, Nacka, Norrtälje, Tyresö, Vallentuna | `*_rbok` → `rbok.py` | Rbok information boards (Haninge: one per hall) |
 | Södertälje | `sodertalje_frigo` → `frigo.py` | FRI-GO booking lists, one per rink, 7 days |
+| Järfälla | `jarfalla_frigo` → `frigo_schema.py` | FRI-GO public schedule (booked as "Allmänheten", stick rule as the label), 6 weeks |
 | Ekerö | `ekero_interbook` | Interbook booking list linked from ekero.se, 60 days (moved from FRI-GO in Nov 2026) |
 | Salem | `salem_sportadmin` | IFK Salem's SportAdmin page, linked by the municipality |
 | Vaxholm | `vaxholm_actor` | Actor Smartbook export grid |
-| Danderyd, Huddinge, Järfälla, Lidingö, Nynäshamn, Sigtuna, Sollentuna, Solna, Sundbyberg, Täby, Upplands-Bro, Upplands Väsby, Värmdö, Österåker | `<kommun>_web` | The municipality's own web page (weekly schedules, holiday blocks, exceptions) |
+| Huddinge | `huddinge_actor` → `actor_scheduler.py` | Actor Smartbook booking calendar (booked by "Allmänheten"), 6 weeks; stick rule from the web page (`huddinge_web.py`) |
+| Danderyd, Lidingö, Nynäshamn, Sigtuna, Sollentuna, Solna, Sundbyberg, Täby, Upplands-Bro, Upplands Väsby, Värmdö, Österåker | `<kommun>_web` | The municipality's own web page (weekly schedules, holiday blocks, exceptions) |
 | Nykvarn | – | No published times (natural ice only) |
 
 Some sources are empty on purpose right now (Södertälje's lists, Vaxholm's export,
@@ -104,7 +106,8 @@ python -m http.server -d public 8000      # open http://localhost:8000
 - **New hall in an existing source:** it is picked up automatically and flagged for review.
   Add its name, short name and coordinates to `config/halls.json`.
 - **New municipality:** if it uses Rbok or FRI-GO, add a small module with its board/list
-  URLs and hall mapping (copy e.g. `nacka_rbok.py`). Otherwise write `adapters/<name>.py`
+  URLs and hall mapping (copy e.g. `nacka_rbok.py`, or `jarfalla_frigo.py` when FRI-GO has no
+  list URL). If its Actor Smartbook calendar shows who booked, see `huddinge_actor.py`. Otherwise write `adapters/<name>.py`
   following the contract in SPEC.md, using the helpers in `adapters/common.py`. Either way:
   save a fixture, add tests, register it in `adapters/__init__.py`, and add its halls to
   `config/halls.json`.

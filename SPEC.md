@@ -60,8 +60,10 @@ hasn't published that far yet). The frontend shows these differently: blank vs. 
 
 How adapters set it:
 
-- **Booking systems** (Rbok boards, FRI-GO lists): today until the last day the list
-  reaches. An Rbok board shows at most 100 rows, so a full board's last day may be cut
+- **Booking systems** (Rbok boards, FRI-GO lists and schedules, Interbook lists, Actor
+  calendars): today until the last day the list reaches, or the period asked for
+  (`HORIZON_DAYS`, six weeks) where the system answers for any period. FRI-GO schedules
+  stop before the first day the system blocks from viewing. An Rbok board shows at most 100 rows, so a full board's last day may be cut
   short and is left out. When one source has a list per hall, each hall gets its own range.
 - **Dated lists on a web page** ("Vecka 45", "6/11 13.00–16.50"): the days the page lists.
 - **Recurring weekly schedules** ("Måndagar 14.00–15.45"): from today for 28 days
@@ -110,8 +112,9 @@ An adapter is a Python module in `adapters/` registered in `adapters/__init__.py
 | `parse(raw, today) -> AdapterResult` | pure function: raw documents → halls and sessions |
 
 Sources that share a system have a shared parser, and each municipality's module only holds
-its URLs and hall mapping: `adapters/rbok.py` (Rbok information boards) and
-`adapters/frigo.py` (FRI-GO booking lists). Hand-written municipal pages each have their own
+its URLs and hall mapping: `adapters/rbok.py` (Rbok information boards),
+`adapters/frigo.py` (FRI-GO booking lists), `adapters/frigo_schema.py` (FRI-GO public
+schedules) and `adapters/actor_scheduler.py` (Actor Smartbook booking calendars). Hand-written municipal pages each have their own
 parser (`*_web.py`), built from the helpers at the bottom of `adapters/common.py`
 (`time_ranges`, `stick_from_text`, `expand_weekly`, `recurring_window`, ...).
 

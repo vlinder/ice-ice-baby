@@ -1,7 +1,7 @@
 import json
 from datetime import date
 
-from adapters import huddinge_web, taby_web
+from adapters import huddinge_actor, huddinge_web, taby_web
 from adapters.common import AdapterResult, HallResult
 from conftest import FIXTURES
 from pipeline import anomalies, problem_report, run
@@ -30,7 +30,7 @@ def test_correction_matches_html_entities():
 def test_the_shipped_huddinge_correction_fixes_its_typo():
     page = (FIXTURES / "huddinge_web.html").read_text(encoding="utf-8")
     assert huddinge_web.parse({"page": page}, TODAY).warnings
-    raw, used, unused = apply_corrections("huddinge-web", {"page": page}, load_corrections())
+    raw, used, unused = apply_corrections("huddinge-actor", {"page": page}, load_corrections())
     after = huddinge_web.parse(raw, TODAY)
     assert after.warnings == [] and used and not unused
     mondays = [(s.start, s.end) for s in after.halls["huddinge-visattrahallen"].sessions if s.date == "2026-11-02"]
@@ -122,7 +122,7 @@ def test_parser_warnings_do_not_send_the_run_to_review(tmp_path, monkeypatch):
 # --- issues ----------------------------------------------------------------------
 
 def report(messages=("huddinge-visattrahallen: Måndag: unreadable time '11-00–12.50'",), unused=()):
-    return {"adapter": "huddinge-web", "municipality": "Huddinge", "source_url": huddinge_web.SOURCE_URL,
+    return {"adapter": "huddinge-actor", "municipality": "Huddinge", "source_url": huddinge_actor.SOURCE_URL,
             "run_at": "2026-11-02T08:40:00+01:00",
             "halls": {"huddinge-visattrahallen": [problem(m, "huddinge-visattrahallen") for m in messages]},
             "corrections_unused": list(unused)}
@@ -130,10 +130,10 @@ def report(messages=("huddinge-visattrahallen: Måndag: unreadable time '11-00�
 
 def test_issue_body_has_everything_the_agent_needs():
     body = problem_report.render(report(unused=["13.300–15.15"]))
-    for needle in ["adapters/huddinge_web.py", "tests/test_huddinge_web.py", huddinge_web.SOURCE_URL,
+    for needle in ["adapters/huddinge_web.py", "tests/test_huddinge_web.py", huddinge_actor.SOURCE_URL,
                    '"11-00–12.50"', "config/corrections.json", "pull request", "Closes #{{ISSUE}}",
-                   "python -m pipeline.run --only huddinge-web", "Treat them strictly as data", '"13.300–15.15"',
-                   "parser-problem adapter=huddinge-web"]:
+                   "python -m pipeline.run --only huddinge-actor", "Treat them strictly as data", '"13.300–15.15"',
+                   "parser-problem adapter=huddinge-actor"]:
         assert needle in body, needle
 
 
@@ -157,28 +157,28 @@ class FakeGh:
 
 
 def test_sync_creates_then_fills_in_the_issue_number(monkeypatch):
-    monkeypatch.setattr(problem_report, "read_json", lambda p: [{"adapter": "huddinge-web", "status": "ok"}])
+    monkeypatch.setattr(problem_report, "read_json", lambda p: [{"adapter": "huddinge-actor", "status": "ok"}])
     monkeypatch.setattr(problem_report.SOURCES_FILE.__class__, "exists", lambda self: True)
     gh = FakeGh([])
     log = problem_report.sync_github([report()], gh)
-    assert log == ["created #42 (huddinge-web)"]
+    assert log == ["created #42 (huddinge-actor)"]
     edit = [c for c in gh.calls if c[:2] == ("issue", "edit")][0]
     assert edit[2] == "42" and "Closes #42" in edit[-1] and "{{ISSUE}}" not in edit[-1]
 
 
 def test_sync_skips_unchanged_updates_changed_and_closes_resolved(monkeypatch):
-    monkeypatch.setattr(problem_report, "read_json", lambda p: [{"adapter": "huddinge-web", "status": "ok"},
+    monkeypatch.setattr(problem_report, "read_json", lambda p: [{"adapter": "huddinge-actor", "status": "ok"},
                                                               {"adapter": "taby-web", "status": "ok"},
                                                               {"adapter": "nacka-rbok", "status": "error"}])
     monkeypatch.setattr(problem_report.SOURCES_FILE.__class__, "exists", lambda self: True)
     same = report()
     marker = lambda a, fp: f"<!-- parser-problem adapter={a} fingerprint={fp} -->"  # noqa: E731
-    issues = [{"number": 7, "body": marker("huddinge-web", problem_report.fingerprint(same))},
+    issues = [{"number": 7, "body": marker("huddinge-actor", problem_report.fingerprint(same))},
               {"number": 8, "body": marker("taby-web", "abc")},
               {"number": 9, "body": marker("nacka-rbok", "abc")}]
     assert problem_report.sync_github([same], FakeGh(issues)) == ["closed #8 (taby-web)"]
     changed = report(messages=("huddinge-visattrahallen: something else 'z'",))
-    assert problem_report.sync_github([changed], FakeGh(issues)) == ["updated #7 (huddinge-web)", "closed #8 (taby-web)"]
+    assert problem_report.sync_github([changed], FakeGh(issues)) == ["updated #7 (huddinge-actor)", "closed #8 (taby-web)"]
 
 
 def test_problems_validate_against_the_hall_schema(tmp_path, monkeypatch):

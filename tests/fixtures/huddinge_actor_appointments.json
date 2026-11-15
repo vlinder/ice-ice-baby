@@ -1,0 +1,2464 @@
+{
+"from": "2026-11-15",
+"to": "2026-11-28",
+"response": {
+"d": [
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220017,
+"Start": "/Date(1795100400000)/",
+"End": "/Date(1795107600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220018,
+"Start": "/Date(1795705200000)/",
+"End": "/Date(1795712400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220059,
+"Start": "/Date(1794729600000)/",
+"End": "/Date(1794740400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220060,
+"Start": "/Date(1795107600000)/",
+"End": "/Date(1795113000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220061,
+"Start": "/Date(1795334400000)/",
+"End": "/Date(1795345200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220062,
+"Start": "/Date(1795712400000)/",
+"End": "/Date(1795717800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221810,
+"Start": "/Date(1794935700000)/",
+"End": "/Date(1794942900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221811,
+"Start": "/Date(1795029300000)/",
+"End": "/Date(1795036500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221812,
+"Start": "/Date(1795194900000)/",
+"End": "/Date(1795202100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221813,
+"Start": "/Date(1795540500000)/",
+"End": "/Date(1795547700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221814,
+"Start": "/Date(1795634100000)/",
+"End": "/Date(1795641300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221815,
+"Start": "/Date(1795799700000)/",
+"End": "/Date(1795806900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Drevvikens Konståkningsförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220257,
+"Start": "/Date(1794841200000)/",
+"End": "/Date(1794848400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220258,
+"Start": "/Date(1794927600000)/",
+"End": "/Date(1794934800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220259,
+"Start": "/Date(1795014000000)/",
+"End": "/Date(1795021200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220260,
+"Start": "/Date(1795100400000)/",
+"End": "/Date(1795107600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220261,
+"Start": "/Date(1795186800000)/",
+"End": "/Date(1795194000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220262,
+"Start": "/Date(1795446000000)/",
+"End": "/Date(1795453200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220263,
+"Start": "/Date(1795532400000)/",
+"End": "/Date(1795539600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220264,
+"Start": "/Date(1795618800000)/",
+"End": "/Date(1795626000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220265,
+"Start": "/Date(1795705200000)/",
+"End": "/Date(1795712400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220266,
+"Start": "/Date(1795791600000)/",
+"End": "/Date(1795798800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220439,
+"Start": "/Date(1794848400000)/",
+"End": "/Date(1794870000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220440,
+"Start": "/Date(1794934800000)/",
+"End": "/Date(1794952800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220441,
+"Start": "/Date(1795021200000)/",
+"End": "/Date(1795039200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220442,
+"Start": "/Date(1795107600000)/",
+"End": "/Date(1795129200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220443,
+"Start": "/Date(1795194000000)/",
+"End": "/Date(1795212000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220444,
+"Start": "/Date(1795266000000)/",
+"End": "/Date(1795289400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220445,
+"Start": "/Date(1795248000000)/",
+"End": "/Date(1795258800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220446,
+"Start": "/Date(1795453200000)/",
+"End": "/Date(1795474800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220447,
+"Start": "/Date(1795539600000)/",
+"End": "/Date(1795557600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220448,
+"Start": "/Date(1795626000000)/",
+"End": "/Date(1795644000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220449,
+"Start": "/Date(1795712400000)/",
+"End": "/Date(1795734000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220450,
+"Start": "/Date(1795798800000)/",
+"End": "/Date(1795816800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220451,
+"Start": "/Date(1795870800000)/",
+"End": "/Date(1795894200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220452,
+"Start": "/Date(1795852800000)/",
+"End": "/Date(1795863600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220579,
+"Start": "/Date(1794729600000)/",
+"End": "/Date(1794767400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220580,
+"Start": "/Date(1795334400000)/",
+"End": "/Date(1795372200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221913,
+"Start": "/Date(1795036500000)/",
+"End": "/Date(1795041900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258355,
+"Start": "/Date(1794897000000)/",
+"End": "/Date(1794900600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258356,
+"Start": "/Date(1794983400000)/",
+"End": "/Date(1794987000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258357,
+"Start": "/Date(1795069800000)/",
+"End": "/Date(1795073400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258358,
+"Start": "/Date(1795156200000)/",
+"End": "/Date(1795159800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258359,
+"Start": "/Date(1795501800000)/",
+"End": "/Date(1795505400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258360,
+"Start": "/Date(1795588200000)/",
+"End": "/Date(1795591800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258361,
+"Start": "/Date(1795674600000)/",
+"End": "/Date(1795678200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258362,
+"Start": "/Date(1795761000000)/",
+"End": "/Date(1795764600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Flemingsbergs IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221051,
+"Start": "/Date(1794731400000)/",
+"End": "/Date(1794735000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Friluftsfrämjandet\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221052,
+"Start": "/Date(1795336200000)/",
+"End": "/Date(1795339800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Friluftsfrämjandet\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220708,
+"Start": "/Date(1794952800000)/",
+"End": "/Date(1794956400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Grantorp Allmänna IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220709,
+"Start": "/Date(1795557600000)/",
+"End": "/Date(1795561200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Grantorp Allmänna IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 259461,
+"Start": "/Date(1794771000000)/",
+"End": "/Date(1794778200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Grantorp Allmänna IK\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220844,
+"Start": "/Date(1794767400000)/",
+"End": "/Date(1794771000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Huddinge Bandyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220845,
+"Start": "/Date(1795039200000)/",
+"End": "/Date(1795042800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Huddinge Bandyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220846,
+"Start": "/Date(1795372200000)/",
+"End": "/Date(1795375800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Huddinge Bandyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220847,
+"Start": "/Date(1795644000000)/",
+"End": "/Date(1795647600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Huddinge Bandyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219553,
+"Start": "/Date(1795035600000)/",
+"End": "/Date(1795042800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219554,
+"Start": "/Date(1795640400000)/",
+"End": "/Date(1795647600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221306,
+"Start": "/Date(1794842100000)/",
+"End": "/Date(1794849300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221307,
+"Start": "/Date(1794928500000)/",
+"End": "/Date(1794935700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221308,
+"Start": "/Date(1795101300000)/",
+"End": "/Date(1795108500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221309,
+"Start": "/Date(1795446900000)/",
+"End": "/Date(1795454100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221310,
+"Start": "/Date(1795533300000)/",
+"End": "/Date(1795540500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221311,
+"Start": "/Date(1795706100000)/",
+"End": "/Date(1795713300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221403,
+"Start": "/Date(1794730500000)/",
+"End": "/Date(1794741300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221404,
+"Start": "/Date(1794849300000)/",
+"End": "/Date(1794851100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221405,
+"Start": "/Date(1795108500000)/",
+"End": "/Date(1795115700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221406,
+"Start": "/Date(1795259700000)/",
+"End": "/Date(1795277700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221407,
+"Start": "/Date(1795335300000)/",
+"End": "/Date(1795346100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221408,
+"Start": "/Date(1795454100000)/",
+"End": "/Date(1795455900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221409,
+"Start": "/Date(1795713300000)/",
+"End": "/Date(1795720500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221410,
+"Start": "/Date(1795864500000)/",
+"End": "/Date(1795882500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221489,
+"Start": "/Date(1795284900000)/",
+"End": "/Date(1795290300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221490,
+"Start": "/Date(1795889700000)/",
+"End": "/Date(1795895100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255108,
+"Start": "/Date(1795376700000)/",
+"End": "/Date(1795382100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255263,
+"Start": "/Date(1794810900000)/",
+"End": "/Date(1794816900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255264,
+"Start": "/Date(1794983700000)/",
+"End": "/Date(1794989700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255265,
+"Start": "/Date(1795070100000)/",
+"End": "/Date(1795076100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255266,
+"Start": "/Date(1795415700000)/",
+"End": "/Date(1795421700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255267,
+"Start": "/Date(1795588500000)/",
+"End": "/Date(1795594500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255268,
+"Start": "/Date(1795674900000)/",
+"End": "/Date(1795680900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Ishockeyklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219102,
+"Start": "/Date(1794841200000)/",
+"End": "/Date(1794848400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219103,
+"Start": "/Date(1794927600000)/",
+"End": "/Date(1794934800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219104,
+"Start": "/Date(1795014000000)/",
+"End": "/Date(1795021200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219105,
+"Start": "/Date(1795186800000)/",
+"End": "/Date(1795194000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219106,
+"Start": "/Date(1795446000000)/",
+"End": "/Date(1795453200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219107,
+"Start": "/Date(1795532400000)/",
+"End": "/Date(1795539600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219108,
+"Start": "/Date(1795618800000)/",
+"End": "/Date(1795626000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219109,
+"Start": "/Date(1795791600000)/",
+"End": "/Date(1795798800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219262,
+"Start": "/Date(1794735000000)/",
+"End": "/Date(1794740400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219263,
+"Start": "/Date(1794848400000)/",
+"End": "/Date(1794870000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219264,
+"Start": "/Date(1794934800000)/",
+"End": "/Date(1794956400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219265,
+"Start": "/Date(1795021200000)/",
+"End": "/Date(1795035600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219266,
+"Start": "/Date(1795114800000)/",
+"End": "/Date(1795129200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219267,
+"Start": "/Date(1795194000000)/",
+"End": "/Date(1795215600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219268,
+"Start": "/Date(1795248000000)/",
+"End": "/Date(1795266000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219269,
+"Start": "/Date(1795339800000)/",
+"End": "/Date(1795345200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219270,
+"Start": "/Date(1795453200000)/",
+"End": "/Date(1795474800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219271,
+"Start": "/Date(1795539600000)/",
+"End": "/Date(1795561200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219272,
+"Start": "/Date(1795626000000)/",
+"End": "/Date(1795640400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219273,
+"Start": "/Date(1795719600000)/",
+"End": "/Date(1795734000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219274,
+"Start": "/Date(1795798800000)/",
+"End": "/Date(1795820400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219275,
+"Start": "/Date(1795852800000)/",
+"End": "/Date(1795870800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219414,
+"Start": "/Date(1794747600000)/",
+"End": "/Date(1794783600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219415,
+"Start": "/Date(1795282200000)/",
+"End": "/Date(1795291200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219416,
+"Start": "/Date(1795352400000)/",
+"End": "/Date(1795388400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219417,
+"Start": "/Date(1795887000000)/",
+"End": "/Date(1795896000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Segeltorps IF ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219464,
+"Start": "/Date(1795100400000)/",
+"End": "/Date(1795107600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219465,
+"Start": "/Date(1795705200000)/",
+"End": "/Date(1795712400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219505,
+"Start": "/Date(1795107600000)/",
+"End": "/Date(1795114800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219506,
+"Start": "/Date(1795266000000)/",
+"End": "/Date(1795282200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219507,
+"Start": "/Date(1795712400000)/",
+"End": "/Date(1795719600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219508,
+"Start": "/Date(1795870800000)/",
+"End": "/Date(1795887000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221573,
+"Start": "/Date(1794741300000)/",
+"End": "/Date(1794764700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221574,
+"Start": "/Date(1794851100000)/",
+"End": "/Date(1794869100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221575,
+"Start": "/Date(1794942900000)/",
+"End": "/Date(1794955500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221576,
+"Start": "/Date(1795022100000)/",
+"End": "/Date(1795029300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221577,
+"Start": "/Date(1795202100000)/",
+"End": "/Date(1795214700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221578,
+"Start": "/Date(1795277700000)/",
+"End": "/Date(1795284900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221579,
+"Start": "/Date(1795346100000)/",
+"End": "/Date(1795369500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221580,
+"Start": "/Date(1795455900000)/",
+"End": "/Date(1795473900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221581,
+"Start": "/Date(1795547700000)/",
+"End": "/Date(1795560300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221582,
+"Start": "/Date(1795626900000)/",
+"End": "/Date(1795634100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221583,
+"Start": "/Date(1795806900000)/",
+"End": "/Date(1795819500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221584,
+"Start": "/Date(1795882500000)/",
+"End": "/Date(1795889700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221707,
+"Start": "/Date(1795014900000)/",
+"End": "/Date(1795022100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221708,
+"Start": "/Date(1795187700000)/",
+"End": "/Date(1795194900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221709,
+"Start": "/Date(1795619700000)/",
+"End": "/Date(1795626900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221710,
+"Start": "/Date(1795792500000)/",
+"End": "/Date(1795799700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Svea Konståkningsklubb\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221871,
+"Start": "/Date(1795641300000)/",
+"End": "/Date(1795646700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221891,
+"Start": "/Date(1795115700000)/",
+"End": "/Date(1795128300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221892,
+"Start": "/Date(1795720500000)/",
+"End": "/Date(1795733100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219711,
+"Start": "/Date(1794841200000)/",
+"End": "/Date(1794848400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219712,
+"Start": "/Date(1794927600000)/",
+"End": "/Date(1794934800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219713,
+"Start": "/Date(1795014000000)/",
+"End": "/Date(1795021200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219714,
+"Start": "/Date(1795186800000)/",
+"End": "/Date(1795194000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219715,
+"Start": "/Date(1795446000000)/",
+"End": "/Date(1795453200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219716,
+"Start": "/Date(1795532400000)/",
+"End": "/Date(1795539600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219717,
+"Start": "/Date(1795618800000)/",
+"End": "/Date(1795626000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219718,
+"Start": "/Date(1795791600000)/",
+"End": "/Date(1795798800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219875,
+"Start": "/Date(1794747600000)/",
+"End": "/Date(1794774600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219876,
+"Start": "/Date(1794848400000)/",
+"End": "/Date(1794870000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219877,
+"Start": "/Date(1794934800000)/",
+"End": "/Date(1794956400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219878,
+"Start": "/Date(1795021200000)/",
+"End": "/Date(1795042800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219879,
+"Start": "/Date(1795113000000)/",
+"End": "/Date(1795129200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219880,
+"Start": "/Date(1795194000000)/",
+"End": "/Date(1795215600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219881,
+"Start": "/Date(1795248000000)/",
+"End": "/Date(1795291200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219882,
+"Start": "/Date(1795352400000)/",
+"End": "/Date(1795379400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219883,
+"Start": "/Date(1795453200000)/",
+"End": "/Date(1795474800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219884,
+"Start": "/Date(1795539600000)/",
+"End": "/Date(1795561200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219885,
+"Start": "/Date(1795626000000)/",
+"End": "/Date(1795647600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219886,
+"Start": "/Date(1795717800000)/",
+"End": "/Date(1795734000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219887,
+"Start": "/Date(1795798800000)/",
+"End": "/Date(1795820400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219888,
+"Start": "/Date(1795852800000)/",
+"End": "/Date(1795896000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258872,
+"Start": "/Date(1794983400000)/",
+"End": "/Date(1794987000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258873,
+"Start": "/Date(1795588200000)/",
+"End": "/Date(1795591800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Trångsunds Ishockeyförening\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 228026,
+"Start": "/Date(1795156200000)/",
+"End": "/Date(1795159800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": ""
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 228027,
+"Start": "/Date(1795761000000)/",
+"End": "/Date(1795764600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": ""
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224403,
+"Start": "/Date(1795159800000)/",
+"End": "/Date(1795163400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": ""
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224404,
+"Start": "/Date(1795764600000)/",
+"End": "/Date(1795768200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": ""
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258533,
+"Start": "/Date(1795096800000)/",
+"End": "/Date(1795100400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Edboskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258534,
+"Start": "/Date(1795528800000)/",
+"End": "/Date(1795532400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Edboskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 260640,
+"Start": "/Date(1795093200000)/",
+"End": "/Date(1795096800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Edboskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 251967,
+"Start": "/Date(1794904200000)/",
+"End": "/Date(1794909600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Edboskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 251968,
+"Start": "/Date(1794916800000)/",
+"End": "/Date(1794924000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Edboskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 251969,
+"Start": "/Date(1794990600000)/",
+"End": "/Date(1795006800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Edboskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 251970,
+"Start": "/Date(1795077000000)/",
+"End": "/Date(1795086000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Edboskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 253096,
+"Start": "/Date(1794899700000)/",
+"End": "/Date(1794910500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Gymnasium\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 253097,
+"Start": "/Date(1795158900000)/",
+"End": "/Date(1795169700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Gymnasium\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 253098,
+"Start": "/Date(1795504500000)/",
+"End": "/Date(1795515300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Gymnasium\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 253099,
+"Start": "/Date(1795763700000)/",
+"End": "/Date(1795774500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Huddinge Gymnasium\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 252344,
+"Start": "/Date(1795595400000)/",
+"End": "/Date(1795611600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Sjötorpsskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 252345,
+"Start": "/Date(1795681800000)/",
+"End": "/Date(1795690800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Sjötorpsskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 252346,
+"Start": "/Date(1795698000000)/",
+"End": "/Date(1795703400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Sjötorpsskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 252347,
+"Start": "/Date(1795768200000)/",
+"End": "/Date(1795784400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Sjötorpsskolan\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 260386,
+"Start": "/Date(1795424400000)/",
+"End": "/Date(1795429800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Myrstugubergets friskola\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223014,
+"Start": "/Date(1794831300000)/",
+"End": "/Date(1794840300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223015,
+"Start": "/Date(1795004100000)/",
+"End": "/Date(1795013100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223016,
+"Start": "/Date(1795436100000)/",
+"End": "/Date(1795445100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223017,
+"Start": "/Date(1795608900000)/",
+"End": "/Date(1795617900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223094,
+"Start": "/Date(1794912300000)/",
+"End": "/Date(1794921300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223095,
+"Start": "/Date(1795083300000)/",
+"End": "/Date(1795092300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223096,
+"Start": "/Date(1795176900000)/",
+"End": "/Date(1795185900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223097,
+"Start": "/Date(1795517100000)/",
+"End": "/Date(1795526100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223098,
+"Start": "/Date(1795688100000)/",
+"End": "/Date(1795697100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223099,
+"Start": "/Date(1795781700000)/",
+"End": "/Date(1795790700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223349,
+"Start": "/Date(1794834000000)/",
+"End": "/Date(1794840600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223350,
+"Start": "/Date(1795006800000)/",
+"End": "/Date(1795013400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223351,
+"Start": "/Date(1795163400000)/",
+"End": "/Date(1795170000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223352,
+"Start": "/Date(1795438800000)/",
+"End": "/Date(1795445400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223353,
+"Start": "/Date(1795611600000)/",
+"End": "/Date(1795618200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223354,
+"Start": "/Date(1795768200000)/",
+"End": "/Date(1795774800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223431,
+"Start": "/Date(1794913200000)/",
+"End": "/Date(1794919800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223432,
+"Start": "/Date(1795086000000)/",
+"End": "/Date(1795092600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223433,
+"Start": "/Date(1795518000000)/",
+"End": "/Date(1795524600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223434,
+"Start": "/Date(1795690800000)/",
+"End": "/Date(1795697400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223672,
+"Start": "/Date(1794834000000)/",
+"End": "/Date(1794840600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223673,
+"Start": "/Date(1795010400000)/",
+"End": "/Date(1795013400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223674,
+"Start": "/Date(1795179600000)/",
+"End": "/Date(1795186200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223675,
+"Start": "/Date(1795438800000)/",
+"End": "/Date(1795445400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223676,
+"Start": "/Date(1795615200000)/",
+"End": "/Date(1795618200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223677,
+"Start": "/Date(1795784400000)/",
+"End": "/Date(1795791000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223770,
+"Start": "/Date(1794909600000)/",
+"End": "/Date(1794916200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223771,
+"Start": "/Date(1795006800000)/",
+"End": "/Date(1795010400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223772,
+"Start": "/Date(1795086000000)/",
+"End": "/Date(1795092600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223773,
+"Start": "/Date(1795514400000)/",
+"End": "/Date(1795521000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223774,
+"Start": "/Date(1795611600000)/",
+"End": "/Date(1795615200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223775,
+"Start": "/Date(1795690800000)/",
+"End": "/Date(1795697400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224014,
+"Start": "/Date(1794826800000)/",
+"End": "/Date(1794833400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224015,
+"Start": "/Date(1794992400000)/",
+"End": "/Date(1794999000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224016,
+"Start": "/Date(1795431600000)/",
+"End": "/Date(1795438200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224017,
+"Start": "/Date(1795597200000)/",
+"End": "/Date(1795603800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224080,
+"Start": "/Date(1794920400000)/",
+"End": "/Date(1794927000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224081,
+"Start": "/Date(1795165200000)/",
+"End": "/Date(1795171800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224082,
+"Start": "/Date(1795525200000)/",
+"End": "/Date(1795531800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224083,
+"Start": "/Date(1795770000000)/",
+"End": "/Date(1795776600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224130,
+"Start": "/Date(1795093200000)/",
+"End": "/Date(1795099800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224131,
+"Start": "/Date(1795698000000)/",
+"End": "/Date(1795704600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220612,
+"Start": "/Date(1795258800000)/",
+"End": "/Date(1795265400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220613,
+"Start": "/Date(1795863600000)/",
+"End": "/Date(1795870200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221157,
+"Start": "/Date(1795248900000)/",
+"End": "/Date(1795258800000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221158,
+"Start": "/Date(1795853700000)/",
+"End": "/Date(1795863600000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221188,
+"Start": "/Date(1794764700000)/",
+"End": "/Date(1794771000000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221189,
+"Start": "/Date(1795369500000)/",
+"End": "/Date(1795375800000)/",
+"Subject": "Björkängshallen B",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219583,
+"Start": "/Date(1794740400000)/",
+"End": "/Date(1794747000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219584,
+"Start": "/Date(1795345200000)/",
+"End": "/Date(1795351800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220108,
+"Start": "/Date(1794740400000)/",
+"End": "/Date(1794745800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220109,
+"Start": "/Date(1795345200000)/",
+"End": "/Date(1795350600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Allmänheten\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220140,
+"Start": "/Date(1794745800000)/",
+"End": "/Date(1794747600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220141,
+"Start": "/Date(1795350600000)/",
+"End": "/Date(1795352400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219614,
+"Start": "/Date(1794747000000)/",
+"End": "/Date(1794747600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 219615,
+"Start": "/Date(1795351800000)/",
+"End": "/Date(1795352400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221235,
+"Start": "/Date(1794771000000)/",
+"End": "/Date(1794771900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221236,
+"Start": "/Date(1795258800000)/",
+"End": "/Date(1795259700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221237,
+"Start": "/Date(1795375800000)/",
+"End": "/Date(1795376700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 221238,
+"Start": "/Date(1795863600000)/",
+"End": "/Date(1795864500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220644,
+"Start": "/Date(1795265400000)/",
+"End": "/Date(1795266000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220645,
+"Start": "/Date(1795870200000)/",
+"End": "/Date(1795870800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224217,
+"Start": "/Date(1794833400000)/",
+"End": "/Date(1794834000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224218,
+"Start": "/Date(1794927000000)/",
+"End": "/Date(1794927600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224219,
+"Start": "/Date(1794999000000)/",
+"End": "/Date(1794999600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224220,
+"Start": "/Date(1795099800000)/",
+"End": "/Date(1795100400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224221,
+"Start": "/Date(1795171800000)/",
+"End": "/Date(1795172400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224222,
+"Start": "/Date(1795438200000)/",
+"End": "/Date(1795438800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224223,
+"Start": "/Date(1795531800000)/",
+"End": "/Date(1795532400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224224,
+"Start": "/Date(1795603800000)/",
+"End": "/Date(1795604400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224225,
+"Start": "/Date(1795704600000)/",
+"End": "/Date(1795705200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 224226,
+"Start": "/Date(1795776600000)/",
+"End": "/Date(1795777200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223895,
+"Start": "/Date(1794840600000)/",
+"End": "/Date(1794841200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223896,
+"Start": "/Date(1794916200000)/",
+"End": "/Date(1794916800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223897,
+"Start": "/Date(1795013400000)/",
+"End": "/Date(1795014000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223898,
+"Start": "/Date(1795092600000)/",
+"End": "/Date(1795093200000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223899,
+"Start": "/Date(1795186200000)/",
+"End": "/Date(1795186800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223900,
+"Start": "/Date(1795445400000)/",
+"End": "/Date(1795446000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223901,
+"Start": "/Date(1795521000000)/",
+"End": "/Date(1795521600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223902,
+"Start": "/Date(1795618200000)/",
+"End": "/Date(1795618800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223903,
+"Start": "/Date(1795697400000)/",
+"End": "/Date(1795698000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223904,
+"Start": "/Date(1795791000000)/",
+"End": "/Date(1795791600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223535,
+"Start": "/Date(1794840600000)/",
+"End": "/Date(1794841200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223536,
+"Start": "/Date(1794919800000)/",
+"End": "/Date(1794920400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223537,
+"Start": "/Date(1795013400000)/",
+"End": "/Date(1795014000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223538,
+"Start": "/Date(1795092600000)/",
+"End": "/Date(1795093200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223539,
+"Start": "/Date(1795170000000)/",
+"End": "/Date(1795170600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223540,
+"Start": "/Date(1795445400000)/",
+"End": "/Date(1795446000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223541,
+"Start": "/Date(1795524600000)/",
+"End": "/Date(1795525200000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223542,
+"Start": "/Date(1795618200000)/",
+"End": "/Date(1795618800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223543,
+"Start": "/Date(1795697400000)/",
+"End": "/Date(1795698000000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223544,
+"Start": "/Date(1795774800000)/",
+"End": "/Date(1795775400000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223217,
+"Start": "/Date(1794840300000)/",
+"End": "/Date(1794842100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223218,
+"Start": "/Date(1794921300000)/",
+"End": "/Date(1794923100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223219,
+"Start": "/Date(1795013100000)/",
+"End": "/Date(1795014900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223220,
+"Start": "/Date(1795092300000)/",
+"End": "/Date(1795094100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223221,
+"Start": "/Date(1795185900000)/",
+"End": "/Date(1795187700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223222,
+"Start": "/Date(1795445100000)/",
+"End": "/Date(1795446900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223223,
+"Start": "/Date(1795526100000)/",
+"End": "/Date(1795527900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223224,
+"Start": "/Date(1795617900000)/",
+"End": "/Date(1795619700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223225,
+"Start": "/Date(1795697100000)/",
+"End": "/Date(1795698900000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 223226,
+"Start": "/Date(1795790700000)/",
+"End": "/Date(1795792500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 261777,
+"Start": "/Date(1794988800000)/",
+"End": "/Date(1795006800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 261778,
+"Start": "/Date(1795593600000)/",
+"End": "/Date(1795611600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255215,
+"Start": "/Date(1795422600000)/",
+"End": "/Date(1795438800000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255232,
+"Start": "/Date(1794817800000)/",
+"End": "/Date(1794834000000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 253191,
+"Start": "/Date(1794910500000)/",
+"End": "/Date(1794912300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 253192,
+"Start": "/Date(1795515300000)/",
+"End": "/Date(1795517100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255689,
+"Start": "/Date(1794816900000)/",
+"End": "/Date(1794821400000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255690,
+"Start": "/Date(1795421700000)/",
+"End": "/Date(1795426200000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255729,
+"Start": "/Date(1795076100000)/",
+"End": "/Date(1795079700000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255730,
+"Start": "/Date(1795680900000)/",
+"End": "/Date(1795684500000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255764,
+"Start": "/Date(1795169700000)/",
+"End": "/Date(1795173300000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255765,
+"Start": "/Date(1795774500000)/",
+"End": "/Date(1795778100000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255783,
+"Start": "/Date(1794989700000)/",
+"End": "/Date(1794994200000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 255784,
+"Start": "/Date(1795594500000)/",
+"End": "/Date(1795599000000)/",
+"Subject": "Björkängshallen B",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258253,
+"Start": "/Date(1794900600000)/",
+"End": "/Date(1794906000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258254,
+"Start": "/Date(1794987000000)/",
+"End": "/Date(1794992400000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258255,
+"Start": "/Date(1795073400000)/",
+"End": "/Date(1795078800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258256,
+"Start": "/Date(1795159800000)/",
+"End": "/Date(1795165200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258257,
+"Start": "/Date(1795505400000)/",
+"End": "/Date(1795510800000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258258,
+"Start": "/Date(1795591800000)/",
+"End": "/Date(1795597200000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258259,
+"Start": "/Date(1795678200000)/",
+"End": "/Date(1795683600000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 258260,
+"Start": "/Date(1795764600000)/",
+"End": "/Date(1795770000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Skötsel\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220739,
+"Start": "/Date(1794778200000)/",
+"End": "/Date(1794780000000)/",
+"Subject": "Visättra Sportcenter Visättrahallen",
+"Description": "Match\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220172,
+"Start": "/Date(1794774600000)/",
+"End": "/Date(1794783600000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Match\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 220173,
+"Start": "/Date(1795379400000)/",
+"End": "/Date(1795388400000)/",
+"Subject": "Stortorps IP Stortorpshallen",
+"Description": "Match\r\n"
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 253910,
+"Start": "/Date(1794994200000)/",
+"End": "/Date(1794997800000)/",
+"Subject": "Björkängshallen B",
+"Description": ""
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 253911,
+"Start": "/Date(1795599000000)/",
+"End": "/Date(1795602600000)/",
+"Subject": "Björkängshallen B",
+"Description": ""
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 261681,
+"Start": "/Date(1794823200000)/",
+"End": "/Date(1794826800000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": ""
+},
+{
+"__type": "Telerik.Web.UI.AppointmentData",
+"ID": 261682,
+"Start": "/Date(1795428000000)/",
+"End": "/Date(1795431600000)/",
+"Subject": "Segeltorps IP Segeltorpshallen",
+"Description": ""
+}
+]
+}
+}

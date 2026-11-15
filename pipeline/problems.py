@@ -17,7 +17,7 @@ Corrections
 -----------
 config/corrections.json holds typo fixes a human has confirmed:
 
-    {"adapter": "huddinge-web", "text": "11-00–12.50", "read_as": "11.00–12.50",
+    {"adapter": "huddinge-actor", "text": "11-00–12.50", "read_as": "11.00–12.50",
      "note": "...", "added": "2026-11-02"}
 
 Before parsing, `text` is replaced by `read_as` in the fetched documents (also

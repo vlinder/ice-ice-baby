@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import inspect
 import json
 import re
 import subprocess
@@ -36,12 +37,12 @@ def _module_info(adapter_name: str) -> tuple[list[str], list[str]]:
     """(source files, test files) for an adapter."""
     mod = next(a for a in ADAPTERS if a.NAME == adapter_name)
     short = mod.__name__.split(".")[-1]
-    files = [f"adapters/{short}.py"]
-    for shared in ("rbok", "frigo"):
-        if short.endswith("_" + shared):
-            files.append(f"adapters/{shared}.py")
+    # The adapter's own module plus the shared parsers it builds on (rbok.py, frigo_schema.py, ...).
+    shared = sorted(v.__name__.split(".")[-1] for v in vars(mod).values()
+                    if inspect.ismodule(v) and v.__name__.startswith("adapters.") and v.__name__ != "adapters.common")
+    files = [f"adapters/{name}.py" for name in [short, *shared]]
     tests = sorted(p.relative_to(ROOT).as_posix() for p in (ROOT / "tests").glob("test_*.py")
-                   if short in p.read_text(encoding="utf-8"))
+                   if any(name in p.read_text(encoding="utf-8") for name in [short, *shared]))
     return files, tests
 
 
