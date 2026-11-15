@@ -91,6 +91,15 @@
       "lon": 18.04957,
       "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/zinkensdamms-idrottsplats/"
     },
+    "stockholm-zinkensdamms-idrottsplats-bandyplanen": {
+      "name": "Zinkensdamms idrottsplats",
+      "short_name": "Zinkensdamm bandy",
+      "rink": "Bandyplanen",
+      "municipality": "Stockholm",
+      "lat": 59.31562,
+      "lon": 18.04957,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/zinkensdamms-idrottsplats/"
+    },
     "stockholm-ostermalms-idrottsplats-ishallen": {
       "name": "Östermalms idrottsplats",
       "short_name": "Östermalm",
@@ -334,6 +343,15 @@
       "lon": 18.39593,
       "info_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html"
     },
+    "varmdo-ekvallens-ip-bandyplanen": {
+      "name": "Ekvallens IP",
+      "short_name": "Ekvallen bandy",
+      "rink": "Bandyplanen",
+      "municipality": "Värmdö",
+      "lat": 59.32639,
+      "lon": 18.39593,
+      "info_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html"
+    },
     "vaxholm-saneco-hallen": {
       "name": "Saneco Hallen",
       "short_name": "Saneco Hallen",
@@ -422,6 +440,15 @@
       "municipality": "Danderyd",
       "lat": 59.38914,
       "lon": 18.06888,
+      "info_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/"
+    },
+    "danderyd-danderydsvallen-uterinken": {
+      "name": "Danderydsvallen",
+      "short_name": "Danderydsvallen",
+      "rink": "Uterinken",
+      "municipality": "Danderyd",
+      "lat": 59.40252,
+      "lon": 18.01653,
       "info_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/"
     },
     "upplands-bro-kungsangens-ip": {
