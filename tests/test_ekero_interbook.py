@@ -53,10 +53,15 @@ def test_a_full_last_page_does_not_claim_its_last_day():
     assert max(s.date for s in r.halls["ekero-trakvistavallen"].sessions) == "2026-11-07"
 
 
-def test_rows_that_are_not_public_skating_are_warned_about():
-    r = a.parse({"page": _table([row(customer="Ekerö IK")])}, TODAY)
-    assert r.halls["ekero-trakvistavallen"].sessions == []
-    assert r.warnings and r.warnings[0].startswith("ekero-trakvistavallen:")
+def test_rows_booked_by_another_customer_are_skipped():
+    # e.g. "2026-12-20 | 11:00-14:00 | Svanängen IP | Allhallen | Mälarö Hockeyförening | Disco":
+    # a club event, not public skating, even though the list includes it.
+    rows = [row(customer="Ekerö IK"), row(time="15:00-16:00"),
+            ("2026-11-08", "11:00-14:00", "Svanängen IP", "Allhallen", "Mälarö Hockeyförening", "Disco")]
+    r = a.parse({"page": _table(rows)}, TODAY)
+    assert sessions(r, "ekero-trakvistavallen") == [("2026-11-04", "15:00", "16:00", "with_stick", None)]
+    assert r.halls["ekero-svanangen-ip"].sessions == []
+    assert r.warnings == []
 
 
 def test_layout_change_fails_loudly():
