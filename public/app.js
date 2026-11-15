@@ -27,9 +27,12 @@ function fmtStamp(iso) {
 
 const state = { index: null, halls: [], days: [], day: null, munis: new Set(), today: null, disco: false };
 
+// Run timestamps live on the source (index.sources), not in the hall files.
 function isStale(h) {
   if (!h.data || h.data.status !== "ok") return true;
-  return (Date.now() - new Date(h.data.fetched_at).getTime()) / 36e5 > STALE_HOURS;
+  const src = state.index.sources.find((s) => s.adapter === h.adapter);
+  if (!src || !src.fetched_at) return true;
+  return (Date.now() - new Date(src.fetched_at).getTime()) / 36e5 > STALE_HOURS;
 }
 const isDisco = (s) => (s.tags || []).includes("disco");
 const hasDisco = (h) => !!h.data && h.data.sessions.some(isDisco);
@@ -142,7 +145,7 @@ function renderStatic() {
       x.dataset.all ? nowAll : !nowAll && state.munis.has(x.dataset.m)));
     render();
   };
-  $("sourcesList").innerHTML = state.index.sources.map((s) =>
+  $("sourcesList").innerHTML = [...state.index.sources].sort((a, b) => a.municipality.localeCompare(b.municipality, "sv")).map((s) =>
     `<li>${esc(s.municipality)}: <a href="${esc(s.source_url)}">${esc(new URL(s.source_url).host)}</a> – ${s.status === "ok" ? "läst" : "<strong>fel</strong> vid"} ${fmtStamp(s.last_attempt_at)}</li>`).join("");
 }
 

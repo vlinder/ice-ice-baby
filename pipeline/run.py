@@ -3,6 +3,9 @@
 Each adapter is isolated: if one source fails, its halls keep their last good
 sessions and are marked "stale"; every other source is unaffected.
 
+Run timestamps (fetched_at, last_attempt_at) are recorded per source in sources.json,
+not in the hall files, so a hall file only changes when its schedule does.
+
 Usage:  python -m pipeline.run [--only ADAPTER] [--today YYYY-MM-DD]
 """
 from __future__ import annotations
@@ -46,9 +49,9 @@ def run_adapter(adapter, today: date, stamp: str, corrections: list[dict] | None
         print(f"[{adapter.NAME}] FAILED: {msg}", file=sys.stderr)
         traceback.print_exc()
         for hid, d in previous.items():
-            d["status"] = "stale" if d.get("fetched_at") else "error"
+            # "error" only if this hall has never had good data; otherwise keep its sessions.
+            d["status"] = "error" if d.get("status") == "error" else "stale"
             d["error"] = msg
-            d["last_attempt_at"] = stamp
             write_json(HALLS_DIR / f"{hid}.json", d)
         prev_src = _previous_source(adapter.NAME)
         return {**source, "status": "error", "error": msg,
@@ -72,8 +75,6 @@ def run_adapter(adapter, today: date, stamp: str, corrections: list[dict] | None
             "source_rink": hall.rink if hall else prev.get("source_rink"),
             "status": "ok",
             "error": None,
-            "fetched_at": stamp,
-            "last_attempt_at": stamp,
             "source_updated": result.source_updated,
             # A hall absent from the source still gets the covered range: it had no public times.
             "covers": {"from": (hall and hall.covers_from) or result.covers_from,
