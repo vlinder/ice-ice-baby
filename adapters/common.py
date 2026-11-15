@@ -277,6 +277,30 @@ class Slot:
     note: str | None = None
 
 
+def split_around(slot: Slot, gaps: list[tuple[str, str, str]]) -> list[Slot]:
+    """Cut the times in `gaps` ((start, end, label), e.g. ice maintenance) out of a
+    slot. A session that runs across a gap becomes one part before and one after it;
+    a gap covering the whole session removes it. The label is noted on the part that
+    ends where the gap starts, or else on the part that starts where it ends."""
+    parts = [Slot(slot.weekday, slot.start, slot.end, slot.stick, slot.note)]
+    for gs, ge, label in sorted(gaps):
+        out: list[Slot] = []
+        noted = False
+        for p in parts:
+            if not (p.start < ge and gs < p.end):
+                out.append(p)
+                continue
+            before = Slot(p.weekday, p.start, gs, p.stick, p.note) if p.start < gs else None
+            after = Slot(p.weekday, ge, p.end, p.stick, p.note) if ge < p.end else None
+            target = before or after
+            if target and not noted:
+                target.note = f"{target.note}; {label}" if target.note else label
+                noted = True
+            out.extend(x for x in (before, after) if x)
+        parts = out
+    return parts
+
+
 def expand_weekly(slots: list[Slot], start: date, end: date, source_url: str,
                   skip: set[date] | None = None) -> list[Session]:
     """Turn a weekly template into dated sessions between start and end (inclusive)."""

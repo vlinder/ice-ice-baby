@@ -56,3 +56,20 @@ def test_recurring_window_and_expand():
 def test_week_year():
     assert week_year(12, date(2026, 11, 2)) == 2027
     assert week_year(45, date(2026, 11, 2)) == 2026
+
+
+def test_split_around():
+    from adapters.common import split_around
+    s = Slot(0, "08:30", "15:00", "shared")
+    assert [(x.start, x.end, x.note) for x in split_around(s, [("11:30", "12:00", "isvård")])] == [
+        ("08:30", "11:30", "isvård"), ("12:00", "15:00", None)]
+    # gap clipping the start notes the part after it; no overlap leaves the slot as is
+    assert [(x.start, x.end, x.note) for x in split_around(s, [("08:00", "09:00", "spolning")])] == [
+        ("09:00", "15:00", "spolning")]
+    assert [(x.start, x.end) for x in split_around(s, [("16:00", "17:00", "x")])] == [("08:30", "15:00")]
+    assert split_around(s, [("08:00", "16:00", "x")]) == []
+    two = split_around(Slot(5, "11:30", "22:00", "shared", "obs"),
+                       [("17:30", "18:00", "b"), ("13:30", "14:00", "a")])
+    assert [(x.start, x.end, x.note) for x in two] == [
+        ("11:30", "13:30", "obs; a"), ("14:00", "17:30", "obs; b"), ("18:00", "22:00", "obs")]
+    assert s.end == "15:00" and s.note is None  # the original is not changed

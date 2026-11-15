@@ -28,8 +28,8 @@ def test_covers_and_updated(result):
 def test_ekrinken_and_bandyplanen(result):
     assert set(result.halls) == {HID, BID}
     assert result.halls[BID].rink == "Bandyplanen"
-    assert len(result.halls[HID].sessions) == 4 * 7
-    assert len(result.halls[BID].sessions) == 4 * 4  # Fri 1, Sat 2, Sun 1
+    assert len(result.halls[HID].sessions) == 4 * 12  # Mon–Fri split by isvård
+    assert len(result.halls[BID].sessions) == 4 * 8  # Fri 1, Sat 2+2 (spolning), Sun 3
 
 
 def _day(result, d, hid=HID):
@@ -37,7 +37,8 @@ def _day(result, d, hid=HID):
 
 
 def test_specific_sessions(result):
-    assert _day(result, "2026-11-16") == [("08:30", "15:00", "shared", "isvård 11:30–12:00")]
+    assert _day(result, "2026-11-16") == [  # split around "Isvård måndag-fredag 11.30–12.00"
+        ("08:30", "11:30", "shared", "isvård 11:30–12:00"), ("12:00", "15:00", "shared", None)]
     assert _day(result, "2026-11-21") == [("17:00", "22:00", "shared", None)]
     assert _day(result, "2026-11-22") == [("12:30", "14:00", "shared", None)]
 
@@ -47,9 +48,13 @@ def test_bandyplanen_sessions(result):
     assert _day(result, "2026-11-20", BID) == [("16:00", "22:00", "shared", None)]
     assert _day(result, "2026-11-21", BID) == [
         ("08:30", "09:30", "shared", None),
-        ("11:30", "22:00", "shared", "spolning 13:30–14:00, 17:30–18:00")]
+        ("11:30", "13:30", "shared", "spolning 13:30–14:00"),
+        ("14:00", "17:30", "shared", "spolning 17:30–18:00"),
+        ("18:00", "22:00", "shared", None)]
     assert _day(result, "2026-11-22", BID) == [
-        ("09:00", "22:00", "shared", "spolning 13:30–14:00, 18:30–19:00")]
+        ("09:00", "13:30", "shared", "spolning 13:30–14:00"),
+        ("14:00", "18:30", "shared", "spolning 18:30–19:00"),
+        ("19:00", "22:00", "shared", None)]
 
 
 def _page(times: str, intro: str = "Ekrinken: Öppen för säsongen") -> dict:
