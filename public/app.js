@@ -151,6 +151,28 @@ function renderStatic() {
 
 function render() { renderDays(); renderList(); renderCalendar(); renderWeek(); renderMap(); }
 
+// Keep "now" current while the page stays open: the calendar's now line and the dimming
+// of passed times move every minute, and after midnight the day strip rolls forward.
+function tick() {
+  if (!state.today) return;
+  const now = stockholmNow();
+  if (now.date === state.today.date && now.minutes === state.today.minutes) return;
+  const newDay = now.date !== state.today.date;
+  state.today = now;
+  if (newDay) {
+    const wasToday = state.day === state.days[0];
+    state.days = Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(now.date, i));
+    if (wasToday || !state.days.includes(state.day)) state.day = state.days[0];
+    render();
+  } else if (state.day === now.date) {
+    // Only the list and the calendar show the current time; leave the map (and any open popup) alone.
+    renderList();
+    renderCalendar();
+  }
+}
+setInterval(tick, 15e3);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) tick(); });
+
 function renderDays() {
   const hs = visibleHalls();
   $("days").innerHTML = state.days.map((d, i) => {
