@@ -36,9 +36,10 @@ The weekday lists are recurring templates, expanded over `recurring_window(today
 (the page gives no season end). Stick: a section-wide "(Halva plan med klubbor
 enligt skyltning)" makes every time in that section `shared` unless a line has its
 own wording. A day that is "avstängd" (e.g. "avstängd dagtid för isvård") has no
-times. Ice maintenance is not split out of the sessions: the "Isvård
-måndag-fredag mellan kl ..." line and a day's "; spolning 13.30–14.00, ..." are
-attached as notes to the sessions they overlap.
+times. Ice maintenance is cut out of the sessions (`split_around`): a session that
+runs across the "Isvård måndag-fredag mellan kl ..." time or a day's "; spolning
+13.30–14.00, ..." becomes one session before and one after, and the part before
+gets a note such as "isvård 11:30–12:00".
 
 Holiday times (höstlov, jullov, sportlov) live on separate pages linked from the
 top of this page. They are not fetched: a link to a holiday that is already over
@@ -55,7 +56,7 @@ from bs4 import BeautifulSoup, Tag
 from .common import (
     STICK_UNKNOWN, AdapterResult, BadTimeRange, HallResult, ParseError, Slot,
     expand_weekly, http_get, iso_week_sunday, norm_space, recurring_window,
-    stick_from_text, time_ranges, weekday_number,
+    split_around, stick_from_text, time_ranges, weekday_number,
 )
 
 NAME = "varmdo-web"
@@ -120,10 +121,6 @@ def _holiday_past(word: str, year: str | None, today: date) -> bool:
         return False
     y = int(year) if year else today.year
     return today > iso_week_sunday(y, 44)
-
-
-def _add_note(slot: Slot, note: str) -> None:
-    slot.note = f"{slot.note}; {note}" if slot.note else note
 
 
 def _read_section(lines: list[str], prefix: str, warnings: list[str]):
@@ -196,15 +193,13 @@ def _read_section(lines: list[str], prefix: str, warnings: list[str]):
             if slot not in slots:
                 slots.append(slot)
 
+    split: list[Slot] = []
     for slot in slots:
-        for w1, w2, us, ue in upkeep:
-            if w1 <= slot.weekday <= w2 and slot.start < ue and us < slot.end:
-                _add_note(slot, f"isvård {us}–{ue}")
-        floods = [f"{fs}–{fe}" for w, fs, fe in flooding
-                  if w == slot.weekday and slot.start < fe and fs < slot.end]
-        if floods:
-            _add_note(slot, "spolning " + ", ".join(floods))
-    return slots, updated, day_lines, closed
+        gaps = [(us, ue, f"isvård {us}–{ue}") for w1, w2, us, ue in upkeep
+                if w1 <= slot.weekday <= w2]
+        gaps += [(fs, fe, f"spolning {fs}–{fe}") for w, fs, fe in flooding if w == slot.weekday]
+        split.extend(split_around(slot, gaps))
+    return split, updated, day_lines, closed
 
 
 def parse(raw: dict[str, str], today: date) -> AdapterResult:
