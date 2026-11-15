@@ -3,6 +3,7 @@ name: Update schedules
 on:
   schedule:
     # Times are UTC: roughly 06, 12 and 17 Swedish time in winter.
+    # The site refetches its data after each run: keep UPDATE_CRON in public/app.js in sync.
     - cron: "17 5,11,16 * * *"
   workflow_dispatch:
 
