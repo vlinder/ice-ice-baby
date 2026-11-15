@@ -6,54 +6,14 @@
   "source_rink": "Ishall B",
   "status": "ok",
   "error": null,
-  "fetched_at": "2026-11-10T12:21:31+01:00",
-  "last_attempt_at": "2026-11-10T12:21:31+01:00",
+  "fetched_at": "2026-11-15T02:48:39+01:00",
+  "last_attempt_at": "2026-11-15T02:48:39+01:00",
   "source_updated": "2026-10-27T00:00",
   "covers": {
-    "from": "2026-11-10",
-    "to": "2026-12-07"
+    "from": "2026-11-15",
+    "to": "2026-12-12"
   },
   "sessions": [
-    {
-      "date": "2026-11-10",
-      "start": "12:00",
-      "end": "15:45",
-      "stick": "no_stick",
-      "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
-      "note": null
-    },
-    {
-      "date": "2026-11-11",
-      "start": "14:00",
-      "end": "15:45",
-      "stick": "with_stick",
-      "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
-      "note": null
-    },
-    {
-      "date": "2026-11-12",
-      "start": "12:00",
-      "end": "15:45",
-      "stick": "no_stick",
-      "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
-      "note": null
-    },
-    {
-      "date": "2026-11-14",
-      "start": "11:00",
-      "end": "13:45",
-      "stick": "no_stick",
-      "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
-      "note": null
-    },
-    {
-      "date": "2026-11-14",
-      "start": "18:30",
-      "end": "20:45",
-      "stick": "with_stick",
-      "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
-      "note": null
-    },
     {
       "date": "2026-11-15",
       "start": "11:00",
@@ -234,6 +194,46 @@
       "date": "2026-12-07",
       "start": "14:00",
       "end": "15:45",
+      "stick": "with_stick",
+      "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
+      "note": null
+    },
+    {
+      "date": "2026-12-08",
+      "start": "12:00",
+      "end": "15:45",
+      "stick": "no_stick",
+      "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
+      "note": null
+    },
+    {
+      "date": "2026-12-09",
+      "start": "14:00",
+      "end": "15:45",
+      "stick": "with_stick",
+      "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
+      "note": null
+    },
+    {
+      "date": "2026-12-10",
+      "start": "12:00",
+      "end": "15:45",
+      "stick": "no_stick",
+      "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
+      "note": null
+    },
+    {
+      "date": "2026-12-12",
+      "start": "11:00",
+      "end": "13:45",
+      "stick": "no_stick",
+      "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
+      "note": null
+    },
+    {
+      "date": "2026-12-12",
+      "start": "18:30",
+      "end": "20:45",
       "stick": "with_stick",
       "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
       "note": null
