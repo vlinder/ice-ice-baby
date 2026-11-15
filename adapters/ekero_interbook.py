@@ -20,6 +20,11 @@ Markup (Nov 2026): every page of the list is in the same HTML, one table each,
 full, the list may continue beyond what is shown, so the last listed day is left
 out. The stick rule is in Aktivitet ("Alltid hjälm med/utan klubba"); other
 wording, e.g. "Disco", gives stick "unknown" with the wording as note.
+
+Kund says who the time is booked for. Public skating is booked as "Allmänhetens
+åkning"; a row booked by anyone else (e.g. "Mälarö Hockeyförening | Disco", a club
+event) is a private booking that happens to have a public-skating activity type,
+and is skipped without a warning.
 """
 from __future__ import annotations
 
@@ -96,8 +101,7 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
                 warnings.append(f"{hid}: could not read row {' | '.join(cells)!r}")
                 continue
             if "allmänhet" not in customer.lower():
-                warnings.append(f"{hid}: row not booked as public skating {' | '.join(cells)!r}")
-                continue
+                continue  # booked by a club or another customer: not open to the public
             s, e = hhmm(tm[1], tm[2]), hhmm(tm[3], tm[4])
             if e <= s:
                 raise ParseError(f"end before start in row {cells}")
