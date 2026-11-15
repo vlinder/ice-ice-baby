@@ -50,7 +50,7 @@ from .common import (
 
 NAME = "sollentuna-web"
 MUNICIPALITY = "Sollentuna"
-SOURCE_URL = "https://www.sollentuna.se/uppleva--gora/idrott-motion-och-friluftsliv/skridskoakning"
+SOURCE_URL = "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/"
 
 FACILITY = "Sollentunavallen"
 KNOWN_RINKS = ["A-hallen", "B-hallen"]
