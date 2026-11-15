@@ -90,5 +90,8 @@ h2{font-size:36px;line-height:1;margin-bottom:8px}
 .pin{width:18px;height:18px;border-radius:50%;background:var(--red);border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)}
 .pin.off{background:#8A99AA}
 .about ul{padding-left:20px}
-footer{padding:20px 20px 50px;color:var(--muted);font-size:14px}
+footer.wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding-top:20px;padding-bottom:50px;color:var(--muted);font-size:14px}
+footer p{margin:0}
+.repo{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ink);text-decoration:none}
+.repo:hover{color:var(--blue);text-decoration:underline}
 @media (max-width:520px){.sessions li{grid-template-columns:92px 1fr}#map{height:440px}}
