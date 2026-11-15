@@ -13,14 +13,6 @@
   },
   "sessions": [
     {
-      "date": "2026-11-15",
-      "start": "12:00",
-      "end": "14:00",
-      "stick": "with_stick",
-      "source_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b",
-      "note": null
-    },
-    {
       "date": "2026-11-17",
       "start": "18:00",
       "end": "19:00",
