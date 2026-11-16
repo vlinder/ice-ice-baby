@@ -1,31 +1,23 @@
 {
   "spec_version": 2,
   "hall_id": "huddinge-stortorpshallen",
-  "adapter": "huddinge-web",
+  "adapter": "huddinge-actor",
   "source_name": "Stortorpshallen",
   "source_rink": null,
   "status": "ok",
   "error": null,
   "source_updated": "2026-11-10T00:00",
   "covers": {
-    "from": "2026-11-15",
-    "to": "2026-12-12"
+    "from": "2026-11-16",
+    "to": "2026-12-27"
   },
   "sessions": [
-    {
-      "date": "2026-11-15",
-      "start": "11:00",
-      "end": "12:30",
-      "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
-      "note": null
-    },
     {
       "date": "2026-11-16",
       "start": "13:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -33,7 +25,7 @@
       "start": "10:00",
       "end": "11:50",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -41,7 +33,7 @@
       "start": "13:00",
       "end": "14:00",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -49,7 +41,7 @@
       "start": "14:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -57,7 +49,7 @@
       "start": "11:00",
       "end": "12:50",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -65,7 +57,7 @@
       "start": "13:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -73,7 +65,7 @@
       "start": "11:00",
       "end": "12:30",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -81,7 +73,7 @@
       "start": "13:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -89,7 +81,7 @@
       "start": "10:00",
       "end": "11:50",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -97,7 +89,7 @@
       "start": "13:00",
       "end": "14:00",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -105,7 +97,7 @@
       "start": "14:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -113,7 +105,7 @@
       "start": "11:00",
       "end": "12:50",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -121,7 +113,7 @@
       "start": "13:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -129,7 +121,7 @@
       "start": "11:00",
       "end": "12:30",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -137,7 +129,7 @@
       "start": "13:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -145,7 +137,7 @@
       "start": "10:00",
       "end": "11:50",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -153,7 +145,7 @@
       "start": "13:00",
       "end": "14:00",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -161,7 +153,7 @@
       "start": "14:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -169,7 +161,7 @@
       "start": "11:00",
       "end": "12:50",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -177,7 +169,7 @@
       "start": "13:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -185,7 +177,7 @@
       "start": "11:00",
       "end": "12:30",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -193,7 +185,7 @@
       "start": "13:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -201,7 +193,7 @@
       "start": "10:00",
       "end": "11:50",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -209,7 +201,7 @@
       "start": "13:00",
       "end": "14:00",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -217,7 +209,7 @@
       "start": "14:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -225,7 +217,7 @@
       "start": "11:00",
       "end": "12:50",
       "stick": "no_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
     {
@@ -233,7 +225,103 @@
       "start": "13:00",
       "end": "14:50",
       "stick": "with_stick",
-      "source_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-13",
+      "start": "11:00",
+      "end": "12:30",
+      "stick": "no_stick",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-14",
+      "start": "13:00",
+      "end": "14:50",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-15",
+      "start": "10:00",
+      "end": "11:50",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-16",
+      "start": "13:00",
+      "end": "14:00",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-16",
+      "start": "14:00",
+      "end": "14:50",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-17",
+      "start": "11:00",
+      "end": "12:50",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-18",
+      "start": "14:00",
+      "end": "15:50",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-20",
+      "start": "11:00",
+      "end": "12:30",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-21",
+      "start": "14:00",
+      "end": "15:50",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-22",
+      "start": "14:00",
+      "end": "15:50",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-23",
+      "start": "14:00",
+      "end": "15:50",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-27",
+      "start": "11:00",
+      "end": "12:30",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     }
   ],

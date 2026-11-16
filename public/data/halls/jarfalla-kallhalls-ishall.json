@@ -1,31 +1,23 @@
 {
   "spec_version": 2,
   "hall_id": "jarfalla-kallhalls-ishall",
-  "adapter": "jarfalla-web",
-  "source_name": "Kallhälls ishall",
+  "adapter": "jarfalla-frigo",
+  "source_name": "Kallhälls Ishall",
   "source_rink": null,
   "status": "ok",
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-15",
-    "to": "2026-12-12"
+    "from": "2026-11-16",
+    "to": "2026-12-27"
   },
   "sessions": [
-    {
-      "date": "2026-11-15",
-      "start": "11:00",
-      "end": "13:00",
-      "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
-      "note": null
-    },
     {
       "date": "2026-11-16",
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=225849&objekt=42&aktdat=20261116&page=schema.aspx",
       "note": null
     },
     {
@@ -33,7 +25,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226227&objekt=42&aktdat=20261117&page=schema.aspx",
       "note": null
     },
     {
@@ -41,7 +33,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226229&objekt=42&aktdat=20261118&page=schema.aspx",
       "note": null
     },
     {
@@ -49,7 +41,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226232&objekt=42&aktdat=20261119&page=schema.aspx",
       "note": null
     },
     {
@@ -57,7 +49,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226234&objekt=42&aktdat=20261120&page=schema.aspx",
       "note": null
     },
     {
@@ -65,7 +57,7 @@
       "start": "11:00",
       "end": "13:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226235&objekt=42&aktdat=20261121&page=schema.aspx",
       "note": null
     },
     {
@@ -73,7 +65,7 @@
       "start": "11:00",
       "end": "13:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226237&objekt=42&aktdat=20261122&page=schema.aspx",
       "note": null
     },
     {
@@ -81,7 +73,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=225849&objekt=42&aktdat=20261123&page=schema.aspx",
       "note": null
     },
     {
@@ -89,7 +81,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226227&objekt=42&aktdat=20261124&page=schema.aspx",
       "note": null
     },
     {
@@ -97,7 +89,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226229&objekt=42&aktdat=20261125&page=schema.aspx",
       "note": null
     },
     {
@@ -105,7 +97,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226232&objekt=42&aktdat=20261126&page=schema.aspx",
       "note": null
     },
     {
@@ -113,7 +105,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226234&objekt=42&aktdat=20261127&page=schema.aspx",
       "note": null
     },
     {
@@ -121,7 +113,7 @@
       "start": "11:00",
       "end": "13:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226235&objekt=42&aktdat=20261128&page=schema.aspx",
       "note": null
     },
     {
@@ -129,7 +121,7 @@
       "start": "11:00",
       "end": "13:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226237&objekt=42&aktdat=20261129&page=schema.aspx",
       "note": null
     },
     {
@@ -137,7 +129,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=225849&objekt=42&aktdat=20261130&page=schema.aspx",
       "note": null
     },
     {
@@ -145,7 +137,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226227&objekt=42&aktdat=20261201&page=schema.aspx",
       "note": null
     },
     {
@@ -153,7 +145,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226229&objekt=42&aktdat=20261202&page=schema.aspx",
       "note": null
     },
     {
@@ -161,7 +153,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226232&objekt=42&aktdat=20261203&page=schema.aspx",
       "note": null
     },
     {
@@ -169,7 +161,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226234&objekt=42&aktdat=20261204&page=schema.aspx",
       "note": null
     },
     {
@@ -177,7 +169,7 @@
       "start": "11:00",
       "end": "13:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226235&objekt=42&aktdat=20261205&page=schema.aspx",
       "note": null
     },
     {
@@ -185,7 +177,7 @@
       "start": "11:00",
       "end": "13:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226237&objekt=42&aktdat=20261206&page=schema.aspx",
       "note": null
     },
     {
@@ -193,7 +185,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=225849&objekt=42&aktdat=20261207&page=schema.aspx",
       "note": null
     },
     {
@@ -201,7 +193,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226227&objekt=42&aktdat=20261208&page=schema.aspx",
       "note": null
     },
     {
@@ -209,7 +201,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226229&objekt=42&aktdat=20261209&page=schema.aspx",
       "note": null
     },
     {
@@ -217,7 +209,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "with_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226232&objekt=42&aktdat=20261210&page=schema.aspx",
       "note": null
     },
     {
@@ -225,7 +217,7 @@
       "start": "14:00",
       "end": "16:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226234&objekt=42&aktdat=20261211&page=schema.aspx",
       "note": null
     },
     {
@@ -233,7 +225,111 @@
       "start": "11:00",
       "end": "13:00",
       "stick": "no_stick",
-      "source_url": "https://www.jarfalla.se/fritidochkultur/idrottochmotion/akaskridskor",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226235&objekt=42&aktdat=20261212&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-13",
+      "start": "11:00",
+      "end": "13:00",
+      "stick": "with_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226237&objekt=42&aktdat=20261213&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-14",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=225849&objekt=42&aktdat=20261214&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-15",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226227&objekt=42&aktdat=20261215&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-16",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226229&objekt=42&aktdat=20261216&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-17",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226232&objekt=42&aktdat=20261217&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-18",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226234&objekt=42&aktdat=20261218&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-19",
+      "start": "11:00",
+      "end": "13:00",
+      "stick": "no_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226235&objekt=42&aktdat=20261219&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-20",
+      "start": "11:00",
+      "end": "13:00",
+      "stick": "with_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226237&objekt=42&aktdat=20261220&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-21",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=225849&objekt=42&aktdat=20261221&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-22",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226227&objekt=42&aktdat=20261222&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-23",
+      "start": "14:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226229&objekt=42&aktdat=20261223&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-26",
+      "start": "11:00",
+      "end": "13:00",
+      "stick": "no_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226235&objekt=42&aktdat=20261226&page=schema.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-27",
+      "start": "11:00",
+      "end": "13:00",
+      "stick": "with_stick",
+      "source_url": "https://jarfalla.fri-go.se/bokning/bokningvisaajax.aspx?boknr=226237&objekt=42&aktdat=20261227&page=schema.aspx",
       "note": null
     }
   ],

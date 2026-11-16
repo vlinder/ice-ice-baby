@@ -8,66 +8,10 @@
   "error": null,
   "source_updated": "2026-11-13T09:36",
   "covers": {
-    "from": "2026-11-09",
+    "from": "2026-11-16",
     "to": "2026-11-22"
   },
   "sessions": [
-    {
-      "date": "2026-11-09",
-      "start": "11:00",
-      "end": "14:00",
-      "stick": "shared",
-      "source_url": "https://motionera.stockholm/skridskoakning/",
-      "note": null
-    },
-    {
-      "date": "2026-11-10",
-      "start": "12:00",
-      "end": "15:00",
-      "stick": "shared",
-      "source_url": "https://motionera.stockholm/skridskoakning/",
-      "note": null
-    },
-    {
-      "date": "2026-11-11",
-      "start": "12:00",
-      "end": "15:00",
-      "stick": "shared",
-      "source_url": "https://motionera.stockholm/skridskoakning/",
-      "note": null
-    },
-    {
-      "date": "2026-11-12",
-      "start": "12:00",
-      "end": "14:50",
-      "stick": "shared",
-      "source_url": "https://motionera.stockholm/skridskoakning/",
-      "note": null
-    },
-    {
-      "date": "2026-11-13",
-      "start": "12:00",
-      "end": "15:00",
-      "stick": "shared",
-      "source_url": "https://motionera.stockholm/skridskoakning/",
-      "note": null
-    },
-    {
-      "date": "2026-11-14",
-      "start": "10:00",
-      "end": "11:30",
-      "stick": "shared",
-      "source_url": "https://motionera.stockholm/skridskoakning/",
-      "note": null
-    },
-    {
-      "date": "2026-11-15",
-      "start": "12:00",
-      "end": "13:30",
-      "stick": "shared",
-      "source_url": "https://motionera.stockholm/skridskoakning/",
-      "note": null
-    },
     {
       "date": "2026-11-16",
       "start": "11:00",

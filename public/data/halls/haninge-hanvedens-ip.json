@@ -8,8 +8,8 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-15",
-    "to": "2027-01-03"
+    "from": "2026-11-16",
+    "to": "2027-01-04"
   },
   "sessions": [
     {
@@ -521,6 +521,14 @@
       "start": "14:45",
       "end": "16:00",
       "stick": "with_stick",
+      "source_url": "https://haninge.rbok.se/informationstavla?id=e8330e15-76fd-4bcf-9dd2-93c54dae9559",
+      "note": null
+    },
+    {
+      "date": "2027-01-04",
+      "start": "14:00",
+      "end": "15:45",
+      "stick": "shared",
       "source_url": "https://haninge.rbok.se/informationstavla?id=e8330e15-76fd-4bcf-9dd2-93c54dae9559",
       "note": null
     }

@@ -8,18 +8,10 @@
   "error": null,
   "source_updated": "2026-11-11T00:00",
   "covers": {
-    "from": "2026-11-15",
-    "to": "2026-12-12"
+    "from": "2026-11-16",
+    "to": "2026-12-13"
   },
   "sessions": [
-    {
-      "date": "2026-11-15",
-      "start": "12:00",
-      "end": "16:00",
-      "stick": "unknown",
-      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
-      "note": "med reservation för ändring på grund av vädret"
-    },
     {
       "date": "2026-11-16",
       "start": "09:00",
@@ -264,6 +256,14 @@
       "date": "2026-12-12",
       "start": "14:30",
       "end": "18:00",
+      "stick": "unknown",
+      "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "note": "med reservation för ändring på grund av vädret"
+    },
+    {
+      "date": "2026-12-13",
+      "start": "12:00",
+      "end": "16:00",
       "stick": "unknown",
       "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
       "note": "med reservation för ändring på grund av vädret"
