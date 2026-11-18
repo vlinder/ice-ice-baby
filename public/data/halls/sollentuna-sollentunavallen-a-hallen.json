@@ -4,8 +4,8 @@
   "adapter": "sollentuna-web",
   "source_name": "Sollentunavallen",
   "source_rink": "A-hallen",
-  "status": "ok",
-  "error": null,
+  "status": "stale",
+  "error": "ParseError: Unrecognised day heading '' in the weekly schedule",
   "source_updated": "2026-11-02T00:00",
   "covers": {
     "from": "2026-11-16",

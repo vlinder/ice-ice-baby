@@ -4,8 +4,8 @@
   "adapter": "varmdo-web",
   "source_name": "Ekvallens IP",
   "source_rink": "Ekrinken",
-  "status": "ok",
-  "error": null,
+  "status": "stale",
+  "error": "ParseError: No 'Tider Ekrinken' section found – has the page layout changed?",
   "source_updated": "2026-11-13T00:00",
   "covers": {
     "from": "2026-11-16",

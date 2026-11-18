@@ -8,18 +8,10 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-16",
-    "to": "2026-12-06"
+    "from": "2026-11-18",
+    "to": "2026-12-08"
   },
   "sessions": [
-    {
-      "date": "2026-11-17",
-      "start": "18:00",
-      "end": "19:00",
-      "stick": "no_stick",
-      "source_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b",
-      "note": null
-    },
     {
       "date": "2026-11-21",
       "start": "13:00",
@@ -65,6 +57,14 @@
       "start": "12:00",
       "end": "14:00",
       "stick": "with_stick",
+      "source_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b",
+      "note": null
+    },
+    {
+      "date": "2026-12-08",
+      "start": "18:00",
+      "end": "19:00",
+      "stick": "no_stick",
       "source_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b",
       "note": null
     }
