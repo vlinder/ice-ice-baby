@@ -13,14 +13,6 @@
   },
   "sessions": [
     {
-      "date": "2026-11-18",
-      "start": "14:00",
-      "end": "16:00",
-      "stick": "shared",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=e8330e15-76fd-4bcf-9dd2-93c54dae9559",
-      "note": null
-    },
-    {
       "date": "2026-11-19",
       "start": "14:00",
       "end": "16:00",
