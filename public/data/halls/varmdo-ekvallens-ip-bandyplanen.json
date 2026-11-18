@@ -6,16 +6,64 @@
   "source_rink": "Bandyplanen",
   "status": "ok",
   "error": null,
-  "source_updated": "2026-11-13T00:00",
+  "source_updated": "2026-11-16T00:00",
   "covers": {
-    "from": "2026-11-16",
-    "to": "2026-12-13"
+    "from": "2026-11-18",
+    "to": "2026-12-15"
   },
   "sessions": [
     {
+      "date": "2026-11-18",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-11-18",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-19",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-11-19",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
       "date": "2026-11-20",
-      "start": "16:00",
-      "end": "22:00",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-11-20",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-20",
+      "start": "16:30",
+      "end": "19:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
       "note": null
@@ -72,14 +120,94 @@
       "date": "2026-11-22",
       "start": "19:00",
       "end": "22:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-23",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-11-23",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-24",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-11-24",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-25",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-11-25",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-26",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-11-26",
+      "start": "12:00",
+      "end": "16:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
       "note": null
     },
     {
       "date": "2026-11-27",
-      "start": "16:00",
-      "end": "22:00",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-11-27",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-27",
+      "start": "16:30",
+      "end": "19:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
       "note": null
@@ -136,14 +264,94 @@
       "date": "2026-11-29",
       "start": "19:00",
       "end": "22:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-11-30",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-11-30",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-01",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-01",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-02",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-02",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-03",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-03",
+      "start": "12:00",
+      "end": "16:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
       "note": null
     },
     {
       "date": "2026-12-04",
-      "start": "16:00",
-      "end": "22:00",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-04",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-04",
+      "start": "16:30",
+      "end": "19:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
       "note": null
@@ -200,14 +408,94 @@
       "date": "2026-12-06",
       "start": "19:00",
       "end": "22:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-07",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-07",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-08",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-08",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-09",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-09",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-10",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-10",
+      "start": "12:00",
+      "end": "16:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
       "note": null
     },
     {
       "date": "2026-12-11",
-      "start": "16:00",
-      "end": "22:00",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-11",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-11",
+      "start": "16:30",
+      "end": "19:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
       "note": null
@@ -264,6 +552,38 @@
       "date": "2026-12-13",
       "start": "19:00",
       "end": "22:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-14",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-14",
+      "start": "12:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-15",
+      "start": "09:00",
+      "end": "11:30",
+      "stick": "shared",
+      "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "note": "isvård 11:30–12:00"
+    },
+    {
+      "date": "2026-12-15",
+      "start": "12:00",
+      "end": "16:00",
       "stick": "shared",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
       "note": null

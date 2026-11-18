@@ -4,8 +4,8 @@
   "adapter": "taby-web",
   "source_name": "Hägernäs ishall",
   "source_rink": null,
-  "status": "ok",
-  "error": null,
+  "status": "stale",
+  "error": "ParseError: taby-hagernas-ishall: no 'Vecka NN' or 'Ordinarie tider' block found",
   "source_updated": "2026-11-02T00:00",
   "covers": {
     "from": "2026-11-09",

@@ -8,26 +8,10 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-16",
-    "to": "2026-12-15"
+    "from": "2026-11-18",
+    "to": "2026-12-17"
   },
   "sessions": [
-    {
-      "date": "2026-11-16",
-      "start": "13:30",
-      "end": "15:30",
-      "stick": "with_stick",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=71c94175-66c8-41fd-8b4b-d8a41729e78b",
-      "note": null
-    },
-    {
-      "date": "2026-11-17",
-      "start": "13:30",
-      "end": "15:30",
-      "stick": "with_stick",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=71c94175-66c8-41fd-8b4b-d8a41729e78b",
-      "note": null
-    },
     {
       "date": "2026-11-18",
       "start": "13:30",
@@ -310,6 +294,22 @@
     },
     {
       "date": "2026-12-15",
+      "start": "13:30",
+      "end": "15:30",
+      "stick": "with_stick",
+      "source_url": "https://haninge.rbok.se/informationstavla?id=71c94175-66c8-41fd-8b4b-d8a41729e78b",
+      "note": "Halva hallen-A"
+    },
+    {
+      "date": "2026-12-16",
+      "start": "13:30",
+      "end": "15:30",
+      "stick": "with_stick",
+      "source_url": "https://haninge.rbok.se/informationstavla?id=71c94175-66c8-41fd-8b4b-d8a41729e78b",
+      "note": "Halva hallen-A"
+    },
+    {
+      "date": "2026-12-17",
       "start": "13:30",
       "end": "15:30",
       "stick": "with_stick",
