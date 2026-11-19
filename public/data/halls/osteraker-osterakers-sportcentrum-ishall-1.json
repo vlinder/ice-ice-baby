@@ -8,18 +8,10 @@
   "error": null,
   "source_updated": "2026-11-02T00:00",
   "covers": {
-    "from": "2026-11-18",
-    "to": "2026-12-15"
+    "from": "2026-11-19",
+    "to": "2026-12-16"
   },
   "sessions": [
-    {
-      "date": "2026-11-18",
-      "start": "14:00",
-      "end": "15:20",
-      "stick": "no_stick",
-      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
-      "note": null
-    },
     {
       "date": "2026-11-19",
       "start": "14:00",
@@ -214,6 +206,14 @@
     },
     {
       "date": "2026-12-15",
+      "start": "14:00",
+      "end": "15:20",
+      "stick": "no_stick",
+      "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-16",
       "start": "14:00",
       "end": "15:20",
       "stick": "no_stick",

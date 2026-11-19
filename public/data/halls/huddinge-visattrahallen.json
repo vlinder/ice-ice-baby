@@ -8,18 +8,10 @@
   "error": null,
   "source_updated": "2026-11-10T00:00",
   "covers": {
-    "from": "2026-11-18",
-    "to": "2026-12-29"
+    "from": "2026-11-19",
+    "to": "2026-12-30"
   },
   "sessions": [
-    {
-      "date": "2026-11-18",
-      "start": "09:00",
-      "end": "10:50",
-      "stick": "no_stick",
-      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
-      "note": null
-    },
     {
       "date": "2026-11-19",
       "start": "13:00",
@@ -208,7 +200,7 @@
       "date": "2026-12-16",
       "start": "09:00",
       "end": "10:50",
-      "stick": "unknown",
+      "stick": "no_stick",
       "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
       "note": null
     },
@@ -278,6 +270,14 @@
     },
     {
       "date": "2026-12-29",
+      "start": "13:00",
+      "end": "14:50",
+      "stick": "unknown",
+      "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
+      "note": null
+    },
+    {
+      "date": "2026-12-30",
       "start": "13:00",
       "end": "14:50",
       "stick": "unknown",

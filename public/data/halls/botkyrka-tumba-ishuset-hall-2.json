@@ -8,7 +8,7 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-18",
+    "from": "2026-11-19",
     "to": "2027-01-09"
   },
   "sessions": [
@@ -360,6 +360,14 @@
       "date": "2027-01-08",
       "start": "14:15",
       "end": "16:00",
+      "stick": "with_stick",
+      "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
+      "note": null
+    },
+    {
+      "date": "2027-01-09",
+      "start": "12:15",
+      "end": "15:00",
       "stick": "with_stick",
       "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
       "note": null

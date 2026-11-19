@@ -8,8 +8,8 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-18",
-    "to": "2026-12-17"
+    "from": "2026-11-19",
+    "to": "2026-12-18"
   },
   "sessions": [
     {
@@ -302,6 +302,14 @@
     },
     {
       "date": "2026-12-17",
+      "start": "13:30",
+      "end": "15:30",
+      "stick": "with_stick",
+      "source_url": "https://haninge.rbok.se/informationstavla?id=71c94175-66c8-41fd-8b4b-d8a41729e78b",
+      "note": "Halva hallen-A"
+    },
+    {
+      "date": "2026-12-18",
       "start": "13:30",
       "end": "15:30",
       "stick": "with_stick",

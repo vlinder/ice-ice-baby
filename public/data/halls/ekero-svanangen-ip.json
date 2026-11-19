@@ -8,8 +8,8 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-18",
-    "to": "2027-01-16"
+    "from": "2026-11-19",
+    "to": "2027-01-17"
   },
   "sessions": [
     {
@@ -621,6 +621,14 @@
       "tags": [
         "disco"
       ]
+    },
+    {
+      "date": "2027-01-17",
+      "start": "15:00",
+      "end": "18:20",
+      "stick": "with_stick",
+      "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
+      "note": null
     }
   ],
   "problems": []
