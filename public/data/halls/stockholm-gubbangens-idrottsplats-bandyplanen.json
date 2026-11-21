@@ -1,0 +1,129 @@
+{
+  "spec_version": 2,
+  "hall_id": "stockholm-gubbangens-idrottsplats-bandyplanen",
+  "adapter": "stockholm-motionera",
+  "source_name": "Gubbängens idrottsplats",
+  "source_rink": "Bandyplanen",
+  "status": "ok",
+  "error": null,
+  "source_updated": "2026-11-20T12:06",
+  "covers": {
+    "from": "2026-11-16",
+    "to": "2026-11-29"
+  },
+  "sessions": [
+    {
+      "date": "2026-11-16",
+      "start": "09:00",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-17",
+      "start": "09:00",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-18",
+      "start": "09:00",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-19",
+      "start": "09:00",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-20",
+      "start": "09:00",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-21",
+      "start": "18:00",
+      "end": "20:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-22",
+      "start": "18:00",
+      "end": "23:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-23",
+      "start": "09:00",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-24",
+      "start": "09:00",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-25",
+      "start": "09:00",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-26",
+      "start": "09:00",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-27",
+      "start": "09:00",
+      "end": "15:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-28",
+      "start": "18:00",
+      "end": "20:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-29",
+      "start": "18:00",
+      "end": "23:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    }
+  ],
+  "problems": []
+}

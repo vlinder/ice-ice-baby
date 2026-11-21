@@ -8,27 +8,11 @@
   "error": null,
   "source_updated": "2026-11-05T09:03",
   "covers": {
-    "from": "2026-11-19",
-    "to": "2026-12-16"
+    "from": "2026-11-21",
+    "to": "2026-12-18"
   },
   "sessions": [
     {
-      "date": "2026-11-20",
-      "start": "15:00",
-      "end": "16:00",
-      "stick": "no_stick",
-      "source_url": "https://nynashamn.se/service/kultur--fritid/fritid/ishallen-hll-arena",
-      "note": null
-    },
-    {
-      "date": "2026-11-20",
-      "start": "16:00",
-      "end": "16:45",
-      "stick": "with_stick",
-      "source_url": "https://nynashamn.se/service/kultur--fritid/fritid/ishallen-hll-arena",
-      "note": null
-    },
-    {
       "date": "2026-11-21",
       "start": "18:00",
       "end": "18:45",
@@ -166,6 +150,22 @@
     },
     {
       "date": "2026-12-11",
+      "start": "16:00",
+      "end": "16:45",
+      "stick": "with_stick",
+      "source_url": "https://nynashamn.se/service/kultur--fritid/fritid/ishallen-hll-arena",
+      "note": null
+    },
+    {
+      "date": "2026-12-18",
+      "start": "15:00",
+      "end": "16:00",
+      "stick": "no_stick",
+      "source_url": "https://nynashamn.se/service/kultur--fritid/fritid/ishallen-hll-arena",
+      "note": null
+    },
+    {
+      "date": "2026-12-18",
       "start": "16:00",
       "end": "16:45",
       "stick": "with_stick",
