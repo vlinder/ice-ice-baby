@@ -6,28 +6,12 @@
   "source_rink": null,
   "status": "ok",
   "error": null,
-  "source_updated": "2026-11-17T00:00",
+  "source_updated": "2026-11-20T00:00",
   "covers": {
-    "from": "2026-11-19",
+    "from": "2026-11-21",
     "to": "2026-12-27"
   },
   "sessions": [
-    {
-      "date": "2026-11-19",
-      "start": "08:00",
-      "end": "15:15",
-      "stick": "shared",
-      "source_url": "https://www.sundbyberg.se/uppleva-och-gora/idrott-motion-och-friluftsliv/hallar-och-idrottsanlaggningar/ishall-och-isbanor",
-      "note": null
-    },
-    {
-      "date": "2026-11-20",
-      "start": "08:00",
-      "end": "15:15",
-      "stick": "shared",
-      "source_url": "https://www.sundbyberg.se/uppleva-och-gora/idrott-motion-och-friluftsliv/hallar-och-idrottsanlaggningar/ishall-och-isbanor",
-      "note": null
-    },
     {
       "date": "2026-11-21",
       "start": "12:00",
@@ -239,7 +223,7 @@
     {
       "date": "2026-12-13",
       "start": "12:00",
-      "end": "14:00",
+      "end": "13:00",
       "stick": "shared",
       "source_url": "https://www.sundbyberg.se/uppleva-och-gora/idrott-motion-och-friluftsliv/hallar-och-idrottsanlaggningar/ishall-och-isbanor",
       "note": null

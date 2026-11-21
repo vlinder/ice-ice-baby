@@ -1,0 +1,97 @@
+{
+  "spec_version": 2,
+  "hall_id": "stockholm-ostermalms-idrottsplats-uteisen-halvmanar",
+  "adapter": "stockholm-motionera",
+  "source_name": "Östermalms idrottsplats",
+  "source_rink": "Uteisen – Halvmånar",
+  "status": "ok",
+  "error": null,
+  "source_updated": "2026-11-20T12:06",
+  "covers": {
+    "from": "2026-11-16",
+    "to": "2026-11-29"
+  },
+  "sessions": [
+    {
+      "date": "2026-11-20",
+      "start": "17:00",
+      "end": "23:00",
+      "stick": "with_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-21",
+      "start": "09:00",
+      "end": "11:00",
+      "stick": "with_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-22",
+      "start": "10:00",
+      "end": "11:00",
+      "stick": "with_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-23",
+      "start": "17:00",
+      "end": "19:00",
+      "stick": "no_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-24",
+      "start": "19:00",
+      "end": "23:00",
+      "stick": "no_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-25",
+      "start": "17:00",
+      "end": "19:00",
+      "stick": "no_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-26",
+      "start": "19:30",
+      "end": "23:00",
+      "stick": "no_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-27",
+      "start": "17:00",
+      "end": "23:00",
+      "stick": "with_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-28",
+      "start": "09:00",
+      "end": "11:00",
+      "stick": "with_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-11-29",
+      "start": "10:00",
+      "end": "11:00",
+      "stick": "with_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    }
+  ],
+  "problems": []
+}
