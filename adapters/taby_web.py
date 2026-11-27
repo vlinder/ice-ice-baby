@@ -18,9 +18,11 @@ followed by contact lines (phone, address). A paragraph "Allmänhetens åkning
 Rules:
 - A "Vecka NN" block covers Monday of that week up to its last listed weekday;
   blocks that ended before today are skipped unread.
-- "Ordinarie tider, vecka A–vecka B" is expanded with `expand_weekly` over
+- "Ordinarie tider, vecka A–vecka B", or a bare "Vecka A - Vecka B" (Hägernäs,
+  from Nov 2026), is a weekly template expanded with `expand_weekly` over
   `recurring_window(today, Monday of A, Sunday of B)`; dates covered by a
-  current "Vecka NN" block for the same hall override the template.
+  current "Vecka NN" block for the same hall override it. A hall may have
+  several templates for different weeks; overlapping ones raise ParseError.
 - `covers` is set per hall (Hägernäs lists single weeks, Tibble has a weekly
   template), and the adapter-wide range is their union. A hall whose blocks are
   all in the past gets its last block's (past) range, i.e. unknown from today.
@@ -51,6 +53,8 @@ HALLS = ["Hägernäs ishall", "Tibble ishall"]
 
 WEEK_RE = re.compile(r"^vecka\s+(\d{1,2})(?:\s*,.*)?$", re.I)
 WEEKLY_RE = re.compile(r"^ordinarie\s+tider\b.*?vecka\s+(\d{1,2})\s*[–—-]\s*(?:vecka\s+)?(\d{1,2})\b", re.I)
+# A bare week range ("Vecka 46 - Vecka 51") is a weekly template for those weeks too.
+WEEK_RANGE_RE = re.compile(r"^vecka\s+(\d{1,2})\s*[–—-]\s*(?:vecka\s+)?(\d{1,2})$", re.I)
 # Something that looks like a block heading we don't know ("Jullovet", "Vecka 52–1").
 HEADING_LIKE_RE = re.compile(r"^(vecka|ordinarie)\b|lov(et)?\b", re.I)
 CLOSED_RE = re.compile(r"^(stängd|stängt|inställd|ingen\b.*)", re.I)
@@ -122,9 +126,10 @@ def _parse_hall(name: str, lines: list[str], today: date, warnings: list[str]) -
     dated: dict[date, list] = {}            # day -> [(s, e, stick, note)] from current week blocks
     week_spans: list[tuple[date, date]] = []
     past_spans: list[tuple[date, date]] = []
+    # weekly templates: (window within the horizon, slots); their full week ranges for overlap checks
+    templates: list[tuple[tuple[date, date], list[Slot]]] = []
+    template_ranges: list[tuple[date, date]] = []
     slots: list[Slot] = []
-    window: tuple[date, date] | None = None
-    season_seen = False
     not_yet: tuple[date, date] | None = None
 
     # block state
@@ -138,7 +143,7 @@ def _parse_hall(name: str, lines: list[str], today: date, warnings: list[str]) -
             (week_spans if kind == "week" else past_spans).append(span)
 
     for line in lines:
-        wm, rm = WEEK_RE.match(line), WEEKLY_RE.match(line)
+        wm, rm = WEEK_RE.match(line), WEEKLY_RE.match(line) or WEEK_RANGE_RE.match(line)
         if wm or rm:
             close()
             listed = []
@@ -150,11 +155,14 @@ def _parse_hall(name: str, lines: list[str], today: date, warnings: list[str]) -
                 w1, w2 = int(rm.group(1)), int(rm.group(2))
                 s_from = iso_week_monday(week_year(w1, today), w1)
                 s_to = iso_week_sunday(s_from.isocalendar()[0] + (1 if w2 < w1 else 0), w2)
-                if season_seen:
-                    raise ParseError(f"{hid}: more than one 'Ordinarie tider' block")
-                season_seen = True
+                if any(s_from <= b and a <= s_to for a, b in template_ranges):
+                    raise ParseError(f"{hid}: weekly blocks overlap at {line!r}")
+                template_ranges.append((s_from, s_to))
                 window = recurring_window(today, s_from, s_to)
                 kind, monday = ("weekly" if window else "past"), None
+                if window:
+                    slots = []
+                    templates.append((window, slots))
                 if not window and s_to < today:
                     past_spans.append((s_from, s_to))
                 elif not window:
@@ -210,11 +218,11 @@ def _parse_hall(name: str, lines: list[str], today: date, warnings: list[str]) -
             for s, e, stick, note in dated.get(d, []):
                 add(d, s, e, stick, note)
             d += timedelta(days=1)
-    if window:
-        for sess in expand_weekly(slots, window[0], window[1], SOURCE_URL, skip=overridden):
+    for window, tslots in templates:
+        for sess in expand_weekly(tslots, window[0], window[1], SOURCE_URL, skip=overridden):
             add(date.fromisoformat(sess.date), sess.start, sess.end, sess.stick, sess.note)
 
-    spans = week_spans + ([window] if window else []) + ([not_yet] if not_yet else [])
+    spans = week_spans + [w for w, _ in templates] + ([not_yet] if not_yet else [])
     if spans:
         lo, hi = min(x[0] for x in spans), max(x[1] for x in spans)
     elif past_spans:
