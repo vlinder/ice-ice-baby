@@ -99,6 +99,20 @@ which covers the case where data is held back in a review PR.
 link to the facility). A hall that appears in a source but not in the config is still
 published with `"curated": false` and `lat`/`lon` set to `null`, and is flagged for review.
 
+`"outdoor": true` in the config marks outdoor ice, whose times depend on the weather. It is
+copied to `index.json` (`false` when absent), and the site shows such halls with a badge.
+
+One facility can have several rinks (A-hallen/B-hallen, or parts of the same outdoor ice that
+are used for different things). Each rink is its own hall; they share `name` and coordinates
+and differ in `rink` and `short_name`. The site shows one map marker per facility.
+
+**Aliases.** A source sometimes names the same rink differently from week to week, which
+gives a different hall id for each wording. List the other ids under `"aliases"` on the
+hall in the config: `pipeline.run` files their sessions, covered ranges and problems under
+that hall, and deletes hall files left under an alias id. An alias may not be a hall of its
+own or belong to two halls. A wording that is not listed still shows up as a new hall and is
+flagged for review.
+
 ## Adapter contract
 
 An adapter is a Python module in `adapters/` registered in `adapters/__init__.py`:

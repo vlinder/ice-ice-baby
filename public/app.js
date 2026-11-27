@@ -67,7 +67,11 @@ function problemBadge(h) {
   const t = problemText(h);
   return t ? `<span class="badge tip" tabindex="0" role="note" aria-label="${esc(t)}" data-tip="${esc(t)}">tider kan saknas</span>` : "";
 }
-function hallBadges(h) { return staleBadge(h) + problemBadge(h); }
+const OUTDOOR_TEXT = "Utomhusis: tiderna gäller bara om vädret tillåter. Kontrollera källan innan du åker.";
+function outdoorBadge(h) {
+  return h.outdoor ? `<span class="badge out tip" tabindex="0" role="note" aria-label="${esc(OUTDOOR_TEXT)}" data-tip="${esc(OUTDOOR_TEXT)}">utomhus</span>` : "";
+}
+function hallBadges(h) { return outdoorBadge(h) + staleBadge(h) + problemBadge(h); }
 // One tooltip element for all .tip badges, positioned in the viewport so containers
 // with overflow:hidden cannot clip it. Shown on hover and on focus (tap on touch screens).
 const tipBox = Object.assign(document.createElement("div"), { className: "tipbox", hidden: true });
@@ -325,21 +329,41 @@ function renderMap() {
     layer = L.layerGroup().addTo(map);
   }
   layer.clearLayers();
-  const pts = [];
+  // Rinks of one facility share its name and coordinates: one marker per facility, with
+  // each rink's week in the popup. Separate markers at one spot would hide each other.
+  const sites = new Map();
   for (const h of visibleHalls()) {
     if (h.lat == null || h.lon == null) continue;
-    const ss = sessionsOn(h, state.day);
+    const key = `${h.name}|${h.lat}|${h.lon}`;
+    if (!sites.has(key)) sites.set(key, []);
+    sites.get(key).push(h);
+  }
+  const pts = [];
+  for (const hs of sites.values()) {
+    const h0 = hs[0];
+    const ss = hs.flatMap((h) => sessionsOn(h, state.day));
     const icon = L.divIcon({ className: "", html: `<div class="pin${ss.length ? (ss.some(isDisco) ? " disco" : "") : " off"}"></div>`, iconSize: [18, 18], iconAnchor: [9, 9] });
-    const week = state.days.map((d) => {
-      const x = sessionsOn(h, d);
-      const di = dayInfo(d);
-      const label = `${di.wd.slice(0, 3)} ${di.day}/${d.slice(5, 7) * 1}`;
-      const val = !covered(h, d) ? "?" : x.length ? x.map((s) => `${timeLink(s)} <small>${isDisco(s) ? "Disco · " : ""}${STICK[s.stick]}</small>`).join(", ") : "–";
-      return `<div${d === state.day ? ' style="font-weight:600"' : ""}>${label}: ${val}</div>`;
+    const rinks = hs.map((h) => {
+      const week = state.days.map((d) => {
+        const x = sessionsOn(h, d);
+        const di = dayInfo(d);
+        const label = `${di.wd.slice(0, 3)} ${di.day}/${d.slice(5, 7) * 1}`;
+        const val = !covered(h, d) ? "?" : x.length ? x.map((s) => `${timeLink(s)} <small>${isDisco(s) ? "Disco · " : ""}${STICK[s.stick]}</small>`).join(", ") : "–";
+        return `<div${d === state.day ? ' style="font-weight:600"' : ""}>${label}: ${val}</div>`;
+      }).join("");
+      const head = hs.length > 1 || h.rink ? `<b>${esc(h.rink || h.short_name)}</b>${h.outdoor ? '<span class="badge out">utomhus</span>' : ""}` : "";
+      const notes = [
+        h.outdoor ? (hs.length > 1 ? "" : `<div class="badge out" style="margin:4px 0 0">utomhus</div>`) : "",
+        isStale(h) ? '<div class="badge" style="margin:4px 0 0">kan vara inaktuell</div>' : "",
+        problemText(h) ? `<div class="badge" style="margin:4px 0 0;white-space:normal">${esc(problemText(h))}</div>` : "",
+      ].join("");
+      return `<div class="rink">${hs.length > 1 ? head : ""}${notes}<div style="margin-top:4px">${week}</div></div>`;
     }).join("");
-    const html = `<b>${esc(h.name)}</b><br><span style="color:var(--muted)">${esc(h.rink || "")} · ${esc(h.municipality)}</span>${isStale(h) ? '<div class="badge" style="margin:4px 0 0">kan vara inaktuell</div>' : ""}${problemText(h) ? `<div class="badge" style="margin:4px 0 0;white-space:normal">${esc(problemText(h))}</div>` : ""}<div style="margin-top:6px">${week}</div>${h.info_url ? `<div style="margin-top:6px"><a href="${esc(h.info_url)}" target="_blank" rel="noopener">Om anläggningen</a></div>` : ""}`;
-    L.marker([h.lat, h.lon], { icon, title: h.name, zIndexOffset: ss.length ? 1000 : 0 }).bindPopup(html, { maxWidth: 300 }).addTo(layer);
-    pts.push([h.lat, h.lon]);
+    const sub = hs.length > 1 ? esc(h0.municipality) : `${esc(h0.rink || "")}${h0.rink ? " · " : ""}${esc(h0.municipality)}`;
+    const info = hs.find((h) => h.info_url)?.info_url;
+    const html = `<b>${esc(h0.name)}</b><br><span style="color:var(--muted)">${sub}</span>${rinks}${info ? `<div style="margin-top:6px"><a href="${esc(info)}" target="_blank" rel="noopener">Om anläggningen</a></div>` : ""}`;
+    L.marker([h0.lat, h0.lon], { icon, title: h0.name, zIndexOffset: ss.length ? 1000 : 0 }).bindPopup(html, { maxWidth: 300, maxHeight: hs.length > 1 ? 380 : null }).addTo(layer);
+    pts.push([h0.lat, h0.lon]);
   }
   if (pts.length && !map._fitted) { map.fitBounds(pts, { padding: [30, 30] }); map._fitted = true; }
 }
