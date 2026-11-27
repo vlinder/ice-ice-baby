@@ -26,6 +26,13 @@ def test_big_change_is_flagged_small_change_is_not():
     assert compare_hall(old, hall([(d, "12:00", "13:00") for d, _, _ in base]), "2026-11-02")
 
 
+def test_high_share_of_few_changed_sessions_is_not_flagged():
+    # 1 added, 2 removed out of 4: 75 % changed, but only 3 sessions.
+    old = hall([("2026-11-03", "08:00", "09:00"), ("2026-11-04", "08:00", "09:00"), ("2026-11-05", "08:00", "09:00")])
+    new = hall([("2026-11-03", "08:00", "09:00"), ("2026-11-06", "08:00", "09:00")])
+    assert compare_hall(old, new, "2026-11-02") == []
+
+
 def test_week_rollover_is_not_flagged():
     old = hall([("2026-10-27", "08:00", "09:00")], cov=("2026-10-26", "2026-11-01"))
     new = hall([("2026-11-03", "08:00", "09:00")], cov=("2026-11-02", "2026-11-08"))
