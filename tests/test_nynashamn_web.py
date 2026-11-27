@@ -44,9 +44,11 @@ def test_cancelled_and_inconsistent_change_in_december():
     assert (r.covers_from, r.covers_to) == ("2026-12-01", "2026-12-28")
     assert _day(r, "2026-12-11") == [("15:00", "16:00", "no_stick"), ("16:00", "16:45", "with_stick")]
     assert _day(r, "2026-12-12") == []  # inställd (hockeycup)
-    # "Ny tid 8.30-12.00 (8.30-10.30 ..., 10.30-12.30 ...)" does not add up: warn, emit nothing
-    assert _day(r, "2026-12-13") == []
-    assert len(r.warnings) == 1 and "13 december" in r.warnings[0]
+    # "Ny tid 8.30-12.00 (8.30-10.30 ..., 10.30-12.30 ...)": the shorter end wins, with a note
+    assert _day(r, "2026-12-13") == [("08:30", "10:30", "no_stick"), ("10:30", "12:00", "with_stick")]
+    notes = [x.note for x in r.halls[H].sessions if x.date == "2026-12-13"]
+    assert notes == [None, "Motstridiga uppgifter, kan ha öppet till 12.30"]
+    assert r.warnings == []
     assert _day(r, "2026-12-20") == [("10:00", "10:45", "no_stick"), ("10:45", "11:45", "with_stick")]
 
 
@@ -90,6 +92,36 @@ def test_season_start_and_end():
 ])
 def test_split_sessions(text, expected):
     assert a.split_sessions(text) == expected
+
+
+@pytest.mark.parametrize("text,expected", [
+    # parts end later than the overall range: end at the overall end
+    ("8.30-12.00 (8.30-10.30 – utan klubba och puck, 10.30-12.30 – med puck och klubba)",
+     [("08:30", "10:30", "no_stick", None),
+      ("10:30", "12:00", "with_stick", "Motstridiga uppgifter, kan ha öppet till 12.30")]),
+    # overall range ends later than the parts: end at the parts' end
+    ("8.30-13.00 (8.30-10.30 utan klubba, 10.30-12.30 med klubba)",
+     [("08:30", "10:30", "no_stick", None),
+      ("10:30", "12:30", "with_stick", "Motstridiga uppgifter, kan ha öppet till 13.00")]),
+    # starts disagree: start at the later time
+    ("8.00-12.00 (8.30-10.30 utan klubba, 10.30-12.00 med klubba)",
+     [("08:30", "10:30", "no_stick", "Motstridiga uppgifter, kan öppna redan kl. 08.00"),
+      ("10:30", "12:00", "with_stick", None)]),
+    # a part that falls entirely outside the shorter span is dropped
+    ("8.30-10.30 (8.30-10.30 utan klubba, 10.30-12.30 med klubba)",
+     [("08:30", "10:30", "no_stick", "Motstridiga uppgifter, kan ha öppet till 12.30")]),
+])
+def test_conflicting_start_or_end_uses_the_shorter_span(text, expected):
+    assert a.split_sessions(text) == expected
+
+
+@pytest.mark.parametrize("text", [
+    "8.30-12.30 (8.30-10.00 utan klubba, 10.30-12.30 med klubba)",   # gap between the parts
+    "13.00-14.00 (8.30-10.30 utan klubba, 10.30-12.30 med klubba)",  # no overlap at all
+])
+def test_parts_with_gaps_or_no_overlap_are_rejected(text):
+    with pytest.raises(ValueError):
+        a.split_sessions(text)
 
 
 def test_typo_in_weekly_line_becomes_warning():
