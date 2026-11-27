@@ -13,6 +13,7 @@ permissions:
   issues: write
   pages: write
   id-token: write
+  actions: read   # deploy.yml (called below) checks that its Pages artifact is listed
 
 concurrency:
   group: update-schedules
