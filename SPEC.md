@@ -99,6 +99,19 @@ which covers the case where data is held back in a review PR.
 link to the facility). A hall that appears in a source but not in the config is still
 published with `"curated": false` and `lat`/`lon` set to `null`, and is flagged for review.
 
+Each hall entry also carries:
+
+- `version`: the first 12 hex digits of the SHA-256 of the hall file's bytes. It changes
+  exactly when the file does (sessions, covers, status, problems, …).
+- `changed_at`: when the hall file's contents last changed. `build_index` carries it over
+  from the previous `index.json` while `version` is the same, and sets it to the build time
+  when the version is new (or the hall, or the field, is new).
+
+`pipeline.validate` checks that every `version` matches its file. The site fetches a hall
+file only when its `version` is new, as `halls/<id>.json?v=<version>`: that URL always
+means the same contents, so the browser may reuse its cached copy. It checks the bytes
+against `version` and fetches past every cache on a mismatch.
+
 `"outdoor": true` in the config marks outdoor ice, whose times depend on the weather. It is
 copied to `index.json` (`false` when absent), and the site shows such halls with a badge.
 

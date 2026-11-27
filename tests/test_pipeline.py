@@ -174,3 +174,62 @@ def test_real_config_aliases_load():
     from pipeline.run import load_aliases
     aliases = load_aliases()
     assert aliases["stockholm-ostermalms-idrottsplats-rundbana-och-innerplan"] == "stockholm-ostermalms-idrottsplats-uteisen-rundbana"
+
+
+def test_index_changed_at_follows_the_hall_file_contents(tmp_path, monkeypatch):
+    import json
+
+    from pipeline import build_index, validate
+    halls = tmp_path / "halls"
+    halls.mkdir()
+    for mod in (build_index, validate):
+        monkeypatch.setattr(mod, "HALLS_DIR", halls)
+        monkeypatch.setattr(mod, "INDEX_FILE", tmp_path / "index.json")
+    monkeypatch.setattr(build_index, "SOURCES_FILE", tmp_path / "sources.json")
+    monkeypatch.setattr(build_index, "CONFIG_FILE", tmp_path / "config.json")
+    monkeypatch.setattr(validate, "DATA", tmp_path)
+    (tmp_path / "config.json").write_text(json.dumps({"halls": {}}))
+    (tmp_path / "sources.json").write_text("[]")
+    for hid in ("a", "b"):
+        (halls / f"{hid}.json").write_text(json.dumps({**hall([("2026-11-03", "08:00", "09:00")]),
+                                                      "hall_id": hid, "adapter": "x"}))
+    clock = iter(["2026-11-02T06:00:00+01:00", "2026-11-02T12:00:00+01:00", "2026-11-02T17:00:00+01:00"])
+    monkeypatch.setattr(build_index, "now_local", lambda: type("T", (), {"isoformat": lambda self, t=next(clock): t})())
+
+    def build():
+        build_index.main()
+        return {h["id"]: (h["version"], h["changed_at"]) for h in json.loads((tmp_path / "index.json").read_text())["halls"]}
+
+    first = build()
+    assert first["a"][1] == first["b"][1] == "2026-11-02T06:00:00+01:00"
+    assert first["a"][0] == build_index.file_version(halls / "a.json")
+    second = build()  # nothing changed: versions and times carry over
+    assert second == first
+    (halls / "b.json").write_text((halls / "b.json").read_text().replace("09:00", "09:30"))
+    third = build()
+    assert third["a"] == first["a"]
+    assert third["b"][0] != first["b"][0] and third["b"][1] == "2026-11-02T17:00:00+01:00"
+
+
+def test_validate_rejects_a_stale_version(tmp_path, monkeypatch, capsys):
+    import json
+
+    from pipeline import build_index, validate
+    halls = tmp_path / "halls"
+    halls.mkdir()
+    for mod in (build_index, validate):
+        monkeypatch.setattr(mod, "HALLS_DIR", halls)
+        monkeypatch.setattr(mod, "INDEX_FILE", tmp_path / "index.json")
+    monkeypatch.setattr(build_index, "SOURCES_FILE", tmp_path / "sources.json")
+    monkeypatch.setattr(build_index, "CONFIG_FILE", tmp_path / "config.json")
+    monkeypatch.setattr(validate, "DATA", tmp_path)
+    (tmp_path / "config.json").write_text(json.dumps({"halls": {}}))
+    (tmp_path / "sources.json").write_text("[]")
+    (halls / "a.json").write_text(json.dumps({**hall([("2026-11-03", "08:00", "09:00")]), "spec_version": 2,
+                                              "hall_id": "a", "adapter": "x", "error": None}))
+    build_index.main()
+    validate.main()
+    assert "does not match the file" not in capsys.readouterr().err
+    (halls / "a.json").write_text((halls / "a.json").read_text().replace("09:00", "09:30"))
+    assert validate.main() == 1  # the file changed but index.json was not rebuilt
+    assert "version" in capsys.readouterr().err

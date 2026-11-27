@@ -8,6 +8,7 @@ import sys
 
 from jsonschema import Draft202012Validator, FormatChecker
 
+from .build_index import file_version
 from .paths import DATA, HALLS_DIR, INDEX_FILE, SCHEMA_DIR, read_json
 
 EARLIEST, LATEST = "05:00", "24:00"
@@ -60,6 +61,10 @@ def main() -> int:
             errs = semantic_errors(hall)
             if hall["hall_id"] != h["id"]:
                 errs.append(f"hall_id {hall['hall_id']} does not match index id {h['id']}")
+        # The site skips refetching a hall file while its version is unchanged, so a stale
+        # version would hide new data.
+        if h.get("version") and h["version"] != file_version(path):
+            errs.append(f"version {h['version']} in index.json does not match the file; rebuild the index")
         problems += [f"{h['schedule']}: {e}" for e in errs]
     for p in HALLS_DIR.glob("*.json"):
         if p.name not in listed:
