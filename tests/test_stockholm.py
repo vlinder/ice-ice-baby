@@ -76,3 +76,21 @@ def test_unreadable_line_becomes_warning():
 def test_layout_change_fails_loudly():
     with pytest.raises(ParseError):
         a.parse({"page": "<html><body><p>Ny design!</p></body></html>"}, date(2026, 11, 1))
+
+
+def test_label_after_samt_covers_every_time_on_the_line():
+    r = a.parse(_page("<li>Måndag: 08.30–16.00 samt 19.00–23.00, utan klubba</li>"
+                      "<li>Lördag: 11.00–16.00, utan klubba, samt 17.00–20.00, med klubba</li>"
+                      "<li>Söndag: 08.00–10.00 samt 13.00–23.00, delad is</li>"), date(2026, 11, 1))
+    s = r.halls["stockholm-testhallen-ishallen"].sessions
+    assert [(x.date, x.start, x.stick) for x in s] == [
+        ("2026-11-02", "08:30", "no_stick"), ("2026-11-02", "19:00", "no_stick"),
+        ("2026-11-07", "11:00", "no_stick"), ("2026-11-07", "17:00", "with_stick"),
+        ("2026-11-08", "08:00", "shared"), ("2026-11-08", "13:00", "shared"),
+    ]
+
+
+def test_times_not_joined_by_samt_keep_their_own_label():
+    r = a.parse(_page("<li>Måndag: 08.30–16.00. Kvällstid 19.00–23.00, utan klubba</li>"), date(2026, 11, 1))
+    s = r.halls["stockholm-testhallen-ishallen"].sessions
+    assert [x.stick for x in s] == ["unknown", "no_stick"]

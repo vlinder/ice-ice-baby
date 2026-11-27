@@ -38,6 +38,7 @@ TIME_RE = re.compile(
     r"(\d{1,2})[.:](\d{2})\s*[–\-]\s*(\d{1,2})[.:](\d{2})\s*,?\s*(delad is|med klubba|utan klubba)?",
     re.I,
 )
+JOIN_RE = re.compile(r"\s*,?\s*(samt|och)\s*", re.I)
 UPDATED_RE = re.compile(r"uppdaterad\s+(\d{1,2})\s+([a-zåäö]+)(?:\s+(\d{4}))?\s+klockan\s+(\d{1,2})[.:](\d{2})", re.I)
 NONE_RE = re.compile(r"inga\s+(skridsko)?tider|stängt|ingen is", re.I)
 
@@ -138,8 +139,16 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
                         warnings.append(f"{hid}: could not read {line!r}")
                     continue
                 changed = li.find("strong") is not None
-                for m in matches:
-                    h1, m1, h2, m2, kind = m.groups()
+                kinds = [m.group(5) for m in matches]
+                # "08.30–16.00 samt 19.00–23.00, utan klubba": a label after times joined by
+                # "samt"/"och" covers all of them. When the slots differ, the page labels
+                # each one ("11.00–16.00, utan klubba, samt 17.00–20.00, med klubba").
+                for i in range(len(matches) - 2, -1, -1):
+                    between = rest[matches[i].end():matches[i + 1].start()]
+                    if kinds[i] is None and JOIN_RE.fullmatch(between):
+                        kinds[i] = kinds[i + 1]
+                for m, kind in zip(matches, kinds):
+                    h1, m1, h2, m2, _ = m.groups()
                     s, e = hhmm(h1, m1), hhmm(h2, m2)
                     if e <= s:
                         raise ParseError(f"{hid}: end before start in {line!r}")

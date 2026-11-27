@@ -28,6 +28,7 @@ def main() -> int:
             "lat": (meta or {}).get("lat"),
             "lon": (meta or {}).get("lon"),
             "info_url": (meta or {}).get("info_url"),
+            "outdoor": bool((meta or {}).get("outdoor", False)),
             "adapter": d["adapter"],
             "status": d["status"],
             "curated": meta is not None,

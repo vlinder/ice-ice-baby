@@ -1,5 +1,5 @@
 {
-  "_comment": "Hand-curated hall metadata, keyed by hall_id as emitted by the adapters. Coordinates are approximate (OpenStreetMap/Nominatim).",
+  "_comment": "Hand-curated hall metadata, keyed by hall_id as emitted by the adapters. Coordinates are approximate (OpenStreetMap/Nominatim). \"outdoor\": true marks outdoor ice (weather-dependent). \"aliases\" lists other hall ids the source has used for the same rink; the pipeline files their sessions under this hall.",
   "halls": {
     "stockholm-farsta-idrottsplats-ishallen": {
       "name": "Farsta idrottsplats",
@@ -27,6 +27,16 @@
       "lat": 59.26317,
       "lon": 18.06916,
       "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/gubbangens-skridsko-och-bandyhall"
+    },
+    "stockholm-gubbangens-idrottsplats-bandyplanen": {
+      "name": "Gubbängens idrottsplats",
+      "short_name": "Gubbängen bandy",
+      "rink": "Bandyplanen",
+      "municipality": "Stockholm",
+      "lat": 59.262255,
+      "lon": 18.067936,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/gubbangens-skridsko-och-bandyhall",
+      "outdoor": true
     },
     "stockholm-husby-ishallen": {
       "name": "Husby ishall",
@@ -64,6 +74,26 @@
       "lon": 17.90555,
       "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/spanga-idrottsplats"
     },
+    "stockholm-spanga-idrottsplats-bandyplanen": {
+      "name": "Spånga idrottsplats",
+      "short_name": "Spånga bandy",
+      "rink": "Bandyplanen",
+      "municipality": "Stockholm",
+      "lat": 59.3881,
+      "lon": 17.905519,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/spanga-idrottsplats",
+      "outdoor": true
+    },
+    "stockholm-spanga-idrottsplats-uterink": {
+      "name": "Spånga idrottsplats",
+      "short_name": "Spånga uterink",
+      "rink": "Uterink",
+      "municipality": "Stockholm",
+      "lat": 59.3881,
+      "lon": 17.905519,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/spanga-idrottsplats",
+      "outdoor": true
+    },
     "stockholm-stora-mossens-idrottsplats-a-hallen": {
       "name": "Stora Mossens idrottsplats",
       "short_name": "Stora Mossen A",
@@ -98,7 +128,8 @@
       "municipality": "Stockholm",
       "lat": 59.31562,
       "lon": 18.04957,
-      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/zinkensdamms-idrottsplats/"
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/zinkensdamms-idrottsplats/",
+      "outdoor": true
     },
     "stockholm-ostermalms-idrottsplats-ishallen": {
       "name": "Östermalms idrottsplats",
@@ -108,6 +139,33 @@
       "lat": 59.34747,
       "lon": 18.08369,
       "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/ostermalms-idrottsplats"
+    },
+    "stockholm-ostermalms-idrottsplats-uteisen-rundbana": {
+      "name": "Östermalms idrottsplats",
+      "short_name": "Östermalm rundbana",
+      "rink": "Uteisen – rundbana och innerplan",
+      "municipality": "Stockholm",
+      "lat": 59.34747,
+      "lon": 18.08369,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/ostermalms-idrottsplats",
+      "outdoor": true,
+      "aliases": [
+        "stockholm-ostermalms-idrottsplats-uteisen-rundbana-innerplan",
+        "stockholm-ostermalms-idrottsplats-rundbana-och-innerplan"
+      ]
+    },
+    "stockholm-ostermalms-idrottsplats-uteisen-halvmanar": {
+      "name": "Östermalms idrottsplats",
+      "short_name": "Östermalm halvmånar",
+      "rink": "Uteisen – halvmånar",
+      "municipality": "Stockholm",
+      "lat": 59.34747,
+      "lon": 18.08369,
+      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/ostermalms-idrottsplats",
+      "outdoor": true,
+      "aliases": [
+        "stockholm-ostermalms-idrottsplats-halvcirkelformade-isar-pa-sidorna-av-innerplan"
+      ]
     },
     "tyreso-tyreso-ishall": {
       "name": "Tyresö ishall",
@@ -242,7 +300,8 @@
       "municipality": "Norrtälje",
       "lat": 59.75162,
       "lon": 18.69796,
-      "info_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db"
+      "info_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "outdoor": true
     },
     "vallentuna-vallentuna-ip-ishall-a": {
       "name": "Vallentuna IP",
@@ -350,7 +409,8 @@
       "municipality": "Värmdö",
       "lat": 59.32639,
       "lon": 18.39593,
-      "info_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html"
+      "info_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
+      "outdoor": true
     },
     "vaxholm-saneco-hallen": {
       "name": "Saneco Hallen",
@@ -404,7 +464,8 @@
       "municipality": "Huddinge",
       "lat": 59.21678,
       "lon": 17.96166,
-      "info_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/"
+      "info_url": "https://www.huddinge.se/fritid-natur-och-kultur/motion-och-idrott/allmanhetensakning/",
+      "outdoor": true
     },
     "sigtuna-pinbackshallen-a-hallen": {
       "name": "Pinbackshallen",
@@ -449,7 +510,8 @@
       "municipality": "Danderyd",
       "lat": 59.40252,
       "lon": 18.01653,
-      "info_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/"
+      "info_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "outdoor": true
     },
     "upplands-bro-kungsangens-ip": {
       "name": "Kungsängens IP",

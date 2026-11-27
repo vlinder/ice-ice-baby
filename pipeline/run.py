@@ -16,9 +16,9 @@ import traceback
 from datetime import date
 
 from adapters import ADAPTERS
-from adapters.common import now_local, today_local
+from adapters.common import AdapterResult, HallResult, now_local, today_local
 
-from .paths import HALLS_DIR, SOURCES_FILE, SPEC_VERSION, read_json, write_json
+from .paths import CONFIG_FILE, HALLS_DIR, SOURCES_FILE, SPEC_VERSION, read_json, write_json
 from .problems import apply_corrections, attribute, load_corrections
 
 
@@ -31,8 +31,67 @@ def existing_halls(adapter_name: str) -> dict[str, dict]:
     return out
 
 
-def run_adapter(adapter, today: date, stamp: str, corrections: list[dict] | None = None) -> dict:
+def load_aliases(config_file=None) -> dict[str, str]:
+    """Map each alias in config/halls.json to the hall id it belongs to.
+
+    A source sometimes names the same rink differently from one week to the next
+    ("Uteisen – Halvmånar" / "Halvcirkelformade isar ..."). Each wording gives its own
+    hall id, so the config lists the other wordings' ids as "aliases" of one hall.
+    """
+    config = read_json(config_file or CONFIG_FILE)["halls"]
+    out: dict[str, str] = {}
+    for hid, meta in config.items():
+        for alias in meta.get("aliases", []):
+            if alias in config:
+                raise ValueError(f"config/halls.json: alias {alias!r} of {hid!r} is also a hall of its own")
+            if alias in out:
+                raise ValueError(f"config/halls.json: alias {alias!r} is listed for both {out[alias]!r} and {hid!r}")
+            out[alias] = hid
+    return out
+
+
+def _bounds(values: list[str | None], pick) -> str | None:
+    # None means "the adapter-wide range", which a merged hall must then use as well.
+    return None if None in values else pick(values)
+
+
+def merge_aliases(result: AdapterResult, aliases: dict[str, str]) -> AdapterResult:
+    """Fold halls whose id is an alias into the hall they are an alias of."""
+    groups: dict[str, list[HallResult]] = {}
+    for hid, hall in result.halls.items():
+        groups.setdefault(aliases.get(hid, hid), []).append(hall)
+    halls = {}
+    for hid, parts in groups.items():
+        # Prefer the hall's own wording for source_name/source_rink when the source uses it.
+        first = next((h for h in parts if h.hall_id == hid), parts[0])
+        sessions = []
+        for h in parts:
+            sessions += [s for s in h.sessions if s not in sessions]
+        halls[hid] = HallResult(
+            hall_id=hid, name=first.name, rink=first.rink, sessions=sessions,
+            covers_from=_bounds([h.covers_from for h in parts], min),
+            covers_to=_bounds([h.covers_to for h in parts], max),
+        )
+    # Warnings start with the hall id; rewrite alias ids so problems land on the right hall.
+    warnings = []
+    for w in result.warnings:
+        for alias in sorted(aliases, key=len, reverse=True):
+            if w == alias or w.startswith(alias + ":") or w.startswith(alias + " "):
+                w = aliases[alias] + w[len(alias):]
+                break
+        warnings.append(w)
+    result.halls, result.warnings = halls, warnings
+    return result
+
+
+def run_adapter(adapter, today: date, stamp: str, corrections: list[dict] | None = None,
+                aliases: dict[str, str] | None = None) -> dict:
+    aliases = aliases or {}
     previous = existing_halls(adapter.NAME)
+    # Files written under an id that has since become an alias would otherwise linger forever.
+    for hid in [h for h in previous if h in aliases]:
+        (HALLS_DIR / f"{hid}.json").unlink()
+        del previous[hid]
     source = {
         "adapter": adapter.NAME,
         "municipality": adapter.MUNICIPALITY,
@@ -43,7 +102,7 @@ def run_adapter(adapter, today: date, stamp: str, corrections: list[dict] | None
     unused: list[dict] = []
     try:
         raw, used, unused = apply_corrections(adapter.NAME, adapter.fetch(), corrections or [])
-        result = adapter.parse(raw, today)
+        result = merge_aliases(adapter.parse(raw, today), aliases)
     except Exception as exc:  # noqa: BLE001 – any failure must degrade gracefully
         msg = f"{type(exc).__name__}: {exc}"
         print(f"[{adapter.NAME}] FAILED: {msg}", file=sys.stderr)
@@ -108,10 +167,11 @@ def main(argv=None) -> int:
 
     old_sources = {s["adapter"]: s for s in read_json(SOURCES_FILE)} if SOURCES_FILE.exists() else {}
     corrections = load_corrections()
+    aliases = load_aliases()
     for adapter in ADAPTERS:
         if args.only and adapter.NAME != args.only:
             continue
-        old_sources[adapter.NAME] = run_adapter(adapter, today, stamp, corrections)
+        old_sources[adapter.NAME] = run_adapter(adapter, today, stamp, corrections, aliases)
     write_json(SOURCES_FILE, [old_sources[a.NAME] for a in ADAPTERS if a.NAME in old_sources])
     # Never fail the run because a source failed: stale data is handled downstream.
     return 0
