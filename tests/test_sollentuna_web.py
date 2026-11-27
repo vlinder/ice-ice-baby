@@ -138,3 +138,32 @@ def test_a_dated_week_replaces_the_weekly_schedule_for_that_week():
     assert "2026-11-06" in a_hall and "2026-11-09" not in a_hall and "2026-11-10" not in a_hall
     assert "2026-11-11" in a_hall
     assert b_hall == [("2026-11-09", "09:00")]
+
+
+BANDY = "sollentuna-sollentunavallen-bandyplanen"
+
+
+def test_empty_heading_and_bandy_field():
+    """The page from 27 Nov 2026: the weekly schedule starts with an empty <h3>&nbsp;</h3>,
+    and lists "Bandyplan:" times next to A-hallen."""
+    raw = {"page": (FIXTURES / "sollentuna_web_bandyplan.html").read_text(encoding="utf-8")}
+    r = a.parse(raw, date(2026, 11, 27))
+    assert r.warnings == []
+    assert set(r.halls) == {A, B, BANDY}
+    assert r.halls[BANDY].rink == "Bandyplanen"
+
+    def day(hid, d):
+        return [(s.start, s.end, s.stick) for s in r.halls[hid].sessions if s.date == d]
+    assert day(A, "2026-11-27") == [("10:00", "12:00", "with_stick"), ("12:00", "14:45", "no_stick")]
+    assert day(A, "2026-12-02") == [("10:00", "11:30", "with_stick")]
+    assert day(BANDY, "2026-11-27") == [("11:00", "14:50", "unknown")]
+    assert day(BANDY, "2026-11-28") == [("10:00", "12:00", "unknown")]
+    assert day(BANDY, "2026-11-29") == [("09:00", "12:00", "unknown")]
+    assert r.halls[B].sessions == []  # the page lists nothing for B-hallen
+
+
+def test_bandyplanen_wording_in_a_dated_week():
+    r = a.parse(_page("<h2>Vecka 45</h2><h3>\xa0</h3><h3>Måndag</h3><ul>"
+                      "<li>Bandyplanen: klockan 09.00-14.50.</li></ul>"), TODAY)
+    assert r.warnings == []
+    assert [(s.date, s.start, s.end) for s in r.halls[BANDY].sessions] == [("2026-11-02", "09:00", "14:50")]
