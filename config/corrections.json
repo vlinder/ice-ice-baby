@@ -7,6 +7,20 @@
       "read_as": "11.00–12.50",
       "note": "Visättrahallen, ordinary Monday time. Every other time on the page writes hour.minute; '11-00' is 11.00.",
       "added": "2026-11-02"
+    },
+    {
+      "adapter": "osteraker-web",
+      "text": "8.30 –12.150",
+      "read_as": "8.30 –12.15",
+      "note": "Ishall 1, jullov 4–8 januari. '12.150' is not a time; confirmed by a human as 12.15.",
+      "added": "2026-11-27"
+    },
+    {
+      "adapter": "osteraker-web",
+      "text": "2–3 januar",
+      "read_as": "2–3 januari",
+      "note": "Ishall 2, jullov. The row sits between '31 december – 1 januari' and '4–8 januari', and Ishall 1's table has the same row as '2–3 januari'.",
+      "added": "2026-11-27"
     }
   ]
 }
