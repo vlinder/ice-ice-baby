@@ -88,3 +88,34 @@ def test_layout_change_fails_loudly():
         a.parse({"page": "<html><body><h3>Ishallar</h3></body></html>"}, TODAY)
     with pytest.raises(ParseError):
         a.parse(_page("<p>Kontakta oss.</p>"), TODAY)
+
+
+def test_week_range_heading_is_a_weekly_template():
+    """The page from 27 Nov 2026: Hägernäs lists "Vecka 46 - Vecka 51" with one line per weekday."""
+    raw = {"page": (FIXTURES / "taby_web_week_range.html").read_text(encoding="utf-8")}
+    r = a.parse(raw, date(2026, 11, 27))
+    assert r.warnings == []
+    assert (r.halls[HAG].covers_from, r.halls[HAG].covers_to) == ("2026-11-27", "2026-12-20")
+    assert _s(r, HAG, "2026-11-30") == [("12:30", "14:15", "with_stick")]
+    assert _s(r, HAG, "2026-12-01") == [("12:30", "14:15", "no_stick")]
+    assert _s(r, HAG, "2026-12-19") == [("13:30", "15:15", "no_stick")]
+    assert _s(r, HAG, "2026-12-20") == [("13:30", "15:15", "with_stick")]
+    assert len(r.halls[HAG].sessions) == 24  # Fri 27 Nov to Sun 20 Dec, one a day
+    assert _s(r, TIB, "2026-11-30") == [("15:00", "15:45", "no_stick")]
+
+
+def test_several_week_ranges_and_a_dated_week_override():
+    r = a.parse(_page("<p>Vecka 45 - Vecka 46</p><p>Måndag 12.30–14.15 med klubba</p>"
+                      "<p>Vecka 47–48</p><p>Måndag 10.00–11.00 utan klubba</p>"
+                      "<p>Vecka 47</p><p>Måndag Stängd</p>"), TODAY)
+    assert r.warnings == []
+    assert _s(r, HAG, "2026-11-02") == _s(r, HAG, "2026-11-09") == [("12:30", "14:15", "with_stick")]
+    assert _s(r, HAG, "2026-11-16") == []  # week 47: the dated block says closed
+    assert _s(r, HAG, "2026-11-23") == [("10:00", "11:00", "no_stick")]
+    assert r.halls[HAG].covers_to == "2026-11-29"
+
+
+def test_overlapping_week_ranges_fail_loudly():
+    with pytest.raises(ParseError):
+        a.parse(_page("<p>Vecka 45 - Vecka 47</p><p>Måndag 12.30–14.15 med klubba</p>"
+                      "<p>Vecka 47 - Vecka 48</p><p>Måndag 10.00–11.00 utan klubba</p>"), TODAY)
