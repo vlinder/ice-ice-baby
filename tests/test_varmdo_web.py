@@ -127,3 +127,54 @@ def test_closed_bandyplanen_is_empty_but_not_the_source():
 def test_past_hostlov_link_is_ignored():
     r = a.parse(_page("Måndag: 08:30-15:00", intro="<a href='x'>OBS klicka här för tider höstlovet 2026</a>"), SYN)
     assert r.warnings == []
+
+
+def test_redesigned_page_of_november_2026():
+    """The page from 27 Nov 2026: plain "Åkning på …" sections, a status list such as
+    "Bandyplan (utan tak): Öppen", a page-wide stick rule, "Uppdaterat senast: …",
+    "Isvård sker måndag-fredag klockan 11:30-12.00" and "(isvård …)" on a day line."""
+    raw = {"page": (FIXTURES / "varmdo_web_2026_11.html").read_text(encoding="utf-8")}
+    r = a.parse(raw, date(2026, 11, 27))
+    assert r.warnings == [] and r.empty_reason is None
+    assert r.source_updated == "2026-11-23T00:00"
+    assert set(r.halls) == {HID, BID}
+
+    def day(hid, d):
+        return [(s.start, s.end, s.stick, s.note) for s in r.halls[hid].sessions if s.date == d]
+    # weekday upkeep 11:30-12:00 is cut out; "halva planen med klubba" makes every time shared
+    assert day(HID, "2026-11-27") == [("08:30", "11:30", "shared", "isvård 11:30–12:00"),
+                                      ("12:00", "15:00", "shared", None)]
+    assert day(HID, "2026-11-28") == [("19:15", "22:00", "shared", None)]
+    # "Lördag: 08.30-9.30 och 11.30-22.00 (isvård 13.30-14.30 och 17.30-18.00)"
+    assert day(BID, "2026-11-28") == [
+        ("08:30", "09:30", "shared", None),
+        ("11:30", "13:30", "shared", "isvård 13:30–14:30"),
+        ("14:30", "17:30", "shared", "isvård 17:30–18:00"),
+        ("18:00", "22:00", "shared", None)]
+    # "Måndag: 09.00-15.30 OBS 23/11 ingen åkning pga isvård": 23/11 is past, 30/11 is normal
+    assert day(BID, "2026-11-30")[0][:2] == ("09:00", "11:30")
+
+
+def _new_page(bandy_lines: str, status: str = "<li>Bandyplan (utan tak): Öppen</li>"
+              "<li>Ekrinken (med tak): Öppen</li>") -> dict:
+    return {"page": f"""<html><body><main><h1>Allmänhetens åkning</h1>
+    <div><h2>Säsongen 2026/2027</h2><ul>{status}<li>Ekhallen: Ingen allmän åkning hålls inne i ishallen</li></ul>
+    <h3>Det gäller alltid under allmänhetens åkning</h3><ul><li>Spel med klubba tillåts på halva planen enligt skyltning.</li></ul></div>
+    <div><h2>Åkning på bandyplanen</h2><p>Uppdaterat senast: 2026-11-23</p><h3>Ordinarie öppettider</h3>
+    {bandy_lines}</div>
+    <div><h2>Åkning på Ekrinken</h2><p>Uppdaterat senast: 2026-11-20</p><h3>Ordinarie öppettider</h3>
+    <p>Måndag: 08.30-15.00</p></div></main></body></html>"""}
+
+
+def test_future_obs_date_cancels_that_day_only():
+    r = a.parse(_new_page("<p>Måndag: 09.00-15.30 OBS 9/11 ingen åkning pga isvård</p>"), SYN)
+    assert r.warnings == []
+    dates = [s.date for s in r.halls[BID].sessions]
+    assert "2026-11-02" in dates and "2026-11-09" not in dates and "2026-11-16" in dates
+
+
+def test_new_status_list_closed_bandy_field():
+    r = a.parse(_new_page("<p>Måndag: 09.00-15.30</p>",
+                          status="<li>Bandyplan (utan tak): Stängd</li><li>Ekrinken (med tak): Öppen</li>"), SYN)
+    assert r.halls[BID].sessions == [] and r.halls[HID].sessions
+    assert any("Bandyplanen is marked closed" in w for w in r.warnings)
