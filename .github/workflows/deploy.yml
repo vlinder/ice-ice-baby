@@ -13,6 +13,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read   # to wait until the uploaded artifact is listed (see below)
 
 concurrency:
   group: pages
@@ -29,8 +30,29 @@ jobs:
         with:
           ref: main   # when called after a data commit, deploy the new commit, not the triggering one
       - uses: actions/configure-pages@v6
+      # One artifact name per attempt: a re-run uploads into the same run, and deploy-pages
+      # refuses to choose between two artifacts with the same name.
       - uses: actions/upload-pages-artifact@v5
         with:
           path: public
+          name: github-pages-${{ github.run_attempt }}
+      # deploy-pages looks the artifact up once, straight away, and has failed with "No artifacts
+      # named ... were found" when GitHub had not listed the new upload yet (a second after the
+      # upload, on 2026-11-15 and 2026-11-27). Wait until it is listed.
+      - name: Wait until the artifact is listed
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NAME: github-pages-${{ github.run_attempt }}
+        run: |
+          for i in $(seq 1 30); do
+            n=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=$NAME" --jq '.total_count') || n=0
+            if [ "${n:-0}" -ge 1 ]; then echo "Artifact $NAME is listed"; exit 0; fi
+            echo "Artifact $NAME not listed yet (try $i), waiting"
+            sleep 2
+          done
+          echo "::error::Artifact $NAME was still not listed after 60 s"
+          exit 1
       - id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
