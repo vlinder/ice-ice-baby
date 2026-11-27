@@ -27,6 +27,10 @@ Judgment calls:
   stick "unknown" with the wording in `note`.
 - Both A-hallen and B-hallen are always emitted (the page's schedule covers
   both halls of Sollentunavallen), plus any other "X-hallen" the page names.
+- "Bandyplan: klockan 09.00-14.50." (from Nov 2026) is the outdoor bandy field,
+  emitted as rink "Bandyplanen" when the page lists it; the page gives no stick
+  wording for it, so stick is "unknown".
+- Empty headings (only a non-breaking space) are ignored.
 - If the page lists only past weeks, the halls are emitted with no sessions and
   `covers` set to the last listed week (i.e. in the past: unknown from today).
 - A weekday list without a "Vecka NN" heading (as the page looks from 2 Nov
@@ -58,7 +62,7 @@ KNOWN_RINKS = ["A-hallen", "B-hallen"]
 SECTION_RE = re.compile(r"^allmänhetens åkning på sollentunavallen", re.I)
 WEEK_RE = re.compile(r"^vecka\s+(\d{1,2})(?!\s*[–\-]\s*\d)\b", re.I)
 WEEK_START_RE = re.compile(r"^vecka\b", re.I)
-LINE_RE = re.compile(r"^([A-ZÅÄÖ])-hallen\s*:\s*(.*)$", re.I)
+LINE_RE = re.compile(r"^(?:([A-ZÅÄÖ])-hallen|(bandyplan(?:en)?))\s*:\s*(.*)$", re.I)
 NONE_RE = re.compile(r"ingen\s+allmänhetens\s+åkning|inställ|stängt|stängd", re.I)
 CLOSED_SEASON_RE = re.compile(r"ingen allmänhetens åkning|säsongen är (slut|avslutad)|stängt för säsongen", re.I)
 UPDATED_RE = re.compile(r"sidan uppdaterades\s+(\d{1,2})\s+([a-zåäö]+)\s+(\d{4})", re.I)
@@ -115,8 +119,8 @@ def _parse_line(li: Tag, day: date, out: _Halls) -> None:
             return  # "Ingen allmänhetens åkning!"
         out.warnings.append(f"{day}: unexpected line {line!r}")
         return
-    rink = m.group(1).upper() + "-hallen"
-    rest = m.group(2)
+    rink = m.group(1).upper() + "-hallen" if m.group(1) else "Bandyplanen"
+    rest = m.group(3)
     try:
         ranges = time_ranges(rest)
     except BadTimeRange as exc:
@@ -174,6 +178,8 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
 
     for el in heading.find_next_siblings():
         text = norm_space(el.get_text(" "))
+        if el.name in ("h3", "h4") and not text:
+            continue  # an empty heading (only a non-breaking space), as on the page from 27 Nov 2026
         if monday is None and el.name in ("h3", "h4", "ul", "ol"):
             # Before any "Vecka NN" heading: the standing weekly schedule.
             if el.name in ("h3", "h4"):

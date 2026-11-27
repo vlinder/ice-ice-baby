@@ -540,6 +540,16 @@
       "lon": 17.95337,
       "info_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/"
     },
+    "sollentuna-sollentunavallen-bandyplanen": {
+      "name": "Sollentunavallen",
+      "short_name": "Sollentunavallen bandy",
+      "rink": "Bandyplanen",
+      "municipality": "Sollentuna",
+      "lat": 59.43634,
+      "lon": 17.95337,
+      "info_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
+      "outdoor": true
+    },
     "solna-ulriksdals-ip-hall-2": {
       "name": "Ulriksdals IP",
       "short_name": "Ulriksdal 2",
