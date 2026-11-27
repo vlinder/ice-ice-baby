@@ -21,6 +21,12 @@ def test_correction_replaces_exact_text_and_reports_unused():
     assert [x["text"] for x in used] == ["11-00–12.50"] and [x["text"] for x in unused] == ["gone"]
 
 
+def test_correction_matches_whole_words_only():
+    c = [{"adapter": "a", "text": "2–3 januar", "read_as": "2–3 januari"}]
+    raw, used, _ = apply_corrections("a", {"page": "<p>2–3 januari</p><p>2–3 januar</p>"}, c)
+    assert raw["page"] == "<p>2–3 januari</p><p>2–3 januari</p>" and used == c
+
+
 def test_correction_matches_html_entities():
     c = [{"adapter": "a", "text": "11-00–12.50", "read_as": "11.00–12.50"}]
     raw, used, _ = apply_corrections("a", {"page": "<td>11-00&ndash;12.50</td>"}, c)

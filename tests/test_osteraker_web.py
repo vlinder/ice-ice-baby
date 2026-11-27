@@ -80,6 +80,10 @@ def test_block_dates():
     assert a._block_dates("2-3 januari", *b) == [date(2027, 1, 2), date(2027, 1, 3)]
     assert a._block_dates("lördag och söndag", *b)[:2] == [date(2026, 12, 26), date(2026, 12, 27)]
     assert a._block_dates("se anslag", *b) is None
+    assert a._block_dates("24 och 25 december", *b) == [date(2026, 12, 24), date(2026, 12, 25)]
+    assert a._block_dates("31 december, 1 och 2 januari", *b) is None  # two months: not a list
+    assert a._block_dates("2 och 5 januari", *b) == [date(2027, 1, 2), date(2027, 1, 5)]
+    assert a._block_dates("5 och 9 januari", *b) is None  # 9 January is after the block
 
 
 JULLOV = """<h2>Jullov 21 december – 6 januari</h2>
@@ -168,3 +172,23 @@ def test_listed_dates():
     assert a.listed_dates("3 januari", t) == [date(2027, 1, 3)]
     assert a.listed_dates("måndagar–fredagar", t) is None
     assert a.listed_dates("lördag 28 november och söndag 29 november", t) is None  # two month words: not guessed
+
+
+def test_jullov_page_with_the_shipped_corrections():
+    """The live page from 27 Nov 2026: "24 och 25 december" closed, plus two typos fixed
+    by config/corrections.json ("12.150" -> 12.15, "januar" -> januari)."""
+    from pipeline.problems import apply_corrections, load_corrections
+    raw = {"page": (FIXTURES / "osteraker_web_jullov.html").read_text(encoding="utf-8")}
+    fixed, used, unused = apply_corrections(a.NAME, raw, load_corrections())
+    assert len(used) == 2 and unused == []
+    assert "januarii" not in fixed["page"]
+    r = a.parse(fixed, date(2026, 11, 27))
+    assert r.warnings == []
+    for hid in (I1, I2):
+        assert _day(r, hid, "2026-12-24") == _day(r, hid, "2026-12-25") == []
+        assert _day(r, hid, "2026-12-23")
+    assert _day(r, I1, "2027-01-05") == [("08:30", "12:15", "no_stick")]
+    assert _day(r, I2, "2027-01-02") == [("11:45", "13:00", "with_stick")]
+    assert _day(r, I2, "2027-01-03") == [("11:45", "13:00", "with_stick")]
+    # Without the corrections the two typos are skipped as before.
+    assert len(a.parse(raw, date(2026, 11, 27)).warnings) == 2

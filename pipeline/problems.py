@@ -72,10 +72,13 @@ def apply_corrections(adapter: str, raw: dict[str, str], corrections: list[dict]
         hits = 0
         for f in _variants(c["text"]):
             src, dst = f(c["text"]), f(c["read_as"])
+            # Whole words only: "2–3 januar" must not turn "2–3 januari" into "2–3 januarii".
+            pat = re.compile(("(?<!\\w)" if src[:1].isalnum() else "") + re.escape(src)
+                             + ("(?!\\w)" if src[-1:].isalnum() else ""))
             for k, doc in raw.items():
-                n = doc.count(src)
+                new_doc, n = pat.subn(lambda _m, dst=dst: dst, doc)
                 if n:
-                    raw[k] = doc.replace(src, dst)
+                    raw[k] = new_doc
                     hits += n
         (used if hits else unused).append(c)
     return raw, used, unused
