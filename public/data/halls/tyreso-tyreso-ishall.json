@@ -8,42 +8,10 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-19",
-    "to": "2026-12-02"
+    "from": "2026-11-27",
+    "to": "2026-12-10"
   },
   "sessions": [
-    {
-      "date": "2026-11-20",
-      "start": "12:00",
-      "end": "14:45",
-      "stick": "no_stick",
-      "source_url": "https://tyreso.rbok.se/informationstavla?id=fbe27841-479e-4387-8e40-9b6a158436c4",
-      "note": null
-    },
-    {
-      "date": "2026-11-21",
-      "start": "12:00",
-      "end": "13:45",
-      "stick": "no_stick",
-      "source_url": "https://tyreso.rbok.se/informationstavla?id=fbe27841-479e-4387-8e40-9b6a158436c4",
-      "note": null
-    },
-    {
-      "date": "2026-11-25",
-      "start": "16:00",
-      "end": "16:45",
-      "stick": "with_stick",
-      "source_url": "https://tyreso.rbok.se/informationstavla?id=fbe27841-479e-4387-8e40-9b6a158436c4",
-      "note": null
-    },
-    {
-      "date": "2026-11-27",
-      "start": "12:00",
-      "end": "14:45",
-      "stick": "no_stick",
-      "source_url": "https://tyreso.rbok.se/informationstavla?id=fbe27841-479e-4387-8e40-9b6a158436c4",
-      "note": null
-    },
     {
       "date": "2026-11-28",
       "start": "12:00",
@@ -54,6 +22,30 @@
     },
     {
       "date": "2026-12-02",
+      "start": "16:00",
+      "end": "16:45",
+      "stick": "with_stick",
+      "source_url": "https://tyreso.rbok.se/informationstavla?id=fbe27841-479e-4387-8e40-9b6a158436c4",
+      "note": null
+    },
+    {
+      "date": "2026-12-04",
+      "start": "12:00",
+      "end": "14:30",
+      "stick": "no_stick",
+      "source_url": "https://tyreso.rbok.se/informationstavla?id=fbe27841-479e-4387-8e40-9b6a158436c4",
+      "note": null
+    },
+    {
+      "date": "2026-12-05",
+      "start": "12:00",
+      "end": "13:45",
+      "stick": "no_stick",
+      "source_url": "https://tyreso.rbok.se/informationstavla?id=fbe27841-479e-4387-8e40-9b6a158436c4",
+      "note": null
+    },
+    {
+      "date": "2026-12-09",
       "start": "16:00",
       "end": "16:45",
       "stick": "with_stick",

@@ -8,8 +8,8 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-19",
-    "to": "2027-01-18"
+    "from": "2026-11-27",
+    "to": "2027-01-19"
   },
   "sessions": [
     {
@@ -18,7 +18,7 @@
       "end": "17:00",
       "stick": "unknown",
       "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
-      "note": "Allmänhetens åkning endast boll tillåtet"
+      "note": "INSTÄLLT PGA VÄDER OCH VIND -Allmänhetens åkning endast boll tillåtet"
     },
     {
       "date": "2026-11-29",
@@ -26,7 +26,7 @@
       "end": "17:00",
       "stick": "unknown",
       "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
-      "note": "Allmänhetens åkning endast boll tillåtet"
+      "note": "INSTÄLLT PGA VÄDER OCH VIND -Allmänhetens åkning endast boll tillåtet"
     },
     {
       "date": "2026-11-30",
@@ -374,6 +374,14 @@
     },
     {
       "date": "2027-01-18",
+      "start": "15:00",
+      "end": "16:30",
+      "stick": "unknown",
+      "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
+      "note": "Allmänhetens åkning endast boll tillåtet"
+    },
+    {
+      "date": "2027-01-19",
       "start": "15:00",
       "end": "16:30",
       "stick": "unknown",
