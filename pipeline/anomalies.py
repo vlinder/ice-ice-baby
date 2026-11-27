@@ -24,8 +24,10 @@ from adapters.common import today_local
 
 from .paths import CONFIG_FILE, HALLS_DIR, ROOT, SOURCES_FILE, read_json, write_json
 
-MIN_SESSIONS_FOR_CHANGE_RULE = 4
+# A change is flagged only when both the share and the number of changed sessions
+# (added + removed) are large: 3 of 4 sessions moving is 75 % but not worth a review.
 MAX_CHANGED_SHARE = 0.5
+MIN_CHANGED_SESSIONS = 6
 
 
 def baseline(ref: str, rel: str) -> dict | None:
@@ -57,7 +59,7 @@ def compare_hall(old: dict | None, new: dict, today: str) -> list[str]:
     found = []
     if o and not n:
         found.append(f"`{hid}`: had {len(o)} sessions between {lo} and {hi}, now has none")
-    elif len(o | n) >= MIN_SESSIONS_FOR_CHANGE_RULE:
+    elif len(o ^ n) >= MIN_CHANGED_SESSIONS:
         changed = len(o ^ n) / len(o | n)
         if changed > MAX_CHANGED_SHARE:
             found.append(f"`{hid}`: {changed:.0%} of sessions between {lo} and {hi} changed "

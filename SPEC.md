@@ -161,7 +161,8 @@ Every adapter needs a saved HTML fixture in `tests/fixtures/` and tests for its 
    for review when:
    - a hall is new, or missing from `config/halls.json`
    - a hall had sessions in the overlapping future window and now has none
-   - more than 50 % of a hall's sessions in the overlapping window changed (at least 4 sessions)
+   - more than 50 % of a hall's sessions in the overlapping window changed, and at least 6 sessions
+     were added or removed in total
    - an adapter succeeded but produced zero sessions in total, unless it set `empty_reason`
 
    Week rollovers are not flagged, because only the date range both versions cover is compared.
