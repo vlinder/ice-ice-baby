@@ -80,9 +80,57 @@ def test_unreadable_time_warns():
     assert r.warnings and "13:300" in r.warnings[0]
 
 
-def test_outdoor_section_warns():
-    r = a.parse(_page(WEEKLY, ("Bergshamra IP", "<p>Öppet 10-20</p>")), TODAY)
-    assert r.warnings == ["Section 'Bergshamra IP' is not handled by the adapter"]
+BERG = "solna-bergshamra-ip"
+FRIM = "solna-huvudstafaltet-frimarket"
+BERG_OPEN = """<p>Isbanan på Bergshamra IP är öppen.</p><p>Öppet alla dagar 10.00 – 22.00. Belysningen är på fram till kl. 22.00</p>
+    <p>Spel med klubbor och puck/boll är tillåtet mellan kl. 19.00 och 22.00.</p>
+    <h3>Utlåningens öppettider:</h3><p>Lördag: 10.00 - 15.00<br>Söndag: 10.00 - 15.00</p>"""
+
+
+def test_outdoor_rinks_not_open_yet_on_the_live_page():
+    """The page on 27 Nov 2026: both rinks "öppnar ... till jullovet", with no date."""
+    r = a.parse({"page": (FIXTURES / "solna_web_outdoor.html").read_text(encoding="utf-8")}, date(2026, 11, 27))
+    assert r.warnings == []
+    assert {BERG, FRIM} <= set(r.halls)
+    assert (r.halls[BERG].name, r.halls[BERG].rink) == ("Bergshamra IP", None)
+    assert (r.halls[FRIM].name, r.halls[FRIM].rink) == ("Huvudstafältet", "Frimärket")
+    assert r.halls[BERG].sessions == [] and r.halls[FRIM].sessions == []
+    assert r.halls[H2].sessions  # the indoor hall is unaffected
+
+
+def test_open_outdoor_rink_every_day_with_stick_hours():
+    r = a.parse(_page(WEEKLY, ("Bergshamra IP", BERG_OPEN)), TODAY)
+    assert r.warnings == []
+    days = {x.date for x in r.halls[BERG].sessions}
+    assert len(days) == 28  # every covered day; the lending hours are not sessions
+    assert _s(r, BERG, "2026-11-07") == [("10:00", "19:00", "no_stick"), ("19:00", "22:00", "with_stick")]
+
+
+def test_outdoor_rink_opening_on_a_date():
+    body = BERG_OPEN.replace("är öppen.", "öppnar 14 november.")
+    r = a.parse(_page(WEEKLY, ("Bergshamra IP", body)), TODAY)
+    assert _s(r, BERG, "2026-11-13") == []
+    assert _s(r, BERG, "2026-11-14")[0] == ("10:00", "19:00", "no_stick")
+
+
+def test_open_outdoor_rink_without_hours_warns():
+    r = a.parse(_page(WEEKLY, ('"Frimärket" vid Huvudstafältet',
+                               "<p>Frimärket är öppet när det är tillräckligt kallt ute.</p>")), TODAY)
+    assert r.halls[FRIM].sessions == []
+    assert len(r.warnings) == 1 and r.warnings[0].startswith(FRIM + ": no opening hours")
+
+
+def test_closed_outdoor_rink_has_no_sessions():
+    r = a.parse(_page(WEEKLY, ("Bergshamra IP", "<p>Isbanan är stängd för säsongen.</p>")), TODAY)
+    assert r.warnings == [] and r.halls[BERG].sessions == []
+    # A note that the ice can be closed in mild weather does not close an open rink.
+    r = a.parse(_page(WEEKLY, ("Bergshamra IP", BERG_OPEN + "<p>Isbanan kan vara stängd vid mildväder.</p>")), TODAY)
+    assert _s(r, BERG, "2026-11-07")
+
+
+def test_unknown_outdoor_section_warns():
+    r = a.parse(_page(WEEKLY, ("Isbanan i Råsunda", "<p>Öppet 10-20</p>")), TODAY)
+    assert r.warnings == ["Section 'Isbanan i Råsunda' is not handled by the adapter"]
 
 
 def test_layout_change_fails_loudly():
