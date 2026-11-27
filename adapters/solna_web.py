@@ -24,10 +24,22 @@ the weekly template for all halls (a day inside the span that is not listed has
 no public skating). Dated accordions that ended before today are skipped.
 
 Only halls the schedule names are emitted (in Nov 2026 only "Hall 2"; Hall 1
-appears only in the past autumn-holiday list). The outdoor rinks (Bergshamra IP,
-"Frimärket") are only mentioned in prose without times or an explicit closed
-status, so they are not emitted; an accordion about them triggers a warning so
-a human can extend the adapter.
+appears only in the past autumn-holiday list).
+
+Two more accordions describe outdoor rinks in prose, Bergshamra IP and the
+family rink "Frimärket" at Huvudstafältet:
+
+    Isbanan på Bergshamra IP öppnar preliminärt till jullovet.
+    Öppet alla dagar 10.00 – 22.00. ...
+    Spel med klubbor och puck/boll är tillåtet mellan kl. 19.00 och 22.00.
+    Utlåningens öppettider: Lördag: 10.00 - 15.00 ...      (skate lending: ignored)
+
+While the text says the rink "öppnar" without a date, it is not open: the rink is
+emitted with no sessions over the covered range. "öppnar <date>" opens it from
+that date. Once it no longer says "öppnar", "Öppet alla dagar HH–HH" gives a
+session every day; the hours the stick sentence names are "with_stick" and the
+rest of the day "no_stick". An open rink without readable hours, or an outdoor
+accordion for a rink the adapter does not know, gives a warning.
 
 Stick wording is in parentheses after each time ("halva med klubba/puck, halva
 utan" -> shared); there is no page-wide default.
@@ -40,8 +52,8 @@ from datetime import date, timedelta
 from bs4 import BeautifulSoup, Tag
 
 from .common import (
-    STICK_UNKNOWN, TIME_RANGE_RE, AdapterResult, BadTimeRange, HallResult, ParseError,
-    Session, Slot, expand_weekly, http_get, iso_week_monday, iso_week_sunday, norm_space,
+    STICK_UNKNOWN, STICK_WITH, STICK_WITHOUT, TIME_RANGE_RE, AdapterResult, BadTimeRange, HallResult, ParseError,
+    Session, Slot, expand_weekly, hhmm, http_get, iso_week_monday, iso_week_sunday, norm_space,
     recurring_window, slugify, stick_from_text, sv_date, time_ranges, week_year,
     weekday_number,
 )
@@ -59,6 +71,20 @@ HALL_PREFIX_RE = re.compile(r"^hall\s*(\d+)\s*:\s*", re.I)
 DATED_RE = re.compile(r"^([a-zåäö]+)\s+(\d{1,2})\s+([a-zåäö]+)(?:\s+(\d{4}))?$", re.I)
 NONE_RE = re.compile(r"ingen\s+(allmän|åkning)|inställ|stängt|stängd", re.I)
 OUTDOOR_RE = re.compile(r"bergshamra|frimärket|isbana", re.I)
+# Outdoor rinks described in prose: title pattern -> (hall id, name, rink).
+OUTDOOR_RINKS = [
+    (re.compile(r"bergshamra", re.I), ("solna-bergshamra-ip", "Bergshamra IP", None)),
+    (re.compile(r"frimärket", re.I), ("solna-huvudstafaltet-frimarket", "Huvudstafältet", "Frimärket")),
+]
+_MONTHS = r"(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)"
+OPENS_RE = re.compile(r"\böppnar\b", re.I)
+OPENS_ON_RE = re.compile(r"\böppnar\b[^.]*?\b(\d{1,2})\s+(" + _MONTHS + r")(?:\s+(\d{4}))?", re.I)
+# Only wording about the season: "kan vara stängd vid mildväder" does not close an open rink.
+CLOSED_SEASON_RE = re.compile(r"stängd\w*\s+för\s+säsongen|stängt\s+för\s+säsongen|säsongen\s+är\s+(slut|över)", re.I)
+DAILY_RE = re.compile(r"öppet\s+alla\s+dagar\s*(?:kl\.?\s*)?(.*)", re.I)
+STICK_HOURS_RE = re.compile(
+    r"klubb\w*[^.]*?tillåt\w*\s+mellan\s+(?:kl\.?\s*)?(\d{1,2})[.:](\d{2})\s+och\s+(?:kl\.?\s*)?(\d{1,2})[.:](\d{2})",
+    re.I)
 
 
 def fetch() -> dict[str, str]:
@@ -139,6 +165,7 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
     season: tuple[date, date | None] | None = None
     # dated overrides: list of (first date, last date, {date: [(rink, start, end, stick, note)]})
     dated: list[tuple[date, date, dict[date, list]]] = []
+    outdoor: list[tuple[tuple[str, str, str | None], str, list[str]]] = []
     found = False
 
     for sec in sections:
@@ -146,7 +173,11 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
         body = sec.select_one(".plusBox__body")
         if "ulriksdal" not in title.lower():
             if OUTDOOR_RE.search(title):
-                warnings.append(f"Section {title!r} is not handled by the adapter")
+                known = next((v for pat, v in OUTDOOR_RINKS if pat.search(title)), None)
+                if known is None or body is None:
+                    warnings.append(f"Section {title!r} is not handled by the adapter")
+                else:
+                    outdoor.append((known, title, _lines(body)))
             continue
         if body is None:
             raise ParseError(f"Section {title!r} has no body")
@@ -268,6 +299,11 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
             for sess in expand_weekly(slots, window[0], window[1], SOURCE_URL, skip=overridden):
                 add(rink, date.fromisoformat(sess.date), sess.start, sess.end, sess.stick, sess.note)
 
+    for (hid, name, rink), title, lines in outdoor:
+        hall = HallResult(hall_id=hid, name=name, rink=rink)
+        hall.sessions = _outdoor_sessions(hid, lines, lo, hi, today, warnings)
+        halls[hid] = hall
+
     for h in halls.values():
         h.sessions.sort(key=lambda s: (s.date, s.start, s.end))
     return AdapterResult(
@@ -277,3 +313,40 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
         halls=halls,
         warnings=warnings,
     )
+
+
+def _outdoor_sessions(hid: str, lines: list[str], lo: date, hi: date, today: date,
+                      warnings: list[str]) -> list[Session]:
+    """Daily sessions for an outdoor rink described in prose (see the module docstring)."""
+    text = " ".join(lines)
+    start = lo
+    if OPENS_RE.search(text):
+        m = OPENS_ON_RE.search(text)
+        if not m:
+            return []  # "öppnar preliminärt till jullovet": not open yet, no date given
+        start = max(lo, sv_date(m.group(1), m.group(2), today, m.group(3)))
+    elif CLOSED_SEASON_RE.search(text):
+        return []
+    daily = next((m.group(1) for m in map(DAILY_RE.search, lines) if m), None)
+    try:
+        ranges = time_ranges(daily) if daily else []
+    except BadTimeRange:
+        ranges = []
+    if len(ranges) != 1:
+        warnings.append(f"{hid}: no opening hours found in {(daily or text)[:100]!r}")
+        return []
+    s, e = ranges[0]
+    parts = [(s, e, STICK_UNKNOWN)]
+    m = STICK_HOURS_RE.search(text)
+    if m:
+        a, b = hhmm(m.group(1), m.group(2)), hhmm(m.group(3), m.group(4))
+        if not (s <= a < b <= e):
+            warnings.append(f"{hid}: stick hours {a}–{b} outside opening hours {s}–{e}")
+            return []
+        parts = [(x, y, k) for x, y, k in [(s, a, STICK_WITHOUT), (a, b, STICK_WITH), (b, e, STICK_WITHOUT)] if x < y]
+    out = []
+    d = start
+    while d <= hi:
+        out += [Session(date=d.isoformat(), start=x, end=y, stick=k, source_url=SOURCE_URL) for x, y, k in parts]
+        d += timedelta(days=1)
+    return out

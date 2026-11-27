@@ -487,6 +487,26 @@
       "lon": 18.00728,
       "info_url": "https://www.solna.se/uppleva--gora/natur-och-friluftsliv/aka-skridskor"
     },
+    "solna-bergshamra-ip": {
+      "name": "Bergshamra IP",
+      "short_name": "Bergshamra",
+      "rink": "Isbanan",
+      "municipality": "Solna",
+      "lat": 59.38505,
+      "lon": 18.02758,
+      "info_url": "https://www.solna.se/uppleva--gora/natur-och-friluftsliv/aka-skridskor",
+      "outdoor": true
+    },
+    "solna-huvudstafaltet-frimarket": {
+      "name": "Huvudstafältet",
+      "short_name": "Frimärket",
+      "rink": "Frimärket (familjeisbana)",
+      "municipality": "Solna",
+      "lat": 59.35194,
+      "lon": 17.9873,
+      "info_url": "https://www.solna.se/uppleva--gora/natur-och-friluftsliv/aka-skridskor",
+      "outdoor": true
+    },
     "sundbyberg-tulehallen": {
       "name": "Tulehallen",
       "short_name": "Tulehallen",
