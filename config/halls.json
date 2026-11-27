@@ -503,10 +503,30 @@
       "lon": 18.06888,
       "info_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/"
     },
+    "danderyd-stockhagens-ip-uterinken": {
+      "name": "Stockhagens IP",
+      "short_name": "Stockhagen uterink",
+      "rink": "Uterinken",
+      "municipality": "Danderyd",
+      "lat": 59.38914,
+      "lon": 18.06888,
+      "info_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "outdoor": true
+    },
     "danderyd-danderydsvallen-uterinken": {
       "name": "Danderydsvallen",
       "short_name": "Danderydsvallen",
       "rink": "Uterinken",
+      "municipality": "Danderyd",
+      "lat": 59.40252,
+      "lon": 18.01653,
+      "info_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
+      "outdoor": true
+    },
+    "danderyd-danderydsvallen-frimarket": {
+      "name": "Danderydsvallen",
+      "short_name": "Danderydsvallen Frimärket",
+      "rink": "Frimärket",
       "municipality": "Danderyd",
       "lat": 59.40252,
       "lon": 18.01653,

@@ -19,16 +19,23 @@ a flat run of ``<h2>``, ``<h3>`` and ``<p>``:
   Every indoor line states its own stick rule ("med/utan/ingen klubba"); there is no
   default. A remark like "Obs! Ingen åkning i ishallen … helgen 14-15/11 på grund
   av …" cancels the weekly times on those dates.
-* ``<h3>Danderydsvallen - uterinken och "Frimärket"</h3>`` (outdoor rink): in
+* ``<h3>Danderydsvallen - uterinken och "Frimärket"</h3>`` (outdoor rinks): in
   season it lists "Öppettider uterinken fr.om. 14/11 - med reservation för ändring
   på grund av vädret!" and weekly lines such as "Måndagar, tisdagar, torsdagar,
   fredagar: kl. 09.00-15.30" or "Fredagar även kvällsöppet kl. 19.00-20.30!".
   Those become a hall (stick unknown: the page says nothing about sticks), from the
   "fr.om." date on, with the weather reservation as the note. Out of season it has
-  no times and is not emitted. "Frimärket" (a small rink) never has times.
-* Other outdoor rinks (``<h3>Stockhagens IP - uterinken</h3>``) have no times, only
-  prose ("beräknas kunna öppnas under vecka 49"); they are not emitted. If one ever
-  lists times, we warn so that someone adds it.
+  no times and is not emitted. From Nov 2026 the section is split by ``<h4>``
+  sub-headings, "Öppettider uterinken - med klubba" and "Öppettider Frimärket - utan
+  klubba": an <h4> naming "Frimärket" switches to that rink (its own hall), and the
+  stick wording in an <h4> applies to the lines under it that state none.
+* ``<h3>Stockhagens IP - uterinken</h3>`` lists weekly lines in season ("Lördag och
+  söndag kl. 12-14.30", stick unknown) and only prose otherwise. Other outdoor rinks
+  have no times; they are not emitted, and if one ever lists times we warn so that
+  someone adds it.
+
+The indoor season is "vecka N … till och med vecka M" or, from Nov 2026, "i våra
+ishallar varar vanligen mellan vecka 40 och 12".
 
 Prose lines without a clock time (an opening date, "vecka 7-8") are ignored; a
 cancellation that cannot be read is warned about.
@@ -59,13 +66,21 @@ HALL_DEFS = {
     "stockhag": (("stockhag", "ishall"), "danderyd-stockhagens-ip-ishallen", "Stockhagens IP", "Ishallen"),
     "danderydsvallen": (("danderydsvallen", "uterink"), "danderyd-danderydsvallen-uterinken",
                         "Danderydsvallen", "Uterinken"),
+    "stockhag_ute": (("stockhag", "uterink"), "danderyd-stockhagens-ip-uterinken", "Stockhagens IP", "Uterinken"),
+    # Only ever named in an <h4> under Danderydsvallen ("Öppettider Frimärket - utan klubba").
+    "frimarket": (None, "danderyd-danderydsvallen-frimarket", "Danderydsvallen", "Frimärket"),
 }
+# <h4> sub-headings that switch to another rink of the same facility
+H4_RINKS = {"frimärket": "frimarket"}
 HALLS = {k: v[1:] for k, v in HALL_DEFS.items()}  # key -> (hall_id, name, rink)
 REQUIRED = ("enebyberg", "stockhag")  # the indoor halls always list ordinary times
 IGNORED = ("uterink",)  # other outdoor rinks: no times on the page
 
 SEASON_YEARS_RE = re.compile(r"säsongen\s+(\d{4})\s*/\s*(\d{4})", re.I)
 SEASON_RE = re.compile(r"vecka\s+(\d{1,2})\b.*?ishallar.*?till\s+och\s+med\s+vecka\s+(\d{1,2})", re.I | re.S)
+# "Skridskosäsongen i våra ishallar varar vanligen mellan vecka 40 och 12." (Nov 2026)
+SEASON_BETWEEN_RE = re.compile(
+    r"ishallar\b.*?mellan\s+vecka\s+(\d{1,2})\s+och\s+(?:vecka\s+)?(\d{1,2})\b", re.I | re.S)
 DATED_LINE_RE = re.compile(r"^([a-zåäö]+)\s+(\d{1,2})/(\d{1,2})\b\s*(.*)$", re.I)
 # "Lördag 12-13.50, …", "Onsdagar kl. 12.00-20.00", "Måndagar, tisdagar, torsdagar, fredagar: kl. 09.00-15.30",
 # "Fredagar även kvällsöppet kl. 19.00-20.30!"
@@ -90,7 +105,7 @@ def fetch() -> dict[str, str]:
 def _hall_key(h3: str) -> str | None:
     low = h3.lower()
     for k, (words, *_) in HALL_DEFS.items():
-        if all(w in low for w in words):
+        if words and all(w in low for w in words):
             return k
     return None
 
@@ -152,8 +167,9 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
     seen_ordinary: set[str] = set()
     starts: dict[str, date] = {}         # "Öppettider uterinken fr.om. 14/11"
     notes: dict[str, str] = {}           # "med reservation för ändring på grund av vädret"
+    default_stick: dict[str, str] = {}   # from an <h4> such as "Öppettider uterinken - med klubba"
 
-    for el in body.find_all(["h2", "h3", "p", "li"]):
+    for el in body.find_all(["h2", "h3", "h4", "p", "li"]):
         text = norm_space(el.get_text(" "))
         if not text:
             continue
@@ -182,7 +198,21 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
                 if section in ("dated", "ordinary"):
                     warnings.append(f"Unknown facility heading {text!r}; not parsed")
             continue
-        if section == "intro" and season_weeks is None and (m := SEASON_RE.search(text)):
+        if el.name == "h4":
+            if section != "ordinary" or hall in (None, "ignored", "unknown"):
+                continue
+            low = text.lower()
+            hall = next((k for w, k in H4_RINKS.items() if w in low), hall)
+            seen_ordinary.add(hall)
+            if st := stick_from_text(text):
+                default_stick[hall] = st
+            if m := FROM_RE.search(text):
+                starts[hall] = dm_date(m.group(1), m.group(2), today)
+            if m := RESERVATION_RE.search(text):
+                notes[hall] = norm_space(m.group(0))
+            continue
+        if section == "intro" and season_weeks is None and (
+                m := SEASON_RE.search(text) or SEASON_BETWEEN_RE.search(text)):
             season_weeks = (int(m.group(1)), int(m.group(2)))
             continue
         if section not in ("dated", "ordinary") or hall is None:
@@ -251,6 +281,8 @@ def parse(raw: dict[str, str], today: date) -> AdapterResult:
         ts = _times(m.group(2), hid, warnings)
         for wd in wds:
             for s, e, st, note in ts or []:
+                if st == STICK_UNKNOWN and note is None and hall in default_stick:
+                    st = default_stick[hall]
                 slots[hall].append(Slot(wd, s, e, st, note or notes.get(hall)))
 
     missing = set(REQUIRED) - seen_ordinary

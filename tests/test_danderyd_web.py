@@ -9,6 +9,8 @@ from conftest import FIXTURES
 TODAY = date(2026, 11, 10)  # a Tuesday
 EN, ST = "danderyd-enebybergs-ip-ishallen", "danderyd-stockhagens-ip-ishallen"
 DV = "danderyd-danderydsvallen-uterinken"
+STU = "danderyd-stockhagens-ip-uterinken"
+FRI = "danderyd-danderydsvallen-frimarket"
 WEATHER = "med reservation för ändring på grund av vädret"
 
 
@@ -134,10 +136,50 @@ def test_unknown_stick_wording_and_bad_time():
 
 
 def test_times_for_unknown_outdoor_rink_are_warned():
-    r = a.parse(_page(st="<p>Lördag 12-13.50, utan klubba</p><h3>Stockhagens IP - uterinken</h3>"
+    r = a.parse(_page(st="<p>Lördag 12-13.50, utan klubba</p><h3>Mörby IP - uterinken</h3>"
                          "<p>Isrinken beräknas öppna vecka 49.</p><p>Lördagar 10-12</p>"), TODAY)
     assert len(r.warnings) == 1 and "not parsed" in r.warnings[0]
     assert ST in r.halls and len(r.halls[ST].sessions) == 4
+
+
+def test_stockhagen_outdoor_rink_with_and_without_times():
+    r = a.parse(_page(st="<p>Lördag 12-13.50, utan klubba</p><h3>Stockhagens IP - uterinken</h3>"
+                         "<p>Isrinken beräknas öppna vecka 49.</p><p>Lördagar 10-12</p>"), TODAY)
+    assert r.warnings == []
+    assert _day(r, STU, "2026-11-14") == [("10:00", "12:00", "unknown")]
+    r = a.parse(_page(st="<p>Lördag 12-13.50, utan klubba</p><h3>Stockhagens IP - uterinken</h3>"
+                         "<p>Isrinken beräknas öppna vecka 49.</p>"), TODAY)
+    assert STU not in r.halls
+
+
+def test_page_with_outdoor_rinks_open():
+    """The page from 27 Nov 2026: new season sentence, <h4> sub-headings for the two rinks
+    at Danderydsvallen, and times for Stockhagens IP's outdoor rink."""
+    r = a.parse({"page": (FIXTURES / "danderyd_web_uteisar.html").read_text(encoding="utf-8")}, date(2026, 11, 27))
+    assert r.warnings == [] and r.empty_reason is None
+    assert (r.covers_from, r.covers_to) == ("2026-11-27", "2026-12-24")
+    assert set(r.halls) == {EN, ST, DV, STU, FRI}
+    assert _day(r, EN, "2026-12-02") == [("10:00", "12:50", "with_stick")]
+    assert _day(r, ST, "2026-11-28") == [("12:00", "13:50", "no_stick")]
+    # "Öppettider uterinken - med klubba": lines without their own wording get the heading's
+    assert _day(r, DV, "2026-11-27") == [("09:00", "15:30", "with_stick"), ("19:00", "20:30", "with_stick")]
+    assert _day(r, DV, "2026-12-02") == [("12:00", "19:40", "with_stick")]
+    # "Öppettider Frimärket - utan klubba" switches to the Frimärket rink
+    assert _day(r, FRI, "2026-11-27") == [("09:00", "21:00", "no_stick")]
+    assert _day(r, FRI, "2026-11-28") == [("09:00", "18:00", "no_stick")]
+    assert _day(r, STU, "2026-11-29") == [("12:00", "14:30", "unknown")]
+    assert _day(r, STU, "2026-11-30") == []
+
+
+def test_season_between_weeks_sentence():
+    page = _page()["page"]
+    import re
+    page = re.sub(r"<h2>Nu startar[^<]*</h2>\s*<p>[^<]*</p>",
+                  "<h2>Skridskosäsongen 2026/2027 är igång!</h2>"
+                  "<p>Skridskosäsongen i våra ishallar varar vanligen mellan vecka 40 och 12.</p>", page)
+    assert "mellan vecka 40 och 12" in page
+    r = a.parse({"page": page}, date(2027, 3, 20))
+    assert r.covers_to == "2027-03-28" and r.empty_reason is None
 
 
 def test_unreadable_no_skating_remark_warns():
