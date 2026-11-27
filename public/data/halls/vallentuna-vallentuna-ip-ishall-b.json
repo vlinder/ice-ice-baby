@@ -8,50 +8,10 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-19",
-    "to": "2026-12-18"
+    "from": "2026-11-27",
+    "to": "2026-12-26"
   },
   "sessions": [
-    {
-      "date": "2026-11-20",
-      "start": "13:00",
-      "end": "15:00",
-      "stick": "with_stick",
-      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
-      "note": null
-    },
-    {
-      "date": "2026-11-21",
-      "start": "11:15",
-      "end": "12:15",
-      "stick": "no_stick",
-      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
-      "note": null
-    },
-    {
-      "date": "2026-11-22",
-      "start": "11:15",
-      "end": "12:15",
-      "stick": "no_stick",
-      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
-      "note": null
-    },
-    {
-      "date": "2026-11-24",
-      "start": "13:00",
-      "end": "15:00",
-      "stick": "with_stick",
-      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
-      "note": null
-    },
-    {
-      "date": "2026-11-27",
-      "start": "13:00",
-      "end": "15:00",
-      "stick": "with_stick",
-      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
-      "note": null
-    },
     {
       "date": "2026-11-28",
       "start": "11:15",
@@ -145,6 +105,86 @@
       "start": "13:00",
       "end": "15:00",
       "stick": "with_stick",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-19",
+      "start": "11:15",
+      "end": "14:00",
+      "stick": "unknown",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-20",
+      "start": "11:15",
+      "end": "12:15",
+      "stick": "no_stick",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-21",
+      "start": "10:00",
+      "end": "12:00",
+      "stick": "unknown",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-21",
+      "start": "12:30",
+      "end": "14:30",
+      "stick": "unknown",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-22",
+      "start": "10:00",
+      "end": "12:00",
+      "stick": "unknown",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-22",
+      "start": "12:30",
+      "end": "14:30",
+      "stick": "unknown",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-23",
+      "start": "10:00",
+      "end": "12:00",
+      "stick": "unknown",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-23",
+      "start": "12:30",
+      "end": "14:30",
+      "stick": "unknown",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-25",
+      "start": "10:00",
+      "end": "13:00",
+      "stick": "unknown",
+      "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
+      "note": null
+    },
+    {
+      "date": "2026-12-26",
+      "start": "11:15",
+      "end": "12:15",
+      "stick": "unknown",
       "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
       "note": null
     }

@@ -8,66 +8,10 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-19",
-    "to": "2027-01-01"
+    "from": "2026-11-27",
+    "to": "2027-01-15"
   },
   "sessions": [
-    {
-      "date": "2026-11-19",
-      "start": "14:00",
-      "end": "15:30",
-      "stick": "no_stick",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
-      "note": null
-    },
-    {
-      "date": "2026-11-20",
-      "start": "14:00",
-      "end": "15:30",
-      "stick": "no_stick",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
-      "note": null
-    },
-    {
-      "date": "2026-11-23",
-      "start": "14:00",
-      "end": "15:30",
-      "stick": "no_stick",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
-      "note": null
-    },
-    {
-      "date": "2026-11-24",
-      "start": "14:00",
-      "end": "15:30",
-      "stick": "no_stick",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
-      "note": null
-    },
-    {
-      "date": "2026-11-25",
-      "start": "14:00",
-      "end": "15:30",
-      "stick": "no_stick",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
-      "note": null
-    },
-    {
-      "date": "2026-11-26",
-      "start": "14:00",
-      "end": "15:30",
-      "stick": "no_stick",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
-      "note": null
-    },
-    {
-      "date": "2026-11-27",
-      "start": "14:00",
-      "end": "15:30",
-      "stick": "no_stick",
-      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
-      "note": null
-    },
     {
       "date": "2026-11-30",
       "start": "14:00",
@@ -293,6 +237,46 @@
       "date": "2027-01-01",
       "start": "12:35",
       "end": "15:00",
+      "stick": "no_stick",
+      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
+      "note": null
+    },
+    {
+      "date": "2027-01-11",
+      "start": "14:00",
+      "end": "15:30",
+      "stick": "no_stick",
+      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
+      "note": null
+    },
+    {
+      "date": "2027-01-12",
+      "start": "14:00",
+      "end": "15:30",
+      "stick": "no_stick",
+      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
+      "note": null
+    },
+    {
+      "date": "2027-01-13",
+      "start": "14:00",
+      "end": "15:30",
+      "stick": "no_stick",
+      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
+      "note": null
+    },
+    {
+      "date": "2027-01-14",
+      "start": "14:00",
+      "end": "15:30",
+      "stick": "no_stick",
+      "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
+      "note": null
+    },
+    {
+      "date": "2027-01-15",
+      "start": "14:00",
+      "end": "15:30",
       "stick": "no_stick",
       "source_url": "https://haninge.rbok.se/informationstavla?id=9042795d-4b52-44f5-be64-e80657db8ef8",
       "note": null

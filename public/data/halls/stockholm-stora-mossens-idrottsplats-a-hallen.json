@@ -6,14 +6,14 @@
   "source_rink": "A-hallen",
   "status": "ok",
   "error": null,
-  "source_updated": "2026-11-13T09:36",
+  "source_updated": "2026-11-27T14:39",
   "covers": {
-    "from": "2026-11-16",
-    "to": "2026-11-22"
+    "from": "2026-11-23",
+    "to": "2026-12-06"
   },
   "sessions": [
     {
-      "date": "2026-11-17",
+      "date": "2026-11-24",
       "start": "09:00",
       "end": "13:00",
       "stick": "no_stick",
@@ -21,7 +21,23 @@
       "note": null
     },
     {
-      "date": "2026-11-20",
+      "date": "2026-11-27",
+      "start": "09:00",
+      "end": "13:00",
+      "stick": "no_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-01",
+      "start": "09:00",
+      "end": "13:00",
+      "stick": "no_stick",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null
+    },
+    {
+      "date": "2026-12-04",
       "start": "09:00",
       "end": "13:00",
       "stick": "no_stick",

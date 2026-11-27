@@ -4,12 +4,12 @@
   "adapter": "sollentuna-web",
   "source_name": "Sollentunavallen",
   "source_rink": "B-hallen",
-  "status": "stale",
-  "error": "ParseError: Unrecognised day heading '' in the weekly schedule",
-  "source_updated": "2026-11-02T00:00",
+  "status": "ok",
+  "error": null,
+  "source_updated": "2026-11-27T00:00",
   "covers": {
-    "from": "2026-11-16",
-    "to": "2026-12-13"
+    "from": "2026-11-27",
+    "to": "2026-12-24"
   },
   "sessions": [],
   "problems": []

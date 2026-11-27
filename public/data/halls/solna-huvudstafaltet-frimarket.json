@@ -1,0 +1,16 @@
+{
+  "spec_version": 2,
+  "hall_id": "solna-huvudstafaltet-frimarket",
+  "adapter": "solna-web",
+  "source_name": "Huvudstafältet",
+  "source_rink": "Frimärket",
+  "status": "ok",
+  "error": null,
+  "source_updated": "2026-11-26T00:00",
+  "covers": {
+    "from": "2026-11-27",
+    "to": "2026-12-24"
+  },
+  "sessions": [],
+  "problems": []
+}

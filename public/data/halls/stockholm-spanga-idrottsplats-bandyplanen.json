@@ -1,0 +1,98 @@
+{
+  "spec_version": 2,
+  "hall_id": "stockholm-spanga-idrottsplats-bandyplanen",
+  "adapter": "stockholm-motionera",
+  "source_name": "Spånga idrottsplats",
+  "source_rink": "Bandyplanen",
+  "status": "ok",
+  "error": null,
+  "source_updated": "2026-11-27T14:39",
+  "covers": {
+    "from": "2026-11-23",
+    "to": "2026-12-06"
+  },
+  "sessions": [
+    {
+      "date": "2026-11-28",
+      "start": "18:00",
+      "end": "20:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null,
+      "changed": true
+    },
+    {
+      "date": "2026-11-29",
+      "start": "18:00",
+      "end": "23:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null,
+      "changed": true
+    },
+    {
+      "date": "2026-11-30",
+      "start": "08:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null,
+      "changed": true
+    },
+    {
+      "date": "2026-12-01",
+      "start": "08:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null,
+      "changed": true
+    },
+    {
+      "date": "2026-12-02",
+      "start": "11:30",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null,
+      "changed": true
+    },
+    {
+      "date": "2026-12-03",
+      "start": "08:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null,
+      "changed": true
+    },
+    {
+      "date": "2026-12-04",
+      "start": "08:00",
+      "end": "16:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null,
+      "changed": true
+    },
+    {
+      "date": "2026-12-05",
+      "start": "18:00",
+      "end": "20:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null,
+      "changed": true
+    },
+    {
+      "date": "2026-12-06",
+      "start": "18:00",
+      "end": "23:00",
+      "stick": "shared",
+      "source_url": "https://motionera.stockholm/skridskoakning/",
+      "note": null,
+      "changed": true
+    }
+  ],
+  "problems": []
+}
