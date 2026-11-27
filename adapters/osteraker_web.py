@@ -26,7 +26,8 @@ the halls are open from late August to March/April).
 
 A "<name>lov <date> – <date>" h2 starts a holiday block: its per-hall tables replace that
 hall's weekly template on every date of the block (a date the table does not list has no
-public skating). Row days are a date range ("26-30 oktober"), a single date, or weekdays
+public skating). Row days are a date range ("26-30 oktober"), a single date, a list of dates in one month
+("24 och 25 december"), or weekdays
 ("lördag och söndag") meaning those weekdays within the block. Blocks entirely in the past
 are skipped unparsed. A row whose time cell says "stängt"/"inställt" means no skating. A future block that adjoins the recurring window extends `covers`.
 `covers` is shared by both halls, so it only extends as far as every hall is described.
@@ -60,6 +61,7 @@ _DATE = r"(\d{1,2})\s+(" + _MONTHS + r")(?:\s+(\d{4}))?"
 RANGE_RE = re.compile(_DATE + r"\s*[–—-]\s*" + _DATE, re.I)
 SHORT_RANGE_RE = re.compile(r"^(\d{1,2})\s*[–—-]\s*(\d{1,2})\s+(" + _MONTHS + r")$", re.I)
 SINGLE_RE = re.compile(r"^(\d{1,2})\s+(" + _MONTHS + r")$", re.I)
+DAY_LIST_RE = re.compile(r"^(\d{1,2}(?:\s*(?:,|och)\s*\d{1,2})+)\s+(" + _MONTHS + r")$", re.I)
 SEASON_H3_RE = re.compile(r"^(ishall\s+\d+)\s*,\s*(.+)$", re.I)
 RINK_RE = re.compile(r"^(ishall\s+\d+)\b", re.I)
 HOLIDAY_H2_RE = re.compile(r"^\w*lov\w*\b", re.I)
@@ -144,6 +146,10 @@ def _block_dates(spec: str, b_from: date, b_to: date) -> list[date] | None:
         elif SINGLE_RE.match(spec):
             m = SINGLE_RE.match(spec)
             a = b = mk(m.group(1), m.group(2))
+        elif DAY_LIST_RE.match(spec):  # "24 och 25 december", "24, 25 och 26 december"
+            m = DAY_LIST_RE.match(spec)
+            dates = sorted({mk(d, m.group(2)) for d in re.findall(r"\d{1,2}", m.group(1))})
+            return dates if b_from <= dates[0] and dates[-1] <= b_to else None
         elif RANGE_RE.fullmatch(spec):
             m = RANGE_RE.fullmatch(spec)
             a, b = mk(m.group(1), m.group(2)), mk(m.group(4), m.group(5))
