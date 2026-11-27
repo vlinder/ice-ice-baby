@@ -15,9 +15,11 @@ Page layout (as of Nov 2026), Sitevision text portlets (no <main> element):
 
 One hall, HLL Arena. Each weekly line has an overall range and, in parentheses, its
 split into a no-stick and a stick part; we emit the parts (with their own stick wording),
-not the overall range. The parts must exactly tile the overall range, otherwise the line
-is not trusted: warning, no sessions (e.g. the 13 December change above says 8.30-12.00
-but its parts end at 12.30).
+not the overall range. The parts must follow each other without gaps or overlaps,
+otherwise the line is not trusted: warning, no sessions. When the overall range and the
+parts disagree only on the start or the end (the 13 December change above says 8.30-12.00
+but its parts end at 12.30), the shorter span is used and the session gets a note:
+"Motstridiga uppgifter, kan ha öppet till 12.30" / "..., kan öppna redan kl. 8.00".
 
 The weekly template is expanded over `recurring_window(today, start, end)`: start is the
 "startar 11 september" date; end is the last day of the end month in the "Säsong mellan
@@ -81,6 +83,9 @@ def split_sessions(text: str) -> list[tuple[str, str, str, str | None]]:
     matches = list(TIME_RANGE_RE.finditer(inner))
     if not matches:
         raise ValueError(f"no times inside the parenthesis in {text!r}")
+    # Digits left outside the recognised times mean a time we could not read ("18-45").
+    if re.search(r"\d", TIME_RANGE_RE.sub(" ", inner)):
+        raise ValueError(f"unreadable time inside the parenthesis in {text!r}")
     parts = []
     for i, tm in enumerate(matches):
         (s, e), = time_ranges(tm.group(0))
@@ -88,10 +93,31 @@ def split_sessions(text: str) -> list[tuple[str, str, str, str | None]]:
         wording = norm_space(tail).strip(" .,;–-")
         stick = stick_from_text(wording)
         parts.append((s, e, stick or STICK_UNKNOWN, None if stick else (wording or None)))
-    if parts[0][0] != overall[0][0] or parts[-1][1] != overall[0][1] or any(
-            a[1] != b[0] for a, b in zip(parts, parts[1:])):
+    if any(a[1] != b[0] for a, b in zip(parts, parts[1:])):
         raise ValueError(f"parts do not add up to {overall[0][0]}-{overall[0][1]} in {text!r}")
-    return parts
+    # The overall range and its parts may disagree on when the session starts or ends
+    # ("8.30-12.00 (8.30-10.30 ..., 10.30-12.30 ...)"). Go with the shorter span and note the
+    # other time, so nobody turns up to a closed rink.
+    (o_start, o_end), p_start, p_end = overall[0], parts[0][0], parts[-1][1]
+    start, end = max(o_start, p_start), min(o_end, p_end)
+    if start >= end:
+        raise ValueError(f"parts do not overlap {o_start}-{o_end} in {text!r}")
+    out = []
+    for s, e, stick, note in parts:
+        s, e = max(s, start), min(e, end)
+        if s >= e:
+            continue
+        notes = [note] if note else []
+        if s == start and o_start != p_start:
+            notes.append(f"Motstridiga uppgifter, kan öppna redan kl. {_dot(min(o_start, p_start))}")
+        if e == end and o_end != p_end:
+            notes.append(f"Motstridiga uppgifter, kan ha öppet till {_dot(max(o_end, p_end))}")
+        out.append((s, e, stick, "; ".join(notes) or None))
+    return out
+
+
+def _dot(t: str) -> str:
+    return t.replace(":", ".")
 
 
 def _season_date(day: str | int, month_word: str, years: tuple[int, int]) -> date:
