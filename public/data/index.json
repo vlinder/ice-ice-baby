@@ -1,15 +1,15 @@
 {
   "spec_version": 2,
-  "generated_at": "2026-11-27T19:04:59+01:00",
+  "generated_at": "2026-11-28T01:48:41+01:00",
   "sources": [
     {
       "adapter": "stockholm-motionera",
       "municipality": "Stockholm",
       "source_url": "https://motionera.stockholm/skridskoakning/",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -19,10 +19,10 @@
       "adapter": "tyreso-rbok",
       "municipality": "Tyresö",
       "source_url": "https://tyreso.rbok.se/informationstavla?id=fbe27841-479e-4387-8e40-9b6a158436c4",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -32,10 +32,10 @@
       "adapter": "botkyrka-rbok",
       "municipality": "Botkyrka",
       "source_url": "https://botkyrka.rbok.se/informationstavla?id=9cba6a4b-91b5-4dc1-9668-0fbdf7e09b28",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -45,10 +45,10 @@
       "adapter": "haninge-rbok",
       "municipality": "Haninge",
       "source_url": "https://haninge.rbok.se/informationstavla?id=e8330e15-76fd-4bcf-9dd2-93c54dae9559",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -58,10 +58,10 @@
       "adapter": "nacka-rbok",
       "municipality": "Nacka",
       "source_url": "https://nacka.rbok.se/informationstavla?id=a4d7b5df-2c80-409f-ac9d-da8d6366284b",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -71,10 +71,10 @@
       "adapter": "norrtalje-rbok",
       "municipality": "Norrtälje",
       "source_url": "https://norrtalje.rbok.se/informationstavla?id=593f6fb0-60ac-48b9-afb0-4dd8f5ea44db",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -84,10 +84,10 @@
       "adapter": "vallentuna-rbok",
       "municipality": "Vallentuna",
       "source_url": "https://vallentuna.rbok.se/informationstavla?id=7c6bd9c2-3623-4eae-9005-09813289c00d",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -97,10 +97,10 @@
       "adapter": "sodertalje-frigo",
       "municipality": "Södertälje",
       "source_url": "https://sodertalje.fri-go.se/bokning/lista.aspx?dagar=7&typer=9&falt=tid,boktyp,verk,eget&obj=35&c=7508",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": "Every booking list says 'Inga aktuella bokningar att visa'",
       "corrections_used": [],
@@ -110,10 +110,10 @@
       "adapter": "jarfalla-frigo",
       "municipality": "Järfälla",
       "source_url": "https://jarfalla.fri-go.se/bokning/default.aspx",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -123,10 +123,10 @@
       "adapter": "ekero-interbook",
       "municipality": "Ekerö",
       "source_url": "https://ekero.interbook.se/DisplayBookingList?c=eyJ2IjoxLCJ0IjoiQWxsbcOkbmhldGVucyDDpWtuaW5nIiwic3QiOnRydWUsImQiOjYwLCJtIjo1MCwicCI6ZmFsc2UsInMiOjAsImZtdCI6MCwicmYiOjIsImYiOlsxLDIsNCw1LDYsMTBdLCJvIjpbMjAzLDI0MV0sImJ0IjpbXSwiZXUiOltdLCJhdCI6WzIyMiwyMjMsMzZdfQ2",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -136,10 +136,10 @@
       "adapter": "salem-sportadmin",
       "municipality": "Salem",
       "source_url": "https://ifksalem.web.sportadmin.se/sida/?ID=623188",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -149,10 +149,10 @@
       "adapter": "vaxholm-actor",
       "municipality": "Vaxholm",
       "source_url": "https://exportservice.actorsmartbook.se/ExportGridStyle.aspx?com=6bb4f0a4-3cd1-49c9-84e9-4e72a5e3aa16&con=1d8d1d00-2c01-4187-b4b9-ab53de6d1981",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": "The booking export lists no public-skating times ('No records to display')",
       "corrections_used": [],
@@ -162,10 +162,10 @@
       "adapter": "huddinge-actor",
       "municipality": "Huddinge",
       "source_url": "https://huddinge.actorsmartbook.se/ResourceBookingRequest.aspx",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [
@@ -177,10 +177,10 @@
       "adapter": "danderyd-web",
       "municipality": "Danderyd",
       "source_url": "https://www.danderyd.se/uppleva-och-gora/idrott-motion-och-friluftsliv/idrott/ishallar-och-uterinkar/",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -190,10 +190,10 @@
       "adapter": "lidingo-web",
       "municipality": "Lidingö",
       "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -203,10 +203,10 @@
       "adapter": "nynashamn-web",
       "municipality": "Nynäshamn",
       "source_url": "https://nynashamn.se/service/kultur--fritid/fritid/ishallen-hll-arena",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -216,10 +216,10 @@
       "adapter": "osteraker-web",
       "municipality": "Österåker",
       "source_url": "https://www.osteraker.se/upplevagora/idrottmotionochfriluftsliv/hallarochidrottsanlaggningar/ishallar.4.5f4ce35f18ecbde71808d58.html",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [
@@ -232,10 +232,10 @@
       "adapter": "sigtuna-web",
       "municipality": "Sigtuna",
       "source_url": "https://www.sigtuna.se/uppleva-och-gora/trana-och-idrotta/skridskoakning-och-ishall/ishall.html",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -245,10 +245,10 @@
       "adapter": "sollentuna-web",
       "municipality": "Sollentuna",
       "source_url": "https://www.sollentuna.se/uppleva--gora/idrott-och-motion/sport---och-idrottsaktiviteter/skridskoakning/",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -258,10 +258,10 @@
       "adapter": "solna-web",
       "municipality": "Solna",
       "source_url": "https://www.solna.se/uppleva--gora/natur-och-friluftsliv/aka-skridskor",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -271,10 +271,10 @@
       "adapter": "sundbyberg-web",
       "municipality": "Sundbyberg",
       "source_url": "https://www.sundbyberg.se/uppleva-och-gora/idrott-motion-och-friluftsliv/hallar-och-idrottsanlaggningar/ishall-och-isbanor",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -284,10 +284,10 @@
       "adapter": "taby-web",
       "municipality": "Täby",
       "source_url": "https://www.taby.se/uppleva-och-gora/idrott-och-motion/skridskor-och-ishall",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -297,10 +297,10 @@
       "adapter": "upplands-bro-web",
       "municipality": "Upplands-Bro",
       "source_url": "https://www.upplands-bro.se/is",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": "Season not started: the page says the ice is being prepared (planned opening: lucia) and lists no times",
       "corrections_used": [],
@@ -310,10 +310,10 @@
       "adapter": "upplands-vasby-web",
       "municipality": "Upplands Väsby",
       "source_url": "https://www.upplandsvasby.se/uppleva-och-gora/idrott-motion-och-friluftsliv/ishallar",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -323,10 +323,10 @@
       "adapter": "varmdo-web",
       "municipality": "Värmdö",
       "source_url": "https://www.varmdo.se/upplevaochgora/naturochfriluftsliv/alltomnaturochfriluftsliv/skridskoakningivarmdo/allmanhetensakning.4.3359b17e170bff933b54128d.html",
-      "last_attempt_at": "2026-11-27T19:04:16+01:00",
+      "last_attempt_at": "2026-11-28T01:47:53+01:00",
       "status": "ok",
       "error": null,
-      "fetched_at": "2026-11-27T19:04:16+01:00",
+      "fetched_at": "2026-11-28T01:47:53+01:00",
       "warnings": [],
       "empty_reason": null,
       "corrections_used": [],
@@ -347,7 +347,9 @@
       "adapter": "botkyrka-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/botkyrka-brantbrinks-ip.json"
+      "schedule": "halls/botkyrka-brantbrinks-ip.json",
+      "version": "fb3fa602469e",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "botkyrka-tumba-ishuset-hall-2",
@@ -362,7 +364,9 @@
       "adapter": "botkyrka-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/botkyrka-tumba-ishuset-hall-2.json"
+      "schedule": "halls/botkyrka-tumba-ishuset-hall-2.json",
+      "version": "fa4d626bbec4",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "danderyd-danderydsvallen-frimarket",
@@ -377,7 +381,9 @@
       "adapter": "danderyd-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/danderyd-danderydsvallen-frimarket.json"
+      "schedule": "halls/danderyd-danderydsvallen-frimarket.json",
+      "version": "f1d39f028c3f",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "danderyd-danderydsvallen-uterinken",
@@ -392,7 +398,9 @@
       "adapter": "danderyd-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/danderyd-danderydsvallen-uterinken.json"
+      "schedule": "halls/danderyd-danderydsvallen-uterinken.json",
+      "version": "82cc1b63d115",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "danderyd-enebybergs-ip-ishallen",
@@ -407,7 +415,9 @@
       "adapter": "danderyd-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/danderyd-enebybergs-ip-ishallen.json"
+      "schedule": "halls/danderyd-enebybergs-ip-ishallen.json",
+      "version": "f0e43bca3bbf",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "danderyd-stockhagens-ip-ishallen",
@@ -422,7 +432,9 @@
       "adapter": "danderyd-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/danderyd-stockhagens-ip-ishallen.json"
+      "schedule": "halls/danderyd-stockhagens-ip-ishallen.json",
+      "version": "afdd52bd7ab9",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "danderyd-stockhagens-ip-uterinken",
@@ -437,7 +449,9 @@
       "adapter": "danderyd-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/danderyd-stockhagens-ip-uterinken.json"
+      "schedule": "halls/danderyd-stockhagens-ip-uterinken.json",
+      "version": "340a75bacfe0",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "ekero-svanangen-ip",
@@ -452,7 +466,9 @@
       "adapter": "ekero-interbook",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/ekero-svanangen-ip.json"
+      "schedule": "halls/ekero-svanangen-ip.json",
+      "version": "2ebef4956d65",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "ekero-trakvistavallen",
@@ -467,7 +483,9 @@
       "adapter": "ekero-interbook",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/ekero-trakvistavallen.json"
+      "schedule": "halls/ekero-trakvistavallen.json",
+      "version": "5ed8284af5d8",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "haninge-hanvedens-ip",
@@ -482,7 +500,9 @@
       "adapter": "haninge-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/haninge-hanvedens-ip.json"
+      "schedule": "halls/haninge-hanvedens-ip.json",
+      "version": "c95e3147a436",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "haninge-torvalla-ip-ishall-1",
@@ -497,7 +517,9 @@
       "adapter": "haninge-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/haninge-torvalla-ip-ishall-1.json"
+      "schedule": "halls/haninge-torvalla-ip-ishall-1.json",
+      "version": "86cc0556d7b9",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "haninge-torvalla-ip-ishall-2",
@@ -512,7 +534,9 @@
       "adapter": "haninge-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/haninge-torvalla-ip-ishall-2.json"
+      "schedule": "halls/haninge-torvalla-ip-ishall-2.json",
+      "version": "3ca711b6fdf0",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "huddinge-bjorkangshallen-b",
@@ -527,7 +551,9 @@
       "adapter": "huddinge-actor",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/huddinge-bjorkangshallen-b.json"
+      "schedule": "halls/huddinge-bjorkangshallen-b.json",
+      "version": "b43606f3c1cf",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "huddinge-segeltorpshallen",
@@ -542,7 +568,9 @@
       "adapter": "huddinge-actor",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/huddinge-segeltorpshallen.json"
+      "schedule": "halls/huddinge-segeltorpshallen.json",
+      "version": "7ac711dd09b3",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "huddinge-stortorpshallen",
@@ -557,7 +585,9 @@
       "adapter": "huddinge-actor",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/huddinge-stortorpshallen.json"
+      "schedule": "halls/huddinge-stortorpshallen.json",
+      "version": "b6a937e202f9",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "huddinge-visattra-bandyplan",
@@ -572,7 +602,9 @@
       "adapter": "huddinge-actor",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/huddinge-visattra-bandyplan.json"
+      "schedule": "halls/huddinge-visattra-bandyplan.json",
+      "version": "337d7b7d3d84",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "huddinge-visattrahallen",
@@ -587,7 +619,9 @@
       "adapter": "huddinge-actor",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/huddinge-visattrahallen.json"
+      "schedule": "halls/huddinge-visattrahallen.json",
+      "version": "de2052606988",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "jarfalla-jarfalla-ishall",
@@ -602,7 +636,9 @@
       "adapter": "jarfalla-frigo",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/jarfalla-jarfalla-ishall.json"
+      "schedule": "halls/jarfalla-jarfalla-ishall.json",
+      "version": "ecf81835bace",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "jarfalla-kallhalls-ishall",
@@ -617,7 +653,9 @@
       "adapter": "jarfalla-frigo",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/jarfalla-kallhalls-ishall.json"
+      "schedule": "halls/jarfalla-kallhalls-ishall.json",
+      "version": "f5811091a86b",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "lidingo-exakt-annex",
@@ -632,7 +670,9 @@
       "adapter": "lidingo-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/lidingo-exakt-annex.json"
+      "schedule": "halls/lidingo-exakt-annex.json",
+      "version": "a367c05489f0",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "lidingo-exakt-arena",
@@ -647,7 +687,9 @@
       "adapter": "lidingo-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/lidingo-exakt-arena.json"
+      "schedule": "halls/lidingo-exakt-arena.json",
+      "version": "2db5437d2060",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "lidingo-lidingovallens-rink",
@@ -662,7 +704,9 @@
       "adapter": "lidingo-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/lidingo-lidingovallens-rink.json"
+      "schedule": "halls/lidingo-lidingovallens-rink.json",
+      "version": "00068d9b1e84",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "nacka-bjorknas-ip-ishall",
@@ -677,7 +721,9 @@
       "adapter": "nacka-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/nacka-bjorknas-ip-ishall.json"
+      "schedule": "halls/nacka-bjorknas-ip-ishall.json",
+      "version": "0e987584d3ad",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "nacka-bjorknas-ip-istalt",
@@ -692,7 +738,9 @@
       "adapter": "nacka-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/nacka-bjorknas-ip-istalt.json"
+      "schedule": "halls/nacka-bjorknas-ip-istalt.json",
+      "version": "e9c38bc66bad",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "nacka-nacka-ip-ishall",
@@ -707,7 +755,9 @@
       "adapter": "nacka-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/nacka-nacka-ip-ishall.json"
+      "schedule": "halls/nacka-nacka-ip-ishall.json",
+      "version": "8612509cf8e7",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "nacka-nacka-ip-istalt",
@@ -722,7 +772,9 @@
       "adapter": "nacka-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/nacka-nacka-ip-istalt.json"
+      "schedule": "halls/nacka-nacka-ip-istalt.json",
+      "version": "f4c4a2cce9ba",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "nacka-saltsjobadens-ishall",
@@ -737,7 +789,9 @@
       "adapter": "nacka-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/nacka-saltsjobadens-ishall.json"
+      "schedule": "halls/nacka-saltsjobadens-ishall.json",
+      "version": "6e29d4f63414",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "nacka-alta-ishall",
@@ -752,7 +806,9 @@
       "adapter": "nacka-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/nacka-alta-ishall.json"
+      "schedule": "halls/nacka-alta-ishall.json",
+      "version": "099214f1f47d",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "norrtalje-sportcentrum-bandybana",
@@ -767,7 +823,9 @@
       "adapter": "norrtalje-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/norrtalje-sportcentrum-bandybana.json"
+      "schedule": "halls/norrtalje-sportcentrum-bandybana.json",
+      "version": "a2ff19b6e5eb",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "norrtalje-sportcentrum-ishall",
@@ -782,7 +840,9 @@
       "adapter": "norrtalje-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/norrtalje-sportcentrum-ishall.json"
+      "schedule": "halls/norrtalje-sportcentrum-ishall.json",
+      "version": "9f73744fac1c",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "nynashamn-hll-arena",
@@ -797,7 +857,9 @@
       "adapter": "nynashamn-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/nynashamn-hll-arena.json"
+      "schedule": "halls/nynashamn-hll-arena.json",
+      "version": "2c9b6e7aa2f0",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "salem-salems-ishall",
@@ -812,7 +874,9 @@
       "adapter": "salem-sportadmin",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/salem-salems-ishall.json"
+      "schedule": "halls/salem-salems-ishall.json",
+      "version": "480c989f3ccd",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "sigtuna-pinbackshallen-a-hallen",
@@ -827,7 +891,9 @@
       "adapter": "sigtuna-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/sigtuna-pinbackshallen-a-hallen.json"
+      "schedule": "halls/sigtuna-pinbackshallen-a-hallen.json",
+      "version": "7950b25c9013",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "sigtuna-pinbackshallen-b-hallen",
@@ -842,7 +908,9 @@
       "adapter": "sigtuna-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/sigtuna-pinbackshallen-b-hallen.json"
+      "schedule": "halls/sigtuna-pinbackshallen-b-hallen.json",
+      "version": "1f97c767cab9",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "sollentuna-sollentunavallen-a-hallen",
@@ -857,7 +925,9 @@
       "adapter": "sollentuna-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/sollentuna-sollentunavallen-a-hallen.json"
+      "schedule": "halls/sollentuna-sollentunavallen-a-hallen.json",
+      "version": "15a41112527e",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "sollentuna-sollentunavallen-b-hallen",
@@ -872,7 +942,9 @@
       "adapter": "sollentuna-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/sollentuna-sollentunavallen-b-hallen.json"
+      "schedule": "halls/sollentuna-sollentunavallen-b-hallen.json",
+      "version": "3a0b5f77aba9",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "sollentuna-sollentunavallen-bandyplanen",
@@ -887,7 +959,9 @@
       "adapter": "sollentuna-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/sollentuna-sollentunavallen-bandyplanen.json"
+      "schedule": "halls/sollentuna-sollentunavallen-bandyplanen.json",
+      "version": "2c6c3f840fbd",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "solna-bergshamra-ip",
@@ -902,7 +976,9 @@
       "adapter": "solna-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/solna-bergshamra-ip.json"
+      "schedule": "halls/solna-bergshamra-ip.json",
+      "version": "a9cebda5676b",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "solna-huvudstafaltet-frimarket",
@@ -917,7 +993,9 @@
       "adapter": "solna-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/solna-huvudstafaltet-frimarket.json"
+      "schedule": "halls/solna-huvudstafaltet-frimarket.json",
+      "version": "8e9c58872169",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "solna-ulriksdals-ip-hall-2",
@@ -932,7 +1010,9 @@
       "adapter": "solna-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/solna-ulriksdals-ip-hall-2.json"
+      "schedule": "halls/solna-ulriksdals-ip-hall-2.json",
+      "version": "a83f6a7c3221",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-farsta-idrottsplats-ishallen",
@@ -947,7 +1027,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-farsta-idrottsplats-ishallen.json"
+      "schedule": "halls/stockholm-farsta-idrottsplats-ishallen.json",
+      "version": "4025f93d95fb",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-grimsta-idrottsplats-ishallen",
@@ -962,7 +1044,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-grimsta-idrottsplats-ishallen.json"
+      "schedule": "halls/stockholm-grimsta-idrottsplats-ishallen.json",
+      "version": "c23ab9769211",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-gubbangens-idrottsplats-bandyhallen",
@@ -977,7 +1061,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-gubbangens-idrottsplats-bandyhallen.json"
+      "schedule": "halls/stockholm-gubbangens-idrottsplats-bandyhallen.json",
+      "version": "b9cd1787b232",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-gubbangens-idrottsplats-bandyplanen",
@@ -992,7 +1078,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-gubbangens-idrottsplats-bandyplanen.json"
+      "schedule": "halls/stockholm-gubbangens-idrottsplats-bandyplanen.json",
+      "version": "8e17f25d083c",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-husby-ishallen",
@@ -1007,7 +1095,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-husby-ishallen.json"
+      "schedule": "halls/stockholm-husby-ishallen.json",
+      "version": "ef23b5896305",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-karrtorps-idrottsplats-ishallen",
@@ -1022,7 +1112,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-karrtorps-idrottsplats-ishallen.json"
+      "schedule": "halls/stockholm-karrtorps-idrottsplats-ishallen.json",
+      "version": "bb5a04c411f4",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-malarhojdens-idrottsplats-ishall-a",
@@ -1037,7 +1129,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-malarhojdens-idrottsplats-ishall-a.json"
+      "schedule": "halls/stockholm-malarhojdens-idrottsplats-ishall-a.json",
+      "version": "9a63e282c8a3",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-spanga-idrottsplats-bandyplanen",
@@ -1052,7 +1146,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-spanga-idrottsplats-bandyplanen.json"
+      "schedule": "halls/stockholm-spanga-idrottsplats-bandyplanen.json",
+      "version": "6c68f39f36a9",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-spanga-idrottsplats-ishallen",
@@ -1067,7 +1163,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-spanga-idrottsplats-ishallen.json"
+      "schedule": "halls/stockholm-spanga-idrottsplats-ishallen.json",
+      "version": "5233db724ff0",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-spanga-idrottsplats-uterink",
@@ -1082,7 +1180,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-spanga-idrottsplats-uterink.json"
+      "schedule": "halls/stockholm-spanga-idrottsplats-uterink.json",
+      "version": "7d82da2eabee",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-stora-mossens-idrottsplats-a-hallen",
@@ -1097,7 +1197,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-stora-mossens-idrottsplats-a-hallen.json"
+      "schedule": "halls/stockholm-stora-mossens-idrottsplats-a-hallen.json",
+      "version": "b674aedb2bb5",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-stora-mossens-idrottsplats-b-hallen",
@@ -1112,7 +1214,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-stora-mossens-idrottsplats-b-hallen.json"
+      "schedule": "halls/stockholm-stora-mossens-idrottsplats-b-hallen.json",
+      "version": "e3c98ba15f88",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-zinkensdamms-idrottsplats-bandyplanen",
@@ -1127,7 +1231,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-zinkensdamms-idrottsplats-bandyplanen.json"
+      "schedule": "halls/stockholm-zinkensdamms-idrottsplats-bandyplanen.json",
+      "version": "b1c30596b980",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-zinkensdamms-idrottsplats-ishallen",
@@ -1142,7 +1248,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-zinkensdamms-idrottsplats-ishallen.json"
+      "schedule": "halls/stockholm-zinkensdamms-idrottsplats-ishallen.json",
+      "version": "9e50d68396d2",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-ostermalms-idrottsplats-ishallen",
@@ -1157,7 +1265,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-ostermalms-idrottsplats-ishallen.json"
+      "schedule": "halls/stockholm-ostermalms-idrottsplats-ishallen.json",
+      "version": "d17f2df8142f",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-ostermalms-idrottsplats-uteisen-halvmanar",
@@ -1172,7 +1282,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-ostermalms-idrottsplats-uteisen-halvmanar.json"
+      "schedule": "halls/stockholm-ostermalms-idrottsplats-uteisen-halvmanar.json",
+      "version": "4e7090cb7f96",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "stockholm-ostermalms-idrottsplats-uteisen-rundbana",
@@ -1187,7 +1299,9 @@
       "adapter": "stockholm-motionera",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/stockholm-ostermalms-idrottsplats-uteisen-rundbana.json"
+      "schedule": "halls/stockholm-ostermalms-idrottsplats-uteisen-rundbana.json",
+      "version": "78d69018c2c8",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "sundbyberg-tulehallen",
@@ -1202,7 +1316,9 @@
       "adapter": "sundbyberg-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/sundbyberg-tulehallen.json"
+      "schedule": "halls/sundbyberg-tulehallen.json",
+      "version": "c903e49013f8",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "sodertalje-bst-rinken",
@@ -1217,7 +1333,9 @@
       "adapter": "sodertalje-frigo",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/sodertalje-bst-rinken.json"
+      "schedule": "halls/sodertalje-bst-rinken.json",
+      "version": "d94a5e975691",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "sodertalje-jarna-ip-ishall-a",
@@ -1232,7 +1350,9 @@
       "adapter": "sodertalje-frigo",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/sodertalje-jarna-ip-ishall-a.json"
+      "schedule": "halls/sodertalje-jarna-ip-ishall-a.json",
+      "version": "ae675ceb4563",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "sodertalje-jarna-ip-ishall-b",
@@ -1247,7 +1367,9 @@
       "adapter": "sodertalje-frigo",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/sodertalje-jarna-ip-ishall-b.json"
+      "schedule": "halls/sodertalje-jarna-ip-ishall-b.json",
+      "version": "8b902e283cc7",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "sodertalje-manskensrinken",
@@ -1262,7 +1384,9 @@
       "adapter": "sodertalje-frigo",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/sodertalje-manskensrinken.json"
+      "schedule": "halls/sodertalje-manskensrinken.json",
+      "version": "949835d4bae9",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "tyreso-fontanahallen",
@@ -1277,7 +1401,9 @@
       "adapter": "tyreso-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/tyreso-fontanahallen.json"
+      "schedule": "halls/tyreso-fontanahallen.json",
+      "version": "68f3b76f81bc",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "tyreso-tyreso-ishall",
@@ -1292,7 +1418,9 @@
       "adapter": "tyreso-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/tyreso-tyreso-ishall.json"
+      "schedule": "halls/tyreso-tyreso-ishall.json",
+      "version": "f81085e2de64",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "taby-hagernas-ishall",
@@ -1307,7 +1435,9 @@
       "adapter": "taby-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/taby-hagernas-ishall.json"
+      "schedule": "halls/taby-hagernas-ishall.json",
+      "version": "8f1ddd64982c",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "taby-tibble-ishall",
@@ -1322,7 +1452,9 @@
       "adapter": "taby-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/taby-tibble-ishall.json"
+      "schedule": "halls/taby-tibble-ishall.json",
+      "version": "dab93157f175",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "upplands-vasby-vilundaparkens-ishall-b",
@@ -1337,7 +1469,9 @@
       "adapter": "upplands-vasby-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/upplands-vasby-vilundaparkens-ishall-b.json"
+      "schedule": "halls/upplands-vasby-vilundaparkens-ishall-b.json",
+      "version": "1c61c8172e43",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "upplands-bro-kungsangens-ip",
@@ -1352,7 +1486,9 @@
       "adapter": "upplands-bro-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/upplands-bro-kungsangens-ip.json"
+      "schedule": "halls/upplands-bro-kungsangens-ip.json",
+      "version": "25daeb39b756",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "vallentuna-vallentuna-ip-ishall-a",
@@ -1367,7 +1503,9 @@
       "adapter": "vallentuna-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/vallentuna-vallentuna-ip-ishall-a.json"
+      "schedule": "halls/vallentuna-vallentuna-ip-ishall-a.json",
+      "version": "04038eabda44",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "vallentuna-vallentuna-ip-ishall-b",
@@ -1382,7 +1520,9 @@
       "adapter": "vallentuna-rbok",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/vallentuna-vallentuna-ip-ishall-b.json"
+      "schedule": "halls/vallentuna-vallentuna-ip-ishall-b.json",
+      "version": "4e4f31b173ca",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "vaxholm-saneco-hallen",
@@ -1397,7 +1537,9 @@
       "adapter": "vaxholm-actor",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/vaxholm-saneco-hallen.json"
+      "schedule": "halls/vaxholm-saneco-hallen.json",
+      "version": "58bf1a9c7dbf",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "varmdo-ekvallens-ip-bandyplanen",
@@ -1412,7 +1554,9 @@
       "adapter": "varmdo-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/varmdo-ekvallens-ip-bandyplanen.json"
+      "schedule": "halls/varmdo-ekvallens-ip-bandyplanen.json",
+      "version": "e0542550ce45",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "varmdo-ekvallens-ip-ekrinken",
@@ -1427,7 +1571,9 @@
       "adapter": "varmdo-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/varmdo-ekvallens-ip-ekrinken.json"
+      "schedule": "halls/varmdo-ekvallens-ip-ekrinken.json",
+      "version": "8c62a0e74618",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "osteraker-osterakers-sportcentrum-ishall-1",
@@ -1442,7 +1588,9 @@
       "adapter": "osteraker-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/osteraker-osterakers-sportcentrum-ishall-1.json"
+      "schedule": "halls/osteraker-osterakers-sportcentrum-ishall-1.json",
+      "version": "a8b8e70db3dc",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     },
     {
       "id": "osteraker-osterakers-sportcentrum-ishall-2",
@@ -1457,7 +1605,9 @@
       "adapter": "osteraker-web",
       "status": "ok",
       "curated": true,
-      "schedule": "halls/osteraker-osterakers-sportcentrum-ishall-2.json"
+      "schedule": "halls/osteraker-osterakers-sportcentrum-ishall-2.json",
+      "version": "cacb21b57feb",
+      "changed_at": "2026-11-28T01:48:41+01:00"
     }
   ]
 }

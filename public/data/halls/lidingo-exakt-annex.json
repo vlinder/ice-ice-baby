@@ -8,18 +8,10 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-27",
-    "to": "2026-12-24"
+    "from": "2026-11-28",
+    "to": "2026-12-25"
   },
   "sessions": [
-    {
-      "date": "2026-11-27",
-      "start": "10:00",
-      "end": "15:00",
-      "stick": "with_stick",
-      "source_url": "https://lidingo.se/kultur-fritid/idrott-och-friluftsliv/skridsko-och-ishallar/",
-      "note": "Med/utan klubba och puck"
-    },
     {
       "date": "2026-11-30",
       "start": "10:00",

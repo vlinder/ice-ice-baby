@@ -8,18 +8,10 @@
   "error": null,
   "source_updated": "2026-11-26T00:00",
   "covers": {
-    "from": "2026-11-27",
+    "from": "2026-11-28",
     "to": "2026-12-20"
   },
   "sessions": [
-    {
-      "date": "2026-11-27",
-      "start": "12:30",
-      "end": "14:15",
-      "stick": "with_stick",
-      "source_url": "https://www.taby.se/uppleva-och-gora/idrott-och-motion/skridskor-och-ishall",
-      "note": null
-    },
     {
       "date": "2026-11-28",
       "start": "13:30",
