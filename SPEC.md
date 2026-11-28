@@ -126,6 +126,22 @@ that hall, and deletes hall files left under an alias id. An alias may not be a 
 own or belong to two halls. A wording that is not listed still shows up as a new hall and is
 flagged for review.
 
+**Shared ice (parts).** Some ice is one surface whose parts have their own times and stick
+rules, and the source lists each part as a rink of its own (the outdoor ice at Östermalms IP:
+"Rundbana och innerplan" and "Halvmånarna"). List the parts under `"parts"` on one hall,
+each with a `name` and the source hall `ids` that belong to it (one per wording, including
+any old hall id, whose file is then removed). `pipeline.run` folds them into that hall and
+cuts each day wherever the set of open parts, or their stick rules, change:
+
+| Open parts | `stick` | `note` |
+|---|---|---|
+| one part | its rule | "Rundbana och innerplan" |
+| every part, same rule | that rule | "Hela isen" |
+| several parts, different rules | `shared` (`unknown` if one rule is unknown) | "Rundbana och innerplan utan klubba, halvmånarna med klubba" |
+
+Back-to-back times with the same open parts and rules become one session. A part id may not
+be a hall or an alias of its own, nor be listed twice.
+
 ## Adapter contract
 
 An adapter is a Python module in `adapters/` registered in `adapters/__init__.py`:

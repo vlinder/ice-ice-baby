@@ -1,5 +1,5 @@
 {
-  "_comment": "Hand-curated hall metadata, keyed by hall_id as emitted by the adapters. Coordinates are approximate (OpenStreetMap/Nominatim). \"outdoor\": true marks outdoor ice (weather-dependent). \"aliases\" lists other hall ids the source has used for the same rink; the pipeline files their sessions under this hall.",
+  "_comment": "Hand-curated hall metadata, keyed by hall_id as emitted by the adapters. Coordinates are approximate (OpenStreetMap/Nominatim). \"outdoor\": true marks outdoor ice (weather-dependent). \"aliases\" lists other hall ids the source has used for the same rink; the pipeline files their sessions under this hall. \"parts\" folds rinks the source lists separately into one shared ice: each part has a name and the hall ids (with old wordings) the source gives it; the hall's sessions are cut wherever the open parts or their stick rules change, with the rules in the note.",
   "halls": {
     "stockholm-farsta-idrottsplats-ishallen": {
       "name": "Farsta idrottsplats",
@@ -140,31 +140,31 @@
       "lon": 18.08369,
       "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/ostermalms-idrottsplats"
     },
-    "stockholm-ostermalms-idrottsplats-uteisen-rundbana": {
+    "stockholm-ostermalms-idrottsplats-uteisen": {
       "name": "Östermalms idrottsplats",
-      "short_name": "Östermalm rundbana",
-      "rink": "Uteisen – rundbana och innerplan",
+      "short_name": "Östermalm uteisen",
+      "rink": "Uteisen",
       "municipality": "Stockholm",
       "lat": 59.34747,
       "lon": 18.08369,
       "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/ostermalms-idrottsplats",
       "outdoor": true,
-      "aliases": [
-        "stockholm-ostermalms-idrottsplats-uteisen-rundbana-innerplan",
-        "stockholm-ostermalms-idrottsplats-rundbana-och-innerplan"
-      ]
-    },
-    "stockholm-ostermalms-idrottsplats-uteisen-halvmanar": {
-      "name": "Östermalms idrottsplats",
-      "short_name": "Östermalm halvmånar",
-      "rink": "Uteisen – halvmånar",
-      "municipality": "Stockholm",
-      "lat": 59.34747,
-      "lon": 18.08369,
-      "info_url": "https://foreningsservice.stockholm/hitta-idrottsanlaggningar-som-bokas/idrottsanlaggning/ostermalms-idrottsplats",
-      "outdoor": true,
-      "aliases": [
-        "stockholm-ostermalms-idrottsplats-halvcirkelformade-isar-pa-sidorna-av-innerplan"
+      "parts": [
+        {
+          "name": "rundbana och innerplan",
+          "ids": [
+            "stockholm-ostermalms-idrottsplats-uteisen-rundbana",
+            "stockholm-ostermalms-idrottsplats-uteisen-rundbana-innerplan",
+            "stockholm-ostermalms-idrottsplats-rundbana-och-innerplan"
+          ]
+        },
+        {
+          "name": "halvmånarna",
+          "ids": [
+            "stockholm-ostermalms-idrottsplats-uteisen-halvmanar",
+            "stockholm-ostermalms-idrottsplats-halvcirkelformade-isar-pa-sidorna-av-innerplan"
+          ]
+        }
       ]
     },
     "tyreso-tyreso-ishall": {

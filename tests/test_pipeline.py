@@ -170,10 +170,97 @@ def test_aliases_in_config_must_be_unambiguous(tmp_path):
     assert load_aliases(cfg) == {"c": "a", "d": "a"}
 
 
-def test_real_config_aliases_load():
-    from pipeline.run import load_aliases
-    aliases = load_aliases()
-    assert aliases["stockholm-ostermalms-idrottsplats-rundbana-och-innerplan"] == "stockholm-ostermalms-idrottsplats-uteisen-rundbana"
+def test_real_config_aliases_and_parts_load():
+    from pipeline.run import load_aliases, load_parts
+    load_aliases()
+    parts = load_parts()
+    hall, name, _ = parts["stockholm-ostermalms-idrottsplats-rundbana-och-innerplan"]
+    assert (hall, name) == ("stockholm-ostermalms-idrottsplats-uteisen", "rundbana och innerplan")
+    assert parts["stockholm-ostermalms-idrottsplats-uteisen-halvmanar"][0] == hall
+
+
+def _s(day, start, end, stick, note=None):
+    from adapters.common import Session
+    return Session(day, start, end, stick, "https://example.com/", note=note)
+
+
+def test_shared_ice_is_cut_where_the_rules_change():
+    from pipeline.run import share_sessions
+    d = "2026-11-27"
+    rundbana = [_s(d, "08:30", "16:00", "no_stick"), _s(d, "19:00", "23:00", "no_stick")]
+    halvmanar = [_s(d, "17:00", "23:00", "with_stick")]
+    out = share_sessions([(0, "rundbana och innerplan", rundbana), (1, "halvmånarna", halvmanar)])
+    assert [(x.start, x.end, x.stick, x.note) for x in out] == [
+        ("08:30", "16:00", "no_stick", "Rundbana och innerplan"),
+        ("17:00", "19:00", "with_stick", "Halvmånarna"),
+        ("19:00", "23:00", "shared", "Rundbana och innerplan utan klubba, halvmånarna med klubba"),
+    ]
+
+
+def test_shared_ice_whole_ice_same_rule_and_adjacent_sessions_join():
+    from pipeline.run import share_sessions
+    d = "2026-12-01"
+    rundbana = [_s(d, "19:00", "20:00", "no_stick")]
+    halvmanar = [_s(d, "17:00", "18:00", "no_stick"), _s(d, "18:00", "19:00", "no_stick"),
+                 _s(d, "19:00", "23:00", "no_stick")]
+    out = share_sessions([(0, "rundbana och innerplan", rundbana), (1, "halvmånarna", halvmanar)])
+    assert [(x.start, x.end, x.stick, x.note) for x in out] == [
+        ("17:00", "19:00", "no_stick", "Halvmånarna"),  # back-to-back with the same rules: one session
+        ("19:00", "20:00", "no_stick", "Hela isen"),
+        ("20:00", "23:00", "no_stick", "Halvmånarna"),
+    ]
+
+
+def test_shared_ice_unknown_rule_is_not_called_shared():
+    from pipeline.run import share_sessions
+    d = "2026-11-28"
+    out = share_sessions([(0, "a", [_s(d, "10:00", "12:00", "no_stick")]),
+                          (1, "b", [_s(d, "10:00", "12:00", "unknown", "familjeåkning")])])
+    assert [(x.stick, x.note) for x in out] == [("unknown", "A utan klubba, b (familjeåkning)")]
+
+
+class PartsAdapter(FakeAdapter):
+    NAME = "parts"
+
+    def parse(self, raw, today):
+        from adapters.common import AdapterResult, HallResult
+        d = "2026-11-03"
+        return AdapterResult("2026-11-02", "2026-11-08", None, {
+            "x-oval": HallResult("x-oval", "X", "Oval", [_s(d, "08:00", "12:00", "no_stick")]),
+            "x-ends": HallResult("x-ends", "X", "Ends", [_s(d, "10:00", "12:00", "with_stick")]),
+            "x-hall": HallResult("x-hall", "X", "Hall", [_s(d, "09:00", "10:00", "shared")]),
+        }, warnings=["x-ends: could not read 'Onsdag: ?'"])
+
+
+def test_parts_fold_into_one_hall_and_old_files_go(tmp_path, monkeypatch):
+    import json
+    from datetime import date
+    run, _ = _use_tmp_data(tmp_path, monkeypatch)
+    halls = run.HALLS_DIR
+    (halls / "x-oval.json").write_text(json.dumps({"hall_id": "x-oval", "adapter": "parts"}))
+    parts = {"x-oval": ("x-ice", "the oval", 0), "x-ends": ("x-ice", "the ends", 1)}
+    run.run_adapter(PartsAdapter(), date(2026, 11, 2), "2026-11-02T06:17:00+01:00", parts=parts)
+    assert sorted(p.name for p in halls.iterdir()) == ["x-hall.json", "x-ice.json"]
+    d = json.loads((halls / "x-ice.json").read_text())
+    assert [(s["start"], s["end"], s["stick"], s["note"]) for s in d["sessions"]] == [
+        ("08:00", "10:00", "no_stick", "The oval"),
+        ("10:00", "12:00", "shared", "The oval utan klubba, the ends med klubba")]
+    assert [p["hall_id"] for p in d["problems"]] == ["x-ice"]
+
+
+def test_parts_in_config_must_be_unambiguous(tmp_path):
+    import json
+
+    import pytest
+
+    from pipeline.run import load_parts
+    cfg = tmp_path / "halls.json"
+    cfg.write_text(json.dumps({"halls": {"a": {"parts": [{"name": "p", "ids": ["b"]}]}, "b": {}}}))
+    with pytest.raises(ValueError):
+        load_parts(cfg)
+    cfg.write_text(json.dumps({"halls": {"a": {"parts": [{"name": "p", "ids": ["c"]}, {"name": "q", "ids": ["c"]}]}}}))
+    with pytest.raises(ValueError):
+        load_parts(cfg)
 
 
 def test_index_changed_at_follows_the_hall_file_contents(tmp_path, monkeypatch):
@@ -233,3 +320,19 @@ def test_validate_rejects_a_stale_version(tmp_path, monkeypatch, capsys):
     (halls / "a.json").write_text((halls / "a.json").read_text().replace("09:00", "09:30"))
     assert validate.main() == 1  # the file changed but index.json was not rebuilt
     assert "version" in capsys.readouterr().err
+
+
+def test_a_part_under_two_wordings_still_counts_once():
+    from adapters.common import AdapterResult, HallResult
+    from pipeline.run import merge_parts
+    d1, d2 = "2026-11-03", "2026-11-10"  # the source renamed the parts between the weeks
+    r = AdapterResult("2026-11-02", "2026-11-15", None, {
+        "oval-w1": HallResult("oval-w1", "X", "Oval", [_s(d1, "19:00", "20:00", "no_stick")]),
+        "ends-w1": HallResult("ends-w1", "X", "Ends", [_s(d1, "19:00", "20:00", "no_stick")]),
+        "oval-w2": HallResult("oval-w2", "X", "Rundbana", [_s(d2, "19:00", "20:00", "no_stick")]),
+        "ends-w2": HallResult("ends-w2", "X", "Halvmånar", [_s(d2, "19:00", "20:00", "no_stick")]),
+    })
+    parts = {"oval-w1": ("ice", "oval", 0), "oval-w2": ("ice", "oval", 0),
+             "ends-w1": ("ice", "ends", 1), "ends-w2": ("ice", "ends", 1)}
+    out = merge_parts(r, parts).halls["ice"].sessions
+    assert [(x.date, x.note) for x in out] == [(d1, "Hela isen"), (d2, "Hela isen")]

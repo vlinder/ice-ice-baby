@@ -16,7 +16,10 @@ import traceback
 from datetime import date
 
 from adapters import ADAPTERS
-from adapters.common import AdapterResult, HallResult, now_local, today_local
+from adapters.common import (
+    STICK_SHARED, STICK_UNKNOWN, STICK_WITH, STICK_WITHOUT, AdapterResult, HallResult, Session,
+    now_local, today_local,
+)
 
 from .paths import CONFIG_FILE, HALLS_DIR, SOURCES_FILE, SPEC_VERSION, read_json, write_json
 from .problems import apply_corrections, attribute, load_corrections
@@ -48,6 +51,127 @@ def load_aliases(config_file=None) -> dict[str, str]:
                 raise ValueError(f"config/halls.json: alias {alias!r} is listed for both {out[alias]!r} and {hid!r}")
             out[alias] = hid
     return out
+
+
+def load_parts(config_file=None) -> dict[str, tuple[str, str, int]]:
+    """Map each source hall id listed under a hall's "parts" to (hall id, part name, order).
+
+    Some ice is one surface shared by parts with their own times and stick rules, e.g. the
+    outdoor ice at Östermalms IP: "Rundbana och innerplan" and "Halvmånarna". The source lists
+    each part as a rink of its own; the config folds them into one hall (see merge_parts).
+    """
+    config = read_json(config_file or CONFIG_FILE)["halls"]
+    aliases = {a for meta in config.values() for a in meta.get("aliases", [])}
+    out: dict[str, tuple[str, str, int]] = {}
+    for hid, meta in config.items():
+        for order, part in enumerate(meta.get("parts", [])):
+            for pid in part["ids"]:
+                if pid in config or pid in aliases:
+                    raise ValueError(f"config/halls.json: part id {pid!r} of {hid!r} is also a hall or an alias")
+                if pid in out:
+                    raise ValueError(f"config/halls.json: part id {pid!r} is listed twice")
+                out[pid] = (hid, part["name"], order)
+    return out
+
+
+STICK_WORDS = {STICK_WITHOUT: "utan klubba", STICK_WITH: "med klubba", STICK_SHARED: "delad is"}
+
+
+def _combined_stick(sticks: set[str]) -> str:
+    if len(sticks) == 1:
+        return next(iter(sticks))
+    if STICK_UNKNOWN in sticks:
+        return STICK_UNKNOWN
+    return STICK_SHARED  # parts with different rules at the same time
+
+
+def _share_note(open_parts: list[tuple[int, str, str, str | None]], n_parts: int) -> str:
+    """'Rundbana och innerplan' for one part (its rule is the session's stick), 'Hela isen'
+    when every part is open under the same rule, or 'Rundbana och innerplan utan klubba,
+    halvmånarna med klubba' for several parts with different rules."""
+    if len(open_parts) == n_parts > 1 and len({(st, nt) for _, _, st, nt in open_parts}) == 1:
+        note = open_parts[0][3]
+        return f"Hela isen ({note})" if note else "Hela isen"
+    words = []
+    for _, name, stick, note in open_parts:
+        w = name if len(open_parts) == 1 else " ".join(x for x in (name, STICK_WORDS.get(stick)) if x)
+        words.append(f"{w} ({note})" if note else w)
+    text = ", ".join(words)
+    return text[:1].upper() + text[1:]
+
+
+def share_sessions(parts: list[tuple[int, str, list[Session]]], n_parts: int | None = None) -> list[Session]:
+    """Sessions of one shared ice from its parts' sessions: (order, name, sessions) each.
+    n_parts is how many parts the ice has (default: as many as given).
+
+    A session starts or ends wherever the set of open parts, or their stick rules, change."""
+    by_date: dict[str, list[tuple[int, str, Session]]] = {}
+    for order, name, sessions in parts:
+        for s in sessions:
+            by_date.setdefault(s.date, []).append((order, name, s))
+    n_parts = n_parts or len({order for order, _, _ in parts})
+    out: list[Session] = []
+    for day, items in sorted(by_date.items()):
+        cuts = sorted({t for _, _, s in items for t in (s.start, s.end)})
+        current: Session | None = None
+        key = None
+        for a, b in zip(cuts, cuts[1:]):
+            open_parts = sorted({(o, n, s.stick, s.note) for o, n, s in items if s.start <= a and b <= s.end})
+            if not open_parts:
+                current, key = None, None
+                continue
+            k = tuple(open_parts)
+            covering = [s for _, _, s in items if s.start <= a and b <= s.end]
+            changed = any(s.changed for s in covering)
+            tags = sorted({t for s in covering for t in s.tags})
+            if current is not None and k == key and current.end == a:
+                current.end = b
+                current.changed = current.changed or changed
+                continue
+            current = Session(date=day, start=a, end=b,
+                              stick=_combined_stick({st for _, _, st, _ in open_parts}),
+                              source_url=items[0][2].source_url, note=_share_note(open_parts, n_parts),
+                              changed=changed, tags=tags)
+            key = k
+            out.append(current)
+    return out
+
+
+def merge_parts(result: AdapterResult, parts: dict[str, tuple[str, str, int]]) -> AdapterResult:
+    """Fold the halls listed as parts of a shared ice into that one hall."""
+    groups: dict[str, list[tuple[int, str, HallResult]]] = {}
+    halls: dict[str, HallResult] = {}
+    for hid, hall in result.halls.items():
+        if hid in parts:
+            target, name, order = parts[hid]
+            groups.setdefault(target, []).append((order, name, hall))
+        else:
+            halls[hid] = hall
+    for target, members in groups.items():
+        first = min(members, key=lambda m: m[0])[2]
+        # A part can come in under several source ids (one per wording): one list per part.
+        by_part: dict[tuple[int, str], list[Session]] = {}
+        for o, n, h in members:
+            by_part.setdefault((o, n), []).extend(h.sessions)
+        n_parts = len({o for t, _, o in parts.values() if t == target})
+        merged = HallResult(
+            hall_id=target, name=first.name, rink=None,
+            sessions=share_sessions([(o, n, ss) for (o, n), ss in sorted(by_part.items())], n_parts),
+            covers_from=_bounds([h.covers_from for _, _, h in members], min),
+            covers_to=_bounds([h.covers_to for _, _, h in members], max),
+        )
+        if target in halls:
+            raise ValueError(f"{target} is both a hall in the source and made of parts")
+        halls[target] = merged
+    warnings = []
+    for w in result.warnings:
+        for pid in sorted(parts, key=len, reverse=True):
+            if w == pid or w.startswith(pid + ":") or w.startswith(pid + " "):
+                w = parts[pid][0] + w[len(pid):]
+                break
+        warnings.append(w)
+    result.halls, result.warnings = halls, warnings
+    return result
 
 
 def _bounds(values: list[str | None], pick) -> str | None:
@@ -85,11 +209,13 @@ def merge_aliases(result: AdapterResult, aliases: dict[str, str]) -> AdapterResu
 
 
 def run_adapter(adapter, today: date, stamp: str, corrections: list[dict] | None = None,
-                aliases: dict[str, str] | None = None) -> dict:
+                aliases: dict[str, str] | None = None,
+                parts: dict[str, tuple[str, str, int]] | None = None) -> dict:
     aliases = aliases or {}
+    parts = parts or {}
     previous = existing_halls(adapter.NAME)
-    # Files written under an id that has since become an alias would otherwise linger forever.
-    for hid in [h for h in previous if h in aliases]:
+    # Files written under an id that has since become an alias or a part would otherwise linger forever.
+    for hid in [h for h in previous if h in aliases or h in parts]:
         (HALLS_DIR / f"{hid}.json").unlink()
         del previous[hid]
     source = {
@@ -102,7 +228,7 @@ def run_adapter(adapter, today: date, stamp: str, corrections: list[dict] | None
     unused: list[dict] = []
     try:
         raw, used, unused = apply_corrections(adapter.NAME, adapter.fetch(), corrections or [])
-        result = merge_aliases(adapter.parse(raw, today), aliases)
+        result = merge_parts(merge_aliases(adapter.parse(raw, today), aliases), parts)
     except Exception as exc:  # noqa: BLE001 – any failure must degrade gracefully
         msg = f"{type(exc).__name__}: {exc}"
         print(f"[{adapter.NAME}] FAILED: {msg}", file=sys.stderr)
@@ -168,10 +294,11 @@ def main(argv=None) -> int:
     old_sources = {s["adapter"]: s for s in read_json(SOURCES_FILE)} if SOURCES_FILE.exists() else {}
     corrections = load_corrections()
     aliases = load_aliases()
+    parts = load_parts()
     for adapter in ADAPTERS:
         if args.only and adapter.NAME != args.only:
             continue
-        old_sources[adapter.NAME] = run_adapter(adapter, today, stamp, corrections, aliases)
+        old_sources[adapter.NAME] = run_adapter(adapter, today, stamp, corrections, aliases, parts)
     write_json(SOURCES_FILE, [old_sources[a.NAME] for a in ADAPTERS if a.NAME in old_sources])
     # Never fail the run because a source failed: stale data is handled downstream.
     return 0
