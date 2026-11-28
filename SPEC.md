@@ -107,7 +107,9 @@ Each hall entry also carries:
   from the previous `index.json` while `version` is the same, and sets it to the build time
   when the version is new (or the hall, or the field, is new).
 
-`pipeline.validate` checks that every `version` matches its file. The site fetches a hall
+`build_index` always writes both; the schema keeps them optional so an `index.json` built
+before they existed still validates. `pipeline.validate` checks that every `version` present
+matches its file. The site fetches a hall
 file only when its `version` is new, as `halls/<id>.json?v=<version>`: that URL always
 means the same contents, so the browser may reuse its cached copy. It checks the bytes
 against `version` and fetches past every cache on a mismatch.
