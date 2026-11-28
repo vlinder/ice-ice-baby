@@ -34,7 +34,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "name", "short_name", "municipality", "adapter", "status", "curated", "schedule"],
+        "required": ["id", "name", "short_name", "municipality", "adapter", "status", "curated", "schedule", "version", "changed_at"],
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
           "name": { "type": "string" },
@@ -49,7 +49,7 @@
           "status": { "enum": ["ok", "stale", "error"] },
           "curated": { "type": "boolean", "description": "false = hall seen in a source but missing from config/halls.json" },
           "schedule": { "type": "string", "pattern": "^halls/[a-z0-9-]+\\.json$" },
-          "version": { "type": "string", "pattern": "^[0-9a-f]{12}$", "description": "hash of the hall file's bytes; changes exactly when the file does. Written by every build_index; optional so an index built before it existed still validates" },
+          "version": { "type": "string", "pattern": "^[0-9a-f]{12}$", "description": "hash of the hall file's bytes; changes exactly when the file does" },
           "changed_at": { "type": "string", "format": "date-time", "description": "when the hall file's contents last changed" }
         }
       }
