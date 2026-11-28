@@ -8,18 +8,10 @@
   "error": null,
   "source_updated": "2026-11-26T00:00",
   "covers": {
-    "from": "2026-11-27",
-    "to": "2026-12-24"
+    "from": "2026-11-28",
+    "to": "2026-12-25"
   },
   "sessions": [
-    {
-      "date": "2026-11-27",
-      "start": "15:00",
-      "end": "15:45",
-      "stick": "no_stick",
-      "source_url": "https://www.taby.se/uppleva-och-gora/idrott-och-motion/skridskor-och-ishall",
-      "note": null
-    },
     {
       "date": "2026-11-28",
       "start": "12:00",
@@ -233,6 +225,14 @@
       "start": "15:00",
       "end": "15:45",
       "stick": "with_stick",
+      "source_url": "https://www.taby.se/uppleva-och-gora/idrott-och-motion/skridskor-och-ishall",
+      "note": null
+    },
+    {
+      "date": "2026-12-25",
+      "start": "15:00",
+      "end": "15:45",
+      "stick": "no_stick",
       "source_url": "https://www.taby.se/uppleva-och-gora/idrott-och-motion/skridskor-och-ishall",
       "note": null
     }

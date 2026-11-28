@@ -8,18 +8,10 @@
   "error": null,
   "source_updated": "2026-11-26T00:00",
   "covers": {
-    "from": "2026-11-27",
-    "to": "2026-12-24"
+    "from": "2026-11-28",
+    "to": "2026-12-25"
   },
   "sessions": [
-    {
-      "date": "2026-11-27",
-      "start": "12:00",
-      "end": "13:30",
-      "stick": "shared",
-      "source_url": "https://www.solna.se/uppleva--gora/natur-och-friluftsliv/aka-skridskor",
-      "note": null
-    },
     {
       "date": "2026-11-28",
       "start": "08:00",
@@ -198,6 +190,14 @@
     },
     {
       "date": "2026-12-23",
+      "start": "12:00",
+      "end": "13:30",
+      "stick": "shared",
+      "source_url": "https://www.solna.se/uppleva--gora/natur-och-friluftsliv/aka-skridskor",
+      "note": null
+    },
+    {
+      "date": "2026-12-25",
       "start": "12:00",
       "end": "13:30",
       "stick": "shared",

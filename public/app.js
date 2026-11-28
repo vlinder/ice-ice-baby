@@ -94,10 +94,52 @@ document.addEventListener("focusin", (e) => { const t = e.target.closest(".tip")
 document.addEventListener("focusout", (e) => { if (e.target.closest(".tip")) hideTip(); });
 window.addEventListener("scroll", hideTip, { passive: true });
 
-async function fetchData(index) {
+// A hall file is only fetched when its version (a hash of its contents, in index.json) is
+// new: unchanged halls reuse the data already loaded. The version is also put in the URL, so
+// that URL always means the same contents and the browser may reuse its cached copy.
+function hallUrl(h) {
+  return h.version ? `data/${h.schedule}?v=${h.version}` : `data/${h.schedule}`;
+}
+async function sha12(buf) {
+  const d = new Uint8Array(await crypto.subtle.digest("SHA-256", buf));
+  return Array.from(d.slice(0, 6), (b) => b.toString(16).padStart(2, "0")).join("");
+}
+// -> { data, verified }: verified when the bytes match the version in index.json. A CDN or
+// browser cache could still hold older bytes under the versioned URL, so a mismatch is
+// fetched again past every cache; if it still does not match, the data is used but not
+// remembered as that version, so the next refresh fetches it again.
+async function fetchHall(h) {
+  const get = async (cache) => {
+    const r = await fetch(hallUrl(h), { cache });
+    if (!r.ok) throw new Error(`${r.status} for ${h.schedule}`);
+    return r.arrayBuffer();
+  };
+  if (!h.version || !globalThis.crypto?.subtle) {
+    return { data: JSON.parse(new TextDecoder().decode(await get("no-cache"))), verified: false };
+  }
+  let buf = await get("force-cache");
+  let ok = (await sha12(buf)) === h.version;
+  if (!ok) {
+    buf = await get("reload");
+    ok = (await sha12(buf)) === h.version;
+  }
+  return { data: JSON.parse(new TextDecoder().decode(buf)), verified: ok };
+}
+async function fetchData(index, previous = []) {
   index ??= await fetch("data/index.json", { cache: "no-cache" }).then((r) => r.json());
-  const results = await Promise.allSettled(index.halls.map((h) => fetch("data/" + h.schedule, { cache: "no-cache" }).then((r) => r.json())));
-  return { index, halls: index.halls.map((h, i) => ({ ...h, data: results[i].status === "fulfilled" ? results[i].value : null })) };
+  const known = new Map(previous.filter((h) => h.verified && h.data).map((h) => [h.id, h]));
+  const results = await Promise.allSettled(index.halls.map((h) => {
+    const old = known.get(h.id);
+    if (old && old.version === h.version) return Promise.resolve({ data: old.data, verified: true });
+    return fetchHall(h);
+  }));
+  return {
+    index,
+    halls: index.halls.map((h, i) => {
+      const r = results[i].status === "fulfilled" ? results[i].value : { data: null, verified: false };
+      return { ...h, data: r.data, verified: r.verified };
+    }),
+  };
 }
 
 async function load() {
@@ -153,7 +195,7 @@ async function refresh() {
     if (hasRunData(index) || hasRunData(state.index)) planRefresh();
     else planFollowup(); // the run is late (or failed): look again a bit later
     if (index.generated_at === state.index.generated_at) return; // nothing new: skip the hall files
-    const next = await fetchData(index);
+    const next = await fetchData(index, state.halls);
     const allMunis = new Set(state.halls.map((h) => h.municipality));
     const picked = state.munis.size === allMunis.size ? null : state.munis;
     Object.assign(state, next);

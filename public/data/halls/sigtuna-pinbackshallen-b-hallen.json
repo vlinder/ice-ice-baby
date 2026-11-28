@@ -8,18 +8,10 @@
   "error": null,
   "source_updated": null,
   "covers": {
-    "from": "2026-11-27",
-    "to": "2026-12-24"
+    "from": "2026-11-28",
+    "to": "2026-12-25"
   },
   "sessions": [
-    {
-      "date": "2026-11-27",
-      "start": "13:15",
-      "end": "15:15",
-      "stick": "with_stick",
-      "source_url": "https://www.sigtuna.se/uppleva-och-gora/trana-och-idrotta/skridskoakning-och-ishall/ishall.html",
-      "note": null
-    },
     {
       "date": "2026-11-28",
       "start": "17:15",
@@ -262,6 +254,14 @@
     },
     {
       "date": "2026-12-24",
+      "start": "13:15",
+      "end": "15:15",
+      "stick": "with_stick",
+      "source_url": "https://www.sigtuna.se/uppleva-och-gora/trana-och-idrotta/skridskoakning-och-ishall/ishall.html",
+      "note": null
+    },
+    {
+      "date": "2026-12-25",
       "start": "13:15",
       "end": "15:15",
       "stick": "with_stick",
